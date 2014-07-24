@@ -50,7 +50,7 @@ greg_gets_a_beer = UserQuest.new
 greg_gets_a_beer.quest_id = quest.id
 greg_gets_a_beer.user_id = player.id
 
-# user_checkpoints should be automattically created using a before_create method on user_quests
+# user_checkpoints should be automatically created using a before_create method on user_quests
 
 
 
