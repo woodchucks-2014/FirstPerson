@@ -1,18 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.col_wide_1 {
+  width: 30.666%;
+  padding: 1%;
+  margin: 0.333%;
+}
+
+.col_wide_2 {
+  width: 64%;
+  padding: 1%;
+  margin: 0.333%;
+}
+
+.col_wide_3 {
+  width: 97.333%;
+  padding: 1%;
+  margin: 0.333%;
+}
+
 body {
   background-image: linear-gradient(#7786a5, #0e234d);
+  /*background-color: #ffffff;*/
   background-repeat: no-repeat;
   background-attachment:fixed;
 }
 
 .float {
-  /*float: left;*/
-  line-height: 1.75em;
-  width: 33%;
-  margin: auto;
-  background-color: white;
-  border: 2px solid #aaccee;
-  border-right: 2px solid #667788;
-  border-bottom: 2px solid #667788;
+  float: right;
+  height: 35em;
+  background-color: rgba(15, 35, 77, 0.75);
 }
 
 h1, h2, h3 {
@@ -47,19 +66,19 @@ p .small_text {
   font-size: 0.75em;
 }
 
-.circle_color {
+/*.circle_color {
   border: 2px solid black;
   border-radius: 50%;
   height: 5em;
   width: 5em;
   float: left;
-}
+}*/
 
 .container {
   overflow: auto
 }
 
-#c1 {
+/*#c1 {
   background-color: #000d23;
 }
 
@@ -85,29 +104,54 @@ p .small_text {
 
 #c7 {
   background-color: #7786a5;
+}*/
+
+.nav {
+  float: left;
+  display: block;
+  padding: 0;
+  width: 66%;
+  margin-bottom: 0;
 }
 
-nav {
-  display: block
+.content {
+  float: left;
+  margin-top: 0;
+  height: 33.3em;
+  background-color: rgba(15, 35, 77, 0.75);
+}
+
+.bottom {
+  float: left;
+  height: 10em;
+  background-color: rgba(15, 35, 77, 0.75);
+}
+
+.inactive_button {
+  background-color: rgba(0, 13, 35, 0.75);
+}
+
+.active_button {
+  background-color: rgba(15, 35, 77, 0.75);
 }
 
 .primary_button {
-  margin: 2px;
-  width: 16%;
+  width: 25%;
+  text-align: center;
+  margin-bottom: 0;
   display: block;
   float: left;
   color: #ffffff;
   font-family: 'Source Code Pro', "Lucida Console", Monaco, monospace;
   font-size: 1.15em;
-  border: 2px solid #aaccee;
-  border-right: 2px solid #667788;
-  border-bottom: 2px solid #667788;
-  background-image: linear-gradient(#7786a5, #0e234d);
-  box-shadow: 2px 2px 2px #000;
+  border: none;
+  height: 1.5em;
+  /*background-image: linear-gradient(#7786a5, #0e234d);*/
+  /*box-shadow: 2px 2px 2px #000;*/
 }
 
 .primary_button:hover {
-
+  background-color: #7786a5;
 }
 
 .secondary_button {
