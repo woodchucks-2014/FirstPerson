@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20140724150656) do
     t.integer  "quest_id"
     t.integer  "location_id"
     t.integer  "step_num"
+    t.text     "instructions"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -34,11 +35,12 @@ ActiveRecord::Schema.define(version: 20140724150656) do
   end
 
   create_table "quests", force: true do |t|
-    t.integer  "user_id"
+    t.integer  "creator_id"
     t.string   "type"
     t.integer  "user_limit"
     t.datetime "start_date"
     t.datetime "end_date"
+    t.text     "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
