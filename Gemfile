@@ -45,7 +45,6 @@ gem 'oauth2'
 gem 'dotenv'
 gem 'foursquare2'
 gem 'activerecord-postgis-adapter'
-
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
 end
