@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 20140724150656) do
   create_table "quests", force: true do |t|
     t.integer  "creator_id"
     t.string   "type"
-    t.integer  "user_limit"
-    t.datetime "start_date"
+    t.integer  "user_limit", default: -1
+    t.datetime "start_date", default: '2014-07-24 22:46:16'
     t.datetime "end_date"
     t.text     "title"
     t.datetime "created_at"
@@ -92,8 +92,7 @@ ActiveRecord::Schema.define(version: 20140724150656) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end

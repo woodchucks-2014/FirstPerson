@@ -1,4 +1,4 @@
-class FSQR
+class Fsqr
   attr_accessor :client
 
   def initialize(token)

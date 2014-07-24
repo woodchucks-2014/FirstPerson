@@ -8,7 +8,7 @@ include AuthHelper
 
   def redirect
     token = token_receipt
-    @api = FSQR.new(token.token)
+    @api = Fsqr.new(token.token)
   end
 
   def map
