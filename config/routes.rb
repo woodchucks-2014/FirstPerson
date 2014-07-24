@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/foursquare', to: "foursquare#index"
+  get '/redirect', to: "foursquare#redirect"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
