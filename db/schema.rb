@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140724031721) do
+ActiveRecord::Schema.define(version: 20140724150656) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,14 +19,14 @@ ActiveRecord::Schema.define(version: 20140724031721) do
   create_table "checkpoints", force: true do |t|
     t.integer  "quest_id"
     t.integer  "location_id"
-    t.integer  "index_num"
+    t.integer  "step_num"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "locations", force: true do |t|
-    t.integer  "lat"
-    t.integer  "lng"
+    t.integer  "latitude"
+    t.integer  "longitude"
     t.string   "name"
     t.string   "type"
     t.datetime "created_at"
@@ -45,7 +45,15 @@ ActiveRecord::Schema.define(version: 20140724031721) do
 
   create_table "rewards", force: true do |t|
     t.integer  "quest_id"
-    t.integer  "xp"
+    t.integer  "xp",         default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_checkpoints", force: true do |t|
+    t.integer  "checkpoint_id"
+    t.integer  "user_id"
+    t.boolean  "completed?",    default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -53,13 +61,21 @@ ActiveRecord::Schema.define(version: 20140724031721) do
   create_table "user_quests", force: true do |t|
     t.integer  "quest_id"
     t.integer  "user_id"
-    t.boolean  "completed?"
-    t.integer  "current_checkpoint_id"
+    t.boolean  "completed?", default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_rewards", force: true do |t|
+    t.integer  "reward_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
+    t.string   "name"
+    t.integer  "total_xp",               default: 0
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"

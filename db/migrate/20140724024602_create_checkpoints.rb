@@ -3,7 +3,7 @@ class CreateCheckpoints < ActiveRecord::Migration
     create_table :checkpoints do |t|
       t.belongs_to :quest
       t.belongs_to :location
-      t.integer :index_num
+      t.integer :step_num
 
       t.timestamps
     end
