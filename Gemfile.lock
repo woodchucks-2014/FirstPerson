@@ -52,6 +52,12 @@ GEM
       execjs
     coffee-script-source (1.7.1)
     database_cleaner (1.3.0)
+    devise (3.2.4)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
     diff-lcs (1.2.5)
     docile (1.1.5)
     dotenv (0.11.1)
@@ -120,6 +126,7 @@ GEM
       multi_json (~> 1.3)
       multi_xml (~> 0.5)
       rack (~> 1.2)
+    orm_adapter (0.5.0)
     pg (0.17.1)
     polyglot (0.3.5)
     pry (0.9.12.6)
@@ -185,6 +192,10 @@ GEM
       multi_json (~> 1.0)
       rubyzip (< 1.0.0)
       websocket (~> 1.0.4)
+    shoulda (3.5.0)
+      shoulda-context (~> 1.0, >= 1.0.1)
+      shoulda-matchers (>= 1.4.1, < 3.0)
+    shoulda-context (1.2.1)
     shoulda-matchers (2.6.2)
       activesupport (>= 3.0.0)
     simplecov (0.9.0)
@@ -229,6 +240,8 @@ GEM
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    warden (1.2.3)
+      rack (>= 1.0)
     websocket (1.0.7)
     xpath (2.0.0)
       nokogiri (~> 1.3)
@@ -242,7 +255,11 @@ DEPENDENCIES
   capybara
   coffee-rails (~> 4.0.0)
   database_cleaner
+<<<<<<< HEAD
   dotenv
+=======
+  devise
+>>>>>>> c49a995bed36482078d0ef3036e4ab336a08ccdb
   factory_girl_rails
   faker
   foursquare2
@@ -256,6 +273,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   selenium-webdriver (~> 2.35.1)
+  shoulda
   shoulda-matchers
   simplecov
   spring
