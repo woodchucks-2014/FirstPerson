@@ -1,6 +1,7 @@
 class FoursquareController < ActionController::Base
 layout "application"
 include AuthHelper
+
   def index
     redirect_to auth_uri
   end
