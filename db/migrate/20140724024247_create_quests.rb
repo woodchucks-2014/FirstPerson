@@ -1,7 +1,7 @@
 class CreateQuests < ActiveRecord::Migration
   def change
     create_table :quests do |t|
-      t.belongs_to :user
+      t.belongs_to :creator
       t.string :type
       t.integer :user_limit
       t.datetime :start_date
