@@ -31,7 +31,7 @@ player.save!
 quest = Quest.new
 quest.title = "Come Get A Beer!" # Quest neests a title
 quest.creator_id = business.id
-quest.type = "bar"
+# quest.type = "bar"
 quest.end_date = Time.now + 1.day
 quest.save!
 
@@ -44,12 +44,13 @@ checkpoint.instructions = "Recieve beer" # checkpoints need an instruction
 checkpoint.quest_id = quest.id
 checkpoint.location_id = bar.id
 checkpoint.step_num = 1
+checkpoint.save!
 
 greg_gets_a_beer = UserQuest.new
 greg_gets_a_beer.quest_id = quest.id
 greg_gets_a_beer.user_id = player.id
 
-# user_checkpoints should be automattically created using a before_create method on user_quests
+# user_checkpoints should be automatically created using a before_create method on user_quests
 
 
 
