@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20140724150656) do
   end
 
   create_table "quests", force: true do |t|
-    t.integer  "user_id"
+    t.integer  "creator_id"
     t.string   "type"
     t.integer  "user_limit"
     t.datetime "start_date"
