@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
   has_many :created_quests, class_name: 'Quest', foreign_key: 'creator_id' #alias
   has_many :user_quests
   has_many :quests, through: :user_quests
+  has_many :user_rewards
+  has_many :rewards, through: :user_rewards
+  has_many :user_checkpoints
+  Has_many :checkpoints, through: :user_checkpoints
 end
