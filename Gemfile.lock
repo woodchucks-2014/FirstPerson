@@ -21,7 +21,6 @@ GEM
       activemodel (= 4.1.4)
       activesupport (= 4.1.4)
       arel (~> 5.0.0)
-    activerecord-postgis-adapter (2.1.1)
       activerecord (~> 4.0)
       rgeo-activerecord (~> 1.0)
     activesupport (4.1.4)
@@ -252,7 +251,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord-postgis-adapter
   bcrypt (~> 3.1.7)
   capybara
   coffee-rails (~> 4.0.0)
