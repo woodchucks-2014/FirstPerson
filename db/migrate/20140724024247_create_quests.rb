@@ -6,6 +6,7 @@ class CreateQuests < ActiveRecord::Migration
       t.integer :user_limit
       t.datetime :start_date
       t.datetime :end_date
+      t.text :title
 
       t.timestamps
     end

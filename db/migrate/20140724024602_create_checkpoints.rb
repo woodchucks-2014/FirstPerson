@@ -4,6 +4,7 @@ class CreateCheckpoints < ActiveRecord::Migration
       t.belongs_to :quest
       t.belongs_to :location
       t.integer :step_num
+      t.text :instructions
 
       t.timestamps
     end

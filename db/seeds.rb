@@ -9,23 +9,23 @@
 business = User.new
 business.name = "DBC"
 business.email = "dishes@dbc.com"
-business.password = "test"
-business.password_confirmation = "test"
+business.password = "testtest"
+business.password_confirmation = "testtest"
 business.save!
 
 bar = Location.new
-location.name = "Awesome Bar"
-location.type = "Bar"
-location.lat = 40.7903
-location.lng = 73.9597
-location.save!
+bar.name = "Awesome Bar"
+bar.type = "Bar"
+bar.latitude = 40.7903
+bar.longitude = 73.9597
+bar.save!
 #should locations belong to a user? perhaps through quests and checkpoints
 
 player = User.new
 player.name = "Greg"
 player.email = "greg@dbc.com"
-player.password = "test"
-player.password_confirmation = "test"
+player.password = "testtest"
+player.password_confirmation = "testtest"
 player.save!
 
 quest = Quest.new
@@ -40,14 +40,14 @@ beer.quest_id = quest.id
 beer.xp = 500
 
 checkpoint = Checkpoint.new
-quest.instruction = "Recieve beer" # checkpoints need an instruction
-quest.quest_id = quest.id
-quest.location_id = bar.id
-quest.step_num = 1
+checkpoint.instructions = "Recieve beer" # checkpoints need an instruction
+checkpoint.quest_id = quest.id
+checkpoint.location_id = bar.id
+checkpoint.step_num = 1
 
 greg_gets_a_beer = UserQuest.new
 greg_gets_a_beer.quest_id = quest.id
-greg_gets_a_beer.user_id = greg.id
+greg_gets_a_beer.user_id = player.id
 
 # user_checkpoints should be automattically created using a before_create method on user_quests
 
