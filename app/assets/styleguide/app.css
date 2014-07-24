@@ -1,0 +1,163 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.col_wide_1 {
+  width: 30.666%;
+  padding: 1%;
+  margin: 0.333%;
+}
+
+.col_wide_2 {
+  width: 64%;
+  padding: 1%;
+  margin: 0.333%;
+}
+
+.col_wide_3 {
+  width: 97.333%;
+  padding: 1%;
+  margin: 0.333%;
+}
+
+body {
+  background-image: linear-gradient(#7786a5, #0e234d);
+  /*background-color: #ffffff;*/
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+}
+
+.float {
+  float: right;
+  height: 35em;
+  background-color: rgba(15, 35, 77, 0.75);
+}
+
+h1, h2, h3 {
+  font-family: 'Audiowide', cursive, Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  font-size: 4em;
+}
+
+h2 {
+  font-size: 3em;
+}
+
+h3 {
+  font-size: 2em;
+}
+
+p {
+  font-family: 'Source Code Pro', "Lucida Console", Monaco, monospace;
+}
+
+p .large_text {
+  font-size: 1.25em;
+}
+
+p .medium_text {
+  font-size: 1em;
+}
+
+p .small_text {
+  font-size: 0.75em;
+}
+
+/*.circle_color {
+  border: 2px solid black;
+  border-radius: 50%;
+  height: 5em;
+  width: 5em;
+  float: left;
+}*/
+
+.container {
+  overflow: auto
+}
+
+/*#c1 {
+  background-color: #000d23;
+}
+
+#c2 {
+  background-color: #0e234d;
+}
+
+#c3 {
+  background-color: #223c74;
+}
+
+#c4 {
+  background-color: #443c31;
+}
+
+#c5 {
+  background-color: #243e79;
+}
+
+#c6 {
+  background-color: #355399;
+}
+
+#c7 {
+  background-color: #7786a5;
+}*/
+
+.nav {
+  float: left;
+  display: block;
+  padding: 0;
+  width: 66%;
+  margin-bottom: 0;
+}
+
+.content {
+  float: left;
+  margin-top: 0;
+  height: 33.3em;
+  background-color: rgba(15, 35, 77, 0.75);
+}
+
+.bottom {
+  float: left;
+  height: 10em;
+  background-color: rgba(15, 35, 77, 0.75);
+}
+
+.inactive_button {
+  background-color: rgba(0, 13, 35, 0.75);
+}
+
+.active_button {
+  background-color: rgba(15, 35, 77, 0.75);
+}
+
+.primary_button {
+  width: 25%;
+  text-align: center;
+  margin-bottom: 0;
+  display: block;
+  float: left;
+  color: #ffffff;
+  font-family: 'Source Code Pro', "Lucida Console", Monaco, monospace;
+  font-size: 1.15em;
+  border: none;
+  height: 1.5em;
+  /*background-image: linear-gradient(#7786a5, #0e234d);*/
+  /*box-shadow: 2px 2px 2px #000;*/
+}
+
+.primary_button:hover {
+  background-color: #7786a5;
+}
+
+.secondary_button {
+  
+}
+
+.pressed_button {
+  
+}
