@@ -44,6 +44,7 @@ checkpoint.instructions = "Recieve beer" # checkpoints need an instruction
 checkpoint.quest_id = quest.id
 checkpoint.location_id = bar.id
 checkpoint.step_num = 1
+checkpoint.save!
 
 greg_gets_a_beer = UserQuest.new
 greg_gets_a_beer.quest_id = quest.id
