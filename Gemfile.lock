@@ -84,6 +84,7 @@ GEM
       multi_json (~> 1.0)
       net-http-persistent (>= 2.7)
       net-http-pipeline
+    gmaps4rails (2.1.2)
     haml (4.0.5)
       tilt
     hashie (2.1.2)
@@ -229,6 +230,7 @@ GEM
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    underscore-rails (1.6.0)
     websocket (1.0.7)
     xpath (2.0.0)
       nokogiri (~> 1.3)
@@ -246,6 +248,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   foursquare2
+  gmaps4rails
   haml
   jbuilder (~> 2.0)
   jquery-rails
@@ -262,3 +265,4 @@ DEPENDENCIES
   travis
   turbolinks
   uglifier (>= 1.3.0)
+  underscore-rails
