@@ -31,7 +31,7 @@ player.save!
 quest = Quest.new
 quest.title = "Come Get A Beer!" # Quest neests a title
 quest.creator_id = business.id
-quest.type = "bar"
+# quest.type = "bar"
 quest.end_date = Time.now + 1.day
 quest.save!
 
