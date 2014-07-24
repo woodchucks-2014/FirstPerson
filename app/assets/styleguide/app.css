@@ -1,3 +1,20 @@
+body {
+  background-image: linear-gradient(#7786a5, #0e234d);
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+}
+
+.float {
+  /*float: left;*/
+  line-height: 1.75em;
+  width: 33%;
+  margin: auto;
+  background-color: white;
+  border: 2px solid #aaccee;
+  border-right: 2px solid #667788;
+  border-bottom: 2px solid #667788;
+}
+
 h1, h2, h3 {
   font-family: 'Audiowide', cursive, Arial, Helvetica, sans-serif;
 }
@@ -70,15 +87,27 @@ p .small_text {
   background-color: #7786a5;
 }
 
+nav {
+  display: block
+}
+
 .primary_button {
+  margin: 2px;
+  width: 16%;
   display: block;
   float: left;
   color: #ffffff;
   font-family: 'Source Code Pro', "Lucida Console", Monaco, monospace;
-  font-size: 28px;
-  border: 2px solid #7786a5;
+  font-size: 1.15em;
+  border: 2px solid #aaccee;
+  border-right: 2px solid #667788;
+  border-bottom: 2px solid #667788;
   background-image: linear-gradient(#7786a5, #0e234d);
-  box-shadow: 3px 3px 3px #000;
+  box-shadow: 2px 2px 2px #000;
+}
+
+.primary_button:hover {
+
 }
 
 .secondary_button {
