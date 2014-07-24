@@ -6,7 +6,7 @@ include AuthHelper
 
   def redirect
     token = token_receipt
-    @user = Foursquare.new(token)
+    @api = FSQR.new(token.token)
   end
 
 end
