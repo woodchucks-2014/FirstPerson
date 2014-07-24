@@ -255,11 +255,8 @@ DEPENDENCIES
   capybara
   coffee-rails (~> 4.0.0)
   database_cleaner
-<<<<<<< HEAD
   dotenv
-=======
   devise
->>>>>>> c49a995bed36482078d0ef3036e4ab336a08ccdb
   factory_girl_rails
   faker
   foursquare2
