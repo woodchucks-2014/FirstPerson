@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-#ruby '2.1.1'
+ruby '2.1.1'
 
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -44,10 +44,11 @@ gem 'haml'
 gem 'oauth2'
 gem 'dotenv'
 gem 'foursquare2'
-gem 'activerecord-postgis-adapter'
 gem 'gmaps4rails'
 gem 'underscore-rails'
 gem 'rails_12factor', group: :production
+gem 'haversine'
+gem 'chronic'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'

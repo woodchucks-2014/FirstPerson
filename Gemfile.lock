@@ -21,9 +21,6 @@ GEM
       activemodel (= 4.1.4)
       activesupport (= 4.1.4)
       arel (~> 5.0.0)
-    activerecord-postgis-adapter (2.1.1)
-      activerecord (~> 4.0)
-      rgeo-activerecord (~> 1.0)
     activesupport (4.1.4)
       i18n (~> 0.6, >= 0.6.9)
       json (~> 1.7, >= 1.7.7)
@@ -43,6 +40,7 @@ GEM
       xpath (~> 2.0)
     childprocess (0.5.3)
       ffi (~> 1.0, >= 1.0.11)
+    chronic (0.10.2)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -94,6 +92,7 @@ GEM
     haml (4.0.5)
       tilt
     hashie (2.1.2)
+    haversine (0.3.0)
     highline (1.6.21)
     hike (1.2.3)
     i18n (0.6.11)
@@ -163,10 +162,6 @@ GEM
     rake (10.3.2)
     rdoc (4.1.1)
       json (~> 1.4)
-    rgeo (0.3.20)
-    rgeo-activerecord (1.1.0)
-      activerecord (~> 4.0)
-      rgeo (~> 0.3)
     rspec-core (3.0.3)
       rspec-support (~> 3.0.0)
     rspec-expectations (3.0.3)
@@ -257,9 +252,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord-postgis-adapter
   bcrypt (~> 3.1.7)
   capybara
+  chronic
   coffee-rails (~> 4.0.0)
   database_cleaner
   devise
@@ -269,8 +264,10 @@ DEPENDENCIES
   foursquare2
   gmaps4rails
   haml
+  haversine
   jbuilder (~> 2.0)
   jquery-rails
+  json
   oauth2
   pg
   rails (= 4.1.4)

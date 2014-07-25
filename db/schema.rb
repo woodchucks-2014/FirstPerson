@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140724150656) do
+ActiveRecord::Schema.define(version: 20140725012516) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "check_ins", force: true do |t|
+    t.integer  "location_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "checkpoints", force: true do |t|
     t.integer  "quest_id"
@@ -37,8 +44,7 @@ ActiveRecord::Schema.define(version: 20140724150656) do
   create_table "quests", force: true do |t|
     t.integer  "creator_id"
     t.string   "type"
-    t.integer  "user_limit"
-    t.datetime "start_date"
+    t.integer  "user_limit", default: -1
     t.datetime "end_date"
     t.text     "title"
     t.datetime "created_at"
@@ -92,8 +98,7 @@ ActiveRecord::Schema.define(version: 20140724150656) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end
