@@ -17,8 +17,7 @@ include PushHelper
   end
 
   def pull
-    render status: 200
-    render status: :ok
+    render plain: "200 OK"
   end
 
   def testpush
