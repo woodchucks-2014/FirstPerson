@@ -6,7 +6,7 @@ module CheckInsHelper
 
   def distance_since_last_checkin
     locations = self.user.check_ins.order("created_at DESC").limit(2)
-    if locations.length > 2
+    if locations.length == 2
       return calc_distance(locations[0].location.latitude, locations[0].location.longitude, locations[1].location.latitude, locations[1].location.longitude)
     else
       return 0
