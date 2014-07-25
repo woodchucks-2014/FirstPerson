@@ -1,14 +1,14 @@
 module UsersHelper
 
-  # def user_params
-  #   user_stuff = {}
-  #   user_stuff[:foursquare_id] = params["user"]["id"],
-  #   user_stuff[:photo_url] = params["user"]["photo"][prefix] + params["user"]["photo"]["suffix"]
+  def user_hash_helper
+    user_stuff = {
+    user_stuff[:foursquare_id] = @api.client.user("self")[:id],
+    user_stuff[:photo_url] = @api.client.user("self")[:photo][:prefix] + @api.client.user("self")[:photo][:suffix]
 
-  #   user_stuff[:firstname] = params["user"]["firstname"],
-  #   user_stuff[:lastname] = params["user"]["lastname"],
-  #   user_stuff[:gender] = params["user"]["gender"],
-  #   user_stuff.require("user").permit(:firstname, :lastname, :gender, :photo_url, :foursquare_id)
-  # end
+    user_stuff[:firstname] = @api.client.user("self")[:firstName],
+    user_stuff[:lastname] = @api.client.user("self")[:lastName],
+    user_stuff[:gender] = @api.client.user("self")[:gender]
+	}
+  end
 
 end
