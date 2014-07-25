@@ -15,7 +15,7 @@ class CheckIn < ActiveRecord::Base
   end
 
   def distance_and_time
-    if distance_since_last_checkin < 500 || time_since_last_checkin < 1.hour
+    if distance_since_last_checkin < 500 || time_since_last_checkin < 3600 # seconds
       errors.add(:location, "You're too close to your last checkin, go to a new location or wait an hour")
     end
   end
