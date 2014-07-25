@@ -7,8 +7,8 @@ $(document).ready(function(){
         "lng": -73.9597,
         "picture": {
           "url": "http://i.imgur.com/2FqzEFz.png",
-          "width":  36,
-          "height": 36
+          "width":  64,
+          "height": 64
         },
         //"infowindow": "hello!"
       }
