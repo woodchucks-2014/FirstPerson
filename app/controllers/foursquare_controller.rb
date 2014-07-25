@@ -12,13 +12,14 @@ include UsersHelper
     token = token_receipt
     @api = Fsqr.new(token.token)
     user = User.find_by(foursquare_id: @api.client.user("self")[:id].to_i)
-    puts user
-    # if user
-    #   session[:user] = @user.id
-    # else
-      user = User.create(user_hash_helper)
-      session[:user] = user.id
-    # end
+    if user
+      session[:user] = @user.id
+    else
+      @user = User.new
+      user_creator
+      @user.save
+      session[:user] = @user.id
+    end
     redirect_to root_path
   end
 
