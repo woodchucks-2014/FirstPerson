@@ -1,7 +1,7 @@
 class FoursquareController < ActionController::Base
-layout "application"
-include AuthHelper
-include PushHelper
+  layout "application"
+  include AuthHelper
+  include PushHelper
 
   def index
     redirect_to auth_uri
@@ -18,7 +18,6 @@ include PushHelper
 
   def pull
     params = format(params)
-
 
     render plain: "200 OK"
   end

@@ -17,7 +17,7 @@ Primary contributors include:
 
 * Vic Schaeperkoetter
 
-* Mattheiu Gavaudon
+* Matthieu Gavaudan
 
 * Joe Cohen
 
