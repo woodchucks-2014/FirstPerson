@@ -4,7 +4,7 @@ class CreateLocations < ActiveRecord::Migration
       t.integer :latitude
       t.integer :longitude
       t.string :name
-      t.string :type
+      t.string :venue_type
 
       t.timestamps
     end
