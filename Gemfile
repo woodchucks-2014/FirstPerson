@@ -40,6 +40,13 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'debugger', group: [:development, :test]
 
 gem 'travis'
+gem 'haml'
+gem 'oauth2'
+gem 'dotenv'
+gem 'foursquare2'
+gem 'gmaps4rails'
+gem 'underscore-rails'
+gem 'haversine'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
