@@ -48,6 +48,7 @@ gem 'gmaps4rails'
 gem 'underscore-rails'
 gem 'haversine'
 gem 'chronic'
+gem "haml"
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'

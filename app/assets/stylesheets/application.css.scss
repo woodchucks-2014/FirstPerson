@@ -1,0 +1,133 @@
+$primary-color: #59CCF2;
+$font-color: white;
+$font-stack:  Helvetica, sans-serif;
+
+.container{
+  height: 50em;
+}
+
+#slide{
+  background: url('/assets/background_home.jpg');
+  margin: 0;
+  height: 61.25em;
+}
+
+#sign_up_link{
+  width: 15%;
+  height: 4em;
+  font-size: 2em;
+  line-height: 4em;
+  text-align: center;
+  margin-left: 30%;
+  margin-right: 5%;
+  border: 1px solid white;
+  margin-top: 12em;
+  display: inline-block;
+
+    a{
+      font-family:"Times New Roman", Times, serif;
+      color:$font-color;
+      text-decoration: none;
+    }
+
+}
+
+#sign_in_link{
+  width: 15%;
+  font-size: 2em;
+  height: 4em;
+  line-height: 4em;
+  text-align: center;
+  margin-left: 5%;
+  margin-right: 25%;
+  border: 1px solid white;
+  margin-top: 12em;
+  display: inline-block;
+    a{
+      font-family:"Times New Roman", Times, serif;
+      color:$font-color;
+      text-decoration: none;
+    }
+
+}
+
+
+#sign_in_link:hover{
+  a{
+      text-decoration: underline;
+    }
+
+}
+
+#sign_up_link:hover{
+
+   a{
+      text-decoration: underline;
+    }
+
+}
+
+
+#main{
+
+  margin: 0;
+  height: 61.25em;
+
+}
+
+#map{
+  margin-left: 25%;
+  margin-top: 5em;
+  width: 50%;
+  height:30em;
+}
+
+
+/*----------------------------LAYOUT----------------------------------*/
+
+body{
+  margin: 0;
+}
+
+nav {
+  line-height: 3em;
+  background-color: $primary-color;
+  height: 3em;
+  a{
+    margin-left: 15%;
+    width: 5%;
+    display: inline-block;
+    font: 100% $font-stack;
+    color:$font-color;
+    text-decoration: none;
+  }
+
+  a:hover{
+    text-decoration: underline;
+
+  }
+}
+
+footer{
+  background-color: $primary-color;
+  height: 7em;
+}
+
+
+
+
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
