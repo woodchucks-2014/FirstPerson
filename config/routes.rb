@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   get '/foursquare', to: "foursquare#index"
   get '/redirect', to: "foursquare#redirect"
-  get '/map', to: "foursquare#map"
+  get '/map', to: "foursquare#map", as: "map"
+  get '/pull', to: "foursquare#pull", as: 'realtime'
+  get '/testpush', to: "foursquare#testpush"
   devise_for :users
 
   # The priority is based upon order of creation: first created -> highest priority.
