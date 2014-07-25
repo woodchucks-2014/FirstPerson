@@ -17,7 +17,8 @@ include PushHelper
   end
 
   def pull
-    @params = params
+    flash[:notice] = params
+    redirect_to root_path 
   end
 
   def testpush
