@@ -20,7 +20,6 @@ include PushHelper
   def pull
     @params = params
     
-
     render plain: "200 OK" 
  end
 

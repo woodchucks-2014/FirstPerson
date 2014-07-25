@@ -36,21 +36,29 @@ ActiveRecord::Schema.define(version: 20140725012516) do
     t.integer  "latitude"
     t.integer  "longitude"
     t.string   "name"
+<<<<<<< HEAD
     t.string   "type"
     t.string   "street"
     t.string   "city"
     t.string   "state"
     t.string   "country"
     t.string   "zipcode"
+=======
+    t.string   "venue_type"
+>>>>>>> e0614602564e69c28d45349ab3cccb3fdb03e8c2
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "quests", force: true do |t|
     t.integer  "creator_id"
-    t.string   "type"
+    t.string   "category"
     t.integer  "user_limit", default: -1
+<<<<<<< HEAD
     t.datetime "start_date", default: '2014-07-25 19:44:44'
+=======
+    t.datetime "start_date"
+>>>>>>> e0614602564e69c28d45349ab3cccb3fdb03e8c2
     t.datetime "end_date"
     t.text     "title"
     t.datetime "created_at"
@@ -67,7 +75,7 @@ ActiveRecord::Schema.define(version: 20140725012516) do
   create_table "user_checkpoints", force: true do |t|
     t.integer  "checkpoint_id"
     t.integer  "user_id"
-    t.boolean  "completed?",    default: false
+    t.boolean  "completed",     default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -75,7 +83,7 @@ ActiveRecord::Schema.define(version: 20140725012516) do
   create_table "user_quests", force: true do |t|
     t.integer  "quest_id"
     t.integer  "user_id"
-    t.boolean  "completed?", default: false
+    t.boolean  "completed",  default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

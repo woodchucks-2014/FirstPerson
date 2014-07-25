@@ -5,8 +5,8 @@ class UserQuest < ActiveRecord::Base
   after_create :create_related_checkpoints
 
   def complete!
-    unless self.complete
-      self.complete = true
+    unless self.completed
+      self.completed = true
       earned_xp = self.quest.rewards.map{|reward| reward.xp}.reduce(:+)
       self.user.total_xp += earned_xp
     end
