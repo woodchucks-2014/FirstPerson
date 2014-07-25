@@ -7,7 +7,7 @@ $font-stack:  Helvetica, sans-serif;
 }
 
 #slide{
-  background: url(asset_path('/assets/background_home.jpg', image));
+  background-image: image-url('/assets/background_home.jpg');
   margin: 0;
   height: 61.25em;
 }
