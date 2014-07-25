@@ -11,7 +11,8 @@ class CheckIn < ActiveRecord::Base
 
   def add_location
     # code for creating a new location given coordinates from 4square goes here
-    # self.location_id = location.create(lat, lng).id
+    # loc = Location.find_or_create_by(location_params)
+    # self.location_id = loc.id
   end
 
   # def distance_and_time

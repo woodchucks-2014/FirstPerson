@@ -19,8 +19,7 @@ class FoursquareController < ActionController::Base
   def pull
     params = format(params)
 
-    # Location.find_or_create_by(location_params)
-    # CheckIn.create(checkin_params)
+    # CheckIn.create(checkin_params AND location params)
 
     render plain: "200 OK"
   end
@@ -32,12 +31,13 @@ class FoursquareController < ActionController::Base
   private
 
   def checkin_params
+    #also permit location params
     stuff_params = parse_foursquare_json(params)[]
     stuff_params.require("CheckIn").permit(:user_id, :location_id)
   end
 
-  def location_params
-    stuff_params.require("location").permit(:user_id)
-  end
+  # def location_params
+  #   stuff_params.require("location").permit(:user_id)
+  # end
 
 end
