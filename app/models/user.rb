@@ -11,4 +11,5 @@ class User < ActiveRecord::Base
   has_many :rewards, through: :user_rewards
   has_many :user_checkpoints
   has_many :checkpoints, through: :user_checkpoints
+  
 end

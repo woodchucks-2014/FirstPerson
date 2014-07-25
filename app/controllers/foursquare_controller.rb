@@ -1,7 +1,11 @@
 class FoursquareController < ActionController::Base
 layout "application"
 include AuthHelper
+<<<<<<< HEAD
 include PushHelper
+=======
+
+>>>>>>> 31d0208a1dbbf40859f164c1b14a320db6af1095
   def index
     redirect_to auth_uri
   end

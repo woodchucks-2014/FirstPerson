@@ -66,7 +66,6 @@ $(document).ready(function(){
           "width":  64,
           "height": 64
         },
-
       }
     ]);
       handler.map.centerOn(markers[0]);
