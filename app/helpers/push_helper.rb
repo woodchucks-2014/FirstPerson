@@ -7,15 +7,21 @@ module PushHelper
     params
   end
 
-	def parse_foursquare_json
-    checkin_params = {}
-    checkin_params[:foursquare_id] = params["user"]["id"],
-    checkin_params[:photo_url] = params["user"]["photo"][prefix] + params["user"]["photo"]["suffix"]
+	def parse_foursquare_json(params)
+    fouresquare_params = {user: nil, location: nil}
 
-    checkin_params[:firstname] = params["user"]["firstname"],
-    checkin_params[:lastname] = params["user"]["lastname"],
-    checkin_params[:gender] = params["user"]["gender"],
-    checkin_params.require("user").permit(:firstname, :lastname, :gender, :photo_url, :foursquare_id)
+    fouresquare_params[:user][:user_id] = User.find_by(params["user"]["id"]).id,
+
+    fouresquare_params[:location][:firstname] = params["user"]["firstname"],
+    fouresquare_params[:location][:lastname] = params["user"]["lastname"],
+    fouresquare_params[:location][:gender] = params["user"]["gender"],
+
+    fouresquare_params
   end
 
 end
+
+#     t.integer  "location_id"
+#     t.integer  "user_id"
+#     t.datetime "created_at"
+#     t.datetime "updated_at"

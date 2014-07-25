@@ -19,11 +19,25 @@ class FoursquareController < ActionController::Base
   def pull
     params = format(params)
 
+    # Location.find_or_create_by(location_params)
+    # CheckIn.create(checkin_params)
+
     render plain: "200 OK"
   end
 
   def testpush
   	render json: {lat: 53.385873, long: -1.471471}
+  end
+
+  private
+
+  def checkin_params
+    stuff_params = parse_foursquare_json(params)[]
+    stuff_params.require("CheckIn").permit(:user_id, :location_id)
+  end
+
+  def location_params
+    stuff_params.require("location").permit(:user_id)
   end
 
 end
