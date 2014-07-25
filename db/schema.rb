@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140724150656) do
+ActiveRecord::Schema.define(version: 20140725012516) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "check_ins", force: true do |t|
+    t.integer  "location_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "checkpoints", force: true do |t|
     t.integer  "quest_id"
@@ -38,7 +45,6 @@ ActiveRecord::Schema.define(version: 20140724150656) do
     t.integer  "creator_id"
     t.string   "type"
     t.integer  "user_limit", default: -1
-    t.datetime "start_date", default: '2014-07-24 22:46:16'
     t.datetime "end_date"
     t.text     "title"
     t.datetime "created_at"
