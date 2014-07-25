@@ -8,20 +8,17 @@ module PushHelper
   end
 
 	def parse_foursquare_json(params)
-    fouresquare_params = {user: nil, location: nil}
+    foursquare_params = {user: nil, location: nil}
 
-    fouresquare_params[:user][:user_id] = User.find_by(params["user"]["id"]).id,
+    foursquare_params[:user][:user_id] = User.find_by(foursquare_id: params["user"]["id"]).id
 
-    fouresquare_params[:location][:firstname] = params["user"]["firstname"],
-    fouresquare_params[:location][:lastname] = params["user"]["lastname"],
-    fouresquare_params[:location][:gender] = params["user"]["gender"],
+    foursquare_params[:location][:name] = params["venue"]["gender"]
+    foursquare_params[:location][:venue_type] = params["venue"]["categories"]["name"]
+    foursquare_params[:location][:latitude] = params["venue"]["location"]["lat"]
+    foursquare_params[:location][:longitude] = params["venue"]["location"]["lng"]
+    foursquare_params[:location][:address] = params["venue"]["location"]["formattedAddress"]
 
-    fouresquare_params
+    foursquare_params
   end
 
 end
-
-#     t.integer  "location_id"
-#     t.integer  "user_id"
-#     t.datetime "created_at"
-#     t.datetime "updated_at"
