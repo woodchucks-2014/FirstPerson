@@ -33,16 +33,11 @@ ActiveRecord::Schema.define(version: 20140725012516) do
   end
 
   create_table "locations", force: true do |t|
-    t.integer  "latitude"
-    t.integer  "longitude"
+    t.decimal  "latitude"
+    t.decimal  "longitude"
     t.string   "name"
-    t.string   "type"
-    t.string   "street"
-    t.string   "city"
-    t.string   "state"
-    t.string   "country"
-    t.string   "zipcode"
     t.string   "venue_type"
+    t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

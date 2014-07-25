@@ -2,6 +2,7 @@ class FoursquareController < ActionController::Base
   layout "application"
   include AuthHelper
   include PushHelper
+  include UsersHelper
 
   def index
     redirect_to auth_uri
@@ -10,6 +11,16 @@ class FoursquareController < ActionController::Base
   def redirect
     token = token_receipt
     @api = Fsqr.new(token.token)
+    user = User.find_by(foursquare_id: @api.client.user("self")[:id].to_i)
+    if user
+      session[:user] = user.id
+    else
+      @user = User.new
+      user_creator
+      @user.save
+      session[:user] = @user.id
+    end
+    redirect_to root_path
   end
 
   def map
@@ -41,6 +52,14 @@ class FoursquareController < ActionController::Base
   def location_params(params)
     location_info = params[:location]
     location_info.require("location").permit(:name, :venue_type, :latitude, :longitude, :address)
+
+  def logout
+    session.clear
+    redirect_to root_path
+  end
+
+  def user_params
+    user_stuff.require("user").permit(:firstname, :lastname, :gender, :photo_url, :foursquare_id)
   end
 
 end
