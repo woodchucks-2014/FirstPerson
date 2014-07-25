@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20140725012516) do
     t.integer  "creator_id"
     t.string   "type"
     t.integer  "user_limit", default: -1
-    t.datetime "start_date", default: '2014-07-25 15:39:47'
+    t.datetime "start_date", default: '2014-07-25 16:10:12'
     t.datetime "end_date"
     t.text     "title"
     t.datetime "created_at"
