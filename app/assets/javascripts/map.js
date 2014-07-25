@@ -5,12 +5,16 @@ $(document).ready(function(){
       {
         "lat": 40.7903,
         "lng": -73.9597,
-        "picture": {
+        "picture": 
+        {
           "url": "http://i.imgur.com/2FqzEFz.png",
-          "width":  36,
-          "height": 36
+          "width":  64,
+          "height": 64
         },
         //"infowindow": "hello!"
+      }, {
+        "lat": 40.75020,
+        "lng": -73.9807
       }
     ]);
     handler.bounds.extendWith(markers);
