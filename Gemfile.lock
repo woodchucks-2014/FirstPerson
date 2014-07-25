@@ -262,6 +262,7 @@ DEPENDENCIES
   haversine
   jbuilder (~> 2.0)
   jquery-rails
+  json
   oauth2
   pg
   rails (= 4.1.4)
