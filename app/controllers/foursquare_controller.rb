@@ -17,9 +17,7 @@ include PushHelper
   end
 
   def pull
-  	# response = push_helper
-  	# p JSON.parse(response)
-  	
+    
   end
 
   def testpush
