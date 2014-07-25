@@ -15,10 +15,17 @@ business.save!
 
 bar = Location.new
 bar.name = "Awesome Bar"
-bar.type = "Bar"
+bar.venue_type = "Bar"
 bar.latitude = 40.7903
 bar.longitude = -73.9597
 bar.save!
+
+checkin_loc = Location.new
+checkin_loc.name = "CheckIn"
+checkin_loc.venue_type = "checkin_loc"
+checkin_loc.latitude = 40.7703
+checkin_loc.longitude = -73.9997
+checkin_loc.save!
 
 player = User.new
 player.firstname = "Greg"
@@ -30,13 +37,14 @@ player.save!
 quest = Quest.new
 quest.title = "Come Get A Beer!"
 quest.creator_id = business.id
-# quest.type = "bar" <= "type" is a reserved word. have to change this name
+quest.category = "bar"
 quest.end_date = Time.now + 1.day
 quest.save!
 
 beer = Reward.new
 beer.quest_id = quest.id
 beer.xp = 500
+beer.save!
 
 checkpoint = Checkpoint.new
 checkpoint.instructions = "Receive beer"
@@ -48,8 +56,23 @@ checkpoint.save!
 greg_gets_a_beer = UserQuest.new
 greg_gets_a_beer.quest_id = quest.id
 greg_gets_a_beer.user_id = player.id
+greg_gets_a_beer.complete!
+
+# greg_gets_a_reward = UserReward.new
+# greg_gets_a_reward.reward_id = beer.id
+# greg_gets_a_reward.user_id = player.id
+
+greg_gets_a_beer.save!
 
 # user_checkpoints should be automatically created using a before_create method on user_quests
+
+gregs_checkin = CheckIn.new
+gregs_checkin.location_id = checkin_loc.id
+gregs_checkin.user_id = player.id
+gregs_checkin.save!
+
+
+
 
 
 
