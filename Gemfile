@@ -49,6 +49,7 @@ gem 'underscore-rails'
 gem 'rails_12factor', group: :production
 gem 'haversine'
 gem 'chronic'
+gem "haml"
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
