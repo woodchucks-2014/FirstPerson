@@ -13,10 +13,10 @@
   <% if current_user %>
 
     <nav>
-      <%= link_to 'Sign Out', destroy_user_session_path %>
-      <%= link_to 'Quests',new_user_session_path %>
-      <%= link_to 'About',new_user_session_path %>
-      <%= link_to 'Contact Us',new_user_session_path %>
+      <%= link_to 'Sign Out', logout_path %>
+      <%= link_to 'Quests', map_path %>
+      <%= link_to 'About', map_path %>
+      <%= link_to 'Contact Us', map_path %>
     </nav>
 
     <p class="notice"><%= notice %></p>
