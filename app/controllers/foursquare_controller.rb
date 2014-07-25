@@ -17,11 +17,11 @@ include PushHelper
   end
 
   def pull
-    @params = params
-    
+    params = format(params)
 
-    render plain: "200 OK" 
- end
+
+    render plain: "200 OK"
+  end
 
   def testpush
   	render json: {lat: 53.385873, long: -1.471471}

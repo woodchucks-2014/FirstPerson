@@ -1,8 +1,13 @@
 module PushHelper
+  require 'json'
 
-	def push_helper
-		#need to decode results from here https://requestb.in/pgppo9pg?inspect
+  def format(params)
+    params["checkin"] = JSON.parse(params["checkin"])
+    params["user"] = JSON.parse(params["user"])
+    params
+  end
 
-		
-	end
+	def parse_foursquare_json
+  end
+
 end
