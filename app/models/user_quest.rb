@@ -7,7 +7,7 @@ class UserQuest < ActiveRecord::Base
   def complete!
     unless self.complete
       self.complete = true
-      earned_xp = self.quest.rewards.map(|reward| reward.xp).reduce(:+)
+      earned_xp = self.quest.rewards.map{|reward| reward.xp}.reduce(:+)
       self.user.total_xp += earned_xp
     end
   end

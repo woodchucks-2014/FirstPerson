@@ -1,0 +1,23 @@
+production:
+  adapter: postgis
+  postgis_extension: postgis
+  schema_search_path: public
+  encoding: unicode
+  database: first-person_production
+  pool: 5
+
+test:
+  adapter: postgis
+  postgis_extension: postgis
+  schema_search_path: public
+  encoding: unicode
+  database: first-person_test
+  pool: 5
+
+development:
+  adapter: postgis
+  postgis_extension: postgis
+  schema_search_path: public
+  encoding: unicode
+  database: first-person_development
+  pool: 5
