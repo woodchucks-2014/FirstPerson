@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/foursquare', to: "foursquare#index"
   get '/redirect', to: "foursquare#redirect"
   get '/map', to: "foursquare#map", as: "map"
-  get '/pull', to: "foursquare#pull", as: 'pull'
+  post '/pull', to: "foursquare#pull", as: 'pull'
   get '/testpush', to: "foursquare#testpush"
   devise_for :users
 
