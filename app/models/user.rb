@@ -13,5 +13,6 @@ class User < ActiveRecord::Base
   has_many :checkpoints, through: :user_checkpoints
   has_many :check_ins
   has_many :locations, through: :check_ins
-  
+
+
 end
