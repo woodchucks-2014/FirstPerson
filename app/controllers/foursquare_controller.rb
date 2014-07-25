@@ -11,7 +11,7 @@ include UsersHelper
   def redirect
     token = token_receipt
     @api = Fsqr.new(token.token)
-    user = User.find(foursquare_id: @api.client.user("self")[:id])
+    user = User.find(foursquare_id: @api.client.user("self")[:id].to_i)
     if user
       session[:user] = @user.id
     else
