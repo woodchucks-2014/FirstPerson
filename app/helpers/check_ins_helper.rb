@@ -11,7 +11,8 @@ module CheckInsHelper
 
   def check_in_xp
     distance = calc_distance
-    xp = distance/1000 * Math.log2(distance) # xp scales as O(n*log(n)), because why not?
+    # I think we should award a set amount of xp for checking in at a new location and then a bonus for distance. That way someone can't level up a ridiculous about just by checking in twice at super distant locations
+    xp = 10 + distance/5000 * Math.log2(distance) # xp scales as O(n*log(n)), because why not?
     self.user.total_xp += xp
   end
 
