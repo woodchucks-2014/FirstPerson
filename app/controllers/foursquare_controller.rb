@@ -13,7 +13,7 @@ include UsersHelper
     @api = Fsqr.new(token.token)
     user = User.find_by(foursquare_id: @api.client.user("self")[:id].to_i)
     if user
-      session[:user] = @user.id
+      session[:user] = user.id
     else
       @user = User.new
       user_creator
