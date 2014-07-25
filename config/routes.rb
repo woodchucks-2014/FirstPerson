@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'foursquare#map'
+
   get '/foursquare', to: "foursquare#index"
   get '/redirect', to: "foursquare#redirect"
   get '/map', to: "foursquare#map"
@@ -9,7 +11,6 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

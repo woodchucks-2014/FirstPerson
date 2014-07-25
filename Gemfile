@@ -47,6 +47,7 @@ gem 'foursquare2'
 gem 'activerecord-postgis-adapter'
 gem 'gmaps4rails'
 gem 'underscore-rails'
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
