@@ -6,5 +6,11 @@ class Quest < ActiveRecord::Base
   has_many :locations, through: :checkpoints
   has_many :users, through: :user_quests
 
+  before_create :set_defaults
+
   validates_presence_of :creator_id, :title, :end_date
+
+  def set_defaults
+  	self.start_date ||= Time.now
+  end
 end

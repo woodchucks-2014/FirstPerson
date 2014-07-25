@@ -37,7 +37,7 @@ player.save!
 quest = Quest.new
 quest.title = "Come Get A Beer!"
 quest.creator_id = business.id
-# quest.category = "bar"
+quest.category = "bar"
 quest.end_date = Time.now + 1.day
 quest.save!
 
@@ -57,15 +57,20 @@ greg_gets_a_beer = UserQuest.new
 greg_gets_a_beer.quest_id = quest.id
 greg_gets_a_beer.user_id = player.id
 greg_gets_a_beer.complete!
+
+# greg_gets_a_reward = UserReward.new
+# greg_gets_a_reward.reward_id = beer.id
+# greg_gets_a_reward.user_id = player.id
+
 greg_gets_a_beer.save!
 
 # user_checkpoints should be automatically created using a before_create method on user_quests
-
 
 gregs_checkin = CheckIn.new
 gregs_checkin.location_id = checkin_loc.id
 gregs_checkin.user_id = player.id
 gregs_checkin.save!
+
 
 
 
