@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/map', to: "foursquare#map", as: "map"
   post '/pull', to: "foursquare#pull", as: 'pull'
   get '/testpush', to: "foursquare#testpush"
+  get '/logout', to: "foursquare#logout"
   devise_for :users
 
   # The priority is based upon order of creation: first created -> highest priority.

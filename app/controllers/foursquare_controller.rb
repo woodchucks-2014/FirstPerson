@@ -37,6 +37,11 @@ include UsersHelper
   	render json: {lat: 53.385873, long: -1.471471}
   end
 
+  def logout
+    session.clear
+    redirect_to root_path
+  end
+
   private
 
   def user_params
