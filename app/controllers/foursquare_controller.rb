@@ -1,4 +1,5 @@
 class FoursquareController < ActionController::Base
+
 layout "application"
 include AuthHelper
 include PushHelper
