@@ -12,7 +12,7 @@ end
 
 def auth_uri
    oauth_client.auth_code.authorize_url(
-    :redirect_uri => 'http://' + request.host + ':3000' + '/redirect', # <-- your redirect URI
+    :redirect_uri => 'http://' + request.host + '/redirect', # <-- your redirect URI
     #:scope => 'profile' # <-- determined by reading the Google OAuth2 docs
     )
  end
@@ -22,7 +22,7 @@ def auth_uri
   params[:code],
   client_id: ENV['CLIENT_ID'],
   client_secret: ENV['CLIENT_SECRET'],
-  redirect_uri: 'http://' + request.host + ':3000' + '/redirect'
+  redirect_uri: 'http://' + request.host + '/redirect'
   )
  end
 
