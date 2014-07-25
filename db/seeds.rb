@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 business = User.new
-business.name = "DBC"
+business.firstname = "DBC"
 business.email = "dishes@dbc.com"
 business.password = "testtest"
 business.password_confirmation = "testtest"
@@ -17,11 +17,11 @@ bar = Location.new
 bar.name = "Awesome Bar"
 bar.type = "Bar"
 bar.latitude = 40.7903
-bar.longitude = 73.9597
+bar.longitude = -73.9597
 bar.save!
 
 player = User.new
-player.name = "Greg"
+player.firstname = "Greg"
 player.email = "greg@dbc.com"
 player.password = "testtest"
 player.password_confirmation = "testtest"
@@ -39,7 +39,7 @@ beer.quest_id = quest.id
 beer.xp = 500
 
 checkpoint = Checkpoint.new
-checkpoint.instructions = "Recieve beer"
+checkpoint.instructions = "Receive beer"
 checkpoint.quest_id = quest.id
 checkpoint.location_id = bar.id
 checkpoint.step_num = 1
