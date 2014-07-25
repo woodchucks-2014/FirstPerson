@@ -17,7 +17,7 @@ include PushHelper
   end
 
   def pull
-    render "map"
+    @params = params
   end
 
   def testpush
