@@ -1,14 +1,12 @@
 module UsersHelper
 
-  # def user_params
-  #   user_stuff = {}
-  #   user_stuff[:foursquare_id] = params["user"]["id"],
-  #   user_stuff[:photo_url] = params["user"]["photo"][prefix] + params["user"]["photo"]["suffix"]
+  def user_creator
+    @user.foursquare_id = @api.client.user("self")[:id]
+    @user.photo_url = @api.client.user("self")[:photo][:prefix] + @api.client.user("self")[:photo][:suffix]
+    @user.firstname = @api.client.user("self")[:firstName]
+    @user.lastname = @api.client.user("self")[:lastName]
+    @user.gender = @api.client.user("self")[:gender]
 
-  #   user_stuff[:firstname] = params["user"]["firstname"],
-  #   user_stuff[:lastname] = params["user"]["lastname"],
-  #   user_stuff[:gender] = params["user"]["gender"],
-  #   user_stuff.require("user").permit(:firstname, :lastname, :gender, :photo_url, :foursquare_id)
-  # end
+  end
 
 end
