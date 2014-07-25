@@ -19,7 +19,6 @@ bar.type = "Bar"
 bar.latitude = 40.7903
 bar.longitude = 73.9597
 bar.save!
-#should locations belong to a user? perhaps through quests and checkpoints
 
 player = User.new
 player.name = "Greg"
@@ -29,9 +28,9 @@ player.password_confirmation = "testtest"
 player.save!
 
 quest = Quest.new
-quest.title = "Come Get A Beer!" # Quest neests a title
+quest.title = "Come Get A Beer!"
 quest.creator_id = business.id
-# quest.type = "bar"
+# quest.type = "bar" <= "type" is a reserved word. have to change this name
 quest.end_date = Time.now + 1.day
 quest.save!
 
@@ -40,7 +39,7 @@ beer.quest_id = quest.id
 beer.xp = 500
 
 checkpoint = Checkpoint.new
-checkpoint.instructions = "Recieve beer" # checkpoints need an instruction
+checkpoint.instructions = "Recieve beer"
 checkpoint.quest_id = quest.id
 checkpoint.location_id = bar.id
 checkpoint.step_num = 1
