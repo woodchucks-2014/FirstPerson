@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  root 'foursquare#map'
-
   get '/foursquare', to: "foursquare#index"
   get '/redirect', to: "foursquare#redirect"
   get '/map', to: "foursquare#map", as: "map"
