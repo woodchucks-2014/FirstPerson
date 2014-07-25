@@ -62,7 +62,7 @@ $(document).ready(function(){
         "lat": latlng.lat,
         "lng": latlng.long,
         "picture": {
-          "url": "http://i.imgur.com/2FqzEFz.png",
+          "url": "https://i.imgur.com/2FqzEFz.png",
           "width":  64,
           "height": 64
         },
