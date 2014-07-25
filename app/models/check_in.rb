@@ -7,7 +7,7 @@ class CheckIn < ActiveRecord::Base
   before_create :add_location
   after_create :check_in_xp
 
-  validates_with :distance_and_time
+  # validates_with :distance_and_time
 
   def add_location
     # code for creating a new location given coordinates from 4square goes here

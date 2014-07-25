@@ -15,7 +15,7 @@ business.save!
 
 bar = Location.new
 bar.name = "Awesome Bar"
-bar.type = "Bar"
+bar.venue_type = "Bar"
 bar.latitude = 40.7903
 bar.longitude = 73.9597
 bar.save!
