@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20140725012516) do
     t.integer  "creator_id"
     t.string   "type"
     t.integer  "user_limit", default: -1
-    t.datetime "start_date", default: '2014-07-25 16:10:12'
+    t.datetime "start_date", default: '2014-07-25 18:47:26'
     t.datetime "end_date"
     t.text     "title"
     t.datetime "created_at"
@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 20140725012516) do
   create_table "user_checkpoints", force: true do |t|
     t.integer  "checkpoint_id"
     t.integer  "user_id"
-    t.boolean  "completed?",    default: false
+    t.boolean  "completed",     default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 20140725012516) do
   create_table "user_quests", force: true do |t|
     t.integer  "quest_id"
     t.integer  "user_id"
-    t.boolean  "completed?", default: false
+    t.boolean  "completed",  default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -56,6 +56,7 @@ checkpoint.save!
 greg_gets_a_beer = UserQuest.new
 greg_gets_a_beer.quest_id = quest.id
 greg_gets_a_beer.user_id = player.id
+greg_gets_a_beer.complete!
 greg_gets_a_beer.save!
 
 # user_checkpoints should be automatically created using a before_create method on user_quests
