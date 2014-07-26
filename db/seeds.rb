@@ -9,8 +9,8 @@
 business = User.new
 business.firstname = "DBC"
 business.email = "dishes@dbc.com"
-business.password = "testtest"
-business.password_confirmation = "testtest"
+# business.password = "testtest"
+# business.password_confirmation = "testtest"
 business.save!
 
 bar = Location.new
@@ -30,8 +30,8 @@ checkin_loc.save!
 player = User.new
 player.firstname = "Greg"
 player.email = "greg@dbc.com"
-player.password = "testtest"
-player.password_confirmation = "testtest"
+# player.password = "testtest"
+# player.password_confirmation = "testtest"
 player.save!
 
 quest = Quest.new
