@@ -1,4 +1,5 @@
 -if current_user
+	%p session[:user]
   =render 'users/main'
 -else
   =render 'users/home'

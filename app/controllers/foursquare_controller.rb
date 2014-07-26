@@ -14,12 +14,12 @@ include UsersHelper
     @api = Fsqr.new(token.token)
     user = User.find_by(foursquare_id: @api.client.user("self")[:id].to_i)
     if user
-      session[:user] = user.id
+      session[:user_id] = user.id
     else
       @user = User.new
       user_creator
       @user.save
-      session[:user] = @user.id
+      session[:user_id] = @user.id
     end
     redirect_to root_path
   end
