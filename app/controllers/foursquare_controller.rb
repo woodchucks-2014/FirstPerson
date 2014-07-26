@@ -37,8 +37,13 @@ class FoursquareController < ActionController::Base
     render plain: "200 OK"
   end
 
-  def testpush
+  def push
   	render json: {lat: 53.385873, long: -1.471471}
+  end
+
+  def logout
+    session.clear
+    redirect_to root_path
   end
 
   private
@@ -53,14 +58,10 @@ class FoursquareController < ActionController::Base
   def location_params(params)
     location_info = params[:location]
     location_info.require("location").permit(:name, :venue_type, :latitude, :longitude, :address)
-
-  def logout
-    session.clear
-    redirect_to root_path
   end
 
-  def user_params
-    user_stuff.require("user").permit(:firstname, :lastname, :gender, :photo_url, :foursquare_id)
-  end
+  # def user_params
+  #   user_stuff.require("user").permit(:firstname, :lastname, :gender, :photo_url, :foursquare_id)
+  # end
 
 end
