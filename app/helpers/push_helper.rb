@@ -1,24 +1,26 @@
 module PushHelper
   require 'json'
 
-  def format(params)
-    params["checkin"] = JSON.parse(params["checkin"])
-    params["user"] = JSON.parse(params["user"])
-    params
+  def format(fields)
+    formatted_fields = {}
+    formatted_fields["checkin"] = JSON.parse(fields["checkin"])
+    formatted_fields["user"] = JSON.parse(fields["user"])
+    formatted_fields
   end
 
-	def parse_foursquare_json(params)
-    foursquare_params = {user: nil, location: nil}
+	def parse_foursquare_json(fields)
+    #user, checkins
+    foursquare_fields = {user: {}, location: {}}
 
-    foursquare_params[:user][:user_id] = User.find_by(foursquare_id: params["user"]["id"]).id
+    foursquare_fields[:user][:user_id] = User.find_by(foursquare_id: fields["user"]["id"]).id
 
-    foursquare_params[:location][:name] = params["venue"]["gender"]
-    foursquare_params[:location][:venue_type] = params["venue"]["categories"]["name"]
-    foursquare_params[:location][:latitude] = params["venue"]["location"]["lat"]
-    foursquare_params[:location][:longitude] = params["venue"]["location"]["lng"]
-    foursquare_params[:location][:address] = params["venue"]["location"]["formattedAddress"].join(" , ")
+    foursquare_fields[:location][:name] = fields["checkin"]["venue"]["name"]
+    foursquare_fields[:location][:venue_type] = fields["checkin"]["venue"]["categories"]["name"]
+    foursquare_fields[:location][:latitude] = fields["checkin"]["venue"]["location"]["lat"]
+    foursquare_fields[:location][:longitude] = fields["checkin"]["venue"]["location"]["lng"]
+    foursquare_fields[:location][:address] = fields["checkin"]["venue"]["location"]["formattedAddress"].join(" , ")
 
-    foursquare_params
+    foursquare_fields
   end
 
 end
