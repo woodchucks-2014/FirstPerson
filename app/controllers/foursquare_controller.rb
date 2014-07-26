@@ -29,10 +29,10 @@ class FoursquareController < ActionController::Base
   end
 
   def pull
-    params = parse_foursquare_json(format(params))
+    parsed_params = parse_foursquare_json(format(params))
 
-    loc = Location.create(location_params(params))
-    CheckIn.create(checkin_params(loc, params))
+    loc = Location.create(location_params(parsed_params))
+    CheckIn.create(checkin_params(loc, parsed_params))
 
     render plain: "200 OK"
   end
