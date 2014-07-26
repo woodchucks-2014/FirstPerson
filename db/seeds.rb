@@ -10,6 +10,7 @@ business = User.new
 business.firstname = "DBC"
 business.email = "dishes@dbc.com"
 business.foursquare_id = 1
+business.encrypted_password = "ykfc9VNYe8WEzBp"
 business.save!
 
 bar = Location.new
@@ -17,6 +18,7 @@ bar.name = "Awesome Bar"
 bar.venue_type = "Bar"
 bar.latitude = 40.7903
 bar.longitude = -73.9597
+bar.address = "48 Wall St, New York, NY 10005"
 bar.save!
 
 checkin_loc = Location.new
@@ -31,6 +33,7 @@ player.firstname = "Greg"
 player.email = "greg@dbc.com"
 player.gender = "male"
 player.foursquare_id = 2
+player.encrypted_password = "eZJapHbrTC9uvW3"
 player.save!
 
 quest = Quest.new
@@ -57,9 +60,9 @@ greg_gets_a_beer.quest_id = quest.id
 greg_gets_a_beer.user_id = player.id
 greg_gets_a_beer.complete!
 
-# greg_gets_a_reward = UserReward.new
-# greg_gets_a_reward.reward_id = beer.id
-# greg_gets_a_reward.user_id = player.id
+greg_gets_a_reward = UserReward.new
+greg_gets_a_reward.reward_id = beer.id
+greg_gets_a_reward.user_id = player.id
 
 greg_gets_a_beer.save!
 
