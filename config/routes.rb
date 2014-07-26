@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+
+  get '/quests', to: "quests#main"
+  post '/create', to: "quests#create"
   get '/checkins', to: "users#checkin_points"
   get '/foursquare', to: "foursquare#index", as: 'foursquare'
   get '/redirect', to: "foursquare#redirect"

@@ -2,6 +2,47 @@ $primary-color: #59CCF2;
 $font-color: white;
 $font-stack:  Helvetica, sans-serif;
 
+#map{
+  position: absolute;
+  top:15em;
+  left: 30%;
+  width: 40%;
+  height:35em;
+}
+
+.quest_title{
+
+  /*display: inline-block;*/
+  position: absolute;
+  left:45%;
+  top:0;
+
+}
+
+
+.list{
+  width:25%;
+  background: rgba(0,0,0, 0.8);
+  margin-top: 0;
+  position: absolute;
+  right:0;
+  height: 50em;
+  padding: 1em;
+  color: white;
+}
+
+
+.create{
+  background: rgba(0,0,0, 0.8);
+  width: 25%;
+  margin-top:0;
+  height: 50em;
+  display: inline-block;
+  padding: 1em;
+  color: white;
+}
+
+
 .container{
   height: 50em;
 }
@@ -75,12 +116,6 @@ $font-stack:  Helvetica, sans-serif;
 
 }
 
-#map{
-  margin-left: 25%;
-  margin-top: 5em;
-  width: 50%;
-  height:30em;
-}
 
 
 /*----------------------------LAYOUT----------------------------------*/

@@ -42,6 +42,20 @@ class FoursquareController < ActionController::Base
   	render json: {lat: 53.385873, long: -1.471471}
   end
 
+  private
+
+  def checkin_params(location, params)
+    checkin_info = {}
+    checkin_info[:user_id] = params[:user][:user_id]
+    checkin_info[:location_id] = location.id
+    checkin_info.require("CheckIn").permit(:user_id, :location_id)
+  end
+
+  def location_params(params)
+    location_info = params[:location]
+    location_info.require("location").permit(:name, :venue_type, :latitude, :longitude, :address)
+  end
+
   def logout
     session.clear
     redirect_to root_path
