@@ -1,0 +1,14 @@
+.list
+  %h2 Here are your quests!
+  - @quests.each do |quest|
+    = quest
+.create
+  %h2 Create a quest
+  = form_for @quest, url: {action: "create"} do |f|
+    = f.text_field :title
+    = f.text_area :description, size: "60x12"
+    = f.text_field :user_limit
+    = f.text_field :category
+    = f.submit "Create"
+#map
+
