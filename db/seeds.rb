@@ -9,8 +9,8 @@
 business = User.new
 business.firstname = "DBC"
 business.email = "dishes@dbc.com"
-business.password = "testtest"
-business.password_confirmation = "testtest"
+# business.password = "testtest"
+# business.password_confirmation = "testtest"
 business.save!
 
 bar = Location.new
@@ -30,8 +30,8 @@ checkin_loc.save!
 player = User.new
 player.firstname = "Greg"
 player.email = "greg@dbc.com"
-player.password = "testtest"
-player.password_confirmation = "testtest"
+# player.password = "testtest"
+# player.password_confirmation = "testtest"
 player.save!
 
 quest = Quest.new
@@ -58,23 +58,22 @@ greg_gets_a_beer.quest_id = quest.id
 greg_gets_a_beer.user_id = player.id
 greg_gets_a_beer.complete!
 
-# greg_gets_a_reward = UserReward.new
-# greg_gets_a_reward.reward_id = beer.id
-# greg_gets_a_reward.user_id = player.id
+greg_gets_a_reward = UserReward.new
+greg_gets_a_reward.reward_id = beer.id
+greg_gets_a_reward.user_id = player.id
+greg_gets_a_reward.save!
 
 greg_gets_a_beer.save!
 
 # user_checkpoints should be automatically created using a before_create method on user_quests
 
+gregs_checkpoint = UserCheckpoint.new
+gregs_checkpoint.user_id = 2
+gregs_checkpoint.checkpoint_id = 1
+gregs_checkpoint.complete!
+gregs_checkpoint.save!
+
 gregs_checkin = CheckIn.new
 gregs_checkin.location_id = checkin_loc.id
 gregs_checkin.user_id = player.id
 gregs_checkin.save!
-
-
-
-
-
-
-
-
