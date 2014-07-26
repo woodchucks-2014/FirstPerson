@@ -16,7 +16,7 @@ module PushHelper
     foursquare_params[:location][:venue_type] = params["venue"]["categories"]["name"]
     foursquare_params[:location][:latitude] = params["venue"]["location"]["lat"]
     foursquare_params[:location][:longitude] = params["venue"]["location"]["lng"]
-    foursquare_params[:location][:address] = params["venue"]["location"]["formattedAddress"]
+    foursquare_params[:location][:address] = params["venue"]["location"]["formattedAddress"].join(" , ")
 
     foursquare_params
   end
