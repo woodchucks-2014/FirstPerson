@@ -43,8 +43,12 @@ var mapStyle = [
 ]
 
 
-
+var points =[]
 $(document).ready(function(){
+
+  $.getJSON("/checkins", function(data){
+    points = data;
+  });
 
   handler = Gmaps.build('Google');
   handler.buildMap({
@@ -52,15 +56,10 @@ $(document).ready(function(){
     internal: {id: 'map'}}, function(){
     //handler.map.centerOn(markers[0]);
     handler.getMap().setZoom(5);
-  });
-
-  var points =[]
-  console.log(points);
-
-  $.getJSON("/checkins", function(data){
-    points = data;
     handler.addMarkers(points);
   });
+  
+  console.log(points);
 
   console.log("im here lol");
   console.log(points);
