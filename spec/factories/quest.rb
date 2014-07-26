@@ -3,11 +3,11 @@ require 'faker'
 
 FactoryGirl.define do
   factory :quest do
-    association :creator
-    category {Faker::Lorem.words(1)}
+    # association :creator
+    category {'Bar Crawl'}
     user_limit {rand (1..10)}
-    start_date {"#{Time.now}"}
-    end_date {"#{Time.now}"}
-    title {Faker::Lorem.words(2)}
+    start_date {'2014-08-06 18:50:04 -0400'}
+    end_date {'2014-08-06 21:50:04 -0400'}
+    title {"Vic's 26th Birthday"}
   end
 end

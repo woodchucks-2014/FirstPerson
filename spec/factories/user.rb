@@ -3,8 +3,8 @@ require 'faker'
 FactoryGirl.define do
   factory :user, aliases: [:creator] do
 
-    firstname {Faker::Name.first_name}
-    lastname {Faker::Name.last_name}
+    firstname {'Bob'}
+    lastname {'Jenkins'}
     gender {"male"}
     foursquare_id { rand(1..10) }
 
