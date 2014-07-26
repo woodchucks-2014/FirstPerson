@@ -32,7 +32,7 @@ class FoursquareController < ActionController::Base
     parsed_params = parse_foursquare_json(format(params))
 
     loc = location_creator(parsed_params)
-    checkin_params(loc, parsed_params)
+    checkin_creator(loc, parsed_params)
 
     render plain: "200 OK"
   end
