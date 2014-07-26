@@ -63,10 +63,9 @@ $(document).ready(function(){
   handler.buildMap({
     provider: { styles: mapStyle },
     internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers(points);
+    handler.bounds.extendWith(markers);
     handler.getMap().setZoom(5);
-    handler.addMarkers(points);
-    // handler.bounds.extendWith(markers);
-    // handler.fitMapToBounds();
   });
 
 });
