@@ -2,7 +2,7 @@
 require 'faker'
 
 FactoryGirl.define do
-  factory :quest do    
+  factory :quest do
     association :creator
     category {Faker::Lorem.words(1)}
     start_date {"#{Time.now}"}
