@@ -9,6 +9,7 @@ module PushHelper
   end
 
 	def parse_foursquare_json(fields)
+    #user, checkins
     foursquare_fields = {user: {}, location: {}}
 
     foursquare_fields[:user][:user_id] = User.find_by(foursquare_id: fields["user"]["id"]).id
