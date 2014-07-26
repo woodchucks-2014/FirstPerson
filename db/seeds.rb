@@ -84,8 +84,3 @@ gregs_checkpoint.completed = true
 gregs_checkpoint.save!
 
 
-
-
-
-=======
->>>>>>> b20cd468b26256f065dc7ffdcb3910104439dfb1

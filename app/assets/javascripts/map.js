@@ -50,10 +50,10 @@ $(document).ready(function(){
     })
 
   handler = Gmaps.build('Google');
-  handler.buildMap({ 
+  handler.buildMap({
     provider: {
               styles: mapStyle
-              }, 
+              },
 
     internal: {id: 'map'}}, function(){
 
