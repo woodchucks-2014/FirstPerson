@@ -2,6 +2,7 @@ module PushHelper
   require 'json'
 
   def format(fields)
+    formatted_fields = {}
     formatted_fields["checkin"] = JSON.parse(fields["checkin"])
     formatted_fields["user"] = JSON.parse(fields["user"])
     formatted_fields
