@@ -54,8 +54,9 @@ $(document).ready(function(){
     handler.getMap().setZoom(5);
   });
 
-  var points =''
-  $.getJSON('/checkins', function(data){
+  var points =[]
+  console.log(points);
+  $.getJSON("/checkins", function(data){
     points = data;
   })
 
