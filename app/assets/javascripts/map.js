@@ -42,9 +42,10 @@ var mapStyle = [
   }
 ]
 
+var points ='';
+
 $(document).ready(function(){
 
-  var points =''
     $.getJSON('/checkins', function(data){
       points = data;
     })
@@ -58,9 +59,9 @@ $(document).ready(function(){
 
     internal: {id: 'map'}}, function(){
 
-    markers = handler.addMarkers([
+    markers = handler.addMarkers(
         points
-    ]);
+    );
     //handler.map.centerOn(markers[0]);
     handler.getMap().setZoom(5);
   });
