@@ -56,12 +56,14 @@ $(document).ready(function(){
 
   var points =[]
   console.log(points);
+
   $.getJSON("/checkins", function(data){
     points = data;
-  })
+    handler.addMarkers(points);
+  });
 
   console.log("im here lol");
   console.log(points);
 
-  handler.addMarkers(points);
+  
 })
