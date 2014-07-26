@@ -42,14 +42,11 @@ var mapStyle = [
   }
 ]
 
-var get_points = function(handler) {
-  $.getJSON("/checkins", function(data){
-    console.log(data)
-    for(var i=0; i<data.length; i++){
-      handler.addMarkers(data);
-    }
-  });
-}
+// var get_points = function(handler) {
+//   $.getJSON("/checkins", function(data){
+//     markers = handler.addMarkers(data);
+//   });
+// }
 
 $(document).ready(function(){
 
@@ -57,11 +54,10 @@ $(document).ready(function(){
   handler.buildMap({
     provider: { styles: mapStyle },
     internal: {id: 'map'}}, function(){
-    //handler.map.centerOn(markers[0]);
-    handler.getMap().setZoom(5);
+    var markers = handler.addMarkers(data);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
   });
-
-  get_points(handler)
 
 });
 
