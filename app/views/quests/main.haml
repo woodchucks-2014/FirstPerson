@@ -5,7 +5,7 @@
 .list
   %h2 Here are your quests!
   - @quests.each do |quest|
-    = quest
+    = quest.title
 .create
   %h2 Create a quest
   = form_for @quest, url: create_path do |f|
@@ -14,7 +14,6 @@
     = f.number_field :user_limit, :placeholder => "Acceptance limit"
     = f.text_field :category, :placeholder => "Category"
     = f.datetime_field :end_date, :placeholder => "End Date"
-    = f.number_field :creator_id, :placeholder => "Creator ID"
     = f.submit "Create"
 #map
 

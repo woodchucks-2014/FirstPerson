@@ -20,7 +20,8 @@ class QuestsController < ApplicationController
   private
 
   def quest_params
-    params.require(:quest).permit(:title, :description, :user_limit, :category, :end_date)
+    params[:quest][:creator_id] = 1#current_user2.id
+    params.require(:quest).permit(:creator_id, :title, :description, :user_limit, :category, :end_date)
   end
 
 end
