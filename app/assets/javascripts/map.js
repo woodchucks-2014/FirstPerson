@@ -65,16 +65,14 @@ $(document).ready(function(){
         //   "url": "https://i.imgur.com/2FqzEFz.png",
         //   "width":  64,
         //   "height": 64
-        },
-          {
+        },{
         "lat": 0,
         "lng": 0,
         // "picture": {
         //   "url": "https://i.imgur.com/2FqzEFz.png",
         //   "width":  64,
         //   "height": 64
-        }
-      }
+        },
     ]);
       handler.map.centerOn(markers[0]);
     handler.getMap().setZoom(3);
