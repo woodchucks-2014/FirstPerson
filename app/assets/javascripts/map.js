@@ -42,33 +42,33 @@ var mapStyle = [
   }
 ]
 
-$(document).ready(function(){
+// var get_points = function(handler) {
+//   $.getJSON("/checkins", function(data){
+//     markers = handler.addMarkers(data);
+//   });
+// }
 
-  var latlng =''
-    $.getJSON('/testpush', function(data){
-      latlng = data;
-    })
+var points = {};
+$(document).ready(function(){
+  $.ajaxSetup({
+    async: false
+  });
+
+
+  $.getJSON("/checkins", function(data){
+    points = data;
+  });
 
   handler = Gmaps.build('Google');
   handler.buildMap({
-    provider: {
-              styles: mapStyle
-              },
-
+    provider: { styles: mapStyle },
     internal: {id: 'map'}}, function(){
-
-    markers = handler.addMarkers([
-      {
-        "lat": latlng.lat,
-        "lng": latlng.long,
-        "picture": {
-          "url": "https://i.imgur.com/2FqzEFz.png",
-          "width":  64,
-          "height": 64
-        },
-      }
-    ]);
-      handler.map.centerOn(markers[0]);
-    handler.getMap().setZoom(3);
+    markers = handler.addMarkers(points);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    handler.getMap().setZoom(5);
   });
-})
+
+});
+
+
