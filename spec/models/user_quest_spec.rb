@@ -6,7 +6,7 @@ RSpec.describe UserQuest, :type => :model do
   it {should belong_to(:quest)}
   it {should belong_to(:user)}
 
-  it "should be completable via the #complete! method" do
+  it "should attribute XP to user when a quest is completed via the #complete! method" do
     business = User.new
     business.firstname = "DBC"
     business.email = "dishes@dbc.com"
@@ -72,12 +72,11 @@ RSpec.describe UserQuest, :type => :model do
     gregs_checkpoint.checkpoint_id = checkpoint.id
     gregs_checkpoint.completed = true
     gregs_checkpoint.save!
-
-    # greg_gets_a_beer.save!
   end
 
-  pending "the complete method should update a user's total xp."
+  # pending "the complete method should update a user's total xp."
 
-  pending "validates presence of certain attributes."
+
+  # pending "validates presence of certain attributes."
 
 end
