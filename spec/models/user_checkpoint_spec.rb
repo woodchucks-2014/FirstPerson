@@ -6,6 +6,6 @@ RSpec.describe UserCheckpoint, :type => :model do
 
   it "marks a user_checkpoint as completed" do
     user_point = FactoryGirl.build(:user_checkpoint)
-    expect(user_point.completed).to eq true
+    expect(user_point.completed).to eq(true)
   end
 end
