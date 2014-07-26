@@ -24,3 +24,4 @@ class UserQuest < ActiveRecord::Base
     self.quest.checkpoints
   end
 end
+

@@ -1,8 +1,8 @@
 require 'faker'
 
 FactoryGirl.define do
-  factory :user_quest do
-    association :quest
+  factory :user_checkpoint do
+    association :checkpoint
     association :user
     completed {true}
   end

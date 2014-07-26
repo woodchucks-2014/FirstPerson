@@ -42,26 +42,32 @@ var mapStyle = [
   }
 ]
 
-var get_points = function(handler) {
-  $.getJSON("/checkins", function(data){
-    console.log(data)
-    for(var i=0; i<=data.length; i++){
-      handler.addMarkers(data[i]);
-    }
-  });
-}
+// var get_points = function(handler) {
+//   $.getJSON("/checkins", function(data){
+//     markers = handler.addMarkers(data);
+//   });
+// }
 
+var points = {};
 $(document).ready(function(){
+  $.ajaxSetup({
+    async: false
+  });
+
+
+  $.getJSON("/checkins", function(data){
+    points = data;
+  });
 
   handler = Gmaps.build('Google');
   handler.buildMap({
     provider: { styles: mapStyle },
     internal: {id: 'map'}}, function(){
-    //handler.map.centerOn(markers[0]);
+    markers = handler.addMarkers(points);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
     handler.getMap().setZoom(5);
   });
-
-  get_points(handler)
 
 });
 
