@@ -45,7 +45,9 @@ var mapStyle = [
 var get_points = function(handler) {
   $.getJSON("/checkins", function(data){
     console.log(data)
-    handler.addMarkers(data);
+    for(var i=0; i<=data.length; i++){
+      handler.addMarkers(data[i]);
+    }
   });
 }
 
