@@ -8,7 +8,7 @@ class Fsqr
   def rand_loc
   	string = []
 	  2.times do
-	  	string << (rand * 179 + 1).to_s
+	  	string << ((rand(1) * 179) + 1).to_s
 	  end
 	 string.join(',')
   end
