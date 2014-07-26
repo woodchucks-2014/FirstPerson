@@ -71,11 +71,11 @@ gregs_checkin.location_id = checkin_loc.id
 gregs_checkin.user_id = player.id
 gregs_checkin.save!
 
-user_checkpoint = UserCheckpoint.new
-user_checkpoint.user_id = player.id
-user_checkpoint.checkpoint_id = checkpoint.id
-user_checkpoint.completed = true
-user_checkpoint.save!
+gregs_checkpoint = UserCheckpoint.new
+gregs_checkpoint.user_id = player.id
+gregs_checkpoint.checkpoint_id = checkpoint.id
+gregs_checkpoint.completed = true
+gregs_checkpoint.save!
 
 
 
