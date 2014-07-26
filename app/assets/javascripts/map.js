@@ -48,7 +48,7 @@ var mapStyle = [
 //   });
 // }
 
-var points = [];
+var points = {};
 $(document).ready(function(){
   $.ajaxSetup({
     async: false
@@ -65,6 +65,7 @@ $(document).ready(function(){
     internal: {id: 'map'}}, function(){
     markers = handler.addMarkers(points);
     handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
     handler.getMap().setZoom(5);
   });
 
