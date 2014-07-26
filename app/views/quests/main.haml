@@ -1,14 +1,20 @@
+.quest_title
+  %h1 Quest Page!
+  =flash[:notice]
+
 .list
   %h2 Here are your quests!
   - @quests.each do |quest|
     = quest
 .create
   %h2 Create a quest
-  = form_for @quest, url: {action: "create"} do |f|
-    = f.text_field :title
-    = f.text_area :description, size: "60x12"
-    = f.text_field :user_limit
-    = f.text_field :category
+  = form_for @quest, url: create_path do |f|
+    = f.text_field :title, :placeholder => "Title"
+    = f.text_area :description, size: "60x12", :placeholder => "Description"
+    = f.number_field :user_limit, :placeholder => "Acceptance limit"
+    = f.text_field :category, :placeholder => "Category"
+    = f.datetime_field :end_date, :placeholder => "End Date"
+    = f.number_field :creator_id, :placeholder => "Creator ID"
     = f.submit "Create"
 #map
 
