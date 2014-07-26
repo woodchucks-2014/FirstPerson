@@ -1,6 +1,7 @@
--if current_user
-	%p session[:user]
+-if current_user2
+	%p session[:user_id]
 	=render 'users/main'
 -else
+	%p session[:user_id]
 	=render 'users/home'
 
