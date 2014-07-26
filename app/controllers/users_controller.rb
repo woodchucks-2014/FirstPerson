@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def checkin_points
     points = []
     user = User.where(id: session[:user_id]).first || User.new

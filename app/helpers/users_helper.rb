@@ -6,6 +6,7 @@ module UsersHelper
     @user.firstname = @api.client.user("self")[:firstName]
     @user.lastname = @api.client.user("self")[:lastName]
     @user.gender =@api.client.user("self")[:gender]
+    @user.email 
   end
 
   def current_user2
