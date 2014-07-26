@@ -45,7 +45,7 @@ var mapStyle = [
 $(document).ready(function(){
 
   var points =''
-    $.getJSON('/push', function(data){
+    $.getJSON('/checkins', function(data){
       points = data;
     })
 
@@ -59,20 +59,8 @@ $(document).ready(function(){
 
     markers = handler.addMarkers([
       {
-        "lat": points.lat,
-        "lng": points.long,
-        // "picture": {
-        //   "url": "https://i.imgur.com/2FqzEFz.png",
-        //   "width":  64,
-        //   "height": 64
-        },{
-        "lat": 0,
-        "lng": 0,
-        // "picture": {
-        //   "url": "https://i.imgur.com/2FqzEFz.png",
-        //   "width":  64,
-        //   "height": 64
-        },
+        points
+      },
     ]);
       handler.map.centerOn(markers[0]);
     handler.getMap().setZoom(3);
