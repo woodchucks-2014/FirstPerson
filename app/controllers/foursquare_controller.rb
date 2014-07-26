@@ -31,8 +31,8 @@ class FoursquareController < ActionController::Base
   def pull
     parsed_params = parse_foursquare_json(format(params))
 
-    loc = Location.create(location_params(parsed_params))
-    CheckIn.create(checkin_params(loc, parsed_params))
+    loc = location_creator(parsed_params)
+    checkin_params(loc, parsed_params)
 
     render plain: "200 OK"
   end
@@ -49,15 +49,19 @@ class FoursquareController < ActionController::Base
   private
 
   def checkin_params(location, params)
-    checkin_info = {}
-    checkin_info[:user_id] = params[:user][:user_id]
-    checkin_info[:location_id] = location.id
-    checkin_info.require("CheckIn").permit(:user_id, :location_id)
+    checkin = CheckIn.new
+    checkin.user_id = params[:user][:user_id]
+    checkin.location_id = location.id
   end
 
   def location_params(params)
-    location_info = params[:location]
-    location_info.require("Location").permit(:name, :venue_type, :latitude, :longitude, :address)
+    location = Location.new
+    location.name = params[:location][:name]
+    location.venue_type = params[:location][:venue_type]
+    location.latitude = params[:location][:latitude]
+    location.longitude = params[:location][:longitude]
+    location.address= params[:location][:address]
+    location
   end
 
   # def user_params
