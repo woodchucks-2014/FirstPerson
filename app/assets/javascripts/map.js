@@ -62,7 +62,7 @@ var points = [];
   handler.buildMap({
     provider: { styles: mapStyle },
     internal: {id: 'map'}}, function(){
-    var markers = handler.addMarkers(points);
+    var markers = handler.addMarkers([points]);
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
   });
