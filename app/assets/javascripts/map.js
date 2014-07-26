@@ -43,8 +43,10 @@ var mapStyle = [
 ]
 
 
-var points =[]
+
 $(document).ready(function(){
+
+var points =[]
 
   $.getJSON("/checkins", function(data){
     points = data;
