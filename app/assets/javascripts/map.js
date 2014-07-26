@@ -49,12 +49,16 @@ var mapStyle = [
 // }
 
 $(document).ready(function(){
+var points = [];
+  $.getJSON("/checkins", function(data){
+    points = data;
+  });
 
   handler = Gmaps.build('Google');
   handler.buildMap({
     provider: { styles: mapStyle },
     internal: {id: 'map'}}, function(){
-    var markers = handler.addMarkers(data);
+    var markers = handler.addMarkers(points);
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
   });
