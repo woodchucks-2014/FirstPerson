@@ -57,7 +57,7 @@ class FoursquareController < ActionController::Base
 
   def location_params(params)
     location_info = params[:location]
-    location_info.require("location").permit(:name, :venue_type, :latitude, :longitude, :address)
+    location_info.require("Location").permit(:name, :venue_type, :latitude, :longitude, :address)
   end
 
   # def user_params
