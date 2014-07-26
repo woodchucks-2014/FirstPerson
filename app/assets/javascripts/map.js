@@ -56,9 +56,10 @@ $(document).ready(function(){
     internal: {id: 'map'}}, function(){
     //handler.map.centerOn(markers[0]);
     handler.getMap().setZoom(5);
-    handler.addMarkers(points);
   });
-  
+
+
+  handler.addMarkers(points);
   console.log(points);
 
   console.log("im here lol");
