@@ -1,8 +1,3 @@
-%p=@api.client.user("self")[:firstName]
-%p=@api.client.user("self")[:lastName]
-%p=@api.client.user("self")[:gender]
-%p=@api.client.user("self")[:id]
-%hr
-%p=@api.client.user("self")[:photo][:prefix]
-%p=@api.client.user("self")[:photo][:suffix]
+%p=@api.client.user("self")
+%p=@api.client.user("self")[:contact][:email]
 
