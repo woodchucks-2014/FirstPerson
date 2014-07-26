@@ -13,7 +13,7 @@ class Fsqr
   end
 
   def checkin
-  	self.client.add_checkin(ll: self.rand_loc, broadcast: "public", venue: "lol")
+  	self.client.add_checkin(ll: self.rand_loc, broadcast: "public")
   end
 
 end
