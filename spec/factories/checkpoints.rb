@@ -5,8 +5,7 @@ FactoryGirl.define do
     association :location
     association :quest
     location {Faker::Address.city}
-    step_num {"1"}
-    email {Faker::Name.email}
-    encrypted_password {Faker::Internet.password(10)}
+    step_num { rand(1..10) }
+    instructions {Faker::Lorem.paragraph}
   end
 end

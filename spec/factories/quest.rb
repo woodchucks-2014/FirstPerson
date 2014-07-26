@@ -3,7 +3,7 @@ require 'faker'
 
 FactoryGirl.define do
   factory :quest do    
-    user_id {"2"}
+    association :creator
     category {Faker::Lorem.words(1)}
     start_date {"#{Time.now}"}
     end_date {"#{Time.now}"}
