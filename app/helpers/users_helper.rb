@@ -8,7 +8,7 @@ module UsersHelper
     @user.gender =@api.client.user("self")[:gender]
   end
 
-  def current_user2
+  def current_user22
   	@user = User.where(id: session[:user_id]).first || User.new
   end
 
