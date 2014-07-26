@@ -48,13 +48,13 @@ class FoursquareController < ActionController::Base
 
   private
 
-  def checkin_params(location, params)
+  def checkin_creator(location, params)
     checkin = CheckIn.new
     checkin.user_id = params[:user][:user_id]
     checkin.location_id = location.id
   end
 
-  def location_params(params)
+  def location_creator(params)
     location = Location.new
     location.name = params[:location][:name]
     location.venue_type = params[:location][:venue_type]
