@@ -32,8 +32,9 @@ class FoursquareController < ActionController::Base
     parsed_params = parse_foursquare_json(format(params))
 
     loc = location_creator(parsed_params)
-    checkin_creator(loc, parsed_params)
-
+    loc.save
+    checkin = checkin_creator(loc, parsed_params)
+    checkin.save
     render plain: "200 OK"
   end
 
@@ -52,7 +53,7 @@ class FoursquareController < ActionController::Base
     checkin = CheckIn.new
     checkin.user_id = params[:user][:user_id]
     checkin.location_id = location.id
-    checkin.save
+    checkin
   end
 
   def location_creator(params)
@@ -62,7 +63,7 @@ class FoursquareController < ActionController::Base
     location.latitude = params[:location][:latitude]
     location.longitude = params[:location][:longitude]
     location.address= params[:location][:address]
-    location.save
+    location
   end
 
 end
