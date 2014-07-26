@@ -7,7 +7,6 @@ class CreateQuests < ActiveRecord::Migration
       t.datetime :start_date
       t.datetime :end_date
       t.text :title
-      :set_defaults
 
       t.timestamps
     end
