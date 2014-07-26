@@ -10,7 +10,7 @@
 </head>
 <body>
 
-  <% if current_user %>
+  <% if logged_in? %>
 
     <nav>
       <%= link_to 'Sign Out', logout_path %>
