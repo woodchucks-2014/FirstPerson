@@ -17,6 +17,7 @@ bar.name = "Awesome Bar"
 bar.venue_type = "Bar"
 bar.latitude = 40.7903
 bar.longitude = -73.9597
+bar.address = "48 Wall St, New York, NY 10005"
 bar.save!
 
 checkin_loc = Location.new
@@ -61,7 +62,6 @@ greg_gets_a_reward = UserReward.new
 greg_gets_a_reward.reward_id = beer.id
 greg_gets_a_reward.user_id = player.id
 greg_gets_a_reward.save!
-
 greg_gets_a_beer.save!
 
 # user_checkpoints should be automatically created using a before_create method on user_quests
@@ -76,3 +76,11 @@ gregs_checkin = CheckIn.new
 gregs_checkin.location_id = checkin_loc.id
 gregs_checkin.user_id = player.id
 gregs_checkin.save!
+
+gregs_checkpoint = UserCheckpoint.new
+gregs_checkpoint.user_id = player.id
+gregs_checkpoint.checkpoint_id = checkpoint.id
+gregs_checkpoint.completed = true
+gregs_checkpoint.save!
+
+
