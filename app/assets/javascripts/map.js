@@ -58,9 +58,7 @@ $(document).ready(function(){
     internal: {id: 'map'}}, function(){
 
     markers = handler.addMarkers([
-      {
         points
-      },
     ]);
       handler.map.centerOn(markers[0]);
     handler.getMap().setZoom(3);
