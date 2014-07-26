@@ -77,14 +77,3 @@ gregs_checkin = CheckIn.new
 gregs_checkin.location_id = checkin_loc.id
 gregs_checkin.user_id = player.id
 gregs_checkin.save!
-
-
-
-
-
-
-
-
-
-
-
