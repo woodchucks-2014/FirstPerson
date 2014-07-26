@@ -46,6 +46,7 @@ gem 'dotenv'
 gem 'foursquare2'
 gem 'gmaps4rails'
 gem 'underscore-rails'
+gem 'rails_12factor', group: :production
 gem 'haversine'
 gem 'chronic'
 
