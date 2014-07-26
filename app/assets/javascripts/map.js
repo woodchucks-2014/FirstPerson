@@ -59,5 +59,8 @@ $(document).ready(function(){
     points = data;
   })
 
+  console.log("im here lol");
+  console.log(points);
+
   handler.addMarkers(points);
 })
