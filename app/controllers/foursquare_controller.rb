@@ -52,6 +52,7 @@ class FoursquareController < ActionController::Base
     checkin = CheckIn.new
     checkin.user_id = params[:user][:user_id]
     checkin.location_id = location.id
+    checkin.save
   end
 
   def location_creator(params)
@@ -61,7 +62,7 @@ class FoursquareController < ActionController::Base
     location.latitude = params[:location][:latitude]
     location.longitude = params[:location][:longitude]
     location.address= params[:location][:address]
-    location
+    location.save
   end
 
 end
