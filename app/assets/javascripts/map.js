@@ -49,6 +49,7 @@ $(document).ready(function(){
       points = data;
     })
 
+  console.log(points);
   handler = Gmaps.build('Google');
   handler.buildMap({
     provider: {
