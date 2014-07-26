@@ -42,10 +42,22 @@ var mapStyle = [
   }
 ]
 
-var points ='';
+
 
 $(document).ready(function(){
 
-
+  handler = Gmaps.build('Google');
+  handler.buildMap({
+    provider: { styles: mapStyle },
+    internal: {id: 'map'}}, function(){
+    //handler.map.centerOn(markers[0]);
+    handler.getMap().setZoom(5);
   });
+
+  var points =''
+  $.getJSON('/checkins', function(data){
+    points = data;
+  })
+
+  handler.addMarkers(points);
 })
