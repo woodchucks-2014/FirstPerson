@@ -14,7 +14,7 @@ module PushHelper
 
     foursquare_fields[:user][:user_id] = User.find_by(foursquare_id: fields["user"]["id"].to_i).id
     foursquare_fields[:location][:name] = fields["checkin"]["venue"]["name"]
-    foursquare_fields[:location][:venue_type] = fields["checkin"]["venue"]["categories"]["name"]
+    foursquare_fields[:location][:venue_type] = fields["checkin"]["venue"]["categories"].first["name"]
     foursquare_fields[:location][:latitude] = fields["checkin"]["venue"]["location"]["lat"].to_f
     foursquare_fields[:location][:longitude] = fields["checkin"]["venue"]["location"]["lng"].to_f
     foursquare_fields[:location][:address] = fields["checkin"]["venue"]["location"]["formattedAddress"].join(" , ")
