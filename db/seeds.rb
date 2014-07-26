@@ -10,7 +10,6 @@ business = User.new
 business.firstname = "DBC"
 business.email = "dishes@dbc.com"
 business.foursquare_id = 1
-business.encrypted_password = "ykfc9VNYe8WEzBp"
 business.save!
 
 bar = Location.new
@@ -33,7 +32,6 @@ player.firstname = "Greg"
 player.email = "greg@dbc.com"
 player.gender = "male"
 player.foursquare_id = 2
-player.encrypted_password = "eZJapHbrTC9uvW3"
 player.save!
 
 quest = Quest.new
@@ -73,8 +71,11 @@ gregs_checkin.location_id = checkin_loc.id
 gregs_checkin.user_id = player.id
 gregs_checkin.save!
 
-
-
+user_checkpoint = UserCheckpoint.new
+user_checkpoint.user_id = player.id
+user_checkpoint.checkpoint_id = checkpoint.id
+user_checkpoint.completed = true
+user_checkpoint.save!
 
 
 

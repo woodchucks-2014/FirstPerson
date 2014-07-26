@@ -14,7 +14,7 @@ class UserQuest < ActiveRecord::Base
 
   def checkpoints
     #return user_checkpoints that belong to this quest
-    # self.quest.checkpoints
+    # self.quest.include(:checkpoints).checkpoints.where(user_id: self.user.id)
   end
 
   def create_related_checkpoints
