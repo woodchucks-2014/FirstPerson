@@ -5,6 +5,6 @@ class UsersController < ApplicationController
     user.check_ins.each_with_index do |checkin, i|
       points.push({lat: checkin.location.latitude, lgn:checkin.location.longitude})
     end
-    return points.to_json
+    render json: points
   end
 end

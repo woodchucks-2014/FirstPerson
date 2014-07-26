@@ -44,9 +44,9 @@ var mapStyle = [
 
 $(document).ready(function(){
 
-  var latlng =''
-    $.getJSON('/testpush', function(data){
-      latlng = data;
+  var points =''
+    $.getJSON('/push', function(data){
+      points = data;
     })
 
   handler = Gmaps.build('Google');
@@ -59,13 +59,21 @@ $(document).ready(function(){
 
     markers = handler.addMarkers([
       {
-        "lat": latlng.lat,
-        "lng": latlng.long,
-        "picture": {
-          "url": "https://i.imgur.com/2FqzEFz.png",
-          "width":  64,
-          "height": 64
+        "lat": points.lat,
+        "lng": points.long,
+        // "picture": {
+        //   "url": "https://i.imgur.com/2FqzEFz.png",
+        //   "width":  64,
+        //   "height": 64
         },
+          {
+        "lat": 0,
+        "lng": 0,
+        // "picture": {
+        //   "url": "https://i.imgur.com/2FqzEFz.png",
+        //   "width":  64,
+        //   "height": 64
+        }
       }
     ]);
       handler.map.centerOn(markers[0]);

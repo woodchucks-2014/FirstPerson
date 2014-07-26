@@ -37,7 +37,7 @@ class FoursquareController < ActionController::Base
     render plain: "200 OK"
   end
 
-  def testpush
+  def push
   	render json: {lat: 53.385873, long: -1.471471}
   end
 
