@@ -46,23 +46,6 @@ var points ='';
 
 $(document).ready(function(){
 
-    $.getJSON('/checkins', function(data){
-      points = data;
-    })
 
-  console.log(points);
-  handler = Gmaps.build('Google');
-  handler.buildMap({
-    provider: {
-              styles: mapStyle
-              },
-
-    internal: {id: 'map'}}, function(){
-
-    markers = handler.addMarkers(
-        points
-    );
-    //handler.map.centerOn(markers[0]);
-    handler.getMap().setZoom(5);
   });
 })
