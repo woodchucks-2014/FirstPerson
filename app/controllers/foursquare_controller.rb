@@ -64,8 +64,4 @@ class FoursquareController < ActionController::Base
     location
   end
 
-  # def user_params
-  #   user_stuff.require("user").permit(:firstname, :lastname, :gender, :photo_url, :foursquare_id)
-  # end
-
 end
