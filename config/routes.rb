@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   root 'users#index'
 
+  get '/admin-checkin', to: "users#admin_checkin"
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
