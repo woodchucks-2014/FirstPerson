@@ -37,6 +37,11 @@ ActiveRecord::Schema.define(version: 20140725012516) do
     t.integer  "longitude"
     t.string   "name"
     t.string   "venue_type"
+    t.string   "street"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.string   "zipcode"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -83,7 +88,11 @@ ActiveRecord::Schema.define(version: 20140725012516) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "name"
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "gender"
+    t.integer  "foursquare_id"
+    t.string   "photo_url"
     t.integer  "total_xp",               default: 0
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false

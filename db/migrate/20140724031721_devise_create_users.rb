@@ -1,8 +1,16 @@
 class DeviseCreateUsers < ActiveRecord::Migration
   def change
     create_table(:users) do |t|
-      t.string :name
+      t.string :firstname
+      t.string :lastname
+      t.string :gender
+      t.integer :foursquare_id
+      t.string :photo_url
       t.integer :total_xp, :default => 0
+      ##TODO: add home location for user to set
+
+
+
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
