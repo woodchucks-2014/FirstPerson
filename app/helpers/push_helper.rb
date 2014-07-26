@@ -2,9 +2,9 @@ module PushHelper
   require 'json'
 
   def format(fields)
-    fields["checkin"] = JSON.parse(fields["checkin"])
-    fields["user"] = JSON.parse(fields["user"])
-    fields
+    formatted_fields["checkin"] = JSON.parse(fields["checkin"])
+    formatted_fields["user"] = JSON.parse(fields["user"])
+    formatted_fields
   end
 
 	def parse_foursquare_json(fields)
