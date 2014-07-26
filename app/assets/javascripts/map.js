@@ -60,7 +60,7 @@ $(document).ready(function(){
     markers = handler.addMarkers([
         points
     ]);
-      handler.map.centerOn(markers[0]);
-    handler.getMap().setZoom(3);
+    //handler.map.centerOn(markers[0]);
+    handler.getMap().setZoom(5);
   });
 })
