@@ -61,10 +61,16 @@ greg_gets_a_beer.complete!
 greg_gets_a_reward = UserReward.new
 greg_gets_a_reward.reward_id = beer.id
 greg_gets_a_reward.user_id = player.id
-
+greg_gets_a_reward.save!
 greg_gets_a_beer.save!
 
 # user_checkpoints should be automatically created using a before_create method on user_quests
+
+gregs_checkpoint = UserCheckpoint.new
+gregs_checkpoint.user_id = 2
+gregs_checkpoint.checkpoint_id = 1
+gregs_checkpoint.complete!
+gregs_checkpoint.save!
 
 gregs_checkin = CheckIn.new
 gregs_checkin.location_id = checkin_loc.id
@@ -81,3 +87,5 @@ gregs_checkpoint.save!
 
 
 
+=======
+>>>>>>> b20cd468b26256f065dc7ffdcb3910104439dfb1
