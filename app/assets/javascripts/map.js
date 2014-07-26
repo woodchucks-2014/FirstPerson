@@ -49,6 +49,10 @@ var mapStyle = [
 // }
 
 $(document).ready(function(){
+  $.ajaxSetup({
+    async: false
+  });
+
 var points = [];
   $.getJSON("/checkins", function(data){
     points = data;
