@@ -48,15 +48,15 @@ class FoursquareController < ActionController::Base
     @venues = {}
     returned_venues.each do |venue|
       @venues[venue["name"]] = {
-                              name: venue["name"]
-                              venue_type: venue["categories"]["name"]
-                              latitude: venue["location"]["lat"]
-                              longitude:venue["location"]["lng"]
-                              foursquare_id: venue["id"]
-                              street: venue["location"]["address"]
-                              city: venue["location"]["city"]
-                              state: venue["location"]["state"]
-                              zip: venue["location"]["postalCode"]
+                              name: venue["name"],
+                              venue_type: venue["categories"]["name"],
+                              latitude: venue["location"]["lat"],
+                              longitude:venue["location"]["lng"],
+                              foursquare_id: venue["id"],
+                              street: venue["location"]["address"],
+                              city: venue["location"]["city"],
+                              state: venue["location"]["state"],
+                              zip: venue["location"]["postalCode"],
                               country: venue["location"]["country"]
                             }
                           end
