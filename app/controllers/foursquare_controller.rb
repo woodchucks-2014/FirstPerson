@@ -42,8 +42,10 @@ class FoursquareController < ActionController::Base
 
   def search_venues
     query = params[:query]
+    ll = params[:ll]
     api = Fsqr.new(session[:token])
     @venues = api.client.suggest_completion_venues(query: query, ll: "40.7060974, -74.0092696")
+    render json: @venues
   end
 
   private
