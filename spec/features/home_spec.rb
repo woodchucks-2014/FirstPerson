@@ -15,25 +15,23 @@ RSpec.describe "home" do
       visit '/'
       expect(page).to have_selector("a", text: "Sign In")
     end
-  end
 
-  context 'buttons' do
     it "has signup button" do
       visit '/'
       expect(page).to have_selector("a", text: "Sign Up")
     end
+
+
+
+  
+    # it "button redirects user" do
+    #   visit '/'
+    #   click_link('Sign In')
+    #   expect(current_path).to 
+
+    # end  
+
   end
 
-
-
-  # describe "Clicking on 'sign in' button redirects user" do
-  #   it "button directs to the correct page" do
-  #     visit '/'
-  #     click_link('Sign In')
-  #     expect(current_path).to not_eq '/'
-
-  #   end  
-
-  # end
 end
 
