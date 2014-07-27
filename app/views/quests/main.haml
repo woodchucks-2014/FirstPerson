@@ -1,0 +1,24 @@
+.quest_title
+  %h1 Quest Page!
+  =flash[:notice]
+
+.list
+  %h2 Here are your quests!
+  - @quests.each do |quest|
+    = quest.title
+    = form_for @user_quest, url: accept_path do |f|
+      = f.hidden_field :quest_id, :value => quest.id
+      = f.submit "Accept"
+    %br
+    %br
+.create
+  %h2 Create a quest
+  = form_for @quest, url: create_path do |f|
+    = f.text_field :title, :placeholder => "Title"
+    = f.text_area :description, size: "60x12", :placeholder => "Description"
+    = f.number_field :user_limit, :placeholder => "Acceptance limit"
+    = f.text_field :category, :placeholder => "Category"
+    = f.datetime_field :end_date, :placeholder => "End Date"
+    = f.submit "Create"
+#map
+

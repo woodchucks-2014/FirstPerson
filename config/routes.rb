@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+
+  get '/quests', to: "quests#main"
+  post '/create', to: "quests#create"
+  post '/accept', to: "quests#accept"
   get '/checkins', to: "users#checkin_points"
   get '/foursquare', to: "foursquare#index", as: 'foursquare'
   get '/redirect', to: "foursquare#redirect"
@@ -15,6 +19,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
 
   root 'users#index'
+
+  get '/admin-checkin', to: "users#admin_checkin"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

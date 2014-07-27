@@ -15,11 +15,13 @@ class FoursquareController < ActionController::Base
     user = User.find_by(foursquare_id: @api.client.user("self")[:id].to_i)
     if user
       session[:user_id] = user.id
+      session[:token] = token.token
     else
       @user = User.new
       user_creator
       @user.save
       session[:user_id] = @user.id
+      session[:token] = token.token
     end
     redirect_to root_path
   end
@@ -40,6 +42,20 @@ class FoursquareController < ActionController::Base
 
   def push
   	render json: {lat: 53.385873, long: -1.471471}
+  end
+
+  private
+
+  def checkin_params(location, params)
+    checkin_info = {}
+    checkin_info[:user_id] = params[:user][:user_id]
+    checkin_info[:location_id] = location.id
+    checkin_info.require("CheckIn").permit(:user_id, :location_id)
+  end
+
+  def location_params(params)
+    location_info = params[:location]
+    location_info.require("location").permit(:name, :venue_type, :latitude, :longitude, :address)
   end
 
   def logout
