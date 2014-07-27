@@ -142,7 +142,7 @@ $.getJSON( "/checkins", function(data) {
   marks = data
 });
 
-createMap = function() {
+createCheckIns = function() {
   handler = Gmaps.build('Google');
   handler.buildMap(
     { 
@@ -162,10 +162,4 @@ createMap = function() {
     }
   );
 }
-
-$(document).ready(function() {
-
-  createMap();
-
-})
 
