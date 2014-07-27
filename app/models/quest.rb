@@ -8,7 +8,7 @@ class Quest < ActiveRecord::Base
 
   before_create :set_defaults
 
-  # validates_presence_of :creator_id, :title, :end_date
+  validates_presence_of :creator_id, :title, :end_date, :description
 
   def set_defaults
   	self.start_date ||= Time.now

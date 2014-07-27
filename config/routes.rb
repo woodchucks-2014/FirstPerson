@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
 
+
+  get '/quests', to: "quests#main"
+  post '/create', to: "quests#create"
+  post '/accept', to: "quests#accept"
   get '/checkins', to: "users#checkin_points"
   get '/foursquare', to: "foursquare#index", as: 'foursquare'
   get '/redirect', to: "foursquare#redirect"
   get '/map', to: "foursquare#map", as: "map"
   post '/pull', to: "foursquare#pull", as: 'pull'
-  get '/testpush', to: "foursquare#testpush"
+  get '/push', to: "foursquare#push"
   get '/logout', to: "foursquare#logout", as: 'logout'
   devise_for :users
 
