@@ -3,10 +3,12 @@ require 'faker'
 FactoryGirl.define do
   factory :user, aliases: [:creator] do
 
-    firstname {'Bob'}
-    lastname {'Jenkins'}
+    firstname {'Vic'}
+    lastname {'Schaeperkoetter'}
     gender {"male"}
-    foursquare_id { rand(1..10) }
+    email {"vjs3@gmail.com"}
+
+    # foursquare_id { rand(1..10) }
 
     # category {Faker::Lorem.words(1)}
     # start_date {"#{Time.now}"}
