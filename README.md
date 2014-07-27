@@ -21,4 +21,4 @@ Primary contributors include:
 
 * [Joe Cohen](https://github.com/jdcohen9)
 
-We documented our work process using [Trello](https://trello.com/b/fQ161Rd0/firstperson-io)as well as the Wiki page for this repo.
+We documented our work process using [Trello](https://trello.com/b/fQ161Rd0/firstperson-io) as well as the Wiki page for this repo.
