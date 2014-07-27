@@ -15,11 +15,13 @@ class FoursquareController < ActionController::Base
     user = User.find_by(foursquare_id: @api.client.user("self")[:id].to_i)
     if user
       session[:user_id] = user.id
+      session[:token] = token.token
     else
       @user = User.new
       user_creator
       @user.save
       session[:user_id] = @user.id
+      session[:token] = token.token
     end
     redirect_to root_path
   end

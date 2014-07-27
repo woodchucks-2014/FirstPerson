@@ -10,4 +10,11 @@ class UsersController < ApplicationController
     end
     render json: @hash
   end
+
+  def admin_checkin
+  	api = Fsqr.new(session[:token])
+  	api.checkin
+  	redirect_to root_path
+  end
+
 end
