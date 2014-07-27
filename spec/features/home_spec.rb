@@ -6,18 +6,34 @@ RSpec.describe "home" do
       visit '/'
       expect(page).to have_css("#sign_in_link")
     end
-  end
 
+  end
   
 
+  context 'buttons' do
+    it "has signin button" do
+      visit '/'
+      expect(page).to have_selector("a", text: "Sign In")
+    end
+  end
+
+  context 'buttons' do
+    it "has signup button" do
+      visit '/'
+      expect(page).to have_selector("a", text: "Sign Up")
+    end
+  end
+
+
+
+  # describe "Clicking on 'sign in' button redirects user" do
+  #   it "button directs to the correct page" do
+  #     visit '/'
+  #     click_link('Sign In')
+  #     expect(current_path).to not_eq '/'
+
+  #   end  
+
+  # end
 end
 
-# feature 'Show home page', do
-
-# let(:user) {create(:user)}
-#   scenario 'user not logged in' do
-#     visit '/'
-#     expect(current_path).to eq(home_path)
-#   end
-
-# end
