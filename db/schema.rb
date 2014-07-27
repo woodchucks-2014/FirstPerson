@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 20140725012516) do
   end
 
   create_table "locations", force: true do |t|
-    t.integer  "latitude"
-    t.integer  "longitude"
+    t.decimal  "latitude"
+    t.decimal  "longitude"
     t.string   "name"
     t.string   "venue_type"
     t.string   "address"
@@ -45,7 +45,8 @@ ActiveRecord::Schema.define(version: 20140725012516) do
   create_table "quests", force: true do |t|
     t.integer  "creator_id"
     t.string   "category"
-    t.integer  "user_limit", default: -1
+    t.string   "description"
+    t.integer  "user_limit",  default: -1
     t.datetime "start_date"
     t.datetime "end_date"
     t.text     "title"
