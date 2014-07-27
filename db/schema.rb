@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20140725012516) do
   create_table "check_ins", force: true do |t|
     t.integer  "location_id"
     t.integer  "user_id"
+    t.integer  "xp",          default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -50,13 +51,14 @@ ActiveRecord::Schema.define(version: 20140725012516) do
     t.datetime "start_date"
     t.datetime "end_date"
     t.text     "title"
+    t.integer  "xp",          default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "rewards", force: true do |t|
     t.integer  "quest_id"
-    t.integer  "xp",         default: 0
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

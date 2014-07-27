@@ -1,11 +1,25 @@
 class UsersController < ApplicationController
 
   def checkin_points
-    @points = []
-    user = User.find(session[:user_id]) || User.new
-    user.check_ins.each_with_index do |checkin, i|
-      @points.push({lat: checkin.location.latitude, lng: checkin.location.longitude})
+    user = User.where(id: session[:user_id]).first || User.new
+    @checkins = user.check_ins
+    @hash = Gmaps4rails.build_markers(@checkins) do |checkin, marker|
+      marker.lat checkin.location.latitude
+      marker.lng checkin.location.longitude
+      marker.infowindow "Hello"
     end
-    render json: @points
+    render json: @hash
   end
+
+  def admin_checkin
+  	api = Fsqr.new(session[:token])
+  	api.checkin
+  	redirect_to root_path
+  end
+
+  def logout
+    session.clear
+    redirect_to root_path
+  end
+
 end
