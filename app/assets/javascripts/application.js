@@ -21,6 +21,9 @@ var bindButtons = function(){
   $("#enable_checkins").click(function() {
     createCheckIns();
   });
+  $("#enable_quests").click(function() {
+    createQuests();
+  });
 }
 
 $(document).ready(function() {

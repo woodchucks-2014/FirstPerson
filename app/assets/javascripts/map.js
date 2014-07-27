@@ -137,9 +137,9 @@ var mapStyle = [
   }
 ]
 
-var marks;
+var checkins;
 $.getJSON( "/checkins", function(data) {
-  marks = data
+  checkins = data
 });
 
 createCheckIns = function() {
@@ -152,9 +152,9 @@ createCheckIns = function() {
       internal: {id: 'map'}
     }, 
     function() {
-      markers = handler.addMarkers(marks);
+      markers = handler.addMarkers(checkins);
       lines = handler.addPolylines(
-        [marks],
+        [checkins],
         { strokeColor: '#00BB00' }
       );
       handler.bounds.extendWith(markers);
