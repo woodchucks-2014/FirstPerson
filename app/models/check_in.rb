@@ -4,7 +4,12 @@ class CheckIn < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :location
 
+  before_create :set_defaults
   after_create :check_in_xp
+
+  def set_defaults
+    self.xp ||= 0
+  end
 
   # validates_with :distance_and_time
 

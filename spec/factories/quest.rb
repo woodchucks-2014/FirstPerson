@@ -3,7 +3,8 @@ require 'faker'
 
 FactoryGirl.define do
   factory :quest do
-    association :creator
+    # association :creator
+    creator_id {1}
     category {'Bar Crawl'}
     description {'Drinking and Cameraderie'}
     user_limit {rand (1..10)}
