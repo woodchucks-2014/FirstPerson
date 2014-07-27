@@ -8,6 +8,14 @@ RSpec.describe "home" do
     end
 
   end
+
+  describe "Non-logged in user sees signup button" do
+    it "by visiting homepage" do
+      visit '/'
+      expect(page).to have_css("#sign_up_link")
+    end
+
+  end
   
 
   context 'buttons' do
@@ -24,12 +32,7 @@ RSpec.describe "home" do
 
 
   
-    # it "button redirects user" do
-    #   visit '/'
-    #   click_link('Sign In')
-    #   expect(current_path).to 
-
-    # end  
+    
 
   end
 

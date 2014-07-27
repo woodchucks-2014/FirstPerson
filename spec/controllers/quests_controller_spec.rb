@@ -7,6 +7,10 @@ RSpec.describe QuestsController, :type => :controller do
       get :main
       expect(response).to be_success
     end
-  end
 
+    it "redirects with 301" do
+      
+      
+    end  
+  end
 end
