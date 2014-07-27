@@ -1,18 +1,24 @@
 Rails.application.routes.draw do
 
-  root 'foursquare#map'
 
-  get '/foursquare', to: "foursquare#index"
+  get '/quests', to: "quests#main"
+  post '/create', to: "quests#create"
+  post '/accept', to: "quests#accept"
+  get '/checkins', to: "users#checkin_points"
+  get '/foursquare', to: "foursquare#index", as: 'foursquare'
   get '/redirect', to: "foursquare#redirect"
   get '/map', to: "foursquare#map", as: "map"
   post '/pull', to: "foursquare#pull", as: 'pull'
-  get '/testpush', to: "foursquare#testpush"
+  get '/push', to: "foursquare#push"
+  get '/logout', to: "foursquare#logout", as: 'logout'
   devise_for :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+
+  root 'users#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

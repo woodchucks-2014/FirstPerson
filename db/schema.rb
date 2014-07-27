@@ -33,18 +33,21 @@ ActiveRecord::Schema.define(version: 20140725012516) do
   end
 
   create_table "locations", force: true do |t|
-    t.integer  "latitude"
-    t.integer  "longitude"
+    t.decimal  "latitude"
+    t.decimal  "longitude"
     t.string   "name"
-    t.string   "type"
+    t.string   "venue_type"
+    t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "quests", force: true do |t|
     t.integer  "creator_id"
-    t.string   "type"
-    t.integer  "user_limit", default: -1
+    t.string   "category"
+    t.string   "description"
+    t.integer  "user_limit",  default: -1
+    t.datetime "start_date"
     t.datetime "end_date"
     t.text     "title"
     t.datetime "created_at"
@@ -61,7 +64,7 @@ ActiveRecord::Schema.define(version: 20140725012516) do
   create_table "user_checkpoints", force: true do |t|
     t.integer  "checkpoint_id"
     t.integer  "user_id"
-    t.boolean  "completed?",    default: false
+    t.boolean  "completed",     default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -69,7 +72,7 @@ ActiveRecord::Schema.define(version: 20140725012516) do
   create_table "user_quests", force: true do |t|
     t.integer  "quest_id"
     t.integer  "user_id"
-    t.boolean  "completed?", default: false
+    t.boolean  "completed",  default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -82,7 +85,11 @@ ActiveRecord::Schema.define(version: 20140725012516) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "name"
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "gender"
+    t.integer  "foursquare_id"
+    t.string   "photo_url"
     t.integer  "total_xp",               default: 0
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -98,7 +105,7 @@ ActiveRecord::Schema.define(version: 20140725012516) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

@@ -9,9 +9,22 @@
   <%= javascript_include_tag "https://google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js" %>
 </head>
 <body>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-<%= yield %>
+
+  <% if logged_in? %>
+
+    <nav>
+      <%= link_to 'Sign Out', logout_path %>
+      <%= link_to 'Quests', quests_path %>
+      <%= link_to 'About', map_path %>
+      <%= link_to 'Contact Us', map_path %>
+    </nav>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+  <% end %>
+
+  <%= yield %>
 
 </body>
 </html>
