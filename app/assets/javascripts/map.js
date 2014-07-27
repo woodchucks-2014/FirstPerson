@@ -48,12 +48,13 @@ var mapStyle = [
 //   });
 // }
 
+var points = {};
 $(document).ready(function(){
   $.ajaxSetup({
     async: false
   });
 
-var points = [];
+
   $.getJSON("/checkins", function(data){
     points = data;
   });
@@ -62,9 +63,10 @@ var points = [];
   handler.buildMap({
     provider: { styles: mapStyle },
     internal: {id: 'map'}}, function(){
-    var markers = handler.addMarkers([points]);
+    markers = handler.addMarkers(points);
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
+    handler.getMap().setZoom(5);
   });
 
 });
