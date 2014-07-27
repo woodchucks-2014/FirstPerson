@@ -119,7 +119,7 @@ checkpoint3.save!
 
 beer = Reward.new
 beer.quest_id = quest.id
-beer.xp = 500
+beer.description = "Yay! Beer!"
 beer.save!
 
 greg_gets_a_beer = UserQuest.new
