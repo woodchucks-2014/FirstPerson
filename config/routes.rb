@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   root 'users#index'
 
   get '/admin-checkin', to: "users#admin_checkin"
-  get '/test_login', to: "user#test_login"
+  get '/test_login', to: "users#test_login"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
