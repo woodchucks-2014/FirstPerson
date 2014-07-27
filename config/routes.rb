@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
-  get 'all', to: "quests#all"
+  get '/all', to: "quests#all"
   get '/quests', to: "quests#main"
   post '/create', to: "quests#create"
+  get '/accept', to: "quests#accept_form"
   post '/accept', to: "quests#accept"
   get '/checkins', to: "users#checkin_points"
   get '/foursquare', to: "foursquare#index", as: 'foursquare'

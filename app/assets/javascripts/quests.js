@@ -7,7 +7,6 @@ $.getJSON( "/all.json", function(data) {
 $(document).ready(function(){
 
 
-
   handler = Gmaps.build('Google');
   handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
     markers = handler.addMarkers(marks);

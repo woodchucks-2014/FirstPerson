@@ -1,22 +1,21 @@
 class QuestsController < ApplicationController
 
-
-
   def all
+    @user_quest = UserQuest.new
     @markers = Quest.all
     @hash = Gmaps4rails.build_markers(@markers) do |quest, marker|
       marker.lat quest.checkpoints.first.location.latitude
       marker.lng quest.checkpoints.first.location.longitude
-      marker.infowindow '<h1> Yo </h1>' +
-                          "#{@quests.each do |quest|
-                            quest.title
-                            form_for @user_quest, url: accept_path do |f|
-                            f.hidden_field :quest_id, :value => quest.id
-                            f.submit 'Accept'
-                          end
-                        end}"
+      marker.infowindow "#{quest.title}" + "<iframe src='/accept?quest_id=#{quest.id}'></iframe>"
+
+
     end
     render json: @hash
+  end
+
+  def accept_form
+    @user_quest = UserQuest.new
+    @quest = Quest.find(params[:quest_id])
   end
 
 
@@ -56,10 +55,10 @@ class QuestsController < ApplicationController
 
   private
 
-  def user_quest_params
-    params[:user_quest][:user_id] = 1#current_user2.id
-    params.require(:user_quest).permit(:user_id, :quest_id, :completed)
-  end
+  # def user_quest_params
+  #   params[:user_quest][:user_id] = 1#current_user2.id
+  #   params.require(:user_quest).permit(:user_id, :quest_id, :completed)
+  # end
 
   def quest_params
     params[:quest][:creator_id] = 1#current_user2.id
