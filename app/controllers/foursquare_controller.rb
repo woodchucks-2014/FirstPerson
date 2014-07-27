@@ -58,11 +58,6 @@ class FoursquareController < ActionController::Base
     location_info.require("location").permit(:name, :venue_type, :latitude, :longitude, :address)
   end
 
-  def logout
-    session.clear
-    redirect_to root_path
-  end
-
   private
 
   def checkin_creator(location, params)
