@@ -11,14 +11,14 @@ Ultimately, our application aims to encourage all users to discover new places a
 
 Primary contributors include:
 
-* Greg Piccolo
+* [https://github.com/scoin](Greg Piccolo)
 
-* Drew Teter
+* [https://github.com/mdrewt](Drew Teter)
 
-* Vic Schaeperkoetter
+* [https://github.com/vschaeperkoetter](Vic Schaeperkoetter)
 
-* Matthieu Gavaudan
+* [https://github.com/mgavaudan](Matthieu Gavaudan)
 
-* Joe Cohen
+* [https://github.com/jdcohen9](Joe Cohen)
 
-We documented our work process using Trello as well as the Wiki page for this repo.
+We documented our work process using [https://trello.com/b/fQ161Rd0/firstperson-io](Trello) as well as the Wiki page for this repo.
