@@ -19,10 +19,12 @@
     = f.text_area :description, size: "60x12", :placeholder => "Description"
     = f.number_field :user_limit, :placeholder => "Acceptance limit"
     = f.text_field :category, :placeholder => "Category"
-    = f.fields_for :checkpoints, @quest.checkpoints do |g|
-      = g.fields_for :location  do |h|
-        = f.text_field :address, :placeholder => "Quest Location"
     = f.datetime_field :end_date, :placeholder => "End Date"
     = f.submit "Create"
+.checkpoints_create
+  = f.fields_for :checkpoints, @quest.checkpoints do |g|
+    = g.fields_for :location  do |h|
+      = h.text_field :address, :placeholder => "Quest Location"
+
 #map
 

@@ -18,5 +18,12 @@ $(document).ready(function(){
     handler.fitMapToBounds();
   });
 
+  $.ajax({
+  url: "test.html",
+  context: document.body
+}).done(function() {
+  $( this ).addClass( "done" );
+});
+
 
 })

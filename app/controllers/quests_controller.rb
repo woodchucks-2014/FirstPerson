@@ -21,7 +21,6 @@ class QuestsController < ApplicationController
   def main
     @markers = Location.all
     @quests = Quest.all
-    # @quest = Quest.new
     @user_quest = UserQuest.new
     @quest = Quest.new
   end
