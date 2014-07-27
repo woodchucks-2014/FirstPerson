@@ -17,9 +17,18 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function() {
-  createCheckIns()
+var bindButtons = function(){
   $("#enable_checkins").click(function() {
     createCheckIns();
+  });
+}
+
+$(document).ready(function() {
+  createCheckIns()
+  bindButtons()
+
+  $(document).on('page:load', function() {
+    createCheckIns()
+    bindButtons()
   });
 })
