@@ -81,6 +81,7 @@ GEM
       faraday (~> 0.8)
       faraday_middleware (>= 0.8)
       hashie (>= 1.0, < 3.0.0)
+    geocoder (1.2.3)
     gh (0.13.2)
       addressable
       backports
@@ -262,6 +263,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   foursquare2
+  geocoder
   gmaps4rails
   haml
   haversine

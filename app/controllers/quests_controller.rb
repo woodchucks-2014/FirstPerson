@@ -1,6 +1,24 @@
 class QuestsController < ApplicationController
 
+
+
+  def all
+    @markers = Location.all
+    @hash = Gmaps4rails.build_markers(@markers) do |my_marker_obj, marker|
+      marker.lat my_marker_obj.latitude
+      marker.lng my_marker_obj.longitude
+      marker.infowindow '@quests.each do |quest|
+    = quest.title
+    = form_for @user_quest, url: accept_path do |f|
+      = f.hidden_field :quest_id, :value => quest.id
+      = f.submit "Accept"'
+    end
+    render json: @hash
+  end
+
+
   def main
+    @markers = Location.all
     @quests = Quest.all
     @quest = Quest.new
     @user_quest = UserQuest.new

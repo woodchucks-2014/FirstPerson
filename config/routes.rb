@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-
+  get 'all', to: "quests#all"
   get '/quests', to: "quests#main"
   post '/create', to: "quests#create"
   post '/accept', to: "quests#accept"
