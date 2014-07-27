@@ -3,15 +3,18 @@ class QuestsController < ApplicationController
 
 
   def all
-    @markers = Location.all
-    @hash = Gmaps4rails.build_markers(@markers) do |my_marker_obj, marker|
-      marker.lat my_marker_obj.latitude
-      marker.lng my_marker_obj.longitude
-      marker.infowindow '@quests.each do |quest|
-    = quest.title
-    = form_for @user_quest, url: accept_path do |f|
-      = f.hidden_field :quest_id, :value => quest.id
-      = f.submit "Accept"'
+    @markers = Quest.all
+    @hash = Gmaps4rails.build_markers(@markers) do |quest, marker|
+      marker.lat quest.checkpoints.first.location.latitude
+      marker.lng quest.checkpoints.first.location.longitude
+      marker.infowindow '<h1> Yo </h1>' +
+                          "#{@quests.each do |quest|
+                            quest.title
+                            form_for @user_quest, url: accept_path do |f|
+                            f.hidden_field :quest_id, :value => quest.id
+                            f.submit 'Accept'
+                          end
+                        end}"
     end
     render json: @hash
   end
