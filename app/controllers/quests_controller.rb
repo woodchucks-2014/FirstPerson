@@ -21,13 +21,14 @@ class QuestsController < ApplicationController
   def main
     @markers = Location.all
     @quests = Quest.all
-    @quest = Quest.new
+    # @quest = Quest.new
     @user_quest = UserQuest.new
+    @quest = Quest.new
   end
 
   def accept
-    #change the shit below
-    @user_quest = UserQuest.new(quest_id: params[:user_quest], user_id: 1)
+
+    @user_quest = UserQuest.new(user_quest_params)
 
     if @user_quest.save
        redirect_to accepted_path
@@ -60,10 +61,10 @@ class QuestsController < ApplicationController
 
   private
 
-  # def user_quest_params
-  #   params[:user_quest][:user_id] = 1#current_user2.id
-  #   params.require(:user_quest).permit(:user_id, :quest_id, :completed)
-  # end
+  def user_quest_params
+    params[:user_quest][:user_id] = 1#current_user2.id
+    params.require(:user_quest).permit(:user_id, :quest_id, :completed)
+  end
 
   def quest_params
     params[:quest][:creator_id] = 1#current_user2.id
