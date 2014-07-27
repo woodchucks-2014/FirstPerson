@@ -17,7 +17,13 @@ bar.name = "Awesome Bar"
 bar.venue_type = "Bar"
 bar.latitude = 40.7903
 bar.longitude = -73.9597
-bar.address = "48 Wall St, New York, NY 10005"
+bar.street = "48 Wall St"
+bar.city = "New York"
+bar.state = "NY"
+bar.country = "US"
+bar.zip = "10005"
+bar.foursquare_id = "b59deifjo3uj"
+
 bar.save!
 
 checkin_loc = Location.new
@@ -25,6 +31,12 @@ checkin_loc.name = "CheckIn"
 checkin_loc.venue_type = "checkin_loc"
 checkin_loc.latitude = 40.7703
 checkin_loc.longitude = -73.9997
+checkin_loc.street = "99 Dick Street Fl 2"
+checkin_loc.city = "New York"
+checkin_loc.state = "NY" 
+checkin_loc.country = "US"
+checkin_loc.zip = "10005"
+checkin_loc.foursquare_id = "kjf3jfosefjw"
 checkin_loc.save!
 
 checkin_loc2 = Location.new
@@ -32,6 +44,12 @@ checkin_loc2.name = "CheckIn"
 checkin_loc2.venue_type = "checkin_loc2"
 checkin_loc2.latitude = 40.7003
 checkin_loc2.longitude = -74.5997
+checkin_loc2.street = "69 Brown Eye Blvd Fl 5"
+checkin_loc2.city = "New York"
+checkin_loc2.state = "NY" 
+checkin_loc2.country = "US"
+checkin_loc2.zip = "10005"
+checkin_loc2.foursquare_id = "33jf39w8fj983"
 checkin_loc2.save!
 
 player = User.new
