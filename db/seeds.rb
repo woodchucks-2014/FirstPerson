@@ -38,6 +38,7 @@ quest = Quest.new
 quest.title = "Come Get A Beer!"
 quest.creator_id = business.id
 quest.category = "bar"
+quest.description = "The search for beer commences"
 quest.end_date = Time.now + 1.day
 quest.save!
 
