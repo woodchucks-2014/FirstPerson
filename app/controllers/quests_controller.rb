@@ -19,8 +19,9 @@ class QuestsController < ApplicationController
 
 
   def main
-    @markers = Location.all
+
     @quests = Quest.all
+    @checkpoint = Checkpoint.new
     @user_quest = UserQuest.new
     @quest = Quest.new
   end
@@ -40,11 +41,6 @@ class QuestsController < ApplicationController
 
   end
 
-  def accepted
-  end
-
-  def rejected
-  end
 
   def create
     @quest = Quest.new(quest_params)
@@ -58,7 +54,30 @@ class QuestsController < ApplicationController
 
   end
 
+
+  def set_location
+    @checkpoint = Checkpoint.new(quest_params)
+    if @checkpoint.save
+      redirect_to quests_path
+      flash[:notice] = "Quest successfully created"
+    else
+      flash[:notice] = "Please try again"
+      redirect_to quests_path
+    end
+
+  end
+
+  def accepted
+  end
+
+  def rejected
+  end
+
   private
+
+  def checkpoint_params
+    params.require(:checkpoint).permit(:instructions, :quest_id, location_attributes[:address])
+  end
 
   def user_quest_params
     params[:user_quest][:user_id] = 1#current_user2.id

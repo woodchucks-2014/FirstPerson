@@ -6,7 +6,6 @@ $.getJSON( "/all.json", function(data) {
 
 $(document).ready(function(){
 
-
   handler = Gmaps.build('Google');
   handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
     markers = handler.addMarkers(marks);
@@ -18,12 +17,22 @@ $(document).ready(function(){
     handler.fitMapToBounds();
   });
 
-  $.ajax({
-  url: "test.html",
-  context: document.body
-}).done(function() {
-  $( this ).addClass( "done" );
-});
+  $('#quest_des').submit(function(e){
+    e.preventDefault();
+
+    $.ajax({
+      type: "post"
+      url: "/create",
+      data: $( this ).serialize()
+    }).done(function() {
+      // $('.create').hide();
+      // $('.checkpoints_create').show();
+    })
+    .fail(function() {
+            alert("Please try again");
+        })
+
+  })
 
 
 })
