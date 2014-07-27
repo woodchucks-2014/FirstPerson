@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20140725012516) do
   create_table "check_ins", force: true do |t|
     t.integer  "location_id"
     t.integer  "user_id"
+    t.integer  "xp",          default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

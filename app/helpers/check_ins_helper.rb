@@ -5,9 +5,9 @@ module CheckInsHelper
   end
 
   def distance_since_last_checkin
-    locations = self.user.check_ins.order("created_at DESC").limit(2)
-    if locations.length == 2
-      return calc_distance(locations[0].location.latitude, locations[0].location.longitude, locations[1].location.latitude, locations[1].location.longitude)
+    checkins = self.user.check_ins.order("created_at DESC").limit(2).map {|checkin| checkin.location}
+    if checkins.length == 2
+      return calc_distance(checkins[0].latitude, checkins[0].longitude, checkins[1].latitude, checkins[1].longitude)
     else
       return 0
     end
@@ -18,6 +18,8 @@ module CheckInsHelper
     xp = 10 + distance/5000 * Math.log2(distance) # xp scales as O(n*log(n)), because why not?
     user = self.user
     user.total_xp += xp
+    self.xp = xp
+    self.save
     user.save
   end
 

@@ -14,5 +14,10 @@ class User < ActiveRecord::Base
   has_many :check_ins
   has_many :locations, through: :check_ins
 
+  before_create :set_defaults
+
+  def set_defaults
+    self.total_xp ||= 0
+  end
 
 end
