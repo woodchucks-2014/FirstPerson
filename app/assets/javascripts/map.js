@@ -42,24 +42,24 @@
 //   }
 // ]
 
-// var marks;
-// $.getJSON( "/checkins", function(data) {
-//   marks = data
-// });
-// console.log(marks)
+var marks;
+$.getJSON( "/checkins", function(data) {
+  marks = data
+});
+console.log(marks)
 
 $(document).ready(function() {
 
-  // handler = Gmaps.build('Google');
-  // handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-  //   markers = handler.addMarkers(marks);
-  //   lines = handler.addPolylines(
-  //     [marks],
-  //     { strokeColor: '#FF0000'}
-  //   );
-  //   handler.bounds.extendWith(markers);
-  //   handler.fitMapToBounds();
-  // });
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers(marks);
+    lines = handler.addPolylines(
+      [marks],
+      { strokeColor: '#FF0000'}
+    );
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
 
 })
 
