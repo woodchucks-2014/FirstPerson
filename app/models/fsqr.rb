@@ -6,10 +6,10 @@ class Fsqr
   end
 
   def rand_loc
-  	string = []
-	 string << (40 + rand(1)).to_s
-	 string << (-74 + rand(1)).to_s
-	 string.join(',')
+    string = []
+    string << (40 + rand(1)).to_s
+    string << (-74 + rand(1)).to_s
+    string.join(',')
   end
 
   def checkin
