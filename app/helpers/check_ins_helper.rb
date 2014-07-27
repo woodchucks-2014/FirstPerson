@@ -9,16 +9,16 @@ module CheckInsHelper
     if checkins.length == 2
       return calc_distance(checkins[0].latitude, checkins[0].longitude, checkins[1].latitude, checkins[1].longitude)
     else
-      return 0
+      return 2
     end
   end
 
   def check_in_xp
     distance = distance_since_last_checkin
     xp = 10 + distance/5000 * Math.log2(distance) # xp scales as O(n*log(n)), because why not?
-    user = self.user
-    user.total_xp += xp
-    self.xp = xp
+    user = User.find(self.user_id)
+    user.total_xp += xp.floor
+    self.xp = xp.floor
     self.save
     user.save
   end
