@@ -45,7 +45,6 @@ class FoursquareController < ActionController::Base
     ll = params[:ll]
     api = Fsqr.new(session[:token])
     returned_venues = api.client.suggest_completion_venues(query: query, ll: "40.7060974, -74.0092696")
-    returned_venues = JSON.parse(returned_venues)
     @venues = {}
     returned_venues["minivenues"].each do |venue|
       @venues[venue["name"]] = {
