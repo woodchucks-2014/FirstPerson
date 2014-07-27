@@ -20,7 +20,6 @@ business.email = "dishes@dbc.com"
 business.foursquare_id = 1
 business.save!
 
-
 bar = Location.new
 bar.name = "Awesome Bar"
 bar.venue_type = "Bar"
@@ -57,12 +56,12 @@ checkin_loc3.latitude = 40.7500
 checkin_loc3.longitude = -73.9799
 checkin_loc3.save!
 
-
 quest = Quest.new
 quest.title = "Come Get A Beer!"
 quest.creator_id = business.id
 quest.category = "bar"
 quest.description = "The search for beer commences"
+quest.xp = 500
 quest.end_date = Time.now + 1.day
 quest.save!
 
@@ -104,14 +103,12 @@ checkpoint1.location_id = checkin_loc.id
 checkpoint1.step_num = 1
 checkpoint1.save!
 
-
 checkpoint2 = Checkpoint.new
 checkpoint2.instructions = "Receive beer"
 checkpoint2.quest_id = 3
 checkpoint2.location_id = checkin_loc1.id
 checkpoint2.step_num = 1
 checkpoint2.save!
-
 
 checkpoint3 = Checkpoint.new
 checkpoint3.instructions = "Receive beer"
@@ -120,14 +117,10 @@ checkpoint3.location_id = checkin_loc2.id
 checkpoint3.step_num = 1
 checkpoint3.save!
 
-
-
-
 beer = Reward.new
 beer.quest_id = quest.id
 beer.xp = 500
 beer.save!
-
 
 greg_gets_a_beer = UserQuest.new
 greg_gets_a_beer.quest_id = quest.id
@@ -145,7 +138,10 @@ gregs_checkin.location_id = checkin_loc.id
 gregs_checkin.user_id = player.id
 gregs_checkin.save!
 
-
+gregs_checkin2 = CheckIn.new
+gregs_checkin2.location_id = checkin_loc2.id
+gregs_checkin2.user_id = player.id
+gregs_checkin2.save!
 
 gregs_checkpoint = UserCheckpoint.new
 gregs_checkpoint.user_id = player.id
@@ -159,13 +155,11 @@ gregs_checkpoint1.checkpoint_id = checkpoint1.id
 gregs_checkpoint1.complete!
 gregs_checkpoint1.save!
 
-
 gregs_checkpoint2 = UserCheckpoint.new
 gregs_checkpoint2.user_id = player.id
 gregs_checkpoint2.checkpoint_id = checkpoint2.id
 gregs_checkpoint2.complete!
 gregs_checkpoint2.save!
-
 
 gregs_checkpoint3 = UserCheckpoint.new
 gregs_checkpoint3.user_id = player.id

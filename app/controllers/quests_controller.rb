@@ -70,6 +70,7 @@ class QuestsController < ApplicationController
 
   end
 
+
   def accepted
   end
 

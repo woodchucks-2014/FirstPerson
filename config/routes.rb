@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get '/checkins', to: "users#checkin_points"
   get '/all', to: "quests#all"
   get '/quests', to: "quests#main"
   get '/accept', to: "quests#accept_form"
@@ -14,9 +15,8 @@ Rails.application.routes.draw do
   get '/map', to: "foursquare#map", as: "map"
   post '/pull', to: "foursquare#pull", as: 'pull'
   get '/push', to: "foursquare#push"
-  get '/logout', to: "foursquare#logout", as: 'logout'
 
-  get '/checkins', to: "users#checkin_points"
+  get '/logout', to: "users#logout", as: 'logout'
 
   devise_for :users
 
@@ -26,6 +26,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
 
   root 'users#index'
+
+  get '/admin-checkin', to: "users#admin_checkin"
+  get '/test_login', to: "users#test_login"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

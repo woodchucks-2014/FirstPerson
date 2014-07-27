@@ -28,7 +28,7 @@
 
   .checkpoints_create
     = form_for @checkpoint, url: set_location_path do |i|
-      = i.hidden_field :quest_id, :value => 6
+      = i.hidden_field :quest_id, :value => (Quest.last.id + 1)
       = i.text_field :instructions, :placeholder => "Instructions"
       = i.fields_for :locations do |h|
         = h.text_field :address, :placeholder => "Quest Location"

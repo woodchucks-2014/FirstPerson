@@ -15,5 +15,6 @@ class Quest < ActiveRecord::Base
 
   def set_defaults
   	self.start_date ||= Time.now
+    self.xp ||= 50
   end
 end
