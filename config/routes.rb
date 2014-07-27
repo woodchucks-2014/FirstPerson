@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   post '/pull', to: "foursquare#pull", as: 'pull'
   get '/push', to: "foursquare#push"
   get '/logout', to: "users#logout", as: 'logout'
-  devise_for :users
+  get 'users/:id', to: "users#profile"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
