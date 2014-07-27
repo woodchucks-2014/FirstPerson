@@ -33,6 +33,17 @@ class QuestsController < ApplicationController
 
   end
 
+  def all
+    quests = Quests.all
+    @checkpoints = quests.map { |quest| quest.checkpoints.first }
+    @hash = Gmaps4rails.build_markers(@checkpoints) do |checkpoint, marker|
+      marker.lat checkpoint.location.latitude
+      marker.lng checkpoint.location.longitude
+      marker.infowindow "Hello"
+    end
+    render json: @hash
+  end
+
   private
 
   def user_quest_params
