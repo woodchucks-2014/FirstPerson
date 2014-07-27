@@ -145,12 +145,12 @@ $.getJSON( "/checkins", function(data) {
 createCheckIns = function() {
   handler = Gmaps.build('Google');
   handler.buildMap(
-    { 
-      provider: { 
+    {
+      provider: {
         styles: mapStyle
-      }, 
+      },
       internal: {id: 'map'}
-    }, 
+    },
     function() {
       markers = handler.addMarkers(checkins);
       lines = handler.addPolylines(
