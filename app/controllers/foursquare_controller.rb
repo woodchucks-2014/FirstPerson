@@ -44,24 +44,24 @@ class FoursquareController < ActionController::Base
     query = params[:query]
     ll = params[:ll]
     api = Fsqr.new(session[:token])
-    returned_venues = api.client.suggest_completion_venues(query: query, ll: "40.7060974, -74.0092696")
+    @returned_venues = api.client.suggest_completion_venues(query: query, ll: "40.7060974, -74.0092696")
     @venues = {}
-    returned_venues.each do |venue|
-      @venues[venue["name"]] = {
-                              name: venue["name"],
-                              venue_type: venue["categories"]["name"],
-                              latitude: venue["location"]["lat"],
-                              longitude:venue["location"]["lng"],
-                              foursquare_id: venue["id"],
-                              street: venue["location"]["address"],
-                              city: venue["location"]["city"],
-                              state: venue["location"]["state"],
-                              zip: venue["location"]["postalCode"],
-                              country: venue["location"]["country"]
-                            }
-                          end
+    # returned_venues.each do |venue|
+    #   @venues[venue["name"]] = {
+    #                           name: venue["name"],
+    #                           venue_type: venue["categories"]["name"],
+    #                           latitude: venue["location"]["lat"],
+    #                           longitude:venue["location"]["lng"],
+    #                           foursquare_id: venue["id"],
+    #                           street: venue["location"]["address"],
+    #                           city: venue["location"]["city"],
+    #                           state: venue["location"]["state"],
+    #                           zip: venue["location"]["postalCode"],
+    #                           country: venue["location"]["country"]
+    #                         }
+    #                       end
 
-    render json: @venues
+    render json: @returned_venues
   end
 
   private
