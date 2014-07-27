@@ -44,8 +44,9 @@ var mapStyle = [
 
 var marks;
 $.getJSON( "/checkins", function(data) {
-    marks = data
-  });
+  marks = data
+});
+console.log(marks)
 
 $(document).ready(function() {
 
