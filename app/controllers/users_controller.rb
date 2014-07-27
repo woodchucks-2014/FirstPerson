@@ -2,11 +2,11 @@ class UsersController < ApplicationController
 
   def checkin_points
     user = User.where(id: session[:user_id]).first || User.new
-    @checkins = user.check_ins.include(:locations)
+    @checkins = user.check_ins
     @hash = Gmaps4rails.build_markers(@checkins) do |checkin, marker|
       marker.lat checkin.location.latitude
       marker.lng checkin.location.longitude
-      marker.infowindow ""#my_marker_obj.name
+      marker.infowindow "Hello"
     end
     render json: @hash
   end
