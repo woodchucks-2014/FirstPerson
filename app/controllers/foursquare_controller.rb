@@ -51,7 +51,7 @@ class FoursquareController < ActionController::Base
                             {
                               name: venue["name"],
                               venue_type: venue["categories"].first["name"],
-                              second_type: venue["categories"].second["name"],
+                              second_type: venue["categories"].last["name"],
                               latitude: venue["location"]["lat"],
                               longitude:venue["location"]["lng"],
                               foursquare_id: venue["id"],
