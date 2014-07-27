@@ -29,6 +29,7 @@ $font-stack:  Helvetica, sans-serif;
   height: 50em;
   padding: 1em;
   color: white;
+  overflow-y:scroll;
 }
 
 
@@ -42,16 +43,6 @@ $font-stack:  Helvetica, sans-serif;
   color: white;
 }
 
-
-.checkpoints_create{
-  background: rgba(0,0,0, 0.8);
-  width: 25%;
-  margin-top:0;
-  height: 50em;
-  display: inline-block;
-  padding: 1em;
-  color: white;
-}
 
 
 

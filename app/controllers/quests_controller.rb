@@ -2,11 +2,13 @@ class QuestsController < ApplicationController
 
   def all
     @user_quest = UserQuest.new
-    @markers = Quest.all
-    @hash = Gmaps4rails.build_markers(@markers) do |quest, marker|
-      marker.lat quest.checkpoints.first.location.latitude
-      marker.lng quest.checkpoints.first.location.longitude
-      marker.infowindow "<iframe src='/accept?quest_id=#{quest.id}'></iframe>"
+    @quests = Quest.all.select { |quest| quest.checkpoints.length >= 1  }
+    @hash = Gmaps4rails.build_markers(@quests) do |quest, marker|
+      if quest.checkpoints.length >= 1
+        marker.lat quest.checkpoints.first.location.latitude
+        marker.lng quest.checkpoints.first.location.longitude
+        marker.infowindow "<iframe src='/accept?quest_id=#{quest.id}'></iframe>"
+      end
     end
     render json: @hash
   end
@@ -44,9 +46,9 @@ class QuestsController < ApplicationController
 
   def create
     @quest = Quest.new(quest_params)
+
     if @quest.save
       redirect_to quests_path
-      flash[:notice] = "Quest successfully created"
     else
       flash[:notice] = "Please try again"
       redirect_to quests_path
@@ -56,7 +58,8 @@ class QuestsController < ApplicationController
 
 
   def set_location
-    @checkpoint = Checkpoint.new(quest_params)
+    @checkpoint = Checkpoint.new(checkpoint_params)
+    # quest.save!
     if @checkpoint.save
       redirect_to quests_path
       flash[:notice] = "Quest successfully created"
@@ -76,7 +79,11 @@ class QuestsController < ApplicationController
   private
 
   def checkpoint_params
-    params.require(:checkpoint).permit(:instructions, :quest_id, location_attributes[:address])
+    location = Location.new
+    location.address = params[:checkpoint][:locations][:address]
+    location.save
+    params[:checkpoint][:location_id] = location.id
+    params.require(:checkpoint).permit(:instructions, :quest_id, :location_id)
   end
 
   def user_quest_params
