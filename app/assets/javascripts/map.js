@@ -142,24 +142,30 @@ $.getJSON( "/checkins", function(data) {
   marks = data
 });
 
+createMap = function() {
+  handler = Gmaps.build('Google');
+  handler.buildMap(
+    { 
+      provider: { 
+        styles: mapStyle
+      }, 
+      internal: {id: 'map'}
+    }, 
+    function() {
+      markers = handler.addMarkers(marks);
+      lines = handler.addPolylines(
+        [marks],
+        { strokeColor: '#00BB00' }
+      );
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+    }
+  );
+}
+
 $(document).ready(function() {
 
-  handler = Gmaps.build('Google');
-  handler.buildMap({ 
-    provider: { 
-      styles: mapStyle
-    }, 
-    internal: {id: 'map'}
-  }, 
-  function() {
-    markers = handler.addMarkers(marks);
-    lines = handler.addPolylines(
-      [marks],
-      { strokeColor: '#FF0000'}
-    );
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-  });
+  createMap();
 
 })
 
