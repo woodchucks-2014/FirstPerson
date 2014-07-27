@@ -6,9 +6,7 @@ class QuestsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@markers) do |quest, marker|
       marker.lat quest.checkpoints.first.location.latitude
       marker.lng quest.checkpoints.first.location.longitude
-      marker.infowindow "#{quest.title}" + "<iframe src='/accept?quest_id=#{quest.id}'></iframe>"
-
-
+      marker.infowindow "<iframe src='/accept?quest_id=#{quest.id}'></iframe>"
     end
     render json: @hash
   end
@@ -16,6 +14,7 @@ class QuestsController < ApplicationController
   def accept_form
     @user_quest = UserQuest.new
     @quest = Quest.find(params[:quest_id])
+
   end
 
 
@@ -27,18 +26,24 @@ class QuestsController < ApplicationController
   end
 
   def accept
-
-    @user_quest = UserQuest.new(user_quest_params)
+    #change the shit below
+    @user_quest = UserQuest.new(quest_id: params[:user_quest], user_id: 1)
 
     if @user_quest.save
-      redirect_to quests_path
+       redirect_to accepted_path
       flash[:notice] = "Quest successfully accepted"
     else
       flash[:notice] = "Please try again"
-      redirect_to quests_path
+       redirect_to rejected_path
     end
 
 
+  end
+
+  def accepted
+  end
+
+  def rejected
   end
 
   def create

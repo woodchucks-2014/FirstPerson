@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   post '/create', to: "quests#create"
   get '/accept', to: "quests#accept_form"
   post '/accept', to: "quests#accept"
+  get '/accepted', to: "quests#accepted"
+  get '/rejected', to: "quests#rejected"
   get '/checkins', to: "users#checkin_points"
   get '/foursquare', to: "foursquare#index", as: 'foursquare'
   get '/redirect', to: "foursquare#redirect"
