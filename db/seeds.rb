@@ -27,6 +27,13 @@ checkin_loc.latitude = 40.7703
 checkin_loc.longitude = -73.9997
 checkin_loc.save!
 
+checkin_loc2 = Location.new
+checkin_loc2.name = "CheckIn"
+checkin_loc2.venue_type = "checkin_loc2"
+checkin_loc2.latitude = 40.7003
+checkin_loc2.longitude = -74.5997
+checkin_loc2.save!
+
 player = User.new
 player.firstname = "Greg"
 player.email = "greg@dbc.com"
@@ -39,12 +46,13 @@ quest.title = "Come Get A Beer!"
 quest.creator_id = business.id
 quest.category = "bar"
 quest.description = "The search for beer commences"
+quest.xp = 500
 quest.end_date = Time.now + 1.day
 quest.save!
 
 beer = Reward.new
 beer.quest_id = quest.id
-beer.xp = 500
+beer.description = "A tasty tasty beer... yum..."
 beer.save!
 
 checkpoint = Checkpoint.new
@@ -69,6 +77,11 @@ gregs_checkin = CheckIn.new
 gregs_checkin.location_id = checkin_loc.id
 gregs_checkin.user_id = player.id
 gregs_checkin.save!
+
+gregs_checkin2 = CheckIn.new
+gregs_checkin2.location_id = checkin_loc2.id
+gregs_checkin2.user_id = player.id
+gregs_checkin2.save!
 
 gregs_checkpoint = UserCheckpoint.new
 gregs_checkpoint.user_id = player.id
