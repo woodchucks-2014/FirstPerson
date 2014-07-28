@@ -42,8 +42,8 @@ $(document).ready(function(){
       url: "/set_location",
       data: $( this ).serialize()
     }).done(function(data) {
+      console.log(data);
       $.each(data, function(i, value){
-        alert("yo");
         $('.create').append("<button id=" + i + ">"+value[i].name+"</button>");
       })
     }).fail(function() {
