@@ -4,9 +4,9 @@ class Location < ActiveRecord::Base
   has_many :check_ins
   has_many :users, through: :check_ins
 
-  before_create :add_address
+  after_validation :add_address
   geocoded_by :address
-  after_create :geocode
+  before_create :geocode
 
   private
 

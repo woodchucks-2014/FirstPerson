@@ -60,7 +60,6 @@ class QuestsController < ApplicationController
     @location.state = params[:checkpoint][:locations][:state]
     @location.zip = params[:checkpoint][:locations][:zip]
     @location.save
-    @location.save
 
     params[:checkpoint][:location_id] = @location.id
 
