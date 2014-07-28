@@ -93,7 +93,7 @@ class QuestsController < ApplicationController
     ll = [@location.latitude, @location.longitude].join(',')
     api = Fsqr.new(session[:token])
     @venues = api.search(query, ll)
-end
+  end
 
   private
 
