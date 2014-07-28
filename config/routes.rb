@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
 
-  root 'users#index'
+  root "foursquare#map"
 
   get '/admin-checkin', to: "users#admin_checkin"
   get '/test_login', to: "users#test_login"
