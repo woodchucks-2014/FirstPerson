@@ -1,8 +1,10 @@
 #show_user_checkins.button Checkins
 #show_all_quests.button All Quests
-#show_active_quests.button Active Quests
 #show_completed_quests.button Completed Quests
+#show_active_quests.button Active Quests
 #show_user_quests
-  - @user.quests.each do |quest|
-    %div{id: "quest_#{quest.id}", class: "button"}
-      =quest.title
+  %ul
+    - @user.quests.each do |quest|
+      %div{id: "#{quest.id}", class: "button"}
+        %li
+          =quest.title
