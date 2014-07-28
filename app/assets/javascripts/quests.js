@@ -43,6 +43,7 @@ $(document).ready(function(){
       data: $( this ).serialize()
     }).done(function(data) {
       $.each(data, function(i, value){
+        alert("yo");
         $('.create').append("<button id=" + i + ">"+value[i].name+"</button>");
       })
     }).fail(function() {
