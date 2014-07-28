@@ -36,11 +36,11 @@ $font-stack:  Helvetica, sans-serif;
   display: inline-block;
   padding: 1em;
   color: white;
-}
+}/*
 
 .container{
   height: 50em;
-}
+}*/
 
 #slide{
   background-image: url(image_path("background_home.jpg"));
@@ -115,33 +115,6 @@ $font-stack:  Helvetica, sans-serif;
 
 /*----------------------------LAYOUT----------------------------------*/
 
-body{
-  margin: 0;
-}
-
-nav {
-  line-height: 3em;
-  background-color: $primary-color;
-  height: 3em;
-  a{
-    margin-left: 15%;
-    width: 5%;
-    display: inline-block;
-    font: 100% $font-stack;
-    color:$font-color;
-    text-decoration: none;
-  }
-
-  a:hover{
-    text-decoration: underline;
-
-  }
-}
-
-footer{
-  background-color: $primary-color;
-  height: 7em;
-}
 
 #enable_checkins {
   height: 1.25em;
@@ -166,27 +139,44 @@ iframe {
 .button {
   width: 99%;
   padding: 0.5%;
+  font-size: 1.5em;
+  text-align: center;
 }
 
-#content.middle {
+#content {
   float: left;
-  width: 85%;
-  #map {
-    width: 100%;
-    height: 45em;
-  }
+  width: 80%;
+}
+
+#map {
+  float: left;
+  width: 100%;
+  height: 45em;
 }
 
 #options.sidebar {
   float: left;
-  width: 15%;
-  background-color: blue;
+  width: 20%;
+  background-color: gray;
+  height: 45em;
   padding: 0;
   margin: 0;
 }
 
 .button:hover {
   background-color: white;
+}
+
+nav {
+  width: 100%;
+  background-color: $primary-color;
+  display: block;
+  overflow: auto;
+}
+
+nav .button {
+  float: left;
+  width: 24%;
 }
 
 /*

@@ -10,19 +10,19 @@
 </head>
 <body>
 
-  <% if logged_in? %>
+  <%# if logged_in? %>
 
     <nav>
-      <%= link_to 'Sign Out', logout_path %>
-      <%= link_to 'Map', root_path %>
-      <%= link_to 'About', map_path %>
-      <%= link_to 'Contact Us', map_path %>
+      <div id="show" class="button">Map</div>
+      <div id="character" class="button">Character</div>
+      <div id="quests" class="button">Quests</div>
+      <div id="logout" class="button">Logout</div>
     </nav>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-  <% end %>
+  <%# end %>
 
   <%= yield %>
 
