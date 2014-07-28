@@ -35,4 +35,17 @@ $(document).ready(function(){
     })
   })
 
+  $('#check_create').submit(function(e){
+    e.preventDefault();
+    $.ajax({
+      type: "post",
+      url: "/set_location",
+      data: $( this ).serialize()
+    }).done(function(data) {
+      $('.create').append(data);
+    }).fail(function() {
+      alert("Please try again");
+    })
+  })
+
 })
