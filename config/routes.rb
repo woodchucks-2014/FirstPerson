@@ -9,15 +9,22 @@ Rails.application.routes.draw do
   post '/create', to: "quests#create"
   post '/accept', to: "quests#accept"
   post '/set_location', to: "quests#set_location"
+  post 'commit_location', to: "quests#commit_location"
 
   get '/foursquare', to: "foursquare#index", as: 'foursquare'
   get '/redirect', to: "foursquare#redirect"
   get '/map', to: "foursquare#map", as: "map"
   post '/pull', to: "foursquare#pull", as: 'pull'
-  get '/push', to: "foursquare#push"
 
   get '/logout', to: "users#logout", as: 'logout'
+
   get 'users/:id', to: "users#profile"
+
+  get '/admin-checkin', to: "users#admin_checkin"
+  get '/test_login', to: "users#test_login"
+
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -26,8 +33,6 @@ Rails.application.routes.draw do
 
   root "users#index"
 
-  get '/admin-checkin', to: "users#admin_checkin"
-  get '/test_login', to: "users#test_login"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
