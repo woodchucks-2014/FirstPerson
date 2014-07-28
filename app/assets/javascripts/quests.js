@@ -19,10 +19,8 @@ createQuests = function() {
     }
   );
 }
-
+var foursquare_data = {};
 $(document).ready(function(){
-
-  $(".checkpoints_create").hide();
 
   $('#new_quest').submit(function(e){
     e.preventDefault();
@@ -31,11 +29,35 @@ $(document).ready(function(){
       url: "/create",
       data: $( this ).serialize()
     }).done(function(data) {
-      $('.quest_create').hide();
-      $('.checkpoints_create').show();
+      $('.create').html(data);
     }).fail(function() {
       alert("Please try again");
     })
+  })
+
+  $(".create").on("submit", "#check_create", function(e){
+    e.preventDefault();
+    $.ajax({
+      type: "post",
+      url: "/set_location",
+      data: $( this ).serialize()
+    }).done(function(data) {
+      foursquare_data = data;
+      $.each(data, function(key, value){
+        $('.create').append("<a class='location' id=" + key + "><div class = 'result'>"+value["name"]+"<br>"+value["street"]+"<br></div></a>");
+      })
+    }).fail(function() {
+      alert("Please try again");
+    })
+  })
+
+  $(".create").on("click", ".location", function(e){
+    var index = $(this).attr('id');
+    $.post('/commit_location', {"venue": foursquare_data[index]})
+      .done(function(data){
+        console.log(data)
+        //window.location.href = data.redirect;
+      })
   })
 
 })
