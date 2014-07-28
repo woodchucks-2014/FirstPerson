@@ -3,7 +3,7 @@ require 'faker'
 
 FactoryGirl.define do
   factory :quest do
-    # association :creator
+    # association :creator  --> not sure why this doesn't work, but line 7 does
     creator_id {1}
     category {'Bar Crawl'}
     description {'Drinking and Cameraderie'}
