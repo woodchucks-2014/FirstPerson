@@ -55,16 +55,9 @@ class QuestsController < ApplicationController
   end
 
   def set_location
-    # There should be a way to use strong params to do this...
     params[:location] = params[:checkpoint][:locations]
     @location = Location.new(location_params)
     @location.save
-    # @location.name = params[:checkpoint][:locations][:name]
-    # @location.street = params[:checkpoint][:locations][:street]
-    # @location.city = params[:checkpoint][:locations][:city]
-    # @location.state = params[:checkpoint][:locations][:state]
-    # @location.zip = params[:checkpoint][:locations][:zip]
-    # @location.save
 
     params[:checkpoint][:location_id] = @location.id
 
