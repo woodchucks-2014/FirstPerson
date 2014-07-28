@@ -44,7 +44,7 @@ $(document).ready(function(){
     }).done(function(data) {
       console.log(data);
       $.each(data, function(i, value){
-        $('.create').append("<button id=" + i + ">"+value[i].name+"</button>");
+        $('.create').append("<button id=" + i + ">"+value[i]["name"]+"</button>");
       })
     }).fail(function() {
       alert("Please try again");
