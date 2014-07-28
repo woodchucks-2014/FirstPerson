@@ -76,7 +76,7 @@ class QuestsController < ApplicationController
 
   def commit_location
     @location = Location.find_by(name: params[:venue][:name])
-    @location.update(location_params)
+    @location.update(venue_params)
     redirect_to quests_path
   end
 
@@ -128,8 +128,8 @@ end
     params.require(:quest).permit(:creator_id, :title, :description, :user_limit, :category, :end_date)
   end
 
-  def location_params
-    params.require(:location).permit(:name, :venue_type, :second_type, :latitude, :longitude, :foursquare_id, :street, :city, :state, :zip, :country)
+  def venue_params
+    params.require(:venue).permit(:name, :venue_type, :second_type, :latitude, :longitude, :foursquare_id, :street, :city, :state, :zip, :country)
   end
 
 end
