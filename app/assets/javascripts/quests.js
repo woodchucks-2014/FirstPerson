@@ -45,7 +45,7 @@ $(document).ready(function(){
       foursquare_data = data;
       var i = 0;
       $.each(data, function(key, value){
-        $('.create').append("<a class='location' id=" + value["foursquare_id"] + "><div class = 'result'>"+key+"<br>"+value["street"]+"<br></div></a>");
+        $('.create').append("<a class='location' id=" + i + "><div class = 'result'>"+key+"<br>"+value["street"]+"<br></div></a>");
         i++;
       })
     }).fail(function() {
@@ -54,7 +54,7 @@ $(document).ready(function(){
   })
 
   $(".create").on("click", ".location", function(e){
-    var index = $(this).id;
+    var index = $(this).attr('id');
     $.post('/commit_location', {"venue": foursquare_data[index]})
       .done(function(data){
         console.log(data);
