@@ -8,6 +8,8 @@ class Quest < ActiveRecord::Base
 
   before_create :set_defaults
 
+
+
   #validates_presence_of :creator_id, :title, :end_date, :description
   # we're commenting out line 11 because our tests won't pass otherwise...we will fix that
 

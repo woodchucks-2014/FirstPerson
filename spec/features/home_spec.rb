@@ -30,11 +30,16 @@ RSpec.describe "home" do
     end
 
 
+    # it "button redirects user" do
+    #   visit '/'
+    #   click_link('Sign In')
+    #   expect(current_path).to 
 
-  
-    
+    # end  
 
   end
+
+  
 
 end
 
