@@ -16,7 +16,7 @@ class QuestsController < ApplicationController
   def accept_form
     @user_quest = UserQuest.new
     @quest = Quest.find(params[:quest_id])
-
+    render layout: false
   end
 
   def main
