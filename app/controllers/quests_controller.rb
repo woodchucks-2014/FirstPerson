@@ -66,7 +66,7 @@ class QuestsController < ApplicationController
 
     @checkpoint = Checkpoint.new(checkpoint_params)
     if @checkpoint.save
-      search_venues
+      render json: search_venues
     else
       flash[:notice] = "Please try again"
       redirect_to quests_path
@@ -103,7 +103,7 @@ class QuestsController < ApplicationController
                           }
                         end
 
-  render json: @venues
+  @venues
 end
 
   private
