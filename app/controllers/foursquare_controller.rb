@@ -13,6 +13,7 @@ class FoursquareController < ActionController::Base
     token = token_receipt
     @api = Fsqr.new(token.token)
     user = User.find_by(foursquare_id: @api.client.user("self")[:id].to_i)
+    ## This smells, Maybe have the User class have a #create_from_foursquare method?
     if user
       session[:user_id] = user.id
       session[:token] = token.token
@@ -64,6 +65,8 @@ class FoursquareController < ActionController::Base
   end
 
   def location_creator(params)
+    # there has to be a better way to do this...
+    # We should try to get strong params working with this method
     location = Location.new
     location.name = params[:location][:name]
     location.venue_type = params[:location][:venue_type]
