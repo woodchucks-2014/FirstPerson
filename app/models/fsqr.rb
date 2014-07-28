@@ -41,7 +41,7 @@ class Fsqr
                       state: venue["location"]["state"],
                       zip: venue["location"]["postalCode"],
                       country: venue["location"]["country"],
-                      location_id: location_id
+                      location_id: location_id #our location id in the database
                     }
     end
 

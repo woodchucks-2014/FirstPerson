@@ -57,12 +57,13 @@ class QuestsController < ApplicationController
   def set_location
     # There should be a way to use strong params to do this...
     @location = Location.new
-    @location.name = params[:checkpoint][:locations][:name]
-    @location.street = params[:checkpoint][:locations][:street]
-    @location.city = params[:checkpoint][:locations][:city]
-    @location.state = params[:checkpoint][:locations][:state]
-    @location.zip = params[:checkpoint][:locations][:zip]
-    @location.save
+    @location.create(locations_params)
+    # @location.name = params[:checkpoint][:locations][:name]
+    # @location.street = params[:checkpoint][:locations][:street]
+    # @location.city = params[:checkpoint][:locations][:city]
+    # @location.state = params[:checkpoint][:locations][:state]
+    # @location.zip = params[:checkpoint][:locations][:zip]
+    # @location.save
 
     params[:checkpoint][:location_id] = @location.id
 
@@ -101,14 +102,18 @@ class QuestsController < ApplicationController
     params.require(:checkpoint).permit(:instructions, :quest_id, :location_id)
   end
 
-  def user_quest_params ## BUGBUG!!!!!
+  def user_quest_params
     params[:user_quest][:user_id] = current_user2.id #hard code to 1 for local
     params.require(:user_quest).permit(:user_id, :quest_id, :completed)
   end
 
-  def quest_params ## BUGBUG!!!!!
+  def quest_params 
     params[:quest][:creator_id] = current_user2.id #hard code to 1 for local
     params.require(:quest).permit(:creator_id, :title, :description, :user_limit, :category, :end_date)
+  end
+
+  def locations_params
+    params.permit(:checkpoint, locations: [:name, :street, :city, :state, :zip])
   end
 
   def venue_params
