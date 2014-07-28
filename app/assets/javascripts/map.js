@@ -139,30 +139,42 @@
 
 var markers;
 var handler;
-var geolocation = "hello";
+var geolocation;
 
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(assignPosition);
-    } else {
-        alert("Geolocation is not supported by this browser.")
-    }
-}
-function assignPosition(position) {
-    geolocation = {lat: position.coords.latitude, lng: position.coords.longitude} 
+"/all.json"
+
+function getMarkers(path) {
+  $.getJSON(path, function(data) {
+    markers = data
+  })
 }
 
-getLocation();
-
-createMap = function(gl) {
+function createMap() {
   handler = Gmaps.build('Google');
-  handler.buildMap({ internal: {id: 'map' }});
-  var mark = handler.addMarker(gl);
+  handler.buildMap({ internal: {id: 'map'} }, function(){
+    if(navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(displayMap);
+    }
+  })
+}
+
+function displayMap(position){
+  markers = handler.addMarker({
+    lat: position.coords.latitude,
+    lng: position.coords.longitude
+  });
   handler.map.centerOn(mark);
-  handler.removeMarker(mark);
+};
+
+function displayMarkers(path) {
+  handler.removeMarkers(markers);
+  getMarkers(path);
+  markers = handler.addMarker(markers);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
 }
 
 $(document).ready(function() {
-  console.log(geolocation)
-  createMap(geolocation);
+  createMap();
+  displayMarkers("/all")
 })
