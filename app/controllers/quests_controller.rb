@@ -93,6 +93,7 @@ class QuestsController < ApplicationController
     ll = [@location.latitude, @location.longitude].join(',')
     api = Fsqr.new(session[:token])
     @venues = api.search(query, ll)
+    @venues[]
   end
 
   private
@@ -102,12 +103,12 @@ class QuestsController < ApplicationController
   end
 
   def user_quest_params ## BUGBUG!!!!!
-    params[:user_quest][:user_id] = current_user2.id #change for deployment
+    params[:user_quest][:user_id] = current_user2.id #hard code to 1 for local
     params.require(:user_quest).permit(:user_id, :quest_id, :completed)
   end
 
   def quest_params ## BUGBUG!!!!!
-    params[:quest][:creator_id] = current_user2.id #change for deployment
+    params[:quest][:creator_id] = current_user2.id #hard code to 1 for local
     params.require(:quest).permit(:creator_id, :title, :description, :user_limit, :category, :end_date)
   end
 
