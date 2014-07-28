@@ -68,17 +68,21 @@ class FoursquareController < ActionController::Base
     # there has to be a better way to do this...
     # We should try to get strong params working with this method
     location = Location.new
-    location.name = params[:location][:name]
-    location.venue_type = params[:location][:venue_type]
-    location.venue_type = params[:location][:second_type]
-    location.latitude = params[:location][:latitude]
-    location.longitude = params[:location][:longitude]
-    location.street= params[:location][:street]
-    location.city = params[:location][:city]
-    location.state = params[:location][:state]
-    location.zip = params[:location][:zip]
-    location.country = params[:location][:country]
-    location.foursquare_id = params[:location][:foursquare_id]
+    # location.name = params[:location][:name]
+    # location.venue_type = params[:location][:venue_type]
+    # location.venue_type = params[:location][:second_type]
+    # location.latitude = params[:location][:latitude]
+    # location.longitude = params[:location][:longitude]
+    # location.street= params[:location][:street]
+    # location.city = params[:location][:city]
+    # location.state = params[:location][:state]
+    # location.zip = params[:location][:zip]
+    # location.country = params[:location][:country]
+    # location.foursquare_id = params[:location][:foursquare_id]
+
+    fields = [:name, :venue_type, :second_type, :latitude, :longitude, :street, :city, :state, :zip, :country, :foursquare_id]
+    fields.each { |field| location[field] = params[field]}
+
     location
   end
 
