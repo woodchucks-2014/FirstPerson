@@ -97,11 +97,11 @@ class FoursquareController < ActionController::Base
     location.latitude = params[:location][:latitude]
     location.longitude = params[:location][:longitude]
     location.street= params[:location][:street]
-    location.city =params[:location][:city]
-    location.state =params[:location][:state]
-    location.zip =params[:location][:zip]
-    location.country =params[:location][:country]
-    location.foursquare_id =params[:location][:foursquare_id]
+    location.city = params[:location][:city]
+    location.state = params[:location][:state]
+    location.zip = params[:location][:zip]
+    location.country = params[:location][:country]
+    location.foursquare_id = params[:location][:foursquare_id]
     location
   end
 
