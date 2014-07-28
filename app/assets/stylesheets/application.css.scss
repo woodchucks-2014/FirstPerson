@@ -44,9 +44,6 @@ $font-stack:  Helvetica, sans-serif;
 }
 
 
-
-
-
 .container{
   height: 50em;
 }
@@ -120,7 +117,23 @@ $font-stack:  Helvetica, sans-serif;
 
 }
 
+iframe{
+  background-color: rgba(0,0,0,0.8);
+}
 
+.accept_form{
+  overflow: hidden;
+  color:white;
+  text-align: center;
+}
+
+.accepted {
+  background-color: rgba(0,255,0,0.4);
+}
+
+.rejected {
+  background-color: rgba(255,0,0,0.4);
+}
 
 /*----------------------------LAYOUT----------------------------------*/
 
