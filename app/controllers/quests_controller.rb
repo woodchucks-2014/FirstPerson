@@ -77,7 +77,7 @@ class QuestsController < ApplicationController
   def commit_location
     # @location = Location.find_by(name: params[:venue][0][:name])
     @params = params
-    render partial: 'quests/commit_location'
+    render json: @params
   end
 
   def accepted
