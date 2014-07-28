@@ -7,12 +7,9 @@ RSpec.describe "home" do
       expect(page).to have_css("#sign_in_link")
     end
 
-  end
-
-  describe "Non-logged in user sees signup button" do
-    it "by visiting homepage" do
+    it "results a 200 status code" do
       visit '/'
-      expect(page).to have_css("#sign_up_link")
+      expect(page.status_code).to eq(200)
     end
 
   end
@@ -29,17 +26,6 @@ RSpec.describe "home" do
       expect(page).to have_selector("a", text: "Sign Up")
     end
 
-
-    # it "button redirects user" do
-    #   visit '/'
-    #   click_link('Sign In')
-    #   expect(current_path).to 
-
-    # end  
-
-  end
-
-  
+  end  
 
 end
-

@@ -3,14 +3,13 @@ require 'faker'
 
 FactoryGirl.define do
   factory :quest do
-    # association :creator  --> not sure why this doesn't work, but line 7 does
-    creator_id {1}
-    category {'Bar Crawl'}
-    description {'Drinking and Cameraderie'}
+    association :creator 
+    category {Faker::Commerce.department}
+    description {Faker::Company.catch_phrase}
     user_limit {rand (1..10)}
-    start_date {'2014-08-06 18:50:04 -0400'}
-    end_date {'2014-08-06 21:50:04 -0400'}
-    title {"Vic's 26th Birthday"}
+    start_date {Time.now}
+    end_date {Time.now+30}
+    title {Faker::Company.catch_phrase}
     xp {500}
   end
 end
