@@ -1,16 +1,21 @@
 Rails.application.routes.draw do
 
-
-  # get '/quests', to: "quests#main"
+  get '/checkins', to: "users#checkin_points"
+  get '/all', to: "quests#all"
+  get '/quests', to: "quests#main"
+  get '/accept', to: "quests#accept_form"
+  get '/accepted', to: "quests#accepted"
+  get '/rejected', to: "quests#rejected"
   post '/create', to: "quests#create"
   post '/accept', to: "quests#accept"
-  get '/checkins', to: "users#checkin_points"
-  get '/quests', to: "quests#all"
+  post '/set_location', to: "quests#set_location"
+
   get '/foursquare', to: "foursquare#index", as: 'foursquare'
   get '/redirect', to: "foursquare#redirect"
   get '/map', to: "foursquare#map", as: "map"
   post '/pull', to: "foursquare#pull", as: 'pull'
   get '/push', to: "foursquare#push"
+
   get '/logout', to: "users#logout", as: 'logout'
   get 'users/:id', to: "users#profile"
 
@@ -19,7 +24,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
 
-  root "foursquare#map"
+  root "users#index"
 
   get '/admin-checkin', to: "users#admin_checkin"
   get '/test_login', to: "users#test_login"

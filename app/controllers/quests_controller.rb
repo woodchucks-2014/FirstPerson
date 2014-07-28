@@ -1,9 +1,31 @@
 class QuestsController < ApplicationController
 
-  def main
-    @quests = Quest.all
-    @quest = Quest.new
+  def all
     @user_quest = UserQuest.new
+    @quests = Quest.all.select { |quest| quest.checkpoints.length >= 1  }
+    @hash = Gmaps4rails.build_markers(@quests) do |quest, marker|
+      if quest.checkpoints.length >= 1
+        marker.lat quest.checkpoints.first.location.latitude
+        marker.lng quest.checkpoints.first.location.longitude
+        marker.infowindow "<iframe src='/accept?quest_id=#{quest.id}'></iframe>"
+      end
+    end
+    render json: @hash
+  end
+
+  def accept_form
+    @user_quest = UserQuest.new
+    @quest = Quest.find(params[:quest_id])
+
+  end
+
+
+  def main
+
+    @quests = Quest.all
+    @checkpoint = Checkpoint.new
+    @user_quest = UserQuest.new
+    @quest = Quest.new
   end
 
   def accept
@@ -11,19 +33,34 @@ class QuestsController < ApplicationController
     @user_quest = UserQuest.new(user_quest_params)
 
     if @user_quest.save
-      redirect_to quests_path
+       redirect_to accepted_path
       flash[:notice] = "Quest successfully accepted"
     else
       flash[:notice] = "Please try again"
-      redirect_to quests_path
+       redirect_to rejected_path
     end
 
 
   end
 
+
   def create
     @quest = Quest.new(quest_params)
+
     if @quest.save
+      redirect_to quests_path
+    else
+      flash[:notice] = "Please try again"
+      redirect_to quests_path
+    end
+
+  end
+
+
+  def set_location
+    @checkpoint = Checkpoint.new(checkpoint_params)
+    # quest.save!
+    if @checkpoint.save
       redirect_to quests_path
       flash[:notice] = "Quest successfully created"
     else
@@ -33,18 +70,22 @@ class QuestsController < ApplicationController
 
   end
 
-  def all
-    quests = Quest.all
-    @checkpoints = quests.map { |quest| quest.checkpoints.first }
-    @hash = Gmaps4rails.build_markers(@checkpoints) do |checkpoint, marker|
-      marker.lat checkpoint.location.latitude
-      marker.lng checkpoint.location.longitude
-      marker.infowindow checkpoint.quest.title
-    end
-    render json: @hash
+
+  def accepted
+  end
+
+  def rejected
   end
 
   private
+
+  def checkpoint_params
+    location = Location.new
+    location.address = params[:checkpoint][:locations][:address]
+    location.save
+    params[:checkpoint][:location_id] = location.id
+    params.require(:checkpoint).permit(:instructions, :quest_id, :location_id)
+  end
 
   def user_quest_params
     params[:user_quest][:user_id] = 1#current_user2.id
