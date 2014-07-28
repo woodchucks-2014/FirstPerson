@@ -6,6 +6,14 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
+player = User.new
+player.firstname = "Greg"
+player.email = "greg@dbc.com"
+player.gender = "male"
+player.foursquare_id = 2
+player.save!
+
 business = User.new
 business.firstname = "DBC"
 business.email = "dishes@dbc.com"
@@ -27,37 +35,17 @@ bar.foursquare_id = "b59deifjo3uj"
 bar.save!
 
 checkin_loc = Location.new
-checkin_loc.name = "CheckIn"
-checkin_loc.venue_type = "checkin_loc"
+checkin_loc.name = "CheckIn0"
+checkin_loc.venue_type = "checkin_loc0"
 checkin_loc.latitude = 40.7703
 checkin_loc.longitude = -73.9997
-checkin_loc.street = "99 Dick Street Fl 2"
+checkin_loc.street = "160 34th St"
 checkin_loc.city = "New York"
 checkin_loc.state = "NY" 
 checkin_loc.country = "US"
-checkin_loc.zip = "10005"
+checkin_loc.zip = "10016"
 checkin_loc.foursquare_id = "kjf3jfosefjw"
 checkin_loc.save!
-
-checkin_loc2 = Location.new
-checkin_loc2.name = "CheckIn"
-checkin_loc2.venue_type = "checkin_loc2"
-checkin_loc2.latitude = 40.7003
-checkin_loc2.longitude = -74.5997
-checkin_loc2.street = "69 Brown Eye Blvd Fl 5"
-checkin_loc2.city = "New York"
-checkin_loc2.state = "NY" 
-checkin_loc2.country = "US"
-checkin_loc2.zip = "10005"
-checkin_loc2.foursquare_id = "33jf39w8fj983"
-checkin_loc2.save!
-
-player = User.new
-player.firstname = "Greg"
-player.email = "greg@dbc.com"
-player.gender = "male"
-player.foursquare_id = 2
-player.save!
 
 quest = Quest.new
 quest.title = "Come Get A Beer!"
@@ -68,17 +56,17 @@ quest.xp = 500
 quest.end_date = Time.now + 1.day
 quest.save!
 
-beer = Reward.new
-beer.quest_id = quest.id
-beer.description = "A tasty tasty beer... yum..."
-beer.save!
-
 checkpoint = Checkpoint.new
 checkpoint.instructions = "Receive beer"
 checkpoint.quest_id = quest.id
 checkpoint.location_id = bar.id
 checkpoint.step_num = 1
 checkpoint.save!
+
+beer = Reward.new
+beer.quest_id = quest.id
+beer.description = "Yay! Beer!"
+beer.save!
 
 greg_gets_a_beer = UserQuest.new
 greg_gets_a_beer.quest_id = quest.id
@@ -96,10 +84,6 @@ gregs_checkin.location_id = checkin_loc.id
 gregs_checkin.user_id = player.id
 gregs_checkin.save!
 
-gregs_checkin2 = CheckIn.new
-gregs_checkin2.location_id = checkin_loc2.id
-gregs_checkin2.user_id = player.id
-gregs_checkin2.save!
 
 gregs_checkpoint = UserCheckpoint.new
 gregs_checkpoint.user_id = player.id

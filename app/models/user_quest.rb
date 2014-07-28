@@ -2,7 +2,7 @@ class UserQuest < ActiveRecord::Base
   belongs_to :quest
   belongs_to :user
 
-  after_create :create_related_checkpoints
+  # after_create :create_related_checkpoints
 
   def complete!
     unless self.completed
@@ -21,6 +21,7 @@ class UserQuest < ActiveRecord::Base
 
   def create_related_checkpoints
     self.quest.checkpoints
+
   end
 end
 
