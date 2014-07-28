@@ -21,7 +21,7 @@ class UserQuest < ActiveRecord::Base
 
   def create_related_checkpoints
     self.quest.checkpoints
-
   end
+  
 end
 

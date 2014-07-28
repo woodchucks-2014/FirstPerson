@@ -6,6 +6,7 @@ RSpec.describe CheckIn, :type => :model do
 
   it "sets a user's xp at a check-in to a default of 0" do
     ex = FactoryGirl.build(:check_in)
+    ex.set_defaults
     expect(ex.xp).to eq(0)
   end
 
