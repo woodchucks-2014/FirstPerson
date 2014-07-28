@@ -9,7 +9,7 @@ class QuestsController < ApplicationController
       if quest.checkpoints.length >= 1 # Why are we doing this twice?
         marker.lat quest.checkpoints.first.location.latitude
         marker.lng quest.checkpoints.first.location.longitude
-        marker.infowindow "<iframe src='/accept?quest_id=#{quest.id}'></iframe>"
+        marker.infowindow "<iframe src='/accept?quest_id=#{quest.id}' style='scrolling=no;'></iframe>"
       end
     end
     render json: @hash
@@ -18,7 +18,7 @@ class QuestsController < ApplicationController
   def accept_form
     @user_quest = UserQuest.new
     @quest = Quest.find(params[:quest_id])
-    render layout: false
+    render partial: "quests/accept_form", layout: false
   end
 
   def main
@@ -32,11 +32,11 @@ class QuestsController < ApplicationController
     @user_quest = UserQuest.new(user_quest_params)
 
     if @user_quest.save
-       redirect_to accepted_path
       flash[:notice] = "Quest successfully accepted"
+      render partial: "quests/accepted", layout: false
     else
       flash[:notice] = "Please try again"
-       redirect_to rejected_path
+      render partial: "quests/rejected", layout: false
     end
 
   end
