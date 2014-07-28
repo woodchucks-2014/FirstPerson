@@ -27,8 +27,8 @@ Rails.application.routes.draw do
   ### User JSON ###
   get '/checkins', to: "users#checkin_points"
 
-
-
+  ### Rewards ###
+  get '/new', to: "rewards#new"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
