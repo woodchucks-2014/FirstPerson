@@ -84,7 +84,7 @@ class QuestsController < ApplicationController
   end
 
   def commit_location
-    @location = Location.find(params[:location_id])
+    @location = Location.find(params[:venue][:location_id])
     @location.update(venue_params)
     redirect_to quests_path
   end
