@@ -17,15 +17,14 @@ Rails.application.routes.draw do
   get '/push', to: "foursquare#push"
 
   get '/logout', to: "users#logout", as: 'logout'
-
-  devise_for :users
+  get 'users/:id', to: "users#profile"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
 
-  root 'users#index'
+  root "users#index"
 
   get '/admin-checkin', to: "users#admin_checkin"
   get '/test_login', to: "users#test_login"
