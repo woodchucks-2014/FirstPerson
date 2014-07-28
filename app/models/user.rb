@@ -20,4 +20,14 @@ class User < ActiveRecord::Base
     self.total_xp ||= 0
   end
 
+
+  def self.user_all_checkins
+    @user=User.find(current_user2.id)
+    @checkins=[]
+    @user.user_quests.each do |user_quest|
+      @quests << Quest.find(user_quest.quest_id)
+    end
+    return @quests
+  end
+
 end

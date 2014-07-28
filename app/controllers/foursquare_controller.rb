@@ -1,9 +1,11 @@
 class FoursquareController < ActionController::Base
 
   layout "application"
+
   include AuthHelper
   include PushHelper
   include UsersHelper
+  include BuildHashHelper
 
   def index
     redirect_to auth_uri
@@ -18,7 +20,7 @@ class FoursquareController < ActionController::Base
     end
     set_session
     redirect_to root_path
-  end 
+  end
 
   def map
 
