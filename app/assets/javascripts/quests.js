@@ -19,7 +19,7 @@ createQuests = function() {
     }
   );
 }
-
+var foursquare_data = {};
 $(document).ready(function(){
 
   $('#new_quest').submit(function(e){
@@ -42,13 +42,21 @@ $(document).ready(function(){
       url: "/set_location",
       data: $( this ).serialize()
     }).done(function(data) {
-      console.log(data);
-      $.each(data, function(i, value){
-        $('.create').append("<div id=" + i + ">"+value["name"]+"<br>"+value["street"]+"<br></div>");
+      foursquare_data = data;
+      var i = 0;
+      $.each(data, function(key, value){
+        $('.create').append("<a class='location' id=" + value["foursquare_id"] + "><div class = 'result'>"+key+"<br>"+value["street"]+"<br></div></a>");
+        i++;
       })
     }).fail(function() {
       alert("Please try again");
     })
+  })
+
+  $(".create").on("click", ".location", function(e){
+    e.preventDefault();
+    var index = $(this).id;
+    $.post('/commit_location', {foursquare_data[index]})
   })
 
 })

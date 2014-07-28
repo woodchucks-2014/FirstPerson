@@ -9,12 +9,17 @@ Rails.application.routes.draw do
   post '/create', to: "quests#create"
   post '/accept', to: "quests#accept"
   post '/set_location', to: "quests#set_location"
+  post 'commit_location', to: "quests#commit_location"
 
   get '/foursquare', to: "foursquare#index", as: 'foursquare'
   get '/redirect', to: "foursquare#redirect"
   get '/map', to: "foursquare#map", as: "map"
   post '/pull', to: "foursquare#pull", as: 'pull'
+
   get '/logout', to: "users#logout", as: 'logout'
+  get '/admin-checkin', to: "users#admin_checkin"
+  get '/test_login', to: "users#test_login"
+
 
   devise_for :users
 
@@ -25,8 +30,6 @@ Rails.application.routes.draw do
 
   root 'users#index'
 
-  get '/admin-checkin', to: "users#admin_checkin"
-  get '/test_login', to: "users#test_login"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

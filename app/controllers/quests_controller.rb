@@ -74,6 +74,10 @@ class QuestsController < ApplicationController
 
   end
 
+  def commit_location
+    @location.update(params)
+  end
+
   def accepted
   end
 
