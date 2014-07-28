@@ -5,7 +5,7 @@ class FoursquareController < ActionController::Base
   include AuthHelper
   include PushHelper
   include UsersHelper
-  include BuildHashHelper
+
 
   def index
     redirect_to auth_uri

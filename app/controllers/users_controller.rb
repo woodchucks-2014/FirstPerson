@@ -1,15 +1,6 @@
 class UsersController < ApplicationController
 
-  def checkin_points
-    user = User.where(id: session[:user_id]).first || User.new
-    @checkins = user.check_ins
-    @hash = Gmaps4rails.build_markers(@checkins) do |checkin, marker|
-      marker.lat checkin.location.latitude
-      marker.lng checkin.location.longitude
-      marker.infowindow "Hello"
-    end
-    render json: @hash
-  end
+  include BuildHashHelper
 
   def admin_checkin
   	api = Fsqr.new(session[:token])
@@ -28,6 +19,18 @@ class UsersController < ApplicationController
   end
 
   def index
+  end
+
+  def user_all_checkins_loc
+    @checkins = User.user_all_checkins
+    render json: @checkins
+  end
+
+
+  def checkin_points
+    @checkins = User.checkin_points_all
+    @hash = build_hash(@checkins)
+    render json: @hash
   end
 
 end

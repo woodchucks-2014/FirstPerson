@@ -20,7 +20,7 @@ class Quest < ActiveRecord::Base
 
 
   def self.user_all_quests
-    @user=User.find(current_user2.id)
+    @user = User.where(id: session[:user_id]).first || User.new
     @quests=[]
     @user.user_quests.each do |user_quest|
       @quests << Quest.find(user_quest.quest_id)

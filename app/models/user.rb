@@ -22,12 +22,18 @@ class User < ActiveRecord::Base
 
 
   def self.user_all_checkins
-    @user=User.find(current_user2.id)
-    @checkins=[]
-    @user.user_quests.each do |user_quest|
-      @quests << Quest.find(user_quest.quest_id)
+    @user = User.where(id: session[:user_id]).first || User.new
+    @checkin_locs=[]
+    @user.check_ins.each do |check_in|
+      @checkin_locs << Location.find(check_in.location_id)
     end
-    return @quests
+    return @checkins_locs
+  end
+
+  def self.checkin_points_all
+    @user = User.where(id: session[:user_id]).first || User.new
+    @checkins = @user.check_ins
+    return @checkins_locs
   end
 
 end

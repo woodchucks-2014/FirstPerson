@@ -15,8 +15,8 @@ Rails.application.routes.draw do
   get '/user_all_quests_loc', to: "quests#user_all_quests_loc"
 
   ### User JSON ###
-  get '/user_all_checkins_loc', to: "quests#user_all_checkins_loc"
-
+  get '/user_all_checkins_loc', to: "users#user_all_checkins_loc"
+  get '/checkins', to: "users#checkin_points"
 
   ### FourSquare ###
   get '/foursquare', to: "foursquare#index", as: 'foursquare'
@@ -29,8 +29,7 @@ Rails.application.routes.draw do
   get 'users/:id', to: "users#profile"
   get '/admin-checkin', to: "users#admin_checkin"
   get '/test_login', to: "users#test_login"
-  ### User JSON ###
-  get '/checkins', to: "users#checkin_points"
+
 
   ### new routes
   get '/map', to: "maps#show"
