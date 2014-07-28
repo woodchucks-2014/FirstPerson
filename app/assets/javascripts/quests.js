@@ -43,10 +43,8 @@ $(document).ready(function(){
       data: $( this ).serialize()
     }).done(function(data) {
       foursquare_data = data;
-      var i = 0;
       $.each(data, function(key, value){
-        $('.create').append("<a class='location' id=" + i + "><div class = 'result'>"+key+"<br>"+value["street"]+"<br></div></a>");
-        i++;
+        $('.create').append("<a class='location' id=" + key + "><div class = 'result'>"+value["name"]+"<br>"+value["street"]+"<br></div></a>");
       })
     }).fail(function() {
       alert("Please try again");
@@ -55,7 +53,8 @@ $(document).ready(function(){
 
   $(".create").on("click", ".location", function(e){
     var index = $(this).attr('id');
-    $.post('/commit_location', {"venue": foursquare_data})
+    console.log(index);
+    $.post('/commit_location', {"venue": foursquare_data[index]})
       .done(function(data){
         console.log(data);
       })

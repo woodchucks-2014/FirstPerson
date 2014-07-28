@@ -92,8 +92,8 @@ class QuestsController < ApplicationController
   api = Fsqr.new(session[:token])
   returned_venues = api.client.suggest_completion_venues(query: query, ll: ll)
   @venues = {}
-  returned_venues["minivenues"].each do |venue|
-    @venues[venue["name"]] =
+  returned_venues["minivenues"].each_with_index do |venue, i|
+                        i =
                           {
                             name: venue["name"],
                             venue_type: venue["categories"].first["name"],
