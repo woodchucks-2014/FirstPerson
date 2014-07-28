@@ -3,6 +3,11 @@ require 'rails_helper'
 feature "Quests", :type => :feature do
 	describe "User Quests page" do
 
+		it "gives a 200 status code" do
+      visit '/'
+      expect(page.status_code).to eq(200)
+    end
+
 	  it "renders the quest title div" do
 	  	visit '/quests'
 	  	expect(page).to have_content("Create a quest")
@@ -52,6 +57,28 @@ feature "Quests", :type => :feature do
 	  	visit '/quests'
 	  	expect(page).to have_css('textarea#quest_description')
 	  end
+
+	  it "renders user limit field " do
+	  	visit '/quests'
+	  	expect(page).to have_css('input#quest_user_limit')
+	  end
+
+	  it "renders category field " do
+	  	visit '/quests'
+	  	expect(page).to have_css('input#quest_category')
+	  end
+
+	  it "renders quest end date field " do
+	  	visit '/quests'
+	  	expect(page).to have_css('input#quest_end_date')
+	  end
+
+	  it "renders 'Add your checkpoints' button" do
+	  	visit '/quests'
+	  	expect(page).to have_css('input[name="commit"][type="submit"][value="Add your checkpoints!"]')
+	  end
+
+	  
 
 
 	  
