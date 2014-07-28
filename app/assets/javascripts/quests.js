@@ -56,7 +56,7 @@ $(document).ready(function(){
   $(".create").on("click", ".location", function(e){
     e.preventDefault();
     var index = $(this).id;
-    $.post('/commit_location', {foursquare_data[index]})
+    $.post('/commit_location', {"venue": foursquare_data[index]})
   })
 
 })
