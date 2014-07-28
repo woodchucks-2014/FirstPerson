@@ -5,6 +5,6 @@ FactoryGirl.define do
     association :location
     association :quest
     step_num { rand(1..10) }
-    instructions {"Test instructions as to how to go about your quest."}
+    instructions {Faker::Lorem.sentence}
   end
 end
