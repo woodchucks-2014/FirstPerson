@@ -35,7 +35,7 @@ $(document).ready(function(){
     })
   })
 
-  $('#check_create').submit(function(e){
+  $(".checkpoints_create").on("submit", "#check_create", function(e){
     e.preventDefault();
     $.ajax({
       type: "post",
