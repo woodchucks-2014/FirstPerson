@@ -3,6 +3,6 @@
 #show_active_quests.button
 #show_completed_quests.button
 #show_user_quests
-  = @user.quests.each do |quest|
-  =   "<div class='button' id='quest_#{quest.id}' >Checkpoints for #{quest.name}</div>"
-  = end
+  - @user.quests.each do |quest|
+    %div{id: "quest_#{quest.id}", class: "button"}
+      =quest.title

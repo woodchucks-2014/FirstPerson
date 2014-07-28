@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   ### FourSquare ###
   get '/foursquare', to: "foursquare#index", as: 'foursquare'
   get '/redirect', to: "foursquare#redirect"
-  get '/map', to: "foursquare#map", as: "map"
+  #get '/map', to: "foursquare#map", as: "map"
   post '/pull', to: "foursquare#pull", as: 'pull'
 
   #### Users ###
@@ -26,6 +26,9 @@ Rails.application.routes.draw do
   get '/test_login', to: "users#test_login"
   ### User JSON ###
   get '/checkins', to: "users#checkin_points"
+
+  ### new routes
+  get '/map', to: "maps#show"
 
 
 
