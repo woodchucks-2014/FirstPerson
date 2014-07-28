@@ -19,6 +19,7 @@ createQuests = function() {
     }
   );
 }
+
 var foursquare_data = {};
 $(document).ready(function(){
 
