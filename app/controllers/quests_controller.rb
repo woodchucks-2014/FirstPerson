@@ -74,7 +74,7 @@ class QuestsController < ApplicationController
   end
 
   def commit_location
-    @location = Location.find_by(name: params[:venue][:name])
+    @location = Location.last #this needs to be changed to something that can handle concurrency
     @location.update(venue_params)
     redirect_to quests_path
   end
