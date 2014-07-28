@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.1.1'
 
-gem 'capybara'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
