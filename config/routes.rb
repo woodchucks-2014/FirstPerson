@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
-  get '/checkins', to: "users#checkin_points"
-  get '/all', to: "quests#all"
+  ### Quests ###
   get '/quests', to: "quests#main"
   get '/accept', to: "quests#accept_form"
   get '/accepted', to: "quests#accepted"
@@ -9,26 +8,35 @@ Rails.application.routes.draw do
   post '/create', to: "quests#create"
   post '/accept', to: "quests#accept"
   post '/set_location', to: "quests#set_location"
+  post 'commit_location', to: "quests#commit_location"
 
+  ### Quest JSON ###
+  get '/all', to: "quests#all"
+
+  ### FourSquare ###
   get '/foursquare', to: "foursquare#index", as: 'foursquare'
   get '/redirect', to: "foursquare#redirect"
   get '/map', to: "foursquare#map", as: "map"
   post '/pull', to: "foursquare#pull", as: 'pull'
-  get '/push', to: "foursquare#push"
 
+  #### Users ###
   get '/logout', to: "users#logout", as: 'logout'
+  get 'users/:id', to: "users#profile"
+  get '/admin-checkin', to: "users#admin_checkin"
+  get '/test_login', to: "users#test_login"
+  ### User JSON ###
+  get '/checkins', to: "users#checkin_points"
 
-  devise_for :users
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
 
-  root 'users#index'
+  root "users#index"
 
-  get '/admin-checkin', to: "users#admin_checkin"
-  get '/test_login', to: "users#test_login"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -3,6 +3,6 @@ require 'faker'
 FactoryGirl.define do
   factory :reward do
     association :quest
-    xp {500}
+    description {"Yay! You get a reward!"}
   end
 end
