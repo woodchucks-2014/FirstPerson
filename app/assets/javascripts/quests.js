@@ -43,7 +43,7 @@ $(document).ready(function(){
       data: $( this ).serialize()
     }).done(function(data) {
       console.log(data);
-      $.each(JSON.parse(data), function(i, value){
+      $.each(data, function(i, value){
         $('.create').append("<div id=" + i + ">"+value["name"]+"<br>"+value["street"]+"<br></div>");
       })
     }).fail(function() {
