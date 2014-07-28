@@ -6,6 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+business = User.new
+business.firstname = "DBC"
+business.email = "dishes@dbc.com"
+business.foursquare_id = 1
+business.save!
 
 player = User.new
 player.firstname = "Greg"
@@ -13,12 +18,6 @@ player.email = "greg@dbc.com"
 player.gender = "male"
 player.foursquare_id = 2
 player.save!
-
-business = User.new
-business.firstname = "DBC"
-business.email = "dishes@dbc.com"
-business.foursquare_id = 1
-business.save!
 
 bar = Location.new
 bar.name = "Awesome Bar"
