@@ -10,33 +10,26 @@ class FoursquareController < ActionController::Base
   end
 
   def redirect
-    token = token_receipt
-    @api = Fsqr.new(token.token)
-    user = User.find_by(foursquare_id: @api.client.user("self")[:id].to_i)
-    ## This smells, Maybe have the User class have a #create_from_foursquare method?
-    if user
-      session[:user_id] = user.id
-      session[:token] = token.token
-    else
-      @user = User.new
-      user_creator
-      @user.save
-      session[:user_id] = @user.id
-      session[:token] = token.token
+    @token = token_receipt.token
+    @api = Fsqr.new(@token)
+    @user = @api.get_by_foursquare_id
+    unless @user
+      @user = user_creator
     end
+    set_session
     redirect_to root_path
-  end
+  end 
 
   def map
 
   end
 
   def pull
-    parsed_params = parse_foursquare_json(format(params))
-
-    loc = location_creator(parsed_params)
+    formatted_params = parse_foursquare_json(format(params))
+    loc = location_creator(formatted_params)
     loc.save
-    checkin = checkin_creator(loc, parsed_params)
+    user_id = formatted_params[:user][:user_id]
+    checkin = checkin_creator(loc, user_id)
     checkin.save
     render plain: "200 OK"
   end
@@ -55,30 +48,15 @@ class FoursquareController < ActionController::Base
     location_info.require("location").permit(:name, :venue_type, :latitude, :longitude, :address)
   end
 
-  private
-
-  def checkin_creator(location, params)
+  def checkin_creator(location, user_id)
     checkin = CheckIn.new
-    checkin.user_id = params[:user][:user_id]
+    checkin.user_id = user_id
     checkin.location_id = location.id
     checkin
   end
 
   def location_creator(params)
-    # there has to be a better way to do this...
-    # We should try to get strong params working with this method
     location = Location.new
-    # location.name = params[:location][:name]
-    # location.venue_type = params[:location][:venue_type]
-    # location.venue_type = params[:location][:second_type]
-    # location.latitude = params[:location][:latitude]
-    # location.longitude = params[:location][:longitude]
-    # location.street= params[:location][:street]
-    # location.city = params[:location][:city]
-    # location.state = params[:location][:state]
-    # location.zip = params[:location][:zip]
-    # location.country = params[:location][:country]
-    # location.foursquare_id = params[:location][:foursquare_id]
 
     fields = [:name, :venue_type, :second_type, :latitude, :longitude, :street, :city, :state, :zip, :country, :foursquare_id]
     fields.each { |field| location[field] = params[:location][field]}
