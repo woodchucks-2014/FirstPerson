@@ -81,7 +81,7 @@ class FoursquareController < ActionController::Base
     # location.foursquare_id = params[:location][:foursquare_id]
 
     fields = [:name, :venue_type, :second_type, :latitude, :longitude, :street, :city, :state, :zip, :country, :foursquare_id]
-    fields.each { |field| location[field] = params[field]}
+    fields.each { |field| location[field] = params[:location][field]}
 
     location
   end
