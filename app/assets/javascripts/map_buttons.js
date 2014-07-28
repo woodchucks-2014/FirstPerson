@@ -1,5 +1,7 @@
-var markers;
+var newMarkers;
+var oldMarkers = [];
 var handler;
+var geolocation;
 
 buildMap = function() {
   handler = Gmaps.build('Google');
@@ -23,11 +25,17 @@ $(document).ready(function() {
   $("#show_user_checkins").click(function() {
     createCheckIns();
   });
+  $("#show_all_quests").mouseenter(function() {
+    $.getJSON('/all', function(data) {
+      newMarkers = data
+    })
+  })
   $("#show_all_quests").click(function() {
-    createQuests();
+    handler.addMarkers(newMarkers);
+    handler.removeMarkers(oldMarkers);
+    oldMarkers = newMarkers
   });
   $("#show_completed_quests").click(function() {
     createCheckIns();
   });
-  alert("Hi");
 });
