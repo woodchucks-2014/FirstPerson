@@ -78,9 +78,6 @@ feature "Quests", :type => :feature do
       expect(page).to have_css('input[name="commit"][type="submit"][value="Add your checkpoints!"]')
     end
 
-
-
-
-
   end
+  
 end

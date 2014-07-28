@@ -26,17 +26,6 @@ RSpec.describe "home" do
       expect(page).to have_selector("a", text: "Sign Up")
     end
 
-    # it "button redirects user" do
-    #   visit '/'
-    #   click_link('Sign In')
-    #   expect(current_path).to 
-
-    # end  
-
-  end
-
-
-
-  
+  end  
 
 end
