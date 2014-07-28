@@ -93,7 +93,7 @@ class QuestsController < ApplicationController
   returned_venues = api.client.suggest_completion_venues(query: query, ll: ll)
   @venues = {}
   returned_venues["minivenues"].each_with_index do |venue, i|
-                        i =
+    @venues[i] =
                           {
                             name: venue["name"],
                             venue_type: venue["categories"].first["name"],
