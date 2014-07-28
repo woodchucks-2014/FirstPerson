@@ -16,6 +16,20 @@ class Fsqr
   	self.client.add_checkin(ll: self.rand_loc, broadcast: "public")
   end
 
+  def local_login
+    user = get_by_foursquare_id
+    if user
+      user
+    else
+      user = User.new
+      user_creator
+      user.save
+    end
+  end
+
+  def get_by_foursquare_id
+    user = User.find_by(foursquare_id: self.client.user("self")[:id].to_i)
+  end
 end
 
 # What are we doing with this?

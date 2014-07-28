@@ -10,22 +10,15 @@ class FoursquareController < ActionController::Base
   end
 
   def redirect
-    token = token_receipt
-    @api = Fsqr.new(token.token)
-    user = User.find_by(foursquare_id: @api.client.user("self")[:id].to_i)
-    ## This smells, Maybe have the User class have a #create_from_foursquare method?
-    if user
-      session[:user_id] = user.id
-      session[:token] = token.token
-    else
-      @user = User.new
-      user_creator
-      @user.save
-      session[:user_id] = @user.id
-      session[:token] = token.token
+    @token = token_receipt.token
+    @api = Fsqr.new(@token)
+    @user = @api.get_by_foursquare_id
+    unless @user
+      @user = user_creator
     end
+    set_session
     redirect_to root_path
-  end
+  end 
 
   def map
 
