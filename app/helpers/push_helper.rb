@@ -1,31 +1,30 @@
 module PushHelper
   require 'json'
 
-  def format(fields)
-    formatted_fields = {}
-    formatted_fields["checkin"] = JSON.parse(fields["checkin"])
-    formatted_fields["user"] = JSON.parse(fields["user"])
-    formatted_fields
+  def format(params)
+    formatted_params = {}
+    formatted_params["checkin"] = JSON.parse(params["checkin"])
+    formatted_params["user"] = JSON.parse(params["user"])
+    formatted_params
   end
 
-	def parse_foursquare_json(fields)
-    #user, checkins
-    foursquare_fields = {user: {}, location: {}}
+	def parse_foursquare_json(formatted_params)
+    foursquare_params = {user: {}, location: {}}
 
-    foursquare_fields[:user][:user_id] = User.find_by(foursquare_id: fields["user"]["id"].to_i).id
-    foursquare_fields[:location][:name] = fields["checkin"]["venue"]["name"]
-    foursquare_fields[:location][:venue_type] = fields["checkin"]["venue"]["categories"].first["name"]
-    foursquare_fields[:location][:second_type] = fields["checkin"]["venue"]["categories"].last["name"]
-    foursquare_fields[:location][:latitude] = fields["checkin"]["venue"]["location"]["lat"].to_f
-    foursquare_fields[:location][:longitude] = fields["checkin"]["venue"]["location"]["lng"].to_f
-    foursquare_fields[:location][:street] = fields["checkin"]["venue"]["location"]["address"]
-    foursquare_fields[:location][:city] = fields["checkin"]["venue"]["location"]["city"]
-    foursquare_fields[:location][:state] = fields["checkin"]["venue"]["location"]["state"]
-    foursquare_fields[:location][:zip] = fields["checkin"]["venue"]["location"]["postalCode"]
-    foursquare_fields[:location][:country] = fields["checkin"]["venue"]["location"]["cc"]
-    foursquare_fields[:location][:foursquare_id] = fields["checkin"]["venue"]["id"]
+    foursquare_params[:user][:user_id] = User.find_by(foursquare_id: formatted_params["user"]["id"].to_i).id
+    foursquare_params[:location][:name] = formatted_params["checkin"]["venue"]["name"]
+    foursquare_params[:location][:venue_type] = formatted_params["checkin"]["venue"]["categories"].first["name"]
+    foursquare_params[:location][:second_type] = formatted_params["checkin"]["venue"]["categories"].last["name"]
+    foursquare_params[:location][:latitude] = formatted_params["checkin"]["venue"]["location"]["lat"].to_f
+    foursquare_params[:location][:longitude] = formatted_params["checkin"]["venue"]["location"]["lng"].to_f
+    foursquare_params[:location][:street] = formatted_params["checkin"]["venue"]["location"]["address"]
+    foursquare_params[:location][:city] = formatted_params["checkin"]["venue"]["location"]["city"]
+    foursquare_params[:location][:state] = formatted_params["checkin"]["venue"]["location"]["state"]
+    foursquare_params[:location][:zip] = formatted_params["checkin"]["venue"]["location"]["postalCode"]
+    foursquare_params[:location][:country] = formatted_params["checkin"]["venue"]["location"]["cc"]
+    foursquare_params[:location][:foursquare_id] = formatted_params["checkin"]["venue"]["id"]
 
-    foursquare_fields
+    foursquare_params
   end
 
 end
