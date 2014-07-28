@@ -42,7 +42,9 @@ $(document).ready(function(){
       url: "/set_location",
       data: $( this ).serialize()
     }).done(function(data) {
-      $('.create').append(data);
+      $.each(data, function(i, value){
+        $('.create').append("<button id=" + i + ">"+value[i].name+"</button>");
+      })
     }).fail(function() {
       alert("Please try again");
     })

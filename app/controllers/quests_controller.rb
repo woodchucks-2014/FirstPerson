@@ -74,12 +74,6 @@ class QuestsController < ApplicationController
 
   end
 
-  def get_location
-    location = Location.new
-    location.save
-  end
-
-
   def accepted
   end
 
