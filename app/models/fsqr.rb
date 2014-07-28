@@ -25,7 +25,7 @@ class Fsqr
     self.parse_search(returned_venues)
   end
 
-  def parse_search
+  def parse_search(returned_venues)
     venues = {}
     returned_venues["minivenues"].each_with_index do |venue, i|
       venues[i] =
