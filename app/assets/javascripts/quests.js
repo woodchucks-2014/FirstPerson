@@ -43,8 +43,8 @@ $(document).ready(function(){
       data: $( this ).serialize()
     }).done(function(data) {
       console.log(data);
-      $.each(data, function(i, value){
-        $('.create').append("<button id=" + i + ">"+value[i]["name"]+"</button>");
+      $.each(JSON.parse(data), function(i, value){
+        $('.create').append("<div id=" + i + ">"+value["name"]+"<br>"+value["street"]+"<br></div>");
       })
     }).fail(function() {
       alert("Please try again");
