@@ -25,16 +25,23 @@ $(document).ready(function() {
   $("#show_user_checkins").click(function() {
     createCheckIns();
   });
+
+
+
   $("#show_all_quests").mouseenter(function() {
     $.getJSON('/all', function(data) {
       newMarkers = data
     })
-  })
-  $("#show_all_quests").click(function() {
-    handler.addMarkers(newMarkers);
-    handler.removeMarkers(oldMarkers);
-    oldMarkers = newMarkers
   });
+  $("#show_all_quests").mousedown(function() {
+    handler.removeMarkers(oldMarkers);
+  });
+  $("#show_all_quests").mouseup(function() {
+    oldMarkers = handler.addMarkers(newMarkers);
+  });
+
+
+
   $("#show_completed_quests").click(function() {
     createCheckIns();
   });
