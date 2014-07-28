@@ -137,29 +137,32 @@
 //   }
 // ]
 
-// var checkins;
-// $.getJSON( "/checkins", function(data) {
-//   checkins = data
-// });
+var markers;
+var handler;
+var geolocation = "hello";
 
-// createCheckIns = function() {
-//   handler = Gmaps.build('Google');
-//   handler.buildMap(
-//     {
-//       provider: {
-//         styles: mapStyle
-//       },
-//       internal: {id: 'map'}
-//     },
-//     function() {
-//       markers = handler.addMarkers(checkins);
-//       lines = handler.addPolylines(
-//         [checkins],
-//         { strokeColor: '#00BB00' }
-//       );
-//       handler.bounds.extendWith(markers);
-//       handler.fitMapToBounds();
-//     }
-//   );
-// }
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(assignPosition);
+    } else {
+        alert("Geolocation is not supported by this browser.")
+    }
+}
+function assignPosition(position) {
+    geolocation = {lat: position.coords.latitude, lng: position.coords.longitude} 
+}
 
+getLocation();
+
+createMap = function(gl) {
+  handler = Gmaps.build('Google');
+  handler.buildMap({ internal: {id: 'map' }});
+  var mark = handler.addMarker(gl);
+  handler.map.centerOn(mark);
+  handler.removeMarker(mark);
+}
+
+$(document).ready(function() {
+  console.log(geolocation)
+  createMap(geolocation);
+})

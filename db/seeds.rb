@@ -19,14 +19,6 @@ player.gender = "male"
 player.foursquare_id = 2
 player.save!
 
-# bar = Location.new
-# bar.name = "Awesome Bar"
-# bar.venue_type = "Bar"
-# bar.latitude = 40.7903
-# bar.longitude = -73.9597
-# bar.address = "48 Wall St, New York, NY 10005"
-# bar.save!
-
 checkin_loc = Location.new
 checkin_loc.name = "CheckIn0"
 checkin_loc.venue_type = "checkin_loc0"
@@ -76,7 +68,6 @@ gregs_checkin = CheckIn.new
 gregs_checkin.location_id = checkin_loc.id
 gregs_checkin.user_id = player.id
 gregs_checkin.save!
-
 
 gregs_checkpoint = UserCheckpoint.new
 gregs_checkpoint.user_id = player.id

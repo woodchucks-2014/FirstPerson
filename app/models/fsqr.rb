@@ -16,6 +16,7 @@ class Fsqr
   	self.client.add_checkin(ll: self.rand_loc, broadcast: "public")
   end
 
+  def get_by_foursquare_id
+    user = User.find_by(foursquare_id: self.client.user("self")[:id].to_i)
+  end
 end
-
-# What are we doing with this?
