@@ -113,7 +113,7 @@ class QuestsController < ApplicationController
   end
 
   def locations_params
-    params.permit(:checkpoint, locations: [:name, :street, :city, :state, :zip])
+    params.require(:checkpoint).permit(locations: [:name, :street, :city, :state, :zip])
   end
 
   def venue_params
