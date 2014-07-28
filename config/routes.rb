@@ -1,17 +1,23 @@
 Rails.application.routes.draw do
 
-
-  # get '/quests', to: "quests#main"
+  get '/checkins', to: "users#checkin_points"
+  get '/all', to: "quests#all"
+  get '/quests', to: "quests#main"
+  get '/accept', to: "quests#accept_form"
+  get '/accepted', to: "quests#accepted"
+  get '/rejected', to: "quests#rejected"
   post '/create', to: "quests#create"
   post '/accept', to: "quests#accept"
-  get '/checkins', to: "users#checkin_points"
-  get '/quests', to: "quests#all"
+  post '/set_location', to: "quests#set_location"
+
   get '/foursquare', to: "foursquare#index", as: 'foursquare'
   get '/redirect', to: "foursquare#redirect"
   get '/map', to: "foursquare#map", as: "map"
   post '/pull', to: "foursquare#pull", as: 'pull'
   get '/push', to: "foursquare#push"
+
   get '/logout', to: "users#logout", as: 'logout'
+
   devise_for :users
 
   # The priority is based upon order of creation: first created -> highest priority.

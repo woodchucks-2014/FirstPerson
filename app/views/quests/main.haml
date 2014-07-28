@@ -11,14 +11,28 @@
       = f.submit "Accept"
     %br
     %br
-.create
-  %h2 Create a quest
-  = form_for @quest, url: create_path do |f|
-    = f.text_field :title, :placeholder => "Title"
-    = f.text_area :description, size: "60x12", :placeholder => "Description"
-    = f.number_field :user_limit, :placeholder => "Acceptance limit"
-    = f.text_field :category, :placeholder => "Category"
-    = f.datetime_field :end_date, :placeholder => "End Date"
-    = f.submit "Create"
-#map
 
+
+.create
+  .quest_create
+    %h2 Create a quest
+    = form_for @quest, url: create_path do |g|
+      = g.text_field :title, :placeholder => "Title"
+      = g.text_area :description, size: "60x12", :placeholder => "Description"
+      = g.number_field :user_limit, :placeholder => "Acceptance limit"
+      = g.text_field :category, :placeholder => "Category"
+      = g.datetime_field :end_date, :placeholder => "End Date"
+      = g.submit "Add your checkpoints!"
+    %br
+    %br
+
+  .checkpoints_create
+    = form_for @checkpoint, url: set_location_path do |i|
+      = i.hidden_field :quest_id, :value => (Quest.last.id + 1)
+      = i.text_field :instructions, :placeholder => "Instructions"
+      = i.fields_for :locations do |h|
+        = h.text_field :address, :placeholder => "Quest Location"
+      = i.submit "Submit!"
+
+
+#map
