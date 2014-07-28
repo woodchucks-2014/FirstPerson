@@ -1,5 +1,5 @@
 var newMarkers;
-var oldMarkers = [];
+var oldMarkers;
 var handler;
 var geolocation;
 
@@ -19,24 +19,32 @@ $(document).ready(function() {
 
   $("#show_user_quests").hide();
   $("#show_active_quests").click(function() {
-    $("#show_user_quests").show()
+    $("#show_user_quests").slideDown()
   });
 
+
+
+  $("#show_user_checkins").mouseenter(function() {
+    // Preloading data FTW!
+    $.getJSON('user/checkins', function(data) {
+      newMarkers = data
+    })
+  });
   $("#show_user_checkins").click(function() {
-    createCheckIns();
+    handler.removeMarkers(oldMarkers);
+    oldMarkers = handler.addMarkers(newMarkers);
   });
 
 
 
   $("#show_all_quests").mouseenter(function() {
-    $.getJSON('/all', function(data) {
+    // Preloading data FTW!
+    $.getJSON('/quests/all', function(data) {
       newMarkers = data
     })
   });
-  $("#show_all_quests").mousedown(function() {
+  $("#show_all_quests").click(function() {
     handler.removeMarkers(oldMarkers);
-  });
-  $("#show_all_quests").mouseup(function() {
     oldMarkers = handler.addMarkers(newMarkers);
   });
 
