@@ -6,6 +6,8 @@ RSpec.describe UserQuest, :type => :model do
   it {should belong_to(:quest)}
   it {should belong_to(:user)}
 
+  
+
   # it "should attribute XP to user when a quest is completed via the #complete! method" do
   #   business = User.new
   #   business.firstname = "DBC"

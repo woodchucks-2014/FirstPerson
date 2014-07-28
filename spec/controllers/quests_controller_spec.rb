@@ -9,8 +9,8 @@ RSpec.describe QuestsController, :type => :controller do
     end
 
     # it "redirects with 301" do
-    #   click_button 'Sign Up'
-    #   expect(response).to redirect_to 301
+    #   get '#test_login'
+    #   response.status.should be(302)
 
     # end  
 
