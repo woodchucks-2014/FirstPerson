@@ -66,7 +66,7 @@ class QuestsController < ApplicationController
 
     @checkpoint = Checkpoint.new(checkpoint_params)
     if @checkpoint.save
-      render "foursquare/search_venues"
+      search_venues
       # flash[:notice] = "Quest successfully created"
     else
       flash[:notice] = "Please try again"
