@@ -6,9 +6,9 @@ FactoryGirl.define do
     firstname {'Vic'}
     lastname {'Schaeperkoetter'}
     gender {"male"}
-    email {"vjs3@gmail.com"}
+    email {Faker::Internet.email}
 
-    foursquare_id { 100 }
+    foursquare_id { rand(1..100) }
 
     encrypted_password {Faker::Internet.password(10)}
   end
