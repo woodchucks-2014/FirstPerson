@@ -20,20 +20,6 @@ business.email = "dishes@dbc.com"
 business.foursquare_id = 1
 business.save!
 
-bar = Location.new
-bar.name = "Awesome Bar"
-bar.venue_type = "Bar"
-bar.latitude = 40.7903
-bar.longitude = -73.9597
-bar.street = "48 Wall St"
-bar.city = "New York"
-bar.state = "NY"
-bar.country = "US"
-bar.zip = "10005"
-bar.foursquare_id = "b59deifjo3uj"
-
-bar.save!
-
 checkin_loc = Location.new
 checkin_loc.name = "CheckIn0"
 checkin_loc.venue_type = "checkin_loc0"
@@ -41,7 +27,7 @@ checkin_loc.latitude = 40.7703
 checkin_loc.longitude = -73.9997
 checkin_loc.street = "160 34th St"
 checkin_loc.city = "New York"
-checkin_loc.state = "NY" 
+checkin_loc.state = "NY"
 checkin_loc.country = "US"
 checkin_loc.zip = "10016"
 checkin_loc.foursquare_id = "kjf3jfosefjw"
@@ -59,7 +45,7 @@ quest.save!
 checkpoint = Checkpoint.new
 checkpoint.instructions = "Receive beer"
 checkpoint.quest_id = quest.id
-checkpoint.location_id = bar.id
+checkpoint.location_id = checkin_loc.id
 checkpoint.step_num = 1
 checkpoint.save!
 

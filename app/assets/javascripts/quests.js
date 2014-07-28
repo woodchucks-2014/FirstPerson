@@ -22,8 +22,6 @@ createQuests = function() {
 
 $(document).ready(function(){
 
-  $(".checkpoints_create").hide();
-
   $('#new_quest').submit(function(e){
     e.preventDefault();
     $.ajax({
@@ -31,8 +29,7 @@ $(document).ready(function(){
       url: "/create",
       data: $( this ).serialize()
     }).done(function(data) {
-      $('.quest_create').hide();
-      $('.checkpoints_create').show();
+      $('.create').html(data);
     }).fail(function() {
       alert("Please try again");
     })

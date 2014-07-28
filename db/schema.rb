@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20140727205514) do
     t.decimal  "longitude"
     t.string   "name"
     t.string   "venue_type"
+    t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "street"

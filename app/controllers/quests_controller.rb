@@ -19,17 +19,14 @@ class QuestsController < ApplicationController
 
   end
 
-
   def main
-
     @quests = Quest.all
-    @checkpoint = Checkpoint.new
     @user_quest = UserQuest.new
     @quest = Quest.new
   end
 
-  def accept
 
+  def accept
     @user_quest = UserQuest.new(user_quest_params)
 
     if @user_quest.save
@@ -40,15 +37,36 @@ class QuestsController < ApplicationController
        redirect_to rejected_path
     end
 
-
   end
 
 
   def create
+    @checkpoint = Checkpoint.new
     @quest = Quest.new(quest_params)
-
     if @quest.save
-      redirect_to quests_path
+      render partial: 'quests/quest_loc'
+    else
+      flash[:notice] = "Please try again"
+      render partial: 'quests/rejected'
+    end
+
+  end
+
+  def set_location
+    @location = Location.new
+    @location.name = params[:checkpoint][:locations][:name]
+    @location.street = params[:checkpoint][:locations][:street]
+    @location.city = params[:checkpoint][:locations][:city]
+    @location.state = params[:checkpoint][:locations][:state]
+    @location.zip = params[:checkpoint][:locations][:zip]
+    @location.save
+
+    params[:checkpoint][:location_id] = @location.id
+
+    @checkpoint = Checkpoint.new(checkpoint_params)
+    if @checkpoint.save
+      render "foursquare/search_venues"
+      # flash[:notice] = "Quest successfully created"
     else
       flash[:notice] = "Please try again"
       redirect_to quests_path
@@ -56,18 +74,9 @@ class QuestsController < ApplicationController
 
   end
 
-
-  def set_location
-    @checkpoint = Checkpoint.new(checkpoint_params)
-    # quest.save!
-    if @checkpoint.save
-      redirect_to quests_path
-      flash[:notice] = "Quest successfully created"
-    else
-      flash[:notice] = "Please try again"
-      redirect_to quests_path
-    end
-
+  def get_location
+    location = Location.new
+    location.save
   end
 
 
@@ -80,20 +89,16 @@ class QuestsController < ApplicationController
   private
 
   def checkpoint_params
-    location = Location.new
-    location.address = params[:checkpoint][:locations][:address]
-    location.save
-    params[:checkpoint][:location_id] = location.id
     params.require(:checkpoint).permit(:instructions, :quest_id, :location_id)
   end
 
   def user_quest_params
-    params[:user_quest][:user_id] = 1#current_user2.id
+    params[:user_quest][:user_id] = 1#current_user2.id change for deployment
     params.require(:user_quest).permit(:user_id, :quest_id, :completed)
   end
 
   def quest_params
-    params[:quest][:creator_id] = 1#current_user2.id
+    params[:quest][:creator_id] = 1#current_user2.id change for deployment
     params.require(:quest).permit(:creator_id, :title, :description, :user_limit, :category, :end_date)
   end
 

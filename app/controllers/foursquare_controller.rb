@@ -41,13 +41,13 @@ class FoursquareController < ActionController::Base
   end
 
   def search_venues
-    query = params[:query]
-    ll = params[:ll]
+    query = @location.name
+    ll = [@location.latitude, @location.longitude].join(',')
     api = Fsqr.new(session[:token])
     returned_venues = api.client.suggest_completion_venues(query: query, ll: ll)
     @venues = {}
     returned_venues["minivenues"].each do |venue|
-      @venues[venue["name"]] = 
+      @venues[venue["name"]] =
                             {
                               name: venue["name"],
                               venue_type: venue["categories"].first["name"],

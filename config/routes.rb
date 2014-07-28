@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   post '/pull', to: "foursquare#pull", as: 'pull'
   get '/search', to: "foursquare#search_venues"
   get '/logout', to: "users#logout", as: 'logout'
+  get '/get_location', to: 'quests#get_location', as: 'get_location'
 
   devise_for :users
 
