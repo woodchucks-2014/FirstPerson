@@ -8,9 +8,13 @@ RSpec.describe QuestsController, :type => :controller do
       expect(response).to be_success
     end
 
-    it "redirects with 301" do
-      
-      
-    end  
+    # it "redirects with 301" do
+    #   click_button 'Sign Up'
+    #   expect(response).to redirect_to 301
+
+    # end  
+
+    # Trying to get it to just recognize that clicking a button
+    # causes a redirect
   end
 end
