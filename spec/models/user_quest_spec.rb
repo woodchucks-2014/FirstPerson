@@ -12,16 +12,13 @@ RSpec.describe UserQuest, :type => :model do
   it {should belong_to(:quest)}
   it {should belong_to(:user)}
 
-  it "should attribute XP to user when a quest is completed via the #complete! method" do
+  it "attributes XP to user when a quest is completed via the #complete! method" do
+    user_quest.user = player
     user_quest.complete!
-
-    # we are getting test coverage for this spec, but the test fails when the
-    # statement below is commented out
-
-    # expect(player.total_xp).to eq(quest.xp)
+    expect(player.total_xp).to eq(quest.xp)
   end
 
-  it "creates related checkpoints." do
+  it "creates related checkpoints" do
     expect(user_quest.create_related_checkpoints).to eq(user_quest.quest.checkpoints)
   end
 
