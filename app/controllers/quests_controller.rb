@@ -75,9 +75,7 @@ class QuestsController < ApplicationController
   end
 
   def commit_location
-    puts params
-    # @location = Location.find_by(name: params[:name])
-    # @location.update(params)
+    @location = Location.find_by(name: params[:venue][0][:name])
   end
 
   def accepted
