@@ -20,12 +20,12 @@ class Fsqr
     user = User.find_by(foursquare_id: self.client.user("self")[:id].to_i)
   end
 
-  def search(query, ll)
+  def search(query, ll, location_id)
     returned_venues = self.client.suggest_completion_venues(query: query, ll: ll)
-    self.parse_search(returned_venues)
+    self.parse_search(returned_venues, location_id)
   end
 
-  def parse_search(returned_venues)
+  def parse_search(returned_venues, location_id)
     venues = {}
     returned_venues["minivenues"].each_with_index do |venue, i|
       venues[i] =
@@ -40,7 +40,8 @@ class Fsqr
                       city: venue["location"]["city"],
                       state: venue["location"]["state"],
                       zip: venue["location"]["postalCode"],
-                      country: venue["location"]["country"]
+                      country: venue["location"]["country"],
+                      location_id: location_id
                     }
     end
 

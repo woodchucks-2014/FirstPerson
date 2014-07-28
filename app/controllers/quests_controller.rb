@@ -76,8 +76,15 @@ class QuestsController < ApplicationController
 
   end
 
+  def search_venues
+    query = @location.name
+    ll = [@location.latitude, @location.longitude].join(',')
+    api = Fsqr.new(session[:token])
+    @venues = api.search(query, ll, @location.id)
+  end
+
   def commit_location
-    @location = Location.last #this needs to be changed to something that can handle concurrency
+    @location = Location.find(params[:location_id])
     @location.update(venue_params)
     redirect_to quests_path
   end
@@ -86,14 +93,6 @@ class QuestsController < ApplicationController
   end
 
   def rejected
-  end
-
-  def search_venues
-    query = @location.name
-    ll = [@location.latitude, @location.longitude].join(',')
-    api = Fsqr.new(session[:token])
-    @venues = api.search(query, ll)
-    @venues[]
   end
 
   private
