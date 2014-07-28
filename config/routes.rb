@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   ### Quest JSON ###
   get '/all', to: "quests#all"
+  get '/user_all_quests_loc', to: "quests#user_all_quests_loc"
+  # get '/user_all_quests_loc', to: "quests#user_all_quests_loc"
 
   ### FourSquare ###
   get '/foursquare', to: "foursquare#index", as: 'foursquare'

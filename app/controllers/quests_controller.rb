@@ -1,17 +1,12 @@
 class QuestsController < ApplicationController
 
   include UsersHelper
+  include BuildHashHelper
 
   def all
     @user_quest = UserQuest.new
     @quests = Quest.all.select { |quest| quest.checkpoints.length >= 1  }
-    @hash = Gmaps4rails.build_markers(@quests) do |quest, marker|
-      if quest.checkpoints.length >= 1 # Why are we doing this twice?
-        marker.lat quest.checkpoints.first.location.latitude
-        marker.lng quest.checkpoints.first.location.longitude
-        marker.infowindow "<iframe src='/accept?quest_id=#{quest.id}' style='scrolling=no;'></iframe>"
-      end
-    end
+    @hash = build_hash(@quests)
     render json: @hash
   end
 
@@ -109,12 +104,21 @@ class QuestsController < ApplicationController
                       zip: venue["location"]["postalCode"],
                       country: venue["location"]["country"]
                     }
-    end
+      end
 
-  @venues
-end
+    @venues
+  end
+
+
+  def user_all_quests_loc
+    @quests = Quest.user_all_quests
+    @hash = build_hash(@quests)
+    render json: @hash
+  end
+
 
   private
+
 
   def checkpoint_params
     params.require(:checkpoint).permit(:instructions, :quest_id, :location_id)
