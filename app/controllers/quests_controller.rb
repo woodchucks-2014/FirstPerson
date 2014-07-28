@@ -92,26 +92,7 @@ class QuestsController < ApplicationController
     query = @location.name
     ll = [@location.latitude, @location.longitude].join(',')
     api = Fsqr.new(session[:token])
-    returned_venues = api.client.suggest_completion_venues(query: query, ll: ll)
-    @venues = {}
-    returned_venues["minivenues"].each_with_index do |venue, i|
-      @venues[i] =
-                    {
-                      name: venue["name"],
-                      venue_type: venue["categories"].first["name"],
-                      second_type: venue["categories"].last["name"],
-                      latitude: venue["location"]["lat"],
-                      longitude:venue["location"]["lng"],
-                      foursquare_id: venue["id"],
-                      street: venue["location"]["address"],
-                      city: venue["location"]["city"],
-                      state: venue["location"]["state"],
-                      zip: venue["location"]["postalCode"],
-                      country: venue["location"]["country"]
-                    }
-    end
-
-  @venues
+    @venues = api.search(query, ll)
 end
 
   private
