@@ -59,6 +59,8 @@ ActiveRecord::Schema.define(version: 20140727205514) do
     t.datetime "end_date"
     t.text     "title"
     t.integer  "xp",          default: 0
+    t.string   "timestatus",  default: "current"
+    t.string   "userstatus",  default: "open"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
