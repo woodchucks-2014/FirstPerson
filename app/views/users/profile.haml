@@ -1,0 +1,22 @@
+#content
+  #user_image
+    = image_tag @user.photo_url
+
+  #user_info
+    %h2
+      = "First Name: #{@user.firstname}"
+    %br
+    %h2
+      = "Last Name: #{@user.lastname}"
+    %br
+    %h2
+      = "Email: #{@user.email}"
+    %br
+
+  #user_rewards
+    - 4.times do
+      .reward
+        = image_tag "http://www.wpclipart.com/recreation/trophy/gold_trophy.png"
+
+#options.sidebar
+  = render 'sidebar'
