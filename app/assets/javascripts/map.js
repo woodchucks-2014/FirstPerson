@@ -1,41 +1,58 @@
-var newMarkers;
-var oldMarkers;
-var lines = [];
-var handler;
-var geolocation;
+var Map = {
+  lines: [],
+  newMarkers: null,
+  oldMarkers: null,
+  handler: null
+}
 
-function removePolylines() {
-  for (var i = 0; i < lines.length; i++ ) {
-    lines[i].setMap();
+Map.addPolylines = function() {
+  this.lines = this.handler.addPolylines(
+    [this.newMarkers],
+    { strokeColor: '#00BB00' }
+  );
+}
+
+Map.removePolylines = function() {
+  for (var i = 0; i < this.lines.length; i++ ) {
+    this.lines[i].setMap();
   }
 }
 
-function updateMap() {
-  removePolylines()
-  handler.removeMarkers(oldMarkers);
-  oldMarkers = handler.addMarkers(newMarkers);
-  handler.bounds.extendWith(oldMarkers);
-  handler.fitMapToBounds();
+Map.updateMap = function() {
+  this.removePolylines()
+  this.handler.removeMarkers(this.oldMarkers);
+  this.oldMarkers = this.handler.addMarkers(this.newMarkers);
+  this.handler.bounds.extendWith(this.oldMarkers);
+  this.handler.fitMapToBounds();
 }
 
-function createMap() {
-  handler = Gmaps.build('Google');
-  handler.buildMap({ internal: {id: 'map'} }, function(){
+Map.createMap = function() {
+  self = this
+  this.handler = Gmaps.build('Google');
+  this.handler.buildMap({ internal: {id: 'map'} }, function(){
     if(navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(displayMap);
+      navigator.geolocation.getCurrentPosition(self.displayMap);
     }
   });
 }
 
-function displayMap(position){
-  mark = handler.addMarker({
+Map.displayMap = function(position) {
+  self = Map
+  mark = self.handler.addMarker({
     lat: position.coords.latitude,
     lng: position.coords.longitude
   });
-  handler.map.centerOn(mark);
-  handler.removeMarker(mark);
+  self.handler.map.centerOn(mark);
+  self.handler.removeMarker(mark);
 };
 
+Map.getData = function(path) {
+  self = this
+  $.getJSON(path, function(data) {
+    self.newMarkers = data
+  })
+}
+
 $(document).ready(function() {
-  createMap();
+  try { Map.createMap() } catch(err) {}
 });
