@@ -30,12 +30,10 @@ class QuestsController < ApplicationController
 
   def accept
     @user_quest = UserQuest.new(user_quest_params)
-    puts params[:user_quest]
     quest_id = params[:user_quest][:quest_id]
-    puts quest_id##left off here
     user_id = session[:user_id]
     if @user_quest.save
-      quest = Quest.find(id: quest_id.to_i)
+      quest = Quest.find(id: quest_id)
       quest.checkpoints.each do |checkpoint|
         UserCheckpoint.create(user_id: user_id, quest_id: quest_id)
       end
