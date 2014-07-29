@@ -1,15 +1,3 @@
-var newMarkers;
-var oldMarkers;
-var handler;
-var geolocation;
-
-function updateMap() {
-  handler.removeMarkers(oldMarkers);
-  oldMarkers = handler.addMarkers(newMarkers);
-  handler.bounds.extendWith(oldMarkers);
-  handler.fitMapToBounds();
-}
-
 $(document).ready(function() {
 
   $("#show_user_quests").hide();

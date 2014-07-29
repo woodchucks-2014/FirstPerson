@@ -31,7 +31,7 @@ Rails.application.routes.draw do
 
   #### Users ###
   get '/logout', to: "users#logout", as: 'logout'
-  # get 'users/:id', to: "users#profile"
+  get 'users/profile', to: "users#profile"
   get '/admin-checkin', to: "users#admin_checkin"
   get '/test_login', to: "users#test_login"
 
