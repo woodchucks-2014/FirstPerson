@@ -54,5 +54,5 @@ Map.getData = function(path) {
 }
 
 $(document).ready(function() {
-  try { Map.createMap() }
+  try { Map.createMap() } catch(err) {}
 });
