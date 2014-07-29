@@ -26,19 +26,15 @@ RSpec.describe RewardsController, :type => :controller do
 
   describe 'GET #show' do
     it 'assigns existing reward to @reward' do
-      reward = FactoryGirl.build(:reward)
+      reward = Reward.create(description: "New stuff")
+      p reward
       get :show, id: reward
-      expect(assigns(:reward)).to eq reward
+      p assigns(:reward)
+      expect(assigns(:reward)).to eq(reward)
     end
   end
 
-  # describe 'GET #choose' do
-  #   it 'expects response to be successful' do
-  #     reward = FactoryGirl.build(:reward)
-  #     get :choose, reward_id: reward.id
-  #     expect(response.status).to eq 200
-  #   end
-  # end
+
 
 
 end
