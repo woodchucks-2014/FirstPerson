@@ -22,10 +22,10 @@ class User < ActiveRecord::Base
 
 
   def self.user_all_checkins(user)
-    @checkin_locs=[]
-    user.check_ins.each do |check_in|
-      @checkin_locs << Location.find(check_in.location_id)
+    @checkin_locs = user.check_ins.map do |checkin| 
+      {lat: checkin.location.latitude, lng: checkin.location.longitude} 
     end
+    puts "*****\n #{@checkin_locs} \n*****"
     return @checkins_locs
   end
 
