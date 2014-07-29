@@ -11,9 +11,6 @@
     = form_for @user_quest, url: accept_path do |f|
       = f.hidden_field :quest_id, :value => quest.id
       = f.submit "Accept"
-    / = form_for @user_quest, url: rewards_path do |f|
-    /   = f.hidden_field :quest_id, :value => quest.id
-    /   = f.submit "Rewards"
     %br
     %br
 
