@@ -38,4 +38,94 @@ $(document).ready(function(){
       })
   })
 
+  $("#active_but").on("click", function(){
+    $.ajax({
+      type: "get",
+      url: "/active_quests"
+    }).done(function(data) {
+      $("#content").html(data)
+    }).fail(function() {
+      alert("Please try again");
+    })
+
+  })
+
+
+  $("#available_but").on("click", function(){
+    $.ajax({
+      type: "get",
+      url: "/available_quests"
+    }).done(function(data) {
+      $("#content").html(data)
+    }).fail(function() {
+      alert("Please try again");
+    })
+
+  })
+
+
+
+  $("#comp_but").on("click", function(){
+    $.ajax({
+      type: "get",
+      url: "/completed_quests"
+    }).done(function(data) {
+      $("#content").html(data)
+    }).fail(function() {
+      alert("Please try again");
+    })
+
+  })
+
+
+  $("#created_but").on("click", function(){
+    $.ajax({
+      type: "get",
+      url: "/created_quests"
+    }).done(function(data) {
+      $("#content").html(data)
+    }).fail(function() {
+      alert("Please try again");
+    })
+
+  })
+
+
+  $("#sort_but").on("click", function(){
+    $.ajax({
+      type: "get",
+      url: "/sort_quests"
+    }).done(function(data) {
+      $("#content").html(data)
+    }).fail(function() {
+      alert("Please try again");
+    })
+
+  })
+
+  $("#edit_quest_but").on("click", function(){
+    $.ajax({
+      type: "get",
+      url: "/edit_quests"
+    }).done(function(data) {
+      $("#content").html(data)
+    }).fail(function() {
+      alert("Please try again");
+    })
+
+  })
+
+
+  $("#create_quest_but").on("click", function(){
+    $.ajax({
+      type: "get",
+      url: "/create_quests"
+    }).done(function(data) {
+      $("#content").html(data)
+    }).fail(function() {
+      alert("Please try again");
+    })
+
+  })
+
 })

@@ -1,20 +1,3 @@
-.quest_title
-  %h1 Quest Page!
-  =flash[:notice]
-
-.list
-  #enable_quests
-    Show Quest Map
-  %h2 Here are your quests!
-  - @quests.each do |quest|
-    = quest.title
-    = form_for @user_quest, url: accept_path do |f|
-      = f.hidden_field :quest_id, :value => quest.id
-      = f.submit "Accept"
-    %br
-    %br
-
-
 .create
   %h2 Create a quest
   = form_for @quest, url: create_path do |g|
@@ -22,11 +5,8 @@
     = g.text_area :description, size: "60x12", :placeholder => "Description"
     = g.number_field :user_limit, :placeholder => "Acceptance limit"
     = g.text_field :category, :placeholder => "Category"
+    = g.datetime_field :start_date, :placeholder => "Start Date"
     = g.datetime_field :end_date, :placeholder => "End Date"
+    = g.number_field :xp, :placeholder => "Experience Reward"
     = g.submit "Add your checkpoints!"
-  %br
-  %br
 
-#enable_quests
-  = "View Quests"
-#map
