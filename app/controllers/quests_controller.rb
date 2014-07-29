@@ -6,7 +6,7 @@ class QuestsController < ApplicationController
   def all
     @user_quest = UserQuest.new
     @quests = Quest.all.select { |quest| quest.checkpoints.length >= 1  }
-    @hash = build_hash(@quests)
+    @hash = build_quests_hash(@quests)
     render json: @hash
   end
 
