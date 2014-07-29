@@ -12,10 +12,6 @@ module UsersHelper
     user
   end
 
-  def current_user
-  	@user = User.where(id: session[:user_id]).first || User.new
-  end
-
   def logged_in?
   	session[:user_id] != nil
   end
