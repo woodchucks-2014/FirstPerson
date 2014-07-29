@@ -10,7 +10,7 @@
 </head>
 <body>
 
-  <%# if logged_in? %>
+  <% if current_user %>
 
     <nav>
       <div id="show" class="button">Map</div>
@@ -23,7 +23,7 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-  <%# end %>
+  <% end %>
 
   <%= yield %>
 

@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
     user.check_ins.each do |check_in|
       @checkin_locs << Location.find(check_in.location_id)
     end
-    return @checkins_locs
+    return @checkin_locs
   end
 
   def self.checkin_points_all(user)
