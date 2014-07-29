@@ -7,7 +7,11 @@ class ApplicationController < ActionController::Base
   skip_before_action :current_user, only: [:current_user]
 
   def current_user
-  	@user = User.find(session[:user_id]) || User.new
+  	if session[:user_id]
+  		@user = User.find(session[:user_id])
+  	else 
+  		User.new
+  	end
   end
   
 end
