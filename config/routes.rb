@@ -39,7 +39,6 @@ Rails.application.routes.draw do
   get '/map', to: "maps#show"
   get '/users/quests', to: "quests#index"
 
-
   ## Rewards ##
   # get '/rewards' to: "rewards#main"
 
