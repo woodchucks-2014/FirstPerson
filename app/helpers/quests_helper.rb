@@ -14,7 +14,7 @@ module QuestsHelper
 	end
 
 	def user_quest_check(user, checkpoint)
-		quest = Quest.find(checkpoint.quest_id).includes(:user_checkpoints).where(user_id: user.id)
+		quest = Quest.find(checkpoint.quest_id)
 		if quest.user_checkpoints.where(user_id: user.id).all?{|record| record.completed == true}
 			quest.user_quests.find_by(user_id: user.id).update(completed: true)
 		end
