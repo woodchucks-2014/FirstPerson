@@ -2,6 +2,15 @@ class UsersController < ApplicationController
   include UsersHelper
   include BuildHashHelper
 
+
+  def index
+    if current_user.nil?
+      render partial: 'foursquare/map'
+    else
+      render partial: 'users/home'
+    end
+  end
+
   def admin_checkin
   	api = Fsqr.new(session[:token])
   	api.checkin
@@ -34,7 +43,5 @@ class UsersController < ApplicationController
     render json: @hash
   end
 
-  def index
-  end
 
 end
