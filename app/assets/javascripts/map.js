@@ -38,5 +38,9 @@ function displayMap(position){
 
 $(document).ready(function() {
   createMap();
+<<<<<<< HEAD
 });
 
+=======
+});
+>>>>>>> 2a998c87fedc5da61cfa2732612e2d79d85eee03

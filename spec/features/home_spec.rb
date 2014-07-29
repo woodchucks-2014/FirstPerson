@@ -26,6 +26,6 @@ RSpec.describe "home" do
       expect(page).to have_selector("a", text: "Sign Up")
     end
 
-  end  
+  end
 
 end
