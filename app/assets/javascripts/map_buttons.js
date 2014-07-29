@@ -1,33 +1,47 @@
-var markers;
+var newMarkers;
+var oldMarkers;
 var handler;
+var geolocation;
 
-buildMap = function() {
-  handler = Gmaps.build('Google');
-  handler.buildMap(
-    { internal: {id: 'map'} },
-    function() {
-      // markers = handler.addMarkers(quests);
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
-    }
-  );
+function updateMap() {
+  handler.removeMarkers(oldMarkers);
+  oldMarkers = handler.addMarkers(newMarkers);
+  handler.bounds.extendWith(oldMarkers);
+  handler.fitMapToBounds();
 }
 
 $(document).ready(function() {
 
   $("#show_user_quests").hide();
   $("#show_active_quests").click(function() {
-    $("#show_user_quests").show()
+    $("#show_user_quests").slideDown()
   });
 
-  $("#show_user_checkins").click(function() {
-    createCheckIns();
+  // Preloading data FTW!
+  $("#show_user_checkins").mouseenter(function() {
+    $.getJSON('/users/checkins', function(data) {
+      newMarkers = data
+    })
+  });
+  $("#show_user_checkins").mousedown(function() {
+    updateMap();
+  });
+
+  $("#show_all_quests").mouseenter(function() {
+    $.getJSON('/quests/all', function(data) {
+      newMarkers = data
+    })
   });
   $("#show_all_quests").click(function() {
-    createQuests();
+    updateMap();
+  });
+
+  $("#show_completed_quests").mouseenter(function() {
+    $.getJSON('/quests/completed', function(data) {
+      newMarkers = data
+    })
   });
   $("#show_completed_quests").click(function() {
-    createCheckIns();
+    updateMap();
   });
-  alert("Hi");
 });

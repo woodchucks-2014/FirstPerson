@@ -167,14 +167,14 @@ iframe {
 #map {
   float: left;
   width: 100%;
-  height: 45em;
+  height: 40em;
 }
 
 #options.sidebar {
   float: left;
   width: 20%;
   background-color: gray;
-  height: 45em;
+  height: 40em;
   padding: 0;
   margin: 0;
 }
@@ -198,6 +198,10 @@ nav .button {
 #xp {
   background-color: black;
   color: white;
+}
+
+#show_active_quests {
+  border-bottom: 2px solid black;
 }
 
 /*
