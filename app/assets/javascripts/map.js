@@ -11,12 +11,12 @@ Map.removePolylines = function() {
   }
 }
 
-function updateMap() {
-  Map.removePolylines()
-  Map.handler.removeMarkers(Map.oldMarkers);
-  Map.oldMarkers = Map.handler.addMarkers(Map.newMarkers);
-  Map.handler.bounds.extendWith(Map.oldMarkers);
-  Map.handler.fitMapToBounds();
+Map.updateMap = function() {
+  this.removePolylines()
+  this.handler.removeMarkers(this.oldMarkers);
+  this.oldMarkers = this.handler.addMarkers(this.newMarkers);
+  this.handler.bounds.extendWith(this.oldMarkers);
+  this.handler.fitMapToBounds();
 }
 
 function createMap() {

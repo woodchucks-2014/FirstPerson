@@ -12,7 +12,7 @@ $(document).ready(function() {
     })
   });
   $("#show_user_checkins").click(function() {
-    updateMap();
+    Map.updateMap();
     Map.lines = Map.handler.addPolylines(
       [Map.newMarkers],
       { strokeColor: '#00BB00' }
@@ -25,7 +25,7 @@ $(document).ready(function() {
     })
   });
   $("#show_all_quests").click(function() {
-    updateMap();
+    Map.updateMap();
   });
 
   $("#show_completed_quests").mouseenter(function() {
@@ -34,6 +34,6 @@ $(document).ready(function() {
     })
   });
   $("#show_completed_quests").click(function() {
-    updateMap();
+    Map.updateMap();
   });
 });
