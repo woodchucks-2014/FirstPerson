@@ -30,6 +30,7 @@ class QuestsController < ApplicationController
   end
 
   def sort_quests
+    @quests = Quest.user_available_quests(current_user)
     @quests.sort! { |a,b| a.xp <=> b.xp }
     render partial: "quests/display_quests"
   end

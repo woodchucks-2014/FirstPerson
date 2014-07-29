@@ -28,11 +28,10 @@ class Quest < ActiveRecord::Base
 
   def self.user_available_quests(user)
     @quests=[]
-    user.user_quests.each do |user_quest|
-      Quest.all.each do |quest|
-        @quests << quest if user_quest.quest_id!=quest.id
+
+    Quest.all.each do |quest|
+        @quests << quest if quest.timestatus=='current' && quest.userstatus=='open'
       end
-    end
     return @quests
   end
 
