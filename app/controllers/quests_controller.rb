@@ -88,6 +88,10 @@ class QuestsController < ApplicationController
   def rejected
   end
 
+  def index
+    @user = User.find(2)
+  end
+
   private
 
   def checkpoint_params

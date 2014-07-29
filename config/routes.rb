@@ -29,6 +29,7 @@ Rails.application.routes.draw do
 
   ### new routes
   get '/map', to: "maps#show"
+  get '/users/quests', to: "quests#index"
 
 
 
