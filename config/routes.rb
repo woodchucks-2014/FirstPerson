@@ -1,14 +1,22 @@
 Rails.application.routes.draw do
 
   ### Quests ###
-  get '/quests', to: "quests#main"
+  get '/quests', to: "quests#index"
   get '/accept', to: "quests#accept_form"
-  get '/accepted', to: "quests#accepted"
-  get '/rejected', to: "quests#rejected"
   post '/create', to: "quests#create"
   post '/accept', to: "quests#accept"
   post '/set_location', to: "quests#set_location"
-  post 'commit_location', to: "quests#commit_location"
+  post '/commit_location', to: "quests#commit_location"
+
+  ### Quest partials ###
+  get '/active_quests', to: "quests#active_quests"
+  get '/available_quests', to: "quests#available_quests"
+  get '/completed_quests', to: "quests#completed_quests"
+  get '/created_quests', to: "quests#created_quests"
+  get '/sort_quests', to: "quests#sort_quests"
+  get '/create_quests', to: "quests#create_quests"
+  get '/edit_quests', to: "quests#edit_quests"
+
 
   ### Quest JSON ###
   get '/quests/all', to: "quests#all"
@@ -35,11 +43,13 @@ Rails.application.routes.draw do
   get '/admin-checkin', to: "users#admin_checkin"
   get '/test_login', to: "users#test_login"
 
-  ### new routes
+  ### Maps ###
   get '/map', to: "maps#show"
-  get '/users/quests', to: "quests#index"
 
 
+
+  ## Rewards ##
+  # get '/rewards' to: "rewards#main"
 
 
   # The priority is based upon order of creation: first created -> highest priority.

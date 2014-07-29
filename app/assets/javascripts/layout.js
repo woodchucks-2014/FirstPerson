@@ -1,3 +1,9 @@
+function showNotice() {
+  $("#notification").show()
+  setTimeout(function() { $("#notification").fadeOut() }, 2000)
+  return "ok"
+}
+
 $(document).ready(function() {
   $("#show").click(function() {
     window.location.href = '/map';
@@ -8,10 +14,12 @@ $(document).ready(function() {
   });
 
   $("#quests").click(function() {
-    window.location.href = '/users/quests';
+    window.location.href = '/quests';
   });
 
   $("#logout").click(function() {
     window.location.href = '/logout';
   });
+
+  $("#notification").hide()
 });

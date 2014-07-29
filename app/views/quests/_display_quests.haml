@@ -1,0 +1,8 @@
+.list
+  %h2 Here are your quests!
+  %br
+  %ul
+  - @quests.each do |quest|
+    %li
+      = quest.title
+    %br

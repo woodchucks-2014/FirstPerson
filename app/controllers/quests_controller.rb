@@ -3,13 +3,58 @@ class QuestsController < ApplicationController
   include UsersHelper
   include BuildHashHelper
 
+
+  def index
+    # also route for active_quests
+    @quests = Quest.user_accepted_quests(current_user)
+  end
+
+  def active_quests
+    @quests = Quest.user_accepted_quests(current_user)
+    render partial: "quests/display_quests"
+  end
+
+  def available_quests
+    @quests = Quest.user_available_quests(current_user)
+    render partial: "quests/available_quests"
+  end
+
+  def completed_quests
+    @quests = Quest.user_completed_quests(current_user)
+    render partial: "quests/display_quests"
+  end
+
+  def created_quests
+    @quests = Quest.user_created_quests(current_user)
+    render partial: "quests/display_quests"
+  end
+
+  def sort_quests
+    @quests.sort! { |a,b| a.xp <=> b.xp }
+    render partial: "quests/display_quests"
+  end
+
+  def edit_quests
+    render partial: "quests/display_quests"
+  end
+
+
+  def create_quests
+    @user_quest = UserQuest.new
+    @quest = Quest.new
+    render partial: "create_quests"
+  end
+
+
+# API METHODS
+
+
   def all
     @user_quest = UserQuest.new
     @quests = Quest.all.select { |quest| quest.checkpoints.length >= 1  }
-    @hash = build_hash(@quests)
+    @hash = build_quests_hash(@quests)
     render json: @hash
   end
-
 
   def user_accepted_quests_loc
     @quests = Quest.user_accepted_quests(current_user)
@@ -36,11 +81,6 @@ class QuestsController < ApplicationController
     render partial: "quests/accept_form", layout: false
   end
 
-  def main
-    @quests = Quest.all
-    @user_quest = UserQuest.new
-    @quest = Quest.new
-  end
 
 
   def accept
@@ -104,15 +144,6 @@ class QuestsController < ApplicationController
     redirect_to quests_path
   end
 
-  def accepted
-  end
-
-  def rejected
-  end
-
-  def index
-    @user = User.find(2)
-  end
 
   private
 

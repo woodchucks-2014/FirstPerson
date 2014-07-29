@@ -1,0 +1,10 @@
+.list
+  %h2 Here are your available quests!
+  - @quests.each do |quest|
+    = quest.title
+    = form_for @user_quest, url: accept_path do |f|
+      = f.hidden_field :quest_id, :value => quest.id
+      = f.submit "Accept"
+
+
+

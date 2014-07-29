@@ -1,19 +1,3 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_self
- *= require_tree .
- */
-
 $primary-color: #59CCF2;
 $font-color: white;
 $font-stack:  Helvetica, sans-serif;
@@ -37,25 +21,26 @@ body {
 }
 
 .list{
-  width:25%;
+  width:100%;
   background: rgba(0,0,0, 0.8);
   margin-top: 0;
-  position: absolute;
-  right:0;
-  height: 50em;
-  padding: 1em;
+  height: 36em;
+  padding: 2em;
+  padding-left: 10em;
   color: white;
   overflow-y:scroll;
+  display: inline-block;
 }
 
 
 .create{
   background: rgba(0,0,0, 0.8);
-  width: 25%;
+  width: 100%;
   margin-top:0;
-  height: 50em;
+  height: 38em;
   display: inline-block;
-  padding: 1em;
+  height: 36em;
+  padding: 2em;
   color: white;
 }
 
@@ -65,6 +50,7 @@ body {
 
 #slide{
   background-image: url(image_path("background_home.jpg"));
+  background-size: cover;
   margin: 0;
   height: 61.25em;
 }
@@ -264,3 +250,36 @@ nav .button {
   margin-left: 1.75%;
   margin-top: 1%;
 }
+
+
+
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+#notification {
+  position: fixed;
+  top: 15vw;
+  left: 20vw;
+  background-color: white;
+  width: 40vw;
+  height: 6em;
+  text-align: center;
+  padding: 2em;
+  border: 3px solid black;
+  border-radius: 15px;
+  z-index: 100;
+}
+
