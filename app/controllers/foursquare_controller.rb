@@ -15,6 +15,7 @@ class FoursquareController < ActionController::Base
     @api = Fsqr.new(@token)
     @user = @api.get_by_foursquare_id
     unless @user
+      puts "i'm here"
       @user = user_creator
     end
     set_session
