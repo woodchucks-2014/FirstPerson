@@ -5,7 +5,7 @@ class Quest < ActiveRecord::Base
   has_many :user_quests
   has_many :locations, through: :checkpoints
   has_many :users, through: :user_quests
-
+  has_many :user_checkpoints, through: :checkpoints
   before_create :set_defaults
 
 
@@ -17,4 +17,30 @@ class Quest < ActiveRecord::Base
   	self.start_date ||= Time.now
     self.xp ||= 50
   end
+
+
+  def self.user_accepted_quests(user)
+    @quests=[]
+    user.user_quests.each do |user_quest|
+      @quests << Quest.find(user_quest.quest_id)
+    end
+    return @quests
+  end
+
+  def self.user_created_quests(user)
+    @quests = Quest.where(creator_id: user.id)
+    return @quests
+  end
+
+  def self.user_completed_quests(user)
+    @quests=[]
+    user.user_quests.each do |user_quest|
+      if user_quest.completed==true
+        @quests << Quest.find(user_quest.quest_id)
+      end
+    end
+    return @quests
+  end
+
+
 end
