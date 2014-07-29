@@ -28,7 +28,6 @@ class UsersController < ApplicationController
   end
 
   def index
-    current_user2
   end
 
 end
