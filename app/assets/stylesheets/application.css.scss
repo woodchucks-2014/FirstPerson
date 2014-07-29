@@ -11,15 +11,6 @@ body {
   overflow: auto;
 }
 
-.quest_title{
-
-  /*display: inline-block;*/
-  position: absolute;
-  left:45%;
-  top:0;
-
-}
-
 .list{
   width:100%;
   background: rgba(0,0,0, 0.8);
@@ -33,6 +24,7 @@ body {
 }
 
 
+
 .create{
   background: rgba(0,0,0, 0.8);
   width: 100%;
@@ -43,6 +35,7 @@ body {
   padding: 2em;
   color: white;
 }
+
 
 .container{
   height: 50em;
@@ -107,14 +100,6 @@ body {
    a{
       text-decoration: underline;
     }
-
-}
-
-
-#main{
-
-  margin: 0;
-  height: 61.25em;
 
 }
 
@@ -252,6 +237,20 @@ nav .button {
 }
 
 
+#notification {
+  position: fixed;
+  top: 15vw;
+  left: 20vw;
+  background-color: white;
+  width: 40vw;
+  height: 6em;
+  text-align: center;
+  padding: 2em;
+  border: 3px solid black;
+  border-radius: 15px;
+  z-index: 100;
+}
+
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
@@ -268,18 +267,4 @@ nav .button {
  *= require_self
  *= require_tree .
  */
-
-#notification {
-  position: fixed;
-  top: 15vw;
-  left: 20vw;
-  background-color: white;
-  width: 40vw;
-  height: 6em;
-  text-align: center;
-  padding: 2em;
-  border: 3px solid black;
-  border-radius: 15px;
-  z-index: 100;
-}
 

@@ -9,6 +9,7 @@ $(document).ready(function() {
   $("#show_user_checkins").mouseenter(function() {
     Map.getData('/user_all_checkins_loc')
   });
+
   $("#show_user_checkins").click(function() {
     Map.updateMap();
     Map.addPolylines();
@@ -17,6 +18,7 @@ $(document).ready(function() {
   $("#show_all_quests").mouseenter(function() {
     Map.getData('/quests/all')
   });
+
   $("#show_all_quests").click(function() {
     Map.updateMap();
   });
@@ -24,6 +26,7 @@ $(document).ready(function() {
   $("#show_completed_quests").mouseenter(function() {
     Map.getData('/quests/completed')
   });
+  
   $("#show_completed_quests").click(function() {
     Map.updateMap();
   });

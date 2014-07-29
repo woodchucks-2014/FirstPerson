@@ -144,7 +144,6 @@ class QuestsController < ApplicationController
     redirect_to quests_path
   end
 
-
   private
 
 
