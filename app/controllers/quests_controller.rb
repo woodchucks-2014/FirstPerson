@@ -30,8 +30,13 @@ class QuestsController < ApplicationController
 
   def accept
     @user_quest = UserQuest.new(user_quest_params)
-
+    quest_id = params[:user_quest][:quest_id]
+    user_id = session[:user_id]
     if @user_quest.save
+      quest = Quest.find(quest_id)
+      quest.checkpoints.each do |checkpoint|
+        UserCheckpoint.create(user_id: user_id, checkpoint_id: checkpoint.id)
+      end
       flash[:notice] = "Quest successfully accepted"
       render partial: "quests/accepted", layout: false
     else

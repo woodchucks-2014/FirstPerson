@@ -5,7 +5,7 @@ class UserCheckpoint < ActiveRecord::Base
 
   def complete!
     unless self.completed
-      self.completed = true
+      self.update(completed: true)
     end
   end
 end
