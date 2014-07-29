@@ -8,20 +8,20 @@ $(document).ready(function() {
   // Preloading data FTW!
   $("#show_user_checkins").mouseenter(function() {
     $.getJSON('/user_all_checkins_loc', function(data) {
-      newMarkers = data
+      Map.newMarkers = data
     })
   });
   $("#show_user_checkins").click(function() {
     updateMap();
-    lines = handler.addPolylines(
-      [newMarkers],
+    Map.lines = Map.handler.addPolylines(
+      [Map.newMarkers],
       { strokeColor: '#00BB00' }
     );
   });
 
   $("#show_all_quests").mouseenter(function() {
     $.getJSON('/quests/all', function(data) {
-      newMarkers = data
+      Map.newMarkers = data
     })
   });
   $("#show_all_quests").click(function() {
@@ -30,7 +30,7 @@ $(document).ready(function() {
 
   $("#show_completed_quests").mouseenter(function() {
     $.getJSON('/quests/completed', function(data) {
-      newMarkers = data
+      Map.newMarkers = data
     })
   });
   $("#show_completed_quests").click(function() {
