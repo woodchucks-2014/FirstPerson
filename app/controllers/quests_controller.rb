@@ -35,7 +35,7 @@ class QuestsController < ApplicationController
     if @user_quest.save
       quest = Quest.find(quest_id)
       quest.checkpoints.each do |checkpoint|
-        UserCheckpoint.create(user_id: user_id, quest_id: quest_id)
+        UserCheckpoint.create(user_id: user_id, checkpoint_id: checkpoint.id)
       end
       flash[:notice] = "Quest successfully accepted"
       render partial: "quests/accepted", layout: false
