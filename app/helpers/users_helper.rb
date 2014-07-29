@@ -11,7 +11,7 @@ module UsersHelper
     user.save
   end
 
-  def current_user2
+  def current_user
   	@user = User.where(id: session[:user_id]).first || User.new
   end
 

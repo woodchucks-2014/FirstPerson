@@ -19,8 +19,8 @@ class Quest < ActiveRecord::Base
   end
 
 
-  def self.user_all_quests
-    @user = User.where(id: session[:user_id]).first || User.new
+  def self.user_accepted_quests
+    @user = current_user
     @quests=[]
     @user.user_quests.each do |user_quest|
       @quests << Quest.find(user_quest.quest_id)
@@ -28,7 +28,23 @@ class Quest < ActiveRecord::Base
     return @quests
   end
 
+  def self.user_created_quests
+    @user = current_user
+    @quests=[]
+    @user.user_quests.each do |user_quest|
+      @quests << Quest.find(user_quest.quest_id)
+    end
+    return @quests
+  end
 
+  def self.user_completed_quests
+    @user = current_user
+    @quests=[]
+    @user.user_quests.each do |user_quest|
+      @quests << Quest.find(user_quest.quest_id)
+    end
+    return @quests
+  end
 
 
 end

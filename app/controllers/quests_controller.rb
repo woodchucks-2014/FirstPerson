@@ -10,6 +10,26 @@ class QuestsController < ApplicationController
     render json: @hash
   end
 
+
+  def user_accepted_quests_loc
+    @quests = Quest.user_accepted_quests
+    @hash = build_hash(@quests)
+    render json: @hash
+  end
+
+  def user_created_quests_loc
+    @quests = Quest.user_created_quests
+    @hash = build_hash(@quests)
+    render json: @hash
+  end
+
+  def user_completed_quests_loc
+    @quests = Quest.user_completed_quests
+    @hash = build_hash(@quests)
+    render json: @hash
+  end
+
+
   def accept_form
     @user_quest = UserQuest.new
     @quest = Quest.find(params[:quest_id])
@@ -86,14 +106,6 @@ class QuestsController < ApplicationController
   end
 
 
-  def user_all_quests_loc
-    @quests = Quest.user_all_quests
-    @hash = build_hash(@quests)
-    render json: @hash
-  end
-
-
-
   private
 
 
@@ -102,12 +114,12 @@ class QuestsController < ApplicationController
   end
 
   def user_quest_params
-    params[:user_quest][:user_id] = current_user2.id #hard code to 1 for local
+    params[:user_quest][:user_id] = current_user.id #hard code to 1 for local
     params.require(:user_quest).permit(:user_id, :quest_id, :completed)
   end
 
   def quest_params
-    params[:quest][:creator_id] = current_user2.id #hard code to 1 for local
+    params[:quest][:creator_id] = current_user.id #hard code to 1 for local
     params.require(:quest).permit(:creator_id, :title, :description, :user_limit, :category, :end_date)
   end
 

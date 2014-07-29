@@ -12,7 +12,9 @@ Rails.application.routes.draw do
 
   ### Quest JSON ###
   get '/all', to: "quests#all"
-  get '/user_all_quests_loc', to: "quests#user_all_quests_loc"
+  get '/user_accepted_quests_loc', to: "quests#user_accepted_quests_loc"
+  get '/user_created_quests_loc', to: "quests#user_created_quests_loc"
+  get '/user_completed_quests_loc', to: "quests#user_completed_quests_loc"
 
   ### User JSON ###
   get '/user_all_checkins_loc', to: "users#user_all_checkins_loc"

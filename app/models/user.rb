@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
 
 
   def self.user_all_checkins
-    @user = User.where(id: session[:user_id]).first || User.new
+    @user = current_user
     @checkin_locs=[]
     @user.check_ins.each do |check_in|
       @checkin_locs << Location.find(check_in.location_id)
@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   end
 
   def self.checkin_points_all
-    @user = User.where(id: session[:user_id]).first || User.new
+    @user = current_user
     @checkins = @user.check_ins
     return @checkins_locs
   end
