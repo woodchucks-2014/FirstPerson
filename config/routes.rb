@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   post 'commit_location', to: "quests#commit_location"
 
   ### Quest JSON ###
-  get '/all', to: "quests#all"
+  get '/quests/all', to: "quests#all"
 
   ### FourSquare ###
   get '/foursquare', to: "foursquare#index", as: 'foursquare'
@@ -21,11 +21,11 @@ Rails.application.routes.draw do
 
   #### Users ###
   get '/logout', to: "users#logout", as: 'logout'
-  get 'users/:id', to: "users#profile"
+  # get 'users/:id', to: "users#profile"
   get '/admin-checkin', to: "users#admin_checkin"
   get '/test_login', to: "users#test_login"
   ### User JSON ###
-  get '/checkins', to: "users#checkin_points"
+  get '/users/checkins', to: "users#checkin_points"
 
   ### new routes
   get '/map', to: "maps#show"
