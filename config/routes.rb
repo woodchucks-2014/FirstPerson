@@ -24,11 +24,13 @@ Rails.application.routes.draw do
   get 'users/:id', to: "users#profile"
   get '/admin-checkin', to: "users#admin_checkin"
   get '/test_login', to: "users#test_login"
+  
   ### User JSON ###
   get '/checkins', to: "users#checkin_points"
 
 
-
+  ## Rewards ##
+  # get '/rewards' to: "rewards#main"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
