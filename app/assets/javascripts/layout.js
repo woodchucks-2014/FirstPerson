@@ -9,6 +9,7 @@ $(document).ready(function() {
   $('.psuedo_link').click(function(e) {
     window.location.href = $(this).attr('href');
   });
+
   $("#notification").hide()
-  
+
 });
