@@ -1,16 +1,15 @@
 require 'rails_helper'
-require 'capybara/rails'
 
-# Specs in this file have access to a helper object that includes
-# the UsersHelper. For example:
-#
-# describe UsersHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
 RSpec.describe UsersHelper, :type => :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  it "can tell if someone is not logged in" do
+    session[:user_id] = nil
+    expect(logged_in?).to be_false
+  end
+
+  it "can tell if someone is logged in" do
+    session[:user_id] = 1
+    expect(logged_in?).to be_true
+  end
+
 end
