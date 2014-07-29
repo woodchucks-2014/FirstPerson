@@ -20,31 +20,24 @@ Map.updateMap = function() {
 }
 
 Map.createMap = function() {
+  self = this
   this.handler = Gmaps.build('Google');
   this.handler.buildMap({ internal: {id: 'map'} }, function(){
     if(navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(displayMap);
+      navigator.geolocation.getCurrentPosition(self.displayMap);
     }
   });
 }
 
-// function createMap() {
-//   Map.handler = Gmaps.build('Google');
-//   Map.handler.buildMap({ internal: {id: 'map'} }, function(){
-//     if(navigator.geolocation) {
-//       navigator.geolocation.getCurrentPosition(displayMap);
-//     }
-//   });
-// }
-
-function displayMap(position){
-  mark = Map.handler.addMarker({
+Map.displayMap = function(position){
+  self = Map
+  mark = self.handler.addMarker({
     lat: position.coords.latitude,
     lng: position.coords.longitude
   });
-  Map.handler.map.centerOn(mark);
-  Map.handler.removeMarker(mark);
-};
+  self.handler.map.centerOn(mark);
+  self.handler.removeMarker(mark);
+ };
 
 $(document).ready(function() {
   Map.createMap();
