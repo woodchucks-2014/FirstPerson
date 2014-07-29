@@ -16,6 +16,7 @@ class QuestsController < ApplicationController
 
   def available_quests
     @quests = Quest.user_available_quests(current_user)
+    @user_quest = UserQuest.new
     render partial: "quests/available_quests"
   end
 

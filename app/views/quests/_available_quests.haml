@@ -1,6 +1,6 @@
 .list
   -p @quests
-  -if @quests.length>=2
+  -if @quests.length>=1
     %h2 Here are your available quests!
     - @quests.each do |quest|
       = quest.title
