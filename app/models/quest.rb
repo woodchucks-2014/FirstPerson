@@ -12,8 +12,9 @@ class Quest < ActiveRecord::Base
 
   validates_presence_of :creator_id, :title, :end_date, :description
 
+
   def set_defaults
-  	self.start_date ||= Time.now
+    self.start_date ||= Time.now
     self.xp ||= 50
   end
 
