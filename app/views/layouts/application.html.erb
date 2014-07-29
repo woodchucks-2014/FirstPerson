@@ -13,10 +13,10 @@
   <% if logged_in? %>
 
     <nav>
-      <div id="show" class="button">Map</div>
-      <div id="profile" class="button">Character</div>
-      <div id="quests" class="button">Quests</div>
-      <div id="logout" class="button">Logout</div>
+      <div id="show" class="button psuedo_link" href='/map'>Map</div>
+      <div id="profile" class="button psuedo_link" href='/users/profile'>Character</div>
+      <div id="quests" class="button psuedo_link" href='/quests'>Quests</div>
+      <div id="logout" class="button psuedo_link" href='/logout'>Logout</div>
       <div id="xp" class="button">Total XP: <%= @user.total_xp %></div>
     </nav>
 
