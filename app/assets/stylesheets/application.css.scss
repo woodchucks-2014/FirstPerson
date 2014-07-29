@@ -264,3 +264,17 @@ nav .button {
   margin-left: 1.75%;
   margin-top: 1%;
 }
+
+#notification {
+  position: fixed;
+  top: 15vw;
+  left: 20vw;
+  background-color: white;
+  width: 40vw;
+  height: 6em;
+  text-align: center;
+  padding: 2em;
+  border: 3px solid black;
+  border-radius: 15px;
+  z-index: 100;
+}
