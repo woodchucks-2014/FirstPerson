@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   include BuildHashHelper
 
   def index
-    current_user
     if logged_in?
       render 'maps/show'
     else

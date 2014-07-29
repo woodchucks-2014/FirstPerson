@@ -9,6 +9,8 @@ class CreateQuests < ActiveRecord::Migration
       t.datetime :end_date
       t.text :title
       t.integer :xp, :default => 0
+      t.string :timestatus, default: "current"
+      t.string :userstatus, default: "open"
 
       t.timestamps
     end
