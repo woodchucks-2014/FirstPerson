@@ -6,10 +6,16 @@ class RewardsController < ApplicationController
   def create
     # @quest = Quest.find(params[:id])
     @reward = Reward.new
-    @reward.save
-    render :create
+    if @reward.save
+      flash[:notice] = "New reward successfully created!"
+      render :create
+    else
+      flash[:notice] = "Unable to create"
+      render :create
+    end
 
   end
+
 
 
   # the page for a particular award
