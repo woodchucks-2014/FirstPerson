@@ -11,7 +11,7 @@ module PushHelper
 	def parse_foursquare_json(formatted_params)
     foursquare_params = {user: {}, location: {}}
 
-    foursquare_params[:user][:user_id] = User.find_by(foursquare_id: formatted_params["user"]["id"].to_i).id
+    foursquare_params[:user][:user_id] = User.where(foursquare_id: formatted_params["user"]["id"].to_i).first.id
     foursquare_params[:location][:name] = formatted_params["checkin"]["venue"]["name"]
     foursquare_params[:location][:venue_type] = formatted_params["checkin"]["venue"]["categories"].first["name"]
     foursquare_params[:location][:second_type] = formatted_params["checkin"]["venue"]["categories"].last["name"]

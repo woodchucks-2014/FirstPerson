@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   include BuildHashHelper
 
   def index
-    current_user
     if logged_in?
       render 'maps/show'
     else
@@ -28,7 +27,6 @@ class UsersController < ApplicationController
   end
 
   def profile
-    @user = User.find(2)
   end
 
   def user_all_checkins_loc

@@ -7,4 +7,14 @@ RSpec.describe Quest, :type => :model do
   it {should have_many(:users).through(:user_quests)}
   it {should have_many(:checkpoints)}
   it {should have_many(:locations).through(:checkpoints)}
+
+  # it "should view user accepted quests" do
+  # 	user = FactoryGirl.create(:user, user_id: 10)
+  # 	user_quest = FactoryGirl.create(:user_quest, user_id: 10, quest_id: 10)
+  # 	quest = FactoryGirl.create(:quest, quest_id: 10)
+
+  # 	p user
+  # 	p user_quest
+  # 	p quest
+  # end
 end
