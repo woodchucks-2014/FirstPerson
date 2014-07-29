@@ -32,6 +32,7 @@ class QuestsController < ApplicationController
     @user_quest = UserQuest.new(user_quest_params)
     puts params[:user_quest]
     quest_id = params[:user_quest][:quest_id]
+    puts quest_id##left off here
     user_id = session[:user_id]
     if @user_quest.save
       quest = Quest.find(id: quest_id.to_i)
