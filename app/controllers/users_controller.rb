@@ -24,18 +24,13 @@ class UsersController < ApplicationController
 
   def user_all_checkins_loc
     current_user
-    @checkin_locs = @user.check_ins.map do |checkin| 
-      {lat: checkin.location.latitude, lng: checkin.location.longitude} 
-    end
-    render plain: @checkin_locs.to_json
+    @checkins = User.user_all_checkins(@user)
+    render json: @checkins
   end
 
-
   def checkin_points
-    current_user
-    @checkins = User.checkin_points_all(@user)
-    @hash = build_hash(@checkins)
-    render json: @hash
+    checkins = CheckIn.all.map {|checkin| checkin.location }
+    render json: checkins
   end
 
   def index
