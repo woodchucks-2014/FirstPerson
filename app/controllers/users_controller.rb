@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   include UsersHelper
-  include BuildHashHelper
 
   def admin_checkin
   	api = Fsqr.new(session[:token])

@@ -5,6 +5,7 @@ var handler;
 var geolocation;
 
 function updateMap() {
+  
   handler.removeMarkers(oldMarkers);
   oldMarkers = handler.addMarkers(newMarkers);
   handler.bounds.extendWith(oldMarkers);

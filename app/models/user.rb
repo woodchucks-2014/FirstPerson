@@ -22,9 +22,11 @@ class User < ActiveRecord::Base
 
 
   def self.user_all_checkins(user)
-    user.check_ins.map do |checkin| 
-      checkin.location 
+    checkins = user.check_ins.map do |checkin| 
+      {lat: checkin.location.latitude, lng: checkin.location.longitude}
     end
+    puts "****** #{checkins} *********"
+    checkins
   end
 
 end
