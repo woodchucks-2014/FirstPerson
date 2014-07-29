@@ -21,8 +21,6 @@ Rails.application.routes.draw do
   get '/users/checkins', to: "users#checkin_points"
 
 
-
-
   ### FourSquare ###
   get '/foursquare', to: "foursquare#index", as: 'foursquare'
   get '/redirect', to: "foursquare#redirect"
@@ -40,6 +38,8 @@ Rails.application.routes.draw do
   get '/users/quests', to: "quests#index"
 
 
+  ## Rewards ##
+  # get '/rewards' to: "rewards#main"
 
 
   # The priority is based upon order of creation: first created -> highest priority.

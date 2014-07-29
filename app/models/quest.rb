@@ -9,9 +9,7 @@ class Quest < ActiveRecord::Base
   before_validation :set_defaults
   before_save :set_time_status, :set_user_status
 
-  validates_presence_of :title
-  #need to add validation
-  # we're commenting out line 11 because our tests won't pass otherwise...we will fix that
+  validates_presence_of :creator_id, :title, :end_date, :description
 
   def set_defaults
   	self.start_date ||= Time.now
