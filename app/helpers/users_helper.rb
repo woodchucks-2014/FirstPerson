@@ -19,9 +19,4 @@ module UsersHelper
   	session[:user_id] != nil
   end
 
-  def set_session
-    session[:user_id] = @user.id
-    session[:token] = @token
-  end
-
 end

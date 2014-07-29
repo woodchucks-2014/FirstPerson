@@ -15,7 +15,6 @@ class FoursquareController < ActionController::Base
     @api = Fsqr.new(@token)
     @user = @api.get_by_foursquare_id
     unless @user
-      puts "i'm here"
       @user = user_creator
     end
     set_session
@@ -37,6 +36,12 @@ class FoursquareController < ActionController::Base
   end
 
   private
+
+  def set_session
+    puts 'here'
+    session[:user_id] = @user.id
+    session[:token] = @token
+  end
 
   def checkin_params(location, params)
     checkin_info = {}
