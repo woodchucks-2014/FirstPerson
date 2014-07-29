@@ -36,7 +36,7 @@ Map.createMap = function() {
   });
 }
 
-Map.displayMap = function(position){
+Map.displayMap = function(position) {
   self = Map
   mark = self.handler.addMarker({
     lat: position.coords.latitude,
@@ -44,8 +44,15 @@ Map.displayMap = function(position){
   });
   self.handler.map.centerOn(mark);
   self.handler.removeMarker(mark);
- };
+};
+
+Map.getData = function(path) {
+  self = this
+  $.getJSON(path, function(data) {
+    self.newMarkers = data
+  })
+}
 
 $(document).ready(function() {
-  Map.createMap();
+  try { Map.createMap() }
 });

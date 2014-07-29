@@ -7,9 +7,7 @@ $(document).ready(function() {
 
   // Preloading data FTW!
   $("#show_user_checkins").mouseenter(function() {
-    $.getJSON('/user_all_checkins_loc', function(data) {
-      Map.newMarkers = data
-    })
+    Map.getData('/user_all_checkins_loc')
   });
   $("#show_user_checkins").click(function() {
     Map.updateMap();
@@ -17,18 +15,14 @@ $(document).ready(function() {
   });
 
   $("#show_all_quests").mouseenter(function() {
-    $.getJSON('/quests/all', function(data) {
-      Map.newMarkers = data
-    })
+    Map.getData('/quests/all')
   });
   $("#show_all_quests").click(function() {
     Map.updateMap();
   });
 
   $("#show_completed_quests").mouseenter(function() {
-    $.getJSON('/quests/completed', function(data) {
-      Map.newMarkers = data
-    })
+    Map.getData('/quests/completed')
   });
   $("#show_completed_quests").click(function() {
     Map.updateMap();
