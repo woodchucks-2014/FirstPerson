@@ -5,7 +5,7 @@ var handler;
 var geolocation;
 
 function updateMap() {
-  
+
   handler.removeMarkers(oldMarkers);
   oldMarkers = handler.addMarkers(newMarkers);
   handler.bounds.extendWith(oldMarkers);
@@ -31,5 +31,8 @@ function displayMap(position){
 };
 
 $(document).ready(function() {
-  createMap();
+  try{
+    createMap();
+  }
+  catch(err) {}
 });

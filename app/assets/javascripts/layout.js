@@ -8,7 +8,7 @@ $(document).ready(function() {
   });
 
   $("#quests").click(function() {
-    window.location.href = '/users/quests';
+    window.location.href = '/quests';
   });
 
   $("#logout").click(function() {

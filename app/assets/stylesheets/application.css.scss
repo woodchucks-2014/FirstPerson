@@ -21,25 +21,26 @@ body {
 }
 
 .list{
-  width:25%;
+  width:100%;
   background: rgba(0,0,0, 0.8);
   margin-top: 0;
-  position: absolute;
-  right:0;
-  height: 50em;
-  padding: 1em;
+  height: 36em;
+  padding: 2em;
+  padding-left: 10em;
   color: white;
   overflow-y:scroll;
+  display: inline-block;
 }
 
 
 .create{
   background: rgba(0,0,0, 0.8);
-  width: 25%;
+  width: 100%;
   margin-top:0;
-  height: 50em;
+  height: 38em;
   display: inline-block;
-  padding: 1em;
+  height: 36em;
+  padding: 2em;
   color: white;
 }
 
