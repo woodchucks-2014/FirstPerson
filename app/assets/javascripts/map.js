@@ -16,7 +16,7 @@ function createMap() {
     if(navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(displayMap);
     }
-  })
+  });
 }
 
 function displayMap(position){
@@ -30,4 +30,4 @@ function displayMap(position){
 
 $(document).ready(function() {
   createMap();
-})
+});

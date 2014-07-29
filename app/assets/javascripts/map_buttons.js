@@ -11,7 +11,7 @@ $(document).ready(function() {
       newMarkers = data
     })
   });
-  $("#show_user_checkins").mousedown(function() {
+  $("#show_user_checkins").click(function() {
     updateMap();
   });
 

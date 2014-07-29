@@ -1,11 +1,18 @@
-$(document).ready(function {
-  $("#").mouseenter(function() {
-    $.getJSON('/users/checkins', function(data) {
-      newMarkers = data
-    })
+$(document).ready(function() {
+  $("#show").click(function() {
+    window.location.href = '/map';
   });
-  $("#").mousedown(function() {
-    updateMap();
+
+  $("#charater").click(function() {
+    window.location.href = '/users/profile';
+  });
+
+  $("#quests").click(function() {
+    window.location.href = '/users/quests';
+  });
+
+  $("#logout").click(function() {
+    window.location.href = '/logout';
   });
 });
 
