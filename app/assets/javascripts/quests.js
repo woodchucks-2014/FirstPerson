@@ -1,25 +1,3 @@
-var quests;
-$.getJSON( "/all.json", function(data) {
-  quests = data
-});
-
-createQuests = function() {
-  handler = Gmaps.build('Google');
-  handler.buildMap(
-    {
-      provider: {
-        styles: mapStyle
-      },
-      internal: {id: 'map'}
-    },
-    function() {
-      markers = handler.addMarkers(quests);
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
-    }
-  );
-}
-
 var foursquare_data = {};
 $(document).ready(function(){
 

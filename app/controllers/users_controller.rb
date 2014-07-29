@@ -1,14 +1,14 @@
 class UsersController < ApplicationController
+  include UsersHelper
+  include BuildHashHelper
 
-  def checkin_points
-    user = User.where(id: session[:user_id]).first || User.new
-    @checkins = user.check_ins
-    @hash = Gmaps4rails.build_markers(@checkins) do |checkin, marker|
-      marker.lat checkin.location.latitude
-      marker.lng checkin.location.longitude
-      marker.infowindow "Hello"
+  def index
+    current_user
+    if logged_in?
+      render 'maps/show'
+    else
+      render 'users/home'
     end
-    render json: @hash
   end
 
   def admin_checkin
@@ -27,7 +27,20 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
-  def index
+  def profile
+    @user = User.find(2)
   end
+
+  def user_all_checkins_loc
+    current_user
+    checkins = build_checkpoints_hash(@user.check_ins)
+    render json: checkins
+  end
+
+  def checkin_points
+    checkins = build_checkpoints_hash(CheckIn.all)
+    render json: checkins
+  end
+
 
 end
