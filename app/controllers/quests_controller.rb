@@ -104,11 +104,6 @@ class QuestsController < ApplicationController
     redirect_to quests_path
   end
 
-  def accepted
-  end
-
-  def rejected
-  end
 
   def index
     @user = User.find(2)

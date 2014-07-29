@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   ### Quests ###
   get '/quests', to: "quests#main"
   get '/accept', to: "quests#accept_form"
-  get '/accepted', to: "quests#accepted"
-  get '/rejected', to: "quests#rejected"
   post '/create', to: "quests#create"
   post '/accept', to: "quests#accept"
   post '/set_location', to: "quests#set_location"
