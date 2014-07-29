@@ -17,7 +17,7 @@ class Fsqr
   end
 
   def get_by_foursquare_id
-    user = User.find_by(foursquare_id: self.client.user("self")[:id].to_i)
+    user = User.find_by(foursquare_id: (self.client.user("self")[:id]).to_i) || nil
   end
 
   def search(query, ll, location_id)
