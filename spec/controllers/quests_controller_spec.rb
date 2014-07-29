@@ -7,7 +7,5 @@ RSpec.describe QuestsController, :type => :controller do
       get :main
       expect(response).to be_success
     end
-
-
   end
 end

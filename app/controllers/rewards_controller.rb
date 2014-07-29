@@ -23,6 +23,7 @@ class RewardsController < ApplicationController
 
   def show_reward
     @reward = Reward.find_by(params[:id])
+    @quest = @reward.quest
     @description = @reward.description
     render :show
   end

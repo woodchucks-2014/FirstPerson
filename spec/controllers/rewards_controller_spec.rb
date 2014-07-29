@@ -9,8 +9,6 @@ RSpec.describe RewardsController, :type => :controller do
     end
   end
 
-
-
   describe 'POST #create' do
     it 'creates a new reward' do
       expect{post :create, reward: FactoryGirl.attributes_for(:reward)}.to change(Reward, :count).by(1)
