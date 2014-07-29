@@ -1,5 +1,6 @@
 require 'rails_helper'
 require 'haversine'
+require 'chronic'
 
 RSpec.describe CheckInsHelper, :type => :helper do
   it "calculates distance between locations accurately using calc_distance method" do
