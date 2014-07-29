@@ -38,6 +38,8 @@ Rails.application.routes.draw do
   get '/users/quests', to: "quests#index"
 
 
+  ## Rewards ##
+  # get '/rewards' to: "rewards#main"
 
 
   # The priority is based upon order of creation: first created -> highest priority.
