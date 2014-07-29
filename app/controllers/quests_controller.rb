@@ -33,7 +33,7 @@ class QuestsController < ApplicationController
     quest_id = params[:user_quest][:quest_id]
     user_id = session[:user_id]
     if @user_quest.save
-      quest = Quest.find(id: quest_id)
+      quest = Quest.find(quest_id)
       quest.checkpoints.each do |checkpoint|
         UserCheckpoint.create(user_id: user_id, quest_id: quest_id)
       end
