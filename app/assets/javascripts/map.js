@@ -1,3 +1,15 @@
+var newMarkers;
+var oldMarkers;
+var handler;
+var geolocation;
+
+function updateMap() {
+  handler.removeMarkers(oldMarkers);
+  oldMarkers = handler.addMarkers(newMarkers);
+  handler.bounds.extendWith(oldMarkers);
+  handler.fitMapToBounds();
+}
+
 function createMap() {
   handler = Gmaps.build('Google');
   handler.buildMap({ internal: {id: 'map'} }, function(){
