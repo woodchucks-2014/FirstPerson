@@ -12,19 +12,19 @@ class QuestsController < ApplicationController
 
 
   def user_accepted_quests_loc
-    @quests = Quest.user_accepted_quests
+    @quests = Quest.user_accepted_quests(current_user)
     @hash = build_hash(@quests)
     render json: @hash
   end
 
   def user_created_quests_loc
-    @quests = Quest.user_created_quests
+    @quests = Quest.user_created_quests(current_user)
     @hash = build_hash(@quests)
     render json: @hash
   end
 
   def user_completed_quests_loc
-    @quests = Quest.user_completed_quests
+    @quests = Quest.user_completed_quests(current_user)
     @hash = build_hash(@quests)
     render json: @hash
   end

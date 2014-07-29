@@ -21,16 +21,16 @@ class User < ActiveRecord::Base
   end
 
 
-  def self.user_all_checkins
+  def self.user_all_checkins(user)
     @checkin_locs=[]
-    current_user.check_ins.each do |check_in|
+    user.check_ins.each do |check_in|
       @checkin_locs << Location.find(check_in.location_id)
     end
     return @checkins_locs
   end
 
-  def self.checkin_points_all
-    @checkins = current_user.check_ins
+  def self.checkin_points_all(user)
+    @checkins = user.check_ins
     return @checkins_locs
   end
 

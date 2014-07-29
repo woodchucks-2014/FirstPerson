@@ -19,22 +19,22 @@ class Quest < ActiveRecord::Base
   end
 
 
-  def self.user_accepted_quests
+  def self.user_accepted_quests(user)
     @quests=[]
-    current_user.user_quests.each do |user_quest|
+    user.user_quests.each do |user_quest|
       @quests << Quest.find(user_quest.quest_id)
     end
     return @quests
   end
 
-  def self.user_created_quests
-    @quests = Quest.where(creator_id: current_user.id)
+  def self.user_created_quests(user)
+    @quests = Quest.where(creator_id: user.id)
     return @quests
   end
 
-  def self.user_completed_quests
+  def self.user_completed_quests(user)
     @quests=[]
-    current_user.user_quests.each do |user_quest|
+    user.user_quests.each do |user_quest|
       if user_quest.completed==true
         @quests << Quest.find(user_quest.quest_id)
       end

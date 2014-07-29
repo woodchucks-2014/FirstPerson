@@ -1,4 +1,4 @@
-$(document).ready(function {
+$(document).ready(function() {
   $("#").mouseenter(function() {
     $.getJSON('/users/checkins', function(data) {
       newMarkers = data

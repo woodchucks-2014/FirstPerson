@@ -1,7 +1,7 @@
 module BuildHashHelper
 
   def build_hash(quests)
-      Gmaps4rails.build_markers(@quests) do |quest, marker|
+      Gmaps4rails.build_markers(quests) do |quest, marker|
         if quest.checkpoints.length >= 1 # Why are we doing this twice?
           marker.lat quest.checkpoints.first.location.latitude
           marker.lng quest.checkpoints.first.location.longitude

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  include UsersHelper
   include BuildHashHelper
 
   def admin_checkin
@@ -23,15 +23,18 @@ class UsersController < ApplicationController
   end
 
   def user_all_checkins_loc
-    @checkins = User.user_all_checkins
+    @checkins = User.user_all_checkins(current_user)
     render json: @checkins
   end
 
 
   def checkin_points
-    @checkins = User.checkin_points_all
+    @checkins = User.checkin_points_all(current_user)
     @hash = build_hash(@checkins)
     render json: @hash
+  end
+
+  def index
   end
 
 end
