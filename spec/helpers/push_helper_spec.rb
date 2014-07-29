@@ -11,7 +11,6 @@ RSpec.describe PushHelper, :type => :helper do
 
   it "parses formatted JSON" do
     user = User.create(foursquare_id: 81231200)
-    p parse_foursquare_json(formatted_params)
     expect(parse_foursquare_json(formatted_params)).to eq(final_hash)
   end
 
