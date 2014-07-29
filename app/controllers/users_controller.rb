@@ -19,6 +19,7 @@ class UsersController < ApplicationController
   end
 
   def profile
+    @user = User.find(2)
   end
 
   def user_all_checkins_loc
