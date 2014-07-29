@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   # devise :database_authenticatable, :registerable,
          # :recoverable, :rememberable, :trackable
+  include UsersHelper
 
   has_many :created_quests, class_name: 'Quest', foreign_key: 'creator_id' #alias
   has_many :user_quests
@@ -18,20 +19,6 @@ class User < ActiveRecord::Base
 
   def set_defaults
     self.total_xp ||= 0
-  end
-
-
-  def self.user_all_checkins(user)
-    checkins = user.check_ins.map do |checkin| 
-      {lat: checkin.location.latitude, lng: checkin.location.longitude}
-    end
-    puts "****** #{checkins} *********"
-    checkins
-  end
-
-  def self.checkin_points_all(user)
-    @checkins = CheckIn.all
-    return @checkins
   end
 
 end
