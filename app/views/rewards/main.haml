@@ -1,0 +1,11 @@
+/ This is very simplified for the moment. I know that we need to render the selected quest's title, XP award for completing the quest and the quest's dscription. 
+
+.reward_title
+  %h1 #{@quest.title} Rewards !
+  =flash[:notice]
+
+.reward_xp
+  %h2 For: #{@quest.xp}
+
+.reward_description
+  %p #{@quest.description}
