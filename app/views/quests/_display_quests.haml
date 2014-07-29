@@ -1,8 +1,25 @@
 .list
   %h2 Here are your quests!
   %br
-  %ul
+  %ol
   - @quests.each do |quest|
     %li
       = quest.title
-    %br
+      %p
+        Category:
+        =quest.category
+        %br
+        Description:
+        =quest.description
+        %br
+        Acceptance status:
+        =quest.userstatus
+        %br
+        Time Status:
+        =quest.timestatus
+        %br
+        Experience:
+        =quest.xp
+        %br
+        %br
+
