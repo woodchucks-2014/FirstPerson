@@ -5,6 +5,13 @@ var Map = {
   handler: null
 }
 
+Map.addPolylines = function() {
+  this.lines = this.handler.addPolylines(
+    [this.newMarkers],
+    { strokeColor: '#00BB00' }
+  );
+}
+
 Map.removePolylines = function() {
   for (var i = 0; i < this.lines.length; i++ ) {
     this.lines[i].setMap();

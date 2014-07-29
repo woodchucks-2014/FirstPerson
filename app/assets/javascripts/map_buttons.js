@@ -13,10 +13,7 @@ $(document).ready(function() {
   });
   $("#show_user_checkins").click(function() {
     Map.updateMap();
-    Map.lines = Map.handler.addPolylines(
-      [Map.newMarkers],
-      { strokeColor: '#00BB00' }
-    );
+    Map.addPolylines();
   });
 
   $("#show_all_quests").mouseenter(function() {
