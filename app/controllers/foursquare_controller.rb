@@ -33,7 +33,7 @@ class FoursquareController < ActionController::Base
     user_id = foursquare_params[:user][:user_id]
     checkin = checkin_creator(location, user_id)
     user = User.find(user_id)
-    quest_check(user, location)
+    user_checkpoint_check(user, location)
     render plain: "200 OK"
   end
 
