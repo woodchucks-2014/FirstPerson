@@ -3,7 +3,7 @@ $(document).ready(function() {
     window.location.href = '/map';
   });
 
-  $("#charater").click(function() {
+  $("#profile").click(function() {
     window.location.href = '/users/profile';
   });
 
@@ -15,8 +15,3 @@ $(document).ready(function() {
     window.location.href = '/logout';
   });
 });
-
-// <div id="show" class="button">Map</div>
-// <div id="character" class="button">Character</div>
-// <div id="quests" class="button">Quests</div>
-// <div id="logout" class="button">Logout</div>
