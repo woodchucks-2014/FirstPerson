@@ -21,18 +21,23 @@ class QuestsController < ApplicationController
 
   def completed_quests
     @quests = Quest.user_completed_quests(current_user)
-    render "quests/index"
+    render partial: "quests/display_quests"
   end
 
   def created_quests
     @quests = Quest.user_created_quests(current_user)
-    render "quests/index"
+    render partial: "quests/display_quests"
   end
 
   def sort_quests
     @quests.sort! { |a,b| a.xp <=> b.xp }
-    render "quests/index"
+    render partial: "quests/display_quests"
   end
+
+  def edit_quests
+    render partial: "quests/display_quests"
+  end
+
 
   def create_quests
     @user_quest = UserQuest.new
@@ -40,9 +45,6 @@ class QuestsController < ApplicationController
     render partial: "create_quests"
   end
 
-  def edit_quests
-    render "quests/index"
-  end
 
 # API METHODS
 

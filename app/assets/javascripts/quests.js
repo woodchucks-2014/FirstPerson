@@ -42,7 +42,7 @@ $(document).ready(function(){
   $("#active_but").on("click", function(){
     $.ajax({
       type: "get",
-      url: "/quests"
+      url: "/active_quests"
     }).done(function(data) {
       $("#content").html(data)
     }).fail(function() {
@@ -53,7 +53,6 @@ $(document).ready(function(){
 
 
   $("#available_but").on("click", function(){
-    alert("works");
     $.ajax({
       type: "get",
       url: "/available_quests"
