@@ -5,10 +5,10 @@ class RewardsController < ApplicationController
 
   def create
     # @quest = Quest.find(params[:id])
-    @reward = Reward.new
+    @reward = Reward.new(reward_params)
     if @reward.save
       flash[:notice] = "New reward successfully created!"
-      render :create #will reroute later...it gets the test to pass
+      render :create #will reroute later...it gets the test to pass, should redirect
     else
       flash[:notice] = "Unable to create"
       render :create
@@ -16,9 +16,7 @@ class RewardsController < ApplicationController
 
   end
 
-  def reward_params
-    params.require(:reward).permit(:description)
-  end
+
 
 
   def show_reward
@@ -26,8 +24,13 @@ class RewardsController < ApplicationController
     @quest = @reward.quest
     @description = @reward.description
     render :show
+    #also include a picture
   end
 
+  private
 
+  def reward_params
+    params.require(:reward).permit(:description)
+  end
 
 end

@@ -10,22 +10,35 @@ RSpec.describe RewardsController, :type => :controller do
   end
 
   describe 'POST #create' do
-    it 'creates a new reward' do
-      expect{post :create, reward: FactoryGirl.attributes_for(:reward)}.to change(Reward, :count).by(1)
+    context "with valid attributes" do
+      it 'creates a new reward' do
+        expect{post :create, reward: {description: "A new reward"}}.to change(Reward, :count).by(1)
+      end
+
     end
 
-    it 'does not create a new reward' do
-      expect{post :create, Reward.new(:description => nil)}.to_not change(Reward, :count)
-
+    context 'with invalid attributes' do
+      it 'does not create a new reward' do
+        expect{post :create, reward: {description: nil}}.to_not change(Reward, :count)
+      end
     end
   end
 
   describe 'GET #show' do
-    it 'assigns reward to @reward' do
+    it 'assigns existing reward to @reward' do
       reward = FactoryGirl.build(:reward)
       get :show, id: reward
       expect(assigns(:reward)).to eq reward
     end
   end
+
+  # describe 'GET #choose' do
+  #   it 'expects response to be successful' do
+  #     reward = FactoryGirl.build(:reward)
+  #     get :choose, reward_id: reward.id
+  #     expect(response.status).to eq 200
+  #   end
+  # end
+
 
 end
