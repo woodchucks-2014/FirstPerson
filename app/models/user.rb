@@ -29,4 +29,9 @@ class User < ActiveRecord::Base
     checkins
   end
 
+  def self.checkin_points_all(user)
+    @checkins = CheckIn.all
+    return @checkins
+  end
+
 end

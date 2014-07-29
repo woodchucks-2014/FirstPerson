@@ -1,6 +1,16 @@
 class UsersController < ApplicationController
   include UsersHelper
 
+
+  def index
+    current_user
+    if logged_in?
+      render 'maps/show'
+    else
+      render 'users/home'
+    end
+  end
+
   def admin_checkin
   	api = Fsqr.new(session[:token])
   	api.checkin
@@ -32,7 +42,5 @@ class UsersController < ApplicationController
     render json: checkins
   end
 
-  def index
-  end
 
 end

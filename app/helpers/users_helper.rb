@@ -12,8 +12,7 @@ module UsersHelper
   end
 
   def current_user
-  	@user = User.where(id: session[:user_id]).first
-    redirect_to root_path unless @user
+  	@user = User.where(id: session[:user_id]).first || User.new
   end
 
   def logged_in?
