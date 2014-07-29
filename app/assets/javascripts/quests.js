@@ -8,7 +8,7 @@ $(document).ready(function(){
       url: "/create",
       data: $( this ).serialize()
     }).done(function(data) {
-      $('.content').html(data);
+      $('#content').html(data);
     }).fail(function() {
       alert("Please try again");
     })
@@ -23,7 +23,7 @@ $(document).ready(function(){
     }).done(function(data) {
       foursquare_data = data;
       $.each(data, function(key, value){
-        $('.create').append("<a class='location' id=" + key + "><div class = 'result'>"+value["name"]+"<br>"+value["street"]+"<br></div></a>");
+        $('#content').append("<a class='location' id=" + key + "><div class = 'result'>"+value["name"]+"<br>"+value["street"]+"<br></div></a>");
       })
     }).fail(function() {
       alert("Please try again");
