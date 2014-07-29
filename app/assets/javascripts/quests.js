@@ -1,7 +1,7 @@
 var foursquare_data = {};
 $(document).ready(function(){
 
-  $(".content").on("submit", "#new_quest", function(e){
+  $("#content").on("submit", "#new_quest", function(e){
     e.preventDefault();
     $.ajax({
       type: "post",
@@ -14,7 +14,7 @@ $(document).ready(function(){
     })
   })
 
-  $(".content").on("submit", "#check_create", function(e){
+  $("#content").on("submit", "#check_create", function(e){
     e.preventDefault();
     $.ajax({
       type: "post",
@@ -30,7 +30,7 @@ $(document).ready(function(){
     })
   })
 
-  $(".content").on("click", ".location", function(e){
+  $("#content").on("click", ".location", function(e){
     var index = $(this).attr('id');
     $.post('/commit_location', {"venue": foursquare_data[index]})
       .done(function(data){
