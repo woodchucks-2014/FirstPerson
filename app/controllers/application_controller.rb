@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_filter :current_user
-  # skip_before_action :current_user, only: [:current_user]
+  skip_before_action :current_user, only: [:current_user]
 
   def current_user
   	@user = User.find(session[:user_id]) || User.new
