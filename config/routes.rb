@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   ### Quests ###
+  get '/users/quests', to: "quests#index"
   get '/quests', to: "quests#main"
   get '/accept', to: "quests#accept_form"
   post '/create', to: "quests#create"
@@ -33,9 +34,9 @@ Rails.application.routes.draw do
   get '/admin-checkin', to: "users#admin_checkin"
   get '/test_login', to: "users#test_login"
 
-  ### new routes
+  ### Maps ###
   get '/map', to: "maps#show"
-  get '/users/quests', to: "quests#index"
+
 
 
 

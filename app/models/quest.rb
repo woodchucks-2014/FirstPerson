@@ -27,6 +27,16 @@ class Quest < ActiveRecord::Base
     return @quests
   end
 
+  def self.user_available_quests(user)
+    @quests=[]
+    user.user_quests.each do |user_quest|
+      Quest.all.each do |quest|
+        @quests << quest if user_quest.quest_id!=quest.id
+      end
+    end
+    return @quests
+  end
+
   def self.user_created_quests(user)
     @quests = Quest.where(creator_id: user.id)
     return @quests
