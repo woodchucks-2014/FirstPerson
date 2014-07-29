@@ -16,22 +16,3 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-
-var bindButtons = function(){
-  $("#enable_checkins").click(function() {
-    createCheckIns();
-  });
-  $("#enable_quests").click(function() {
-    createQuests();
-  });
-}
-
-$(document).ready(function() {
-  createCheckIns()
-  bindButtons()
-
-  $(document).on('page:load', function() {
-    createCheckIns()
-    bindButtons()
-  });
-})
