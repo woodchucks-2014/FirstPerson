@@ -6,27 +6,23 @@ class QuestsController < ApplicationController
   def all
     @user_quest = UserQuest.new
     @quests = Quest.all.select { |quest| quest.checkpoints.length >= 1  }
-    @hash = build_quests_hash(@quests)
-    render json: @hash
+    render json: build_quests_hash(@quests)
   end
 
 
   def user_accepted_quests_loc
     @quests = Quest.user_accepted_quests(current_user)
-    @hash = build_hash(@quests)
-    render json: @hash
+    render json: build_hash(@quests)
   end
 
   def user_created_quests_loc
     @quests = Quest.user_created_quests(current_user)
-    @hash = build_hash(@quests)
-    render json: @hash
+    render json: build_hash(@quests)
   end
 
   def user_completed_quests_loc
     @quests = Quest.user_completed_quests(current_user)
-    @hash = build_hash(@quests)
-    render json: @hash
+    render json: build_hash(@quests)
   end
 
 
