@@ -3,17 +3,16 @@ var Map = {
   newMarkers: null,
   oldMarkers: null,
   handler: null
-  // var geolocation;
 }
 
-function removePolylines() {
-  for (var i = 0; i < Map.lines.length; i++ ) {
-    Map.lines[i].setMap();
+Map.removePolylines = function() {
+  for (var i = 0; i < this.lines.length; i++ ) {
+    this.lines[i].setMap();
   }
 }
 
 function updateMap() {
-  removePolylines()
+  Map.removePolylines()
   Map.handler.removeMarkers(Map.oldMarkers);
   Map.oldMarkers = Map.handler.addMarkers(Map.newMarkers);
   Map.handler.bounds.extendWith(Map.oldMarkers);
