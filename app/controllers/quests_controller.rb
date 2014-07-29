@@ -31,6 +31,15 @@ class QuestsController < ApplicationController
     @quests = Quest.user_created_quests(current_user)
   end
 
+  def sort_quest
+  end
+
+  def create_quest
+  end
+
+  def edit_quest
+  end
+
 # API METHODS
 
 
