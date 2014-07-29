@@ -7,7 +7,7 @@ module QuestsHelper
 		#at this time i am not sure it will work because multiple locations may be created. going to fix that.
 		user.checkpoints.each do |checkpoint|
 			if checkpoint.location.foursquare_id == checkin.foursquare_id
-				checkpoint.user_checkpoints.find_by(user_id: user.id).update(completed: true)
+				checkpoint.user_checkpoints.find_by(user_id: user.id).complete!
 				user_quest_check(user, checkpoint)
 			end
 		end
@@ -16,7 +16,7 @@ module QuestsHelper
 	def user_quest_check(user, checkpoint)
 		quest = Quest.find(checkpoint.quest_id)
 		if quest.user_checkpoints.where(user_id: user.id).all?{|record| record.completed == true}
-			quest.user_quests.find_by(user_id: user.id).update(completed: true)
+			quest.user_quests.find_by(user_id: user.id).complete!
 		end
 	end
 
