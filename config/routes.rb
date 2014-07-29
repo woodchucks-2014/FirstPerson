@@ -11,22 +11,34 @@ Rails.application.routes.draw do
   post 'commit_location', to: "quests#commit_location"
 
   ### Quest JSON ###
-  get '/all', to: "quests#all"
+  get '/quests/all', to: "quests#all"
+  get '/user_accepted_quests_loc', to: "quests#user_accepted_quests_loc"
+  get '/user_created_quests_loc', to: "quests#user_created_quests_loc"
+  get '/user_completed_quests_loc', to: "quests#user_completed_quests_loc"
+
+  ### User JSON ###
+  get '/user_all_checkins_loc', to: "users#user_all_checkins_loc"
+  get '/users/checkins', to: "users#checkin_points"
+
+
+
 
   ### FourSquare ###
   get '/foursquare', to: "foursquare#index", as: 'foursquare'
   get '/redirect', to: "foursquare#redirect"
-  get '/map', to: "foursquare#map", as: "map"
+  #get '/map', to: "foursquare#map", as: "map"
   post '/pull', to: "foursquare#pull", as: 'pull'
 
   #### Users ###
   get '/logout', to: "users#logout", as: 'logout'
-  get 'users/:id', to: "users#profile"
+  get '/users/profile', to: "users#profile"
   get '/admin-checkin', to: "users#admin_checkin"
   get '/test_login', to: "users#test_login"
-  
-  ### User JSON ###
-  get '/checkins', to: "users#checkin_points"
+
+
+  ### new routes
+  get '/map', to: "maps#show"
+  get '/users/quests', to: "quests#index"
 
 
   ## Rewards ##
