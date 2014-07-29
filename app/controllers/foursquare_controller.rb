@@ -4,6 +4,7 @@ class FoursquareController < ActionController::Base
   include AuthHelper
   include PushHelper
   include UsersHelper
+  include QuestsHelper
 
   def index
     redirect_to auth_uri
@@ -25,12 +26,12 @@ class FoursquareController < ActionController::Base
   end
 
   def pull
-    formatted_params = parse_foursquare_json(format(params))
-    loc = location_creator(formatted_params)
-    loc.save
-    user_id = formatted_params[:user][:user_id]
-    checkin = checkin_creator(loc, user_id)
-    checkin.save
+    foursquare_params = parse_foursquare_json(format(params))
+    location = location_creator(foursquare_params)
+    user_id = foursquare_params[:user][:user_id]
+    checkin = checkin_creator(location, user_id)
+    user = User.find(user_id)
+    quest_check(user, location)
     render plain: "200 OK"
   end
 
@@ -52,15 +53,17 @@ class FoursquareController < ActionController::Base
     checkin = CheckIn.new
     checkin.user_id = user_id
     checkin.location_id = location.id
-    checkin
+    checkin.save
   end
 
   def location_creator(params)
-    location = Location.new
-
-    fields = [:name, :venue_type, :second_type, :latitude, :longitude, :street, :city, :state, :zip, :country, :foursquare_id]
-    fields.each { |field| location[field] = params[:location][field]}
-
+    location = Location.find_by(foursquare_id: params[:location][:foursquare_id]) 
+    unless location
+      location = Location.new
+      fields = [:name, :venue_type, :second_type, :latitude, :longitude, :street, :city, :state, :zip, :country, :foursquare_id]
+      fields.each { |field| location[field] = params[:location][field]}
+      location.save
+    end
     location
   end
 

@@ -5,7 +5,7 @@ class Quest < ActiveRecord::Base
   has_many :user_quests
   has_many :locations, through: :checkpoints
   has_many :users, through: :user_quests
-
+  has_many :user_checkpoints, through: :checkpoints
   before_create :set_defaults
 
 

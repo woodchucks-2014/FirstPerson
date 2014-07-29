@@ -7,8 +7,8 @@ class Fsqr
 
   def rand_loc
     string = []
-    string << ((30..50).to_a.sample + rand(1)).to_s
-    string << ((-70..-80).to_a.sample + rand(1)).to_s
+    string << (40 + rand(1)).to_s
+    string << (-74 + rand(1)).to_s
     string.join(',')
   end
 
