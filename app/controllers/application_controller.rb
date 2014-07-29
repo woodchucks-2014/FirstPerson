@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_filter :current_user
 
   def current_user
-  	@user = User.find(id: session[:user_id]).first
+  	@user = User.find(session[:user_id])
   end
   
 end
