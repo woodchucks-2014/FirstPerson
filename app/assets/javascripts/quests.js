@@ -14,7 +14,7 @@ $(document).ready(function(){
     })
   })
 
-  $(".create").on("submit", "#check_create", function(e){
+  $(".create").on("submit", "#new_quest", function(e){
     e.preventDefault();
     $.ajax({
       type: "post",
