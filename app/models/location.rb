@@ -15,10 +15,13 @@ class Location < ActiveRecord::Base
   end
 
   def get_latlng
-    url = "open.mapquestapi.com/geocoding/v1/address"
-    request = "?key=" + ENV["MAP_KEY"] + "&location=" + self.address
-    response = JSON.parse(Net::HTTP.get_response(url,request))
-    puts response["results"]["locations"]["latLng"]
+    address = [self.street.split(' '), self.city.split(' '), self.state.split(' '), self.zip].join('%20')
+    url = "open.mapquestapi.com"
+    request = "/geocoding/v1/address/?key=" + ENV["MAP_KEY"] + "&location=" + address
+    response = JSON.parse(Net::HTTP.get_response(url,request).body)
+    self.latitude = response["results"][0]["locations"][0]["latLng"]["lat"]
+    self.longitude = response["results"][0]["locations"][0]["latLng"]["lng"]
   end
-#{"results":[{"locations":[{"latLng":{"lng":-74.009107,"lat":40.706486}
 end
+
+#Fmjtd%7Cluur2001n5%2Cbs%3Do5-9a15ly  
