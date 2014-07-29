@@ -16,6 +16,7 @@ player = User.new
 player.firstname = "Greg"
 player.email = "greg@dbc.com"
 player.gender = "male"
+player.photo_url = "http://fc09.deviantart.net/fs70/i/2012/164/1/a/chie_satonaka_by_melrw22-d53c8jj.jpg"
 player.foursquare_id = 2
 player.save!
 
