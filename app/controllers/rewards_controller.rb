@@ -8,7 +8,7 @@ class RewardsController < ApplicationController
     @reward = Reward.new
     if @reward.save
       flash[:notice] = "New reward successfully created!"
-      render :create
+      render :create #will reroute later...it gets the test to pass
     else
       flash[:notice] = "Unable to create"
       render :create
@@ -16,10 +16,17 @@ class RewardsController < ApplicationController
 
   end
 
+  def reward_params
+    params.require(:reward).permit(:description)
+  end
 
 
-  # the page for a particular award
-  # shows a picture, has a description
-  # says which quest it's from
-  # user can either make one or receieve one
+  def show_reward
+    @reward = Reward.find_by(params[:id])
+    @description = @reward.description
+    render :show
+  end
+
+
+
 end
