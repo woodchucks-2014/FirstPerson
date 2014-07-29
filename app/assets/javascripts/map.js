@@ -19,14 +19,23 @@ Map.updateMap = function() {
   this.handler.fitMapToBounds();
 }
 
-function createMap() {
-  Map.handler = Gmaps.build('Google');
-  Map.handler.buildMap({ internal: {id: 'map'} }, function(){
+Map.createMap = function() {
+  this.handler = Gmaps.build('Google');
+  this.handler.buildMap({ internal: {id: 'map'} }, function(){
     if(navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(displayMap);
     }
   });
 }
+
+// function createMap() {
+//   Map.handler = Gmaps.build('Google');
+//   Map.handler.buildMap({ internal: {id: 'map'} }, function(){
+//     if(navigator.geolocation) {
+//       navigator.geolocation.getCurrentPosition(displayMap);
+//     }
+//   });
+// }
 
 function displayMap(position){
   mark = Map.handler.addMarker({
@@ -38,5 +47,5 @@ function displayMap(position){
 };
 
 $(document).ready(function() {
-  createMap();
+  Map.createMap();
 });
