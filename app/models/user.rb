@@ -20,4 +20,18 @@ class User < ActiveRecord::Base
     self.total_xp ||= 0
   end
 
+
+  def self.user_all_checkins(user)
+    @checkin_locs=[]
+    user.check_ins.each do |check_in|
+      @checkin_locs << Location.find(check_in.location_id)
+    end
+    return @checkins_locs
+  end
+
+  def self.checkin_points_all(user)
+    @checkins = user.check_ins
+    return @checkins_locs
+  end
+
 end

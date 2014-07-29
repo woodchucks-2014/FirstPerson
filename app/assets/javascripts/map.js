@@ -1,5 +1,6 @@
 var newMarkers;
 var oldMarkers;
+var lines;
 var handler;
 var geolocation;
 

@@ -1,17 +1,34 @@
 class QuestsController < ApplicationController
 
   include UsersHelper
+  include BuildHashHelper
 
   def all
     @user_quest = UserQuest.new
     @quests = Quest.all.select { |quest| quest.checkpoints.length >= 1  }
-    @hash = Gmaps4rails.build_markers(@quests) do |quest, marker|
-      marker.lat quest.checkpoints.first.location.latitude
-      marker.lng quest.checkpoints.first.location.longitude
-      marker.infowindow "<iframe src='/accept?quest_id=#{quest.id}' style='scrolling=no;'></iframe>"
-    end
+    @hash = build_hash(@quests)
     render json: @hash
   end
+
+
+  def user_accepted_quests_loc
+    @quests = Quest.user_accepted_quests(current_user)
+    @hash = build_hash(@quests)
+    render json: @hash
+  end
+
+  def user_created_quests_loc
+    @quests = Quest.user_created_quests(current_user)
+    @hash = build_hash(@quests)
+    render json: @hash
+  end
+
+  def user_completed_quests_loc
+    @quests = Quest.user_completed_quests(current_user)
+    @hash = build_hash(@quests)
+    render json: @hash
+  end
+
 
   def accept_form
     @user_quest = UserQuest.new
@@ -94,17 +111,18 @@ class QuestsController < ApplicationController
 
   private
 
+
   def checkpoint_params
     params.require(:checkpoint).permit(:instructions, :quest_id, :location_id)
   end
 
   def user_quest_params
-    params[:user_quest][:user_id] = current_user2.id #hard code to 1 for local
+    params[:user_quest][:user_id] = current_user.id #hard code to 1 for local
     params.require(:user_quest).permit(:user_id, :quest_id, :completed)
   end
 
-  def quest_params 
-    params[:quest][:creator_id] = current_user2.id #hard code to 1 for local
+  def quest_params
+    params[:quest][:creator_id] = current_user.id #hard code to 1 for local
     params.require(:quest).permit(:creator_id, :title, :description, :user_limit, :category, :end_date)
   end
 
