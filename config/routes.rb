@@ -48,6 +48,8 @@ Rails.application.routes.draw do
 
 
 
+  ## Rewards ##
+  # get '/rewards' to: "rewards#main"
 
 
   # The priority is based upon order of creation: first created -> highest priority.

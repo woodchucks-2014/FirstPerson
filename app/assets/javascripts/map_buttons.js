@@ -7,16 +7,16 @@ $(document).ready(function() {
 
   // Preloading data FTW!
   $("#show_user_checkins").mouseenter(function() {
-    $.getJSON('/users/checkins', function(data) {
+    $.getJSON('/user_all_checkins_loc', function(data) {
       newMarkers = data
     })
   });
   $("#show_user_checkins").click(function() {
     updateMap();
-    // lines = handler.addPolylines(
-    //   [newMarkers],
-    //   { strokeColor: '#00BB00' }
-    // );
+    lines = handler.addPolylines(
+      [newMarkers],
+      { strokeColor: '#00BB00' }
+    );
   });
 
   $("#show_all_quests").mouseenter(function() {

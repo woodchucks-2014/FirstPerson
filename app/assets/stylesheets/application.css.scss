@@ -252,6 +252,7 @@ nav .button {
 }
 
 
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -267,3 +268,18 @@ nav .button {
  *= require_self
  *= require_tree .
  */
+
+#notification {
+  position: fixed;
+  top: 15vw;
+  left: 20vw;
+  background-color: white;
+  width: 40vw;
+  height: 6em;
+  text-align: center;
+  padding: 2em;
+  border: 3px solid black;
+  border-radius: 15px;
+  z-index: 100;
+}
+

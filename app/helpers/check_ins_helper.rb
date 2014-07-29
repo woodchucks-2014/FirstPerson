@@ -15,7 +15,7 @@ module CheckInsHelper
 
   def check_in_xp
     distance = distance_since_last_checkin
-    xp = 10 + distance/5000 * Math.log2(distance) # xp scales as O(n*log(n)), because why not?
+    xp = 10 + distance/5000 * Math.log2(distance)
     user = User.find(self.user_id)
     user.total_xp += xp.floor
     self.xp = xp.floor
