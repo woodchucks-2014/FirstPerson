@@ -35,7 +35,6 @@ $(document).ready(function(){
     $.post('/commit_location', {"venue": foursquare_data[index]})
       .done(function(data){
         console.log(data)
-        //window.location.href = data.redirect;
       })
   })
 
