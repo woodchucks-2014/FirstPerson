@@ -30,6 +30,7 @@ class QuestsController < ApplicationController
 
   def accept
     @user_quest = UserQuest.new(user_quest_params)
+    puts params[:user_quest]
     quest_id = params[:user_quest][:quest_id]
     user_id = session[:user_id]
     if @user_quest.save
