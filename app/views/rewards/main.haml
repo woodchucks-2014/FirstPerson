@@ -2,10 +2,13 @@
 
 .reward_title
   %h1 #{@quest.title} Rewards!
-  =flash[:notice]
+
+  %br
 
 .reward_xp
   %h2 For: #{@quest.xp}
+
+  %br
 
 .reward_description
   %p #{@quest.description}

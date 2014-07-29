@@ -39,8 +39,8 @@ Rails.application.routes.draw do
   get '/map', to: "maps#show"
   get '/users/quests', to: "quests#index"
 
-
-
+  ## Rewards ##
+  # get '/rewards' to: "rewards#main"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
