@@ -15,11 +15,12 @@ RSpec.describe QuestsController, :type => :controller do
       expect(assigns(:user_quest)).to be_a_new(UserQuest)
     end
 
-    it 'allows a user to create a quest' do
-      get :all
+    # it 'should be successful' do
+    #   get user_accepted_quests_loc(@)
 
 
-    end
+
+    # end
   end
   
 end
