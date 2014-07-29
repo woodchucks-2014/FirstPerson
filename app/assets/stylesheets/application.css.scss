@@ -233,11 +233,14 @@ nav .button {
 
 #user_image img {
   width: 100%;
+  height: 25em;
 }
 
 #user_rewards {
-  width: 100%;
+  display: block;
   overflow: auto;
+  width: 100%;
+  height: 15em;
 }
 
 .reward {
@@ -247,10 +250,16 @@ nav .button {
 
 .reward img {
   width: 100%;
+  height: 15em;
 }
 
 #user_info {
   float: left;
-  padding: 5%;
-  width: 65%;
+  width: 75%;
+  height: 25em;
+}
+
+#user_info h2 {
+  margin-left: 1.75%;
+  margin-top: 1%;
 }
