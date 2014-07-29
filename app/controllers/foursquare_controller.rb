@@ -38,7 +38,6 @@ class FoursquareController < ActionController::Base
   private
 
   def set_session
-    puts 'here'
     session[:user_id] = @user.id
     session[:token] = @token
   end
