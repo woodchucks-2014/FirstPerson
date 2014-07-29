@@ -8,7 +8,7 @@ module QuestsHelper
 			quest.locations.each do |loc|
 				if loc.foursquare_id == location.foursquare_id
 					checkpoint = quest.checkpoints.find_by(location_id: loc.id)
-					checkpoint.user_checkpoints.find_by(user_id: user.id).complete!
+					checkpoint.user_checkpoints.find_by(user_id: user.id).update(completed: true)
 				end
 			end
 		end
