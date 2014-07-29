@@ -9,6 +9,7 @@ module UsersHelper
     user.gender =@api.client.user("self")[:gender]
     user.email = @api.client.user("self")[:contact][:email]
     user.save
+    user
   end
 
   def current_user2
