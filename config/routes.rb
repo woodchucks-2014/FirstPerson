@@ -35,7 +35,6 @@ Rails.application.routes.draw do
   get '/admin-checkin', to: "users#admin_checkin"
   get '/test_login', to: "users#test_login"
 
-
   ### new routes
   get '/map', to: "maps#show"
   get '/users/quests', to: "quests#index"
