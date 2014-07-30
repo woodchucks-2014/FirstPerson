@@ -67,5 +67,9 @@ class Quest < ActiveRecord::Base
     end
   end
 
+  def location
+    self.locations.first
+  end
+
 
 end
