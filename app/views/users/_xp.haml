@@ -1,0 +1,30 @@
+.list
+  %h2 Here is your XP Breakdown!
+  %br
+  %h3 Quests:
+  %br
+  - @quests.each do |quest|
+    %h4
+      =quest.title
+    =quest.description
+    %br
+    -quest.checkpoints.each do |checkpoint|
+      At :
+      =checkpoint.location.name
+      %br
+    =quest.xp
+    xp
+    %br
+  %br
+  %br
+  %h3 Checkins:
+  %br
+  - @checkins.each do |checkin|
+    %h4
+      =checkin.location.name
+      %br
+      =checkin.location.address
+    =checkin.xp
+    xp
+    %br
+    %br
