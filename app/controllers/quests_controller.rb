@@ -136,8 +136,15 @@ class QuestsController < ApplicationController
   end
 
   def commit_location
-    @location = Location.find(params[:venue][:location_id])
-    @location.update(venue_params)
+    created_location = Location.find(params[:venue][:location_id])
+    entry = Location.find_by(foursquare_id: params[:venue][:foursquare_id])
+    if entry
+      created_location.checkpoints.update_all(location_id: entry.id)
+      created_location.destroy
+    else
+      created_location.update(venue_params)
+    end
+
     render plain: "Successfully added #{@location.name}"
   end
 
