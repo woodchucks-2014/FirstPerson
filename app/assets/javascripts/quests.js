@@ -1,4 +1,5 @@
 var foursquare_data = {};
+var location_form;
 $(document).ready(function(){
 
   $("#content").on("submit", "#new_quest", function(e){
@@ -9,6 +10,7 @@ $(document).ready(function(){
       data: $( this ).serialize()
     }).done(function(data) {
       $('#content').html(data);
+      location_form = data;
     }).fail(function() {
       alert("Please try again");
     })
@@ -23,7 +25,7 @@ $(document).ready(function(){
     }).done(function(data) {
       foursquare_data = data;
       $.each(data, function(key, value){
-        $('#content').append("<a class='location' id=" + key + "><div class = 'result'>"+value["name"]+"<br>"+value["street"]+"<br></div></a>");
+        $('#content').append("<a class='location' href='/add' id=" + key + "><div class = 'result'>"+value["name"]+"<br>"+value["street"]+"<br></div></a>");
       })
     }).fail(function() {
       alert("Please try again");
@@ -31,10 +33,12 @@ $(document).ready(function(){
   })
 
   $("#content").on("click", ".location", function(e){
+    e.preventDefault();
     var index = $(this).attr('id');
     $.post('/commit_location', {"venue": foursquare_data[index]})
       .done(function(data){
-        console.log(data)
+        $("#content").html(data)
+        $("#content").append(location_form)
       })
   })
 
