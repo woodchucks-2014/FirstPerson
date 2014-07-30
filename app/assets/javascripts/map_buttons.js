@@ -5,6 +5,11 @@ $(document).ready(function() {
     $("#show_user_quests").slideDown()
   });
 
+  $(".quest").click(function(){
+    Map.getData('/show_checkpoints/' + $(this).attr('id'))
+    Map.updateMap();
+  })
+
   // Preloading data FTW!
   $("#show_user_checkins").mouseenter(function() {
     Map.getData('/user_all_checkins_loc')
