@@ -14,14 +14,15 @@ class Quest < ActiveRecord::Base
   def set_defaults
   	self.start_date ||= Time.now
     self.end_date ||= 1.year.from_now
-    self.xp ||= 50
+    self.xp ||= 100
   end
 
 
   def self.user_accepted_quests(user)
     @quests=[]
     user.user_quests.each do |user_quest|
-      @quests << Quest.find(user_quest.quest_id)
+      quest = Quest.find(user_quest.quest_id)
+      @quests << quest if user_quest.completed == false && quest.timestatus != 'expired'
     end
     return @quests.uniq
   end
@@ -29,14 +30,13 @@ class Quest < ActiveRecord::Base
   def self.user_available_quests(user)
     @quests=[]
     Quest.all.each do |quest|
-      @quests << quest if quest.timestatus=='current' && quest.userstatus=='open'
+      @quests << quest if quest.timestatus=='current' && quest.userstatus=='open' && quest.creator_id != user.id && quest.users.where(id: user.id).empty?
     end
     return @quests
   end
 
   def self.user_created_quests(user)
     @quests = Quest.where(creator_id: user.id)
-    return @quests
   end
 
   def self.user_completed_quests(user)
