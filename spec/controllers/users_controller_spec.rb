@@ -56,5 +56,22 @@ RSpec.describe UsersController, :type => :controller do
       get :checkin_points, {user_id: 1}
       # expect(session[:user_id]).to eq([{}])
     end
+  
+
   end
+
+  describe "GET boards" do
+    it "returns http success" do
+      get :boards
+      expect(response).to be_success
+    end
+  end
+  
+  describe "GET xp" do
+    it "renders the xp template for a user" do
+      get :xp
+      expect(response).to be_success
+    end
+  end
+  
 end
