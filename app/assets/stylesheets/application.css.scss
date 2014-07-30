@@ -14,7 +14,14 @@
  *= require_tree .
  */
 
-$primary-color: #59CCF2;
+$primary-color: #2E4272;
+$secondary-color: #5E5C57;
+$third-color: #D4B26A;
+
+/*$primary-color: #FFFFFF;
+$secondary-color: #FFE361;
+$third-color: #D2D2D3;*/
+
 $font-color: white;
 $font-stack:  Helvetica, sans-serif;
 
@@ -25,6 +32,7 @@ $font-stack:  Helvetica, sans-serif;
 
 body {
   overflow: auto;
+  background-color: #D4B26A;
 }
 
 table, th, td {
@@ -175,6 +183,7 @@ iframe {
   padding: 0.5%;
   font-size: 1.5em;
   text-align: center;
+  cursor: crosshair;
 }
 
 #content {
@@ -187,20 +196,19 @@ iframe {
 #map {
   float: left;
   width: 100%;
-  height: 40em;
+  height: 48.5vw;
 }
 
 #options.sidebar {
   float: left;
   width: 20%;
-  background-color: gray;
-  height: 40em;
+  background-color: $third-color;
   padding: 0;
   margin: 0;
 }
 
 .button:hover {
-  background-color: white;
+  background-color: #3B5798;
 }
 
 nav {
@@ -208,6 +216,7 @@ nav {
   background-color: $primary-color;
   display: block;
   overflow: auto;
+  color: white;
 }
 
 nav .button {
@@ -216,7 +225,7 @@ nav .button {
 }
 
 #xp {
-  background-color: black;
+  background-color: $secondary-color;
   color: white;
 }
 
