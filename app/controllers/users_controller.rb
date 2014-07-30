@@ -2,6 +2,11 @@ class UsersController < ApplicationController
   include UsersHelper
   include BuildHashHelper
 
+  def board
+    @users = User.sort_users
+    render partial: "users/leaderboard"
+  end
+
   def index
     if logged_in?
       render 'maps/show'
@@ -10,11 +15,12 @@ class UsersController < ApplicationController
     end
   end
 
-  def admin_checkin
-  	api = Fsqr.new(session[:token])
-  	api.checkin
-  	redirect_to root_path
-  end
+  # Greg said this was not necessary anymore
+  # def admin_checkin
+  # 	api = Fsqr.new(session[:token])
+  # 	api.checkin
+  # 	redirect_to root_path
+  # end
 
   def test_login
     session[:user_id] = 2 # artificial login for testing purposes
