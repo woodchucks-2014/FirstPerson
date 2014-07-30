@@ -47,17 +47,15 @@ RSpec.describe UsersController, :type => :controller do
   describe "json responses" do
     it "should return all checkins" do
       FactoryGirl.create(:user)
-      get :user_all_checkins_loc, {user_id: 1}
-      # expect(response).to eq([{}])
+      get :user_all_checkins_loc, {user_id: 1}, :format => :json
+      expect(response).to be_success
     end
 
     it "should return a user's checkins" do
       FactoryGirl.create(:user)
-      get :checkin_points, {user_id: 1}
-      # expect(session[:user_id]).to eq([{}])
-    end
-  
-
+      get :checkin_points, {user_id: 1}, :format => :json
+      expect(response).to be_success
+    end  
   end
 
   describe "GET boards" do
