@@ -2,10 +2,34 @@ class UsersController < ApplicationController
   include UsersHelper
   include BuildHashHelper
 
+  #User Info
+
+  def profile
+  end
+
+  def xp
+    @quests = Quest.user_completed_quests(current_user)
+    @checkins = current_user.checkins
+    render partial: "users/xp"
+  end
+
+  # def class_user
+  # end
+
+  # def inventory
+  # end
+
+  # def stats
+  # end
+
   def board
     @users = User.sort_users
     render partial: "users/leaderboard"
   end
+
+
+
+  # Session Methods
 
   def index
     if logged_in?
@@ -29,9 +53,6 @@ class UsersController < ApplicationController
   def logout
     session.clear
     redirect_to root_path
-  end
-
-  def profile
   end
 
   def user_all_checkins_loc

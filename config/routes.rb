@@ -40,8 +40,11 @@ Rails.application.routes.draw do
   get '/users/profile', to: "users#profile"
   get '/admin-checkin', to: "users#admin_checkin"
   get '/test_login', to: "users#test_login"
+  # get '/stats', to: "users#stats"
+  # get '/inventory', to: "users#inventory"
+  # get '/class', to: "users#class"
+  get '/xp', to: "users#xp"
   get '/board', to: "users#board"
-
 
   ### Maps ###
   get '/map', to: "maps#show"
@@ -49,8 +52,8 @@ Rails.application.routes.draw do
 
 
   ## Rewards ##
-  # get '/rewards' to: "rewards#main"
-
+  # get '/rewards/show' to: "rewards#show"
+  # get '/rewards/create' to: "rewards#create"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
