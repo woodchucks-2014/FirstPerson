@@ -32,7 +32,7 @@ $font-stack:  Helvetica, sans-serif;
 
 body {
   overflow: auto;
-  background-color: #D4B26A;
+  background: rgba(0,0,0, 0.8);
 }
 
 table, th, td {
@@ -45,10 +45,10 @@ td, th {
 
 .list{
   width:100%;
-  background: rgba(0,0,0, 0.8);
+  background: rgba(0,0,0, 0.5);
   margin-top: 0;
-  height: 36em;
-  padding: 2em;
+  height: 44.5vw;
+  padding: 2vw;
   padding-left: 10em;
   color: white;
   overflow-y:scroll;
@@ -82,37 +82,18 @@ td, th {
   height: 61.25em;
 }
 
-#sign_up_link{
-  width: 15%;
+#enter_link{
+  width: 25%;
   height: 4em;
   font-size: 2em;
   line-height: 4em;
   text-align: center;
-  margin-left: 30%;
-  margin-right: 5%;
+  margin-left: 38.5%;
   border: 1px solid white;
-  margin-top: 12em;
+  margin-top: 18em;
   display: inline-block;
+  background: rgba(0,0,0, 0.3);
 
-    a{
-      font-family:"Times New Roman", Times, serif;
-      color:$font-color;
-      text-decoration: none;
-    }
-
-}
-
-#sign_in_link{
-  width: 15%;
-  font-size: 2em;
-  height: 4em;
-  line-height: 4em;
-  text-align: center;
-  margin-left: 5%;
-  margin-right: 25%;
-  border: 1px solid white;
-  margin-top: 12em;
-  display: inline-block;
     a{
       font-family:"Times New Roman", Times, serif;
       color:$font-color;
@@ -204,7 +185,15 @@ iframe {
   width: 20%;
   background-color: $third-color;
   padding: 0;
+  height: 48.5vw;
   margin: 0;
+  color: #2C3539;
+  overflow: scroll;
+
+  .button{
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+  }
 }
 
 .button:hover {
@@ -226,7 +215,7 @@ nav .button {
 
 #xp {
   background-color: $secondary-color;
-  color: white;
+  color:black;
 }
 
 #show_active_quests {
@@ -276,7 +265,8 @@ nav .button {
   position: fixed;
   top: 15vw;
   left: 20vw;
-  background-color: white;
+  background-color: black;
+  color: white;
   width: 40vw;
   height: 6em;
   text-align: center;
@@ -286,4 +276,12 @@ nav .button {
   z-index: 100;
 }
 
+h6{
+  font-size: 8em;
+  color: white;
+  position: absolute;
+  left:30%;
+  top:15vw;
+
+}
 
