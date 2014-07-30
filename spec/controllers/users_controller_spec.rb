@@ -14,19 +14,12 @@ RSpec.describe UsersController, :type => :controller do
     # end
   end
 
-  # describe "GET test_login" do
-  # 	it "should redirect to root path" do
-	 #  	session[:user_id] = 2
-	 #  	get: test_login
-	 #  	expect(response).to redirect_to root_path
-	 #  end
-  # end
-
-  # describe "GET logout" do
-  # 	it "should logout a user" do
-	 #  	session[:user_id] = 2
-	 #  	session[:user_id] = nil
-	 #  	expect(response).to redirect_to root_path
-	 #  end
-  # end
+  describe "GET logout" do
+  	it "should logout a user" do
+	  	session[:user_id] = 2
+	  	get :logout
+	  	expect(response).to redirect_to root_path
+      expect(session_id[:user_id]).to eq(nil)
+	  end
+  end
 end
