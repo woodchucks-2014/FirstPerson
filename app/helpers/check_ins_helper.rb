@@ -23,12 +23,4 @@ module CheckInsHelper
     self.save
     user.save
   end
-
-  def time_since_last_checkin
-    t = Chronic.Span.new
-    t.begin = self.user.check_ins.order("created_at DESC").first.created_at
-    t.end = time.now
-    t.width
-  end
-
 end

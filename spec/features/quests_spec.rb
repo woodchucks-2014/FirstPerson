@@ -23,55 +23,65 @@ feature "Quests", :type => :feature do
       expect(page).to have_css('#create_quest_but')
     end
 
-    it "renders the map" do
+    it "renders 'Here are your quests!'" do
       visit '/quests'
-      expect(page).to have_css('div#map')
+      expect(page).to have_content("Here are your quests!")
     end
 
-    it "renders the map" do
+    it "renders side menu" do
       visit '/quests'
-      expect(page).to have_css('div#map')
+      expect(page).to have_css('div#options.sidebar')
     end
 
-    it "renders fields in 'Create a quest' " do
+    it "renders 'Your Active Quests' button" do
       visit '/quests'
-      expect(page).to have_css('.new_quest')
+      expect(page).to have_css('div#active_but.button')
     end
 
-    it "renders title field " do
+    it "renders quest content area" do
       visit '/quests'
-      expect(page).to have_css('input#quest_title')
+      expect(page).to have_css('div#content')
     end
 
-    it "renders title field " do
+    it "lists quest info " do
       visit '/quests'
-      expect(page).to have_css('input#quest_title')
+      expect(page).to have_css('div.list')
     end
 
-    it "renders description field " do
-      visit '/quests'
-      expect(page).to have_css('textarea#quest_description')
-    end
+    # it "renders title field " do
+    #   visit '/quests'
+    #   expect(page).to have_css('input#quest_title')
+    # end
 
-    it "renders user limit field " do
-      visit '/quests'
-      expect(page).to have_css('input#quest_user_limit')
-    end
+    # it "renders title field " do
+    #   visit '/quests'
+    #   expect(page).to have_css('input#quest_title')
+    # end
 
-    it "renders category field " do
-      visit '/quests'
-      expect(page).to have_css('input#quest_category')
-    end
+    # it "renders description field " do
+    #   visit '/quests'
+    #   expect(page).to have_css('textarea#quest_description')
+    # end
 
-    it "renders quest end date field " do
-      visit '/quests'
-      expect(page).to have_css('input#quest_end_date')
-    end
+    # it "renders user limit field " do
+    #   visit '/quests'
+    #   expect(page).to have_css('input#quest_user_limit')
+    # end
 
-    it "renders 'Add your checkpoints' button" do
-      visit '/quests'
-      expect(page).to have_css('input[name="commit"][type="submit"][value="Add your checkpoints!"]')
-    end
+    # it "renders category field " do
+    #   visit '/quests'
+    #   expect(page).to have_css('input#quest_category')
+    # end
+
+    # it "renders quest end date field " do
+    #   visit '/quests'
+    #   expect(page).to have_css('input#quest_end_date')
+    # end
+
+    # it "renders 'Add your checkpoints' button" do
+    #   visit '/quests'
+    #   expect(page).to have_css('input[name="commit"][type="submit"][value="Add your checkpoints!"]')
+    # end
 
   end
   
