@@ -23,31 +23,32 @@ player.save!
 checkin_loc = Location.new
 checkin_loc.name = "CheckIn1"
 checkin_loc.venue_type = "checkin_loc1"
-checkin_loc.latitude = 40.7703
-checkin_loc.longitude = -73.9997
-checkin_loc.street = "160 34th St"
+checkin_loc.street = "48 Wall St"
 checkin_loc.city = "New York"
 checkin_loc.state = "NY"
 checkin_loc.country = "US"
-checkin_loc.zip = "10016"
+checkin_loc.zip = "10005"
 checkin_loc.foursquare_id = "kjf3jfosefjw"
 checkin_loc.save!
 
-checkin_loc2 = Location.new
-checkin_loc2.name = "CheckIn2"
-checkin_loc2.venue_type = "checkin_loc2"
-checkin_loc2.latitude = 40.5703
-checkin_loc2.longitude = -74.6997
-checkin_loc2.foursquare_id = "kjf3jfosefjw"
-checkin_loc2.save!
+# checkin_loc2 = Location.new
+# checkin_loc2.name = "CheckIn2"
+# checkin_loc2.venue_type = "checkin_loc2"
+# checkin_loc.street = "48 Wall St"
+# checkin_loc.city = "New York"
+# checkin_loc.state = "NY"
+# checkin_loc.country = "US"
+# checkin_loc.zip = "10005"
+# checkin_loc2.foursquare_id = "kjf3jfosefjw"
+# checkin_loc2.save!
 
-quest_loc3 = Location.new
-quest_loc3.name = "quest3"
-quest_loc3.venue_type = "quest_loc3"
-quest_loc3.latitude = 40.5503
-quest_loc3.longitude = -74.4997
-quest_loc3.foursquare_id = "kjf3jfosefjw"
-quest_loc3.save!
+# quest_loc3 = Location.new
+# quest_loc3.name = "quest3"
+# quest_loc3.venue_type = "quest_loc3"
+# quest_loc3.latitude = 40.5503
+# quest_loc3.longitude = -74.4997
+# quest_loc3.foursquare_id = "kjf3jfosefjw"
+# quest_loc3.save!
 
 quest = Quest.new
 quest.title = "Come Get A Beer!"
@@ -61,7 +62,7 @@ quest.save!
 checkpoint = Checkpoint.new
 checkpoint.instructions = "Receive beer"
 checkpoint.quest_id = quest.id
-checkpoint.location_id = quest_loc3.id
+checkpoint.location_id = checkin_loc.id
 checkpoint.step_num = 1
 checkpoint.save!
 
@@ -87,7 +88,7 @@ gregs_checkin.user_id = player.id
 gregs_checkin.save!
 
 gregs_checkin2 = CheckIn.new
-gregs_checkin2.location_id = checkin_loc2.id
+gregs_checkin2.location_id = checkin_loc.id
 gregs_checkin2.user_id = player.id
 gregs_checkin2.save!
 

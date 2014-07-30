@@ -14,12 +14,10 @@ RSpec.describe CheckInsHelper, :type => :helper do
     quest = FactoryGirl.create(:quest)
     user = FactoryGirl.create(:user)
     user_quest = FactoryGirl.create(:user_quest)
-    checkin = FactoryGirl.create(:check_in)
     location1 = FactoryGirl.create(:location, latitude: 30, longitude: 30)
 		location2 = FactoryGirl.create(:location, latitude: 60, longitude: 60)
 		checkins = [location1, location2]
-		# expect(calc_distance(checkins[0].latitude, checkins[0].longitude, checkins[1].latitude,
-		# 	checkins[1].longitude)).to eq(user.checkins.distance_since_last_checkin)
-
+    puts "\n\n****\n\ncalc dist #{calc_distance(checkins[0].latitude, checkins[0].longitude, checkins[1].latitude, checkins[1].longitude)}\n\n****\n\n"
+		expect().to eq()
 	end
 end

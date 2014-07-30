@@ -1,7 +1,8 @@
 module CheckInsHelper
 
   def calc_distance(lat1, long1, lat2, long2)
-    Haversine.distance(lat1, long1, lat2, long2).to_meters
+      distance = Haversine.distance(lat1, long1, lat2, long2).to_meters
+      return distance < 1 ? 1 : distance
   end
 
   def distance_since_last_checkin
@@ -9,7 +10,7 @@ module CheckInsHelper
     if checkins.length == 2
       return calc_distance(checkins[0].latitude, checkins[0].longitude, checkins[1].latitude, checkins[1].longitude)
     else
-      return 2
+      return 1
     end
   end
 

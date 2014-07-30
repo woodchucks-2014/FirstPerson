@@ -10,7 +10,7 @@ feature "Quests", :type => :feature do
 
     it "renders the quest title div" do
       visit '/quests'
-      expect(page).to have_content("Create a quest")
+      expect(page).to have_content("your quests")
     end
 
     it "renders the quest list" do
@@ -18,14 +18,9 @@ feature "Quests", :type => :feature do
       expect(page).to have_css(".list")
     end
 
-    it "renders 'Here are your quests!'" do
-      visit '/quests'
-      expect(page).to have_content("Here are your quests!")
-    end
-
     it "renders 'Create a quest' Form" do
       visit '/quests'
-      expect(page).to have_css('.create')
+      expect(page).to have_css('#create_quest_but')
     end
 
     it "renders the map" do

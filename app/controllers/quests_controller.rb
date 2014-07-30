@@ -53,23 +53,23 @@ class QuestsController < ApplicationController
 
   def all
     @user_quest = UserQuest.new
-    @quests = Quest.includes(:checkpoints).all.select { |quest| quest.checkpoints.length >= 1  }
+    @quests = Quest.includes(:locations).all.select { |quest| quest.locations.length >= 1  }
     render json: build_quests_hash(@quests)
   end
 
   def user_accepted_quests_loc
     @quests = Quest.user_accepted_quests(current_user)
-    render json: build_hash(@quests)
+    render json: build_quests_hash(@quests)
   end
 
   def user_created_quests_loc
     @quests = Quest.user_created_quests(current_user)
-    render json: build_hash(@quests)
+    render json: build_quests_hash(@quests)
   end
 
   def user_completed_quests_loc
     @quests = Quest.user_completed_quests(current_user)
-    render json: build_hash(@quests)
+    render json: build_quests_hash(@quests)
   end
 
   def accept_form
