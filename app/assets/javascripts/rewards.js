@@ -1,7 +1,16 @@
 $(document).ready(function(){
 
-  $('').on('click', function(e){
+  $('#character_rewards').on('click', function(e){
     e.preventDefault();
+    $.ajax({
+      type: "post",
+      url: "/rewards/show"
+      success: function(response) {
+        
+      }
+    })
+
+    // alert("hi")
 
     // $.ajax({
     //   type: "post",

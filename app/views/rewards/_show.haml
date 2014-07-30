@@ -1,15 +1,18 @@
-.reward_title
-  %h1 #{@quest.title} Rewards!
+#reward_info
+  .rewards_image
+    %img(src="/assets/images/trophy-clipart-7cagzxdcA.jpeg")
+  .reward_title
+    %h2 
+      = "From: #{@quest.title}"
+    %br
+  .rewards_description
+    %h3 
+      = "#{@description}"
+    %br
+  .rewards_xp
+    %h3 
+      = "For: #{@quest.xp} XP"
+    %br
 
-  %br
 
-.rewards_xp
-  %h2 For: #{@quest.xp}
 
-  %br
-
-.rewards_description
-  %p #{@description}
-
-.rewards_image
-%img(src="/assets/images/trophy-clipart-7cagzxdcA.jpeg")

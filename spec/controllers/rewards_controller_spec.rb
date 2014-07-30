@@ -23,6 +23,12 @@ RSpec.describe RewardsController, :type => :controller do
   #     end
   #   end
   # end
+  # describe 'GET #all' do
+  #   it 'shows all rewards' do
+      
+  #   end
+  # end
+
 
   describe 'GET #show' do
     it 'assigns existing reward to @reward' do
