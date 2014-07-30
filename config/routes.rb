@@ -29,7 +29,6 @@ Rails.application.routes.draw do
   get '/user_all_checkins_loc', to: "users#user_all_checkins_loc"
   get '/users/checkins', to: "users#checkin_points"
 
-
   ### FourSquare ###
   get '/foursquare', to: "foursquare#index", as: 'foursquare'
   get '/redirect', to: "foursquare#redirect"
