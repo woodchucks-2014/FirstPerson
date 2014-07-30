@@ -66,4 +66,12 @@ RSpec.describe UsersController, :type => :controller do
       expect(response).to be_success
     end
   end
+  
+  describe "GET xp" do
+    it "renders the xp template for a user" do
+      get :xp
+      expect(response).to be_success
+    end
+  end
+  
 end
