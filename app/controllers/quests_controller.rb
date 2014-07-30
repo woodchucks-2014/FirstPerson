@@ -160,7 +160,7 @@ class QuestsController < ApplicationController
 
   def quest_params
     params[:quest][:creator_id] = current_user.id #hard code to 1 for local
-    params.require(:quest).permit(:creator_id, :title, :description, :user_limit, :category, :end_date)
+    params.require(:quest).permit(:creator_id, :title, :description, :user_limit, :category, :start_date, :xp, :end_date)
   end
 
   def location_params
