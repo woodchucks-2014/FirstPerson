@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   ### Quests ###
   get '/quests', to: "quests#index"
   get '/accept', to: "quests#accept_form"
+  get '/already', to: "quests#already"
   post '/create', to: "quests#create"
   post '/accept', to: "quests#accept"
   post '/set_location', to: "quests#set_location"
@@ -23,11 +24,12 @@ Rails.application.routes.draw do
   get '/user_accepted_quests_loc', to: "quests#user_accepted_quests_loc"
   get '/user_created_quests_loc', to: "quests#user_created_quests_loc"
   get '/user_completed_quests_loc', to: "quests#user_completed_quests_loc"
+  get '/show_checkpoints/:quest_id', to: "quests#show_checkpoints"
 
   ### User JSON ###
   get '/user_all_checkins_loc', to: "users#user_all_checkins_loc"
   get '/users/checkins', to: "users#checkin_points"
-
+  get '/users/notifications', to: "users#notifications"
 
   ### FourSquare ###
   get '/foursquare', to: "foursquare#index", as: 'foursquare'
@@ -40,8 +42,11 @@ Rails.application.routes.draw do
   get '/users/profile', to: "users#profile"
   get '/admin-checkin', to: "users#admin_checkin"
   get '/test_login', to: "users#test_login"
+  # get '/stats', to: "users#stats"
+  # get '/inventory', to: "users#inventory"
+  # get '/class', to: "users#class"
+  get '/xp', to: "users#xp"
   get '/board', to: "users#board"
-
 
   ### Maps ###
   get '/map', to: "maps#show"
@@ -49,6 +54,7 @@ Rails.application.routes.draw do
 
 
   ## Rewards ##
+
   # get '/rewards/new', to: "rewards#new"
   post '/rewards/create', to: "rewards#create"
   get '/rewards/show', to: "rewards#show"
