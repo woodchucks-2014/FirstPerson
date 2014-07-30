@@ -19,7 +19,7 @@ class Location < ActiveRecord::Base
     url = "open.mapquestapi.com"
     request = "/geocoding/v1/address/?key=" + ENV["MAP_KEY"] + "&location=" + address
     response = JSON.parse(Net::HTTP.get_response(url,request).body)
-    puts response.body
+    puts response
     self.latitude = response["results"][0]["locations"][0]["latLng"]["lat"]
     self.longitude = response["results"][0]["locations"][0]["latLng"]["lng"]
   end
