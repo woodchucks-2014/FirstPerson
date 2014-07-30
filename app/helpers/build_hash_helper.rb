@@ -12,36 +12,29 @@ module BuildHashHelper
     end
   end
 
-  def build_quests_hash(quests, style = "default")
-    img_url = imager(style)
-    Gmaps4rails.build_markers(quests) do |quest, marker|
-      marker.lat quest.locations.first.latitude
-      marker.lng quest.locations.first.longitude
-      marker.picture({
-        url: img_url,
-        width:  36,
-        height: 36
-      })
-      if quest.users.any? {|user| user.id==current_user.id}
-        marker.infowindow "<iframe src='/already?quest_id=#{quest.id}' style='scrolling=no;'></iframe>"
+  def info(mark)
+    if mark.class == Quest
+      if mark.users.any? {|user| user.id==current_user.id}
+        return "<iframe src='/already?quest_id=#{mark.id}' style='scrolling=no;'></iframe>"
       else
-        marker.infowindow "<iframe src='/accept?quest_id=#{quest.id}' style='scrolling=no;'></iframe>"
+        return "<iframe src='/accept?quest_id=#{mark.id}' style='scrolling=no;'></iframe>"
       end
+    else
+      return mark.location.address
     end
   end
 
-  def build_checkpoints_hash(checkins, style = "default")
+  def build_markers(checkins, style = "default")
     img_url = imager(style)
-    checkins = checkins.map {|checkin| checkin.location}
     Gmaps4rails.build_markers(checkins) do |checkin, marker|
-      marker.lat checkin.latitude
-      marker.lng checkin.longitude
+      marker.lat checkin.location.latitude
+      marker.lng checkin.location.longitude
       marker.picture({
         url: img_url,
         width:  36,
         height: 36
       })
-      marker.infowindow checkin.address
+      marker.infowindow info(checkin)
     end
   end
 
