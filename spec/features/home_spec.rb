@@ -6,14 +6,7 @@ RSpec.describe "home" do
       visit '/'
       expect(page).to have_css("#sign_in_link")
     end
-
-    it "results a 200 status code" do
-      visit '/'
-      expect(page.status_code).to eq(200)
-    end
-
   end
-  
 
   context 'buttons' do
     it "has signin button" do
