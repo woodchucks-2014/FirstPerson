@@ -27,7 +27,22 @@ RSpec.describe UsersController, :type => :controller do
     end
   end
 
-  describe "get test_login" do
+  describe "GET notifications" do
+  	it "renders notifications when signed in" do
+  		session[:user_id] = 1
+  		get :notifications
+  		expect(response).to be_success
+  	end
+  end
+
+  describe "GET notifications" do
+  	it "renders empty json when signed out" do
+  		get :notifications
+  		expect(response).to be_success
+  	end
+  end  
+
+  describe "GET test_login" do
   	it "redirects to root path" do
   		session[:user_id] = 2
   		get :test_login
