@@ -27,6 +27,14 @@ body {
   overflow: auto;
 }
 
+table, th, td {
+   border: 1px solid black;
+}
+
+td, th {
+  padding: 1em;
+}
+
 .list{
   width:100%;
   background: rgba(0,0,0, 0.8);
