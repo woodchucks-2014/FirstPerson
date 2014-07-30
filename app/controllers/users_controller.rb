@@ -17,9 +17,13 @@ class UsersController < ApplicationController
   # end
 
   def notifications
-    notice = @user.notifications.map {|notice| notice.to_js}
-    @user.notifications.clear
-    render json: notice
+    if logged_in?
+      notice = @user.notifications.map {|notice| notice.to_js}
+      @user.notifications.clear
+      render json: notice
+    else
+      render json: []
+    end
   end
 
   # def stats
