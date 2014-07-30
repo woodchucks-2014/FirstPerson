@@ -22,5 +22,9 @@ module QuestsHelper
 		end
 	end
 
+	def quest_info
+		[@quest.title, @quest.xp, @quest.userstatus, @quest.timestatus, @quest.end_date, @quest.category, @quest.description]
+	end
+
 
 end
