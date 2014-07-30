@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   def current_user
   	if session[:user_id]
-  		@user = User.find(session[:user_id])
+  		@user = User.where(id: session[:user_id]).first || User.new
   	else 
   		User.new
   	end

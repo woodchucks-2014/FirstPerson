@@ -6,7 +6,7 @@ RSpec.describe RewardsController, :type => :controller do
     it 'assigns existing reward to @reward' do
       reward = Reward.create(description: "New stuff")
       get :show, id: reward
-      expect(assigns(:reward)).to eq(reward)
+      expect(assigns(:rewards)).to eq([reward])
     end
 
   end

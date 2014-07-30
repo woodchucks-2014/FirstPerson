@@ -10,4 +10,5 @@ RSpec.describe User, :type => :model do
   it {should have_many(:checkpoints).through(:user_checkpoints)}
   it {should have_many(:check_ins)}
   it {should have_many(:locations).through(:check_ins)}
+  it {should have_many(:notifications)}
 end
