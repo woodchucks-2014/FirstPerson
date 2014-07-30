@@ -31,7 +31,7 @@ $(document).ready(function() {
 
   $("#show_world_checkins").click(function() {
     Map.updateMap();
-    Map.addPolylines();
+    Map.updateMap();
   });
 
   $("#show_all_quests").mouseenter(function() {
@@ -39,6 +39,7 @@ $(document).ready(function() {
   });
 
   $("#show_all_quests").click(function() {
+    Map.updateMap();
     Map.updateMap();
   });
 
@@ -48,6 +49,7 @@ $(document).ready(function() {
 
   $("#show_available_quests").click(function() {
     Map.updateMap();
+    Map.updateMap();
   });
 
   $("#show_completed_quests").mouseenter(function() {
@@ -56,6 +58,7 @@ $(document).ready(function() {
 
   $("#show_completed_quests").click(function() {
     Map.updateMap();
+    Map.updateMap();
   });
 
   $("#show_created_quests").mouseenter(function() {
@@ -63,6 +66,7 @@ $(document).ready(function() {
   });
 
   $("#show_created_quests").click(function() {
+    Map.updateMap();
     Map.updateMap();
   });
 });
