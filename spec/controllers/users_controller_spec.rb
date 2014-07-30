@@ -7,5 +7,10 @@ RSpec.describe UsersController, :type => :controller do
       get :index
       expect(response).to be_success
     end
-  end
+
+    it "renders the 'user/home template" do
+    	get :index
+    	expect(response).to render_template('users/home')
+    end
+  end 
 end
