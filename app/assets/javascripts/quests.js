@@ -37,8 +37,9 @@ $(document).ready(function(){
     var index = $(this).attr('id');
     $.post('/commit_location', {"venue": foursquare_data[index]})
       .done(function(data){
-        $("#content").html(data)
+        $("#content").html("<div class='success'>" + data + "</div>")
         $("#content").append(location_form)
+        $("#content").append("<a href = '/quests'> I'm done adding checkpoints </a>")
       })
   })
 

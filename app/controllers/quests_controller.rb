@@ -143,7 +143,7 @@ class QuestsController < ApplicationController
   def commit_location
     @location = Location.find(params[:venue][:location_id])
     @location.update(venue_params)
-    render plain: "successfully added #{@location.name}"
+    render plain: "Successfully added #{@location.name}"
   end
 
   private
