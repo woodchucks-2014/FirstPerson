@@ -18,5 +18,12 @@
       .reward
         = image_tag "http://www.wpclipart.com/recreation/trophy/gold_trophy.png"
 
+    %h2
+      = "Gender: #{@user.gender.capitalize}"
+    %br
+    %h2
+      = "Level: #{@user.total_xp/1000 + 1} Baller"
+    %br
+
 #options.sidebar
   = render 'sidebar'

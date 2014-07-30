@@ -41,13 +41,22 @@ Rails.application.routes.draw do
   get '/admin-checkin', to: "users#admin_checkin"
   get '/test_login', to: "users#test_login"
 
+  # get '/stats', to: "users#stats"
+  # get '/inventory', to: "users#inventory"
+  # get '/class', to: "users#class"
+  get '/xp', to: "users#xp"
+  get '/board', to: "users#board"
+
   ### Maps ###
   get '/map', to: "maps#show"
 
 
 
   ## Rewards ##
-  # get '/rewards' to: "rewards#main"
+
+  # get '/rewards/new', to: "rewards#new"
+  post '/rewards/create', to: "rewards#create"
+  get '/rewards/show', to: "rewards#show"
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,0 +1,18 @@
+.list
+  %h2 Here are The Top Ten Contestants!
+  %br
+  %table
+    %th First Name
+    %th Last Name
+    %th Total Xp
+    %th Quests Completed
+    - @users.each do |user|
+      %tr
+        %td
+          =user.firstname
+        %td
+          =user.lastname
+        %td
+          =user.total_xp
+        %td
+          =user.checkpoints.count
