@@ -25,37 +25,17 @@ RSpec.describe UsersController, :type => :controller do
   end
 
   describe "json responses" do
-    it "should logout a user" do
-      session[:user_id] = 1
-      get :logout, {}
-      expect(response).to redirect_to root_path
-      expect(session[:user_id]).to eq(nil)
+    it "should return all checkins" do
+      FactoryGirl.create(:user)
+      get :user_all_checkins_loc, {user_id: 1}
+      # expect(response).to eq([{}])
     end
 
-    it "should logout a user" do
-      session[:user_id] = 1
-      get :logout, {}
-      expect(response).to redirect_to root_path
-      expect(session[:user_id]).to eq(nil)
+    it "should return a user's checkins" do
+      FactoryGirl.create(:user)
+      get :checkin_points, {user_id: 1}
+      # expect(session[:user_id]).to eq([{}])
     end
   end
-
-
-
-  def user_all_checkins_loc
-    current_user
-    checkins = build_checkpoints_hash(@user.check_ins)
-    render json: checkins
-  end
-
-  def checkin_points
-    checkins = build_checkpoints_hash(CheckIn.all)
-    render json: checkins
-  end
-
-# /user_all_checkins_loc(.:format)     
-# users#user_all_checkins_loc
-# users_checkins GET  /users/checkins(.:format)            
-# users#checkin_points
 
 end

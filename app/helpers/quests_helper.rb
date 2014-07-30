@@ -20,12 +20,5 @@ module QuestsHelper
 		end
 	end
 
-	# def end_quest(quest)
-
-	# 	if quest.user_quests.all?{|record| record.completed == true}
-
-	# 	end
-	# end
-
 
 end
