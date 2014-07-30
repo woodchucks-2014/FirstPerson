@@ -5,7 +5,10 @@ class UsersController < ApplicationController
   #User Info
 
   def profile
+    @users = User.all
+    @rewards = @user.rewards
   end
+
 
   def xp
     @quests = Quest.user_completed_quests(current_user)
@@ -29,13 +32,15 @@ class UsersController < ApplicationController
   # def stats
   # end
 
-  def board
-    @users = User.sort_users
-    render partial: "users/leaderboard"
+  # def board
+  #   @users = User.sort_users
+  #   render partial: "users/leaderboard"
+  # end
+
+  def boards
+    @users = User.all
+    render layout: false
   end
-
-
-
   # Session Methods
 
   def index
@@ -58,12 +63,12 @@ class UsersController < ApplicationController
 
   def user_all_checkins_loc
     current_user
-    checkins = build_checkpoints_hash(@user.check_ins)
+    checkins = build_markers(@user.check_ins, "checkin")
     render json: checkins
   end
 
   def checkin_points
-    checkins = build_checkpoints_hash(CheckIn.all)
+    checkins = build_markers(CheckIn.all, "checkin")
     render json: checkins
   end
 
