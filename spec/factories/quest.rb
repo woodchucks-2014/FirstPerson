@@ -3,8 +3,6 @@ require 'faker'
 FactoryGirl.define do
   factory :quest do
     association :creator
-    # association :checkpoints  
-    # association :locations
     category {Faker::Commerce.department}
     description {Faker::Company.catch_phrase}
     user_limit {rand (1..10)}
