@@ -74,6 +74,11 @@ beer.quest_id = quest.id
 beer.description = "Yay! Beer!"
 beer.save!
 
+burger = Reward.new
+burger.quest_id = quest.id
+burger.description = "Get some food, too!"
+burger.save!
+
 greg_gets_a_beer = UserQuest.new
 greg_gets_a_beer.quest_id = quest.id
 greg_gets_a_beer.user_id = player.id

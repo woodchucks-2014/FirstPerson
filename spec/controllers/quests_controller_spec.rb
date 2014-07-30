@@ -50,5 +50,5 @@ RSpec.describe QuestsController, :type => :controller do
       expect(response).to be_success
     end
 
-	end
+  end
 end
