@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   ### Quests ###
   get '/quests', to: "quests#index"
   get '/accept', to: "quests#accept_form"
+  get '/already', to: "quests#already"
   post '/create', to: "quests#create"
   post '/accept', to: "quests#accept"
   post '/set_location', to: "quests#set_location"
