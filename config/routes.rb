@@ -40,8 +40,6 @@ Rails.application.routes.draw do
   get '/users/profile', to: "users#profile"
   get '/admin-checkin', to: "users#admin_checkin"
   get '/test_login', to: "users#test_login"
-  get '/board', to: "users#board"
-
 
   ### Maps ###
   get '/map', to: "maps#show"
