@@ -7,6 +7,7 @@ $(document).ready(function() {
 
   $(".quest").click(function(){
     Map.getData('/show_checkpoints/' + $(this).attr('id'))
+    Map.updateMap();
   })
 
   // Preloading data FTW!
