@@ -28,25 +28,25 @@ feature "Quests", :type => :feature do
       expect(page).to have_content("Here are your quests!")
     end
 
-    # it "renders 'Create a quest' Form" do
-    #   visit '/quests'
-    #   expect(page).to have_css('.create')
-    # end
+    it "renders side menu" do
+      visit '/quests'
+      expect(page).to have_css('div#options.sidebar')
+    end
 
-    # it "renders the map" do
-    #   visit '/quests'
-    #   expect(page).to have_css('div#map')
-    # end
+    it "renders 'Your Active Quests' button" do
+      visit '/quests'
+      expect(page).to have_css('div#active_but.button')
+    end
 
-    # it "renders the map" do
-    #   visit '/quests'
-    #   expect(page).to have_css('div#map')
-    # end
+    it "renders quest content area" do
+      visit '/quests'
+      expect(page).to have_css('div#content')
+    end
 
-    # it "renders fields in 'Create a quest' " do
-    #   visit '/quests'
-    #   expect(page).to have_css('.new_quest')
-    # end
+    it "lists quest info " do
+      visit '/quests'
+      expect(page).to have_css('div.list')
+    end
 
     # it "renders title field " do
     #   visit '/quests'
