@@ -5,8 +5,13 @@ $(document).ready(function() {
     $("#show_user_quests").slideDown()
   });
 
-  $(".quest").click(function(){
+    // Preloading data FTW!
+  $(".quest").mouseenter(function() {
     Map.getData('/show_checkpoints/' + $(this).attr('id'))
+  });
+
+  $(".quest").click(function(){
+    Map.updateMap();
     Map.updateMap();
   })
 
@@ -51,6 +56,7 @@ $(document).ready(function() {
 
   $("#show_completed_quests").click(function() {
     Map.updateMap();
+    Map.updateMap();
   });
 
   $("#show_created_quests").mouseenter(function() {
@@ -58,6 +64,7 @@ $(document).ready(function() {
   });
 
   $("#show_created_quests").click(function() {
+    Map.updateMap();
     Map.updateMap();
   });
 });
