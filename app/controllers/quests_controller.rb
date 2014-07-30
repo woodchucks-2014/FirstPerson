@@ -145,7 +145,7 @@ class QuestsController < ApplicationController
       created_location.update(venue_params)
     end
 
-    render plain: "Successfully added #{@location.name}"
+    render plain: "Successfully added #{params[:venue][:name]}"
   end
 
   private
