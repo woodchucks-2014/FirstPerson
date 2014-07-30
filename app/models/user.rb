@@ -21,9 +21,4 @@ class User < ActiveRecord::Base
     self.total_xp ||= 0
   end
 
-  def self.sort_users
-    @users = User.all
-    User.order(:total_xp).reverse.take(10)
-  end
-
 end

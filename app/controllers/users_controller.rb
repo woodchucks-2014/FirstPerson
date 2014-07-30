@@ -2,11 +2,6 @@ class UsersController < ApplicationController
   include UsersHelper
   include BuildHashHelper
 
-  def board
-    @users = User.sort_users
-    render partial: "users/leaderboard"
-  end
-
   def index
     if logged_in?
       render 'maps/show'
