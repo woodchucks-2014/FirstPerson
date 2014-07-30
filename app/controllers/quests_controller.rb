@@ -59,7 +59,7 @@ class QuestsController < ApplicationController
 
   def show_checkpoints
     @checkpoints = Quest.find(params[:quest_id]).checkpoints
-    render json: build_quests_hash(@checkpoints)
+    render json: build_checkpoints_hash(@checkpoints)
   end
 
   def user_accepted_quests_loc
