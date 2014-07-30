@@ -1,19 +1,16 @@
-/ %ul
-/ -
-/ #reward_info
-/   .rewards_image
-/     %img(src="/assets/images/trophy-clipart-7cagzxdcA.jpeg")
-/   .reward_title
-/     %h2 
-/       = "From: #{@quest.title}"
-/     %br
-/   .rewards_description
-/     %h3 
-/       = "#{@description}"
-/     %br
-/   .rewards_xp
-/     %h3 
-/       = "For: #{@quest.xp} XP"
-/     %br
+%h2 Here are your rewards!
 
-%h2 Here are The Top Ten Contestants!
+%table
+  %tr
+    %th
+    %th Quest
+    %th Description
+  -@rewards.each do |reward|
+    %tr
+      %td
+        %img(src="/assets/images/trophy-clipart-7cagzxdcA.jpeg")
+      %td
+        = reward.quest.title
+      %td
+        = reward.description
+      

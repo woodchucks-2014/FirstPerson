@@ -16,10 +16,9 @@ class RewardsController < ApplicationController
   # end
 
   def show
-    @reward = Reward.find(params[:id])
-    @quest = @reward.quest
-    @description = @reward.description
-    render partial: "rewards/show", layout: false
+    @rewards = Reward.all
+    p @rewards
+    render partial: "rewards/show"
   end
 
 #   private
