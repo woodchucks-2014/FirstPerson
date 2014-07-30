@@ -20,6 +20,15 @@ $(document).ready(function() {
     Map.addPolylines();
   });
 
+  $("#show_world_checkins").mouseenter(function() {
+    Map.getData('/users/checkins')
+  });
+
+  $("#show_world_checkins").click(function() {
+    Map.updateMap();
+    Map.addPolylines();
+  });
+
   $("#show_all_quests").mouseenter(function() {
     Map.getData('/quests/all')
   });
@@ -28,11 +37,27 @@ $(document).ready(function() {
     Map.updateMap();
   });
 
+   $("#show_available_quests").mouseenter(function() {
+    Map.getData('/available_quests')
+  });
+
+  $("#show_available_quests").click(function() {
+    Map.updateMap();
+  });
+
   $("#show_completed_quests").mouseenter(function() {
     Map.getData('/user_completed_quests_loc')
   });
 
   $("#show_completed_quests").click(function() {
+    Map.updateMap();
+  });
+
+  $("#show_created_quests").mouseenter(function() {
+    Map.getData('/user_created_quests_loc')
+  });
+
+  $("#show_created_quests").click(function() {
     Map.updateMap();
   });
 });

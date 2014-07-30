@@ -1,5 +1,21 @@
 .accept_form
-  = @quest.title
+  %h2
+    = @quest.title
+  Category:
+  = @quest.category
+  %br
+  Description:
+  = @quest.description
+  %br
+  Starting:
+  = @quest.start_date
+  %br
+  Ending:
+  = @quest.end_date
+  %br
+  Xp Awarded:
+  = @quest.xp
+  %br
   = form_for @user_quest, url: accept_path do |f|
     = f.hidden_field :quest_id, :value => @quest.id
     = f.submit "Accept"
