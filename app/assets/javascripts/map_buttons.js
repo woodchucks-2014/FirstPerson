@@ -12,7 +12,7 @@ $(document).ready(function() {
 
   $(".quest").click(function(){
     Map.updateMap();
-    $(this).trigger("click")
+    Map.updateMap();
   })
 
   // Preloading data FTW!
