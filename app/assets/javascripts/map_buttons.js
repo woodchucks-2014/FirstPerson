@@ -5,9 +5,14 @@ $(document).ready(function() {
     $("#show_user_quests").slideDown()
   });
 
-  $(".quest").click(function(){
+    // Preloading data FTW!
+  $(".quest").mouseenter(function() {
     Map.getData('/show_checkpoints/' + $(this).attr('id'))
+  });
+
+  $(".quest").click(function(){
     Map.updateMap();
+    $(this).trigger("click")
   })
 
   // Preloading data FTW!
