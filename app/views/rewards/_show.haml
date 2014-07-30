@@ -1,0 +1,16 @@
+%h2 Here are your rewards!
+
+%table
+  %tr
+    %th
+    %th Quest
+    %th Description
+  -@rewards.each do |reward|
+    %tr
+      %td
+        %img(src="/assets/images/trophy-clipart-7cagzxdcA.jpeg")
+      %td
+        = reward.quest.title
+      %td
+        = reward.description
+      
