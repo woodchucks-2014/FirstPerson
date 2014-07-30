@@ -15,10 +15,24 @@ RSpec.describe UsersController, :type => :controller do
       expect(response).to be_success
     end
 
-    it "renders the 'user/home template" do
+    it "renders the 'user/home template when not logged in" do
     	get :index
     	expect(response).to render_template('users/home')
     end
+
+    it "renders the 'user/home template when logged in" do
+    	session[:user_id] = 1
+    	get :index
+    	expect(response).to render_template('maps/show')
+    end
+  end
+
+  describe "get test_login" do
+  	it "redirects to root path" do
+  		session[:user_id] = 2
+  		get :test_login
+  		expect(response).to redirect_to root_path
+  	end
   end 
 
   describe "GET logout" do

@@ -5,8 +5,9 @@ class UsersController < ApplicationController
   #User Info
 
   def profile
+    @users = User.all
+    @rewards = @user.rewards
   end
-
 
   def xp
     @quests = Quest.user_completed_quests(current_user)
@@ -33,6 +34,11 @@ class UsersController < ApplicationController
   def board
     @users = User.sort_users
     render partial: "users/leaderboard"
+  end
+
+  def boards
+    @users = User.all
+    render layout: false
   end
 
   # Session Methods
