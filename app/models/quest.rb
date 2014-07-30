@@ -28,11 +28,7 @@ class Quest < ActiveRecord::Base
   end
 
   def self.user_available_quests(user)
-    quests=[]
-    Quest.all.each do |quest|
-      quests << quest if quest.timestatus=='current' && quest.userstatus=='open' && quest.creator_id != user.id && quest.users.where(id: user.id).empty?
-    end
-    return quests
+    return user.quests.select {|quest| quest.timestatus=='current' && quest.userstatus=='open' && quest.creator_id != user.id && quest.users.where(id: user.id).empty?}
   end
 
   def self.user_created_quests(user)
@@ -65,6 +61,10 @@ class Quest < ActiveRecord::Base
     else
       self.userstatus = "open"
     end
+  end
+
+  def location
+    self.locations.first
   end
 
 

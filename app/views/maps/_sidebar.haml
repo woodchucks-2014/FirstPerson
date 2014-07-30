@@ -13,6 +13,7 @@
 #show_user_quests
 	%ul
 		-@user.quests.each do |quest|
-			%div{id: "#{quest.id}", class: "button quest"}
-				%li
-					=quest.title
+			-if quest.creator_id != @user.id
+				%div{id: "#{quest.id}", class: "button quest"}
+					%li
+						=quest.title
