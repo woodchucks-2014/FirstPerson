@@ -29,10 +29,10 @@ loc2 = Location.new
 loc2.name = "Starbucks"
 loc2.foursquare_id = ENV['STAR_ID']
 loc2.venue_type = "Coffee Shop"
-loc2.street "875 Avenue of the Americas"
-loc2.city "New York"
-loc2.state "NY"
-loc2.zip "10001"
+loc2.street = "875 Avenue of the Americas"
+loc2.city = "New York"
+loc2.state = "NY"
+loc2.zip = "10001"
 loc2.country = "US"
 loc2.save!
 
