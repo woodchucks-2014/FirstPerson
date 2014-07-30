@@ -22,7 +22,11 @@ module BuildHashHelper
         width:  36,
         height: 36
       })
-      marker.infowindow "<iframe src='/accept?quest_id=#{quest.id}' style='scrolling=no;'></iframe>"
+      if quest.users.any? {|user| user.id==current_user.id}
+        marker.infowindow "<iframe src='/already?quest_id=#{quest.id}' style='scrolling=no;'></iframe>"
+      else
+        marker.infowindow "<iframe src='/accept?quest_id=#{quest.id}' style='scrolling=no;'></iframe>"
+      end
     end
   end
 
