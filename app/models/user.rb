@@ -22,6 +22,11 @@ class User < ActiveRecord::Base
     self.user_quests.select{|quest| quest.completed == true}
   end
 
+  def self.sort_users
+     @users = User.all
+     User.order(:total_xp).reverse.take(10)
+  end
+
   def set_defaults
     self.total_xp ||= 0
   end
