@@ -23,7 +23,9 @@ body {
   display: inline-block;
 }
 
-
+#notification {
+  display: none;
+}
 
 .create{
   background: rgba(0,0,0, 0.8);
