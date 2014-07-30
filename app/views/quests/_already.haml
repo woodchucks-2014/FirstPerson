@@ -16,7 +16,5 @@
   Xp Awarded:
   = @quest.xp
   %br
-  = form_for @user_quest, url: accept_path do |f|
-    = f.hidden_field :quest_id, :value => @quest.id
-    = f.submit "Accept"
+  You have already accepted this Quest!
 

@@ -5,12 +5,26 @@ $(document).ready(function() {
     $("#show_user_quests").slideDown()
   });
 
+  $(".quest").click(function(){
+    Map.getData('/show_checkpoints/' + $(this).attr('id'))
+    Map.updateMap();
+  })
+
   // Preloading data FTW!
   $("#show_user_checkins").mouseenter(function() {
     Map.getData('/user_all_checkins_loc')
   });
 
   $("#show_user_checkins").click(function() {
+    Map.updateMap();
+    Map.addPolylines();
+  });
+
+  $("#show_world_checkins").mouseenter(function() {
+    Map.getData('/users/checkins')
+  });
+
+  $("#show_world_checkins").click(function() {
     Map.updateMap();
     Map.addPolylines();
   });
@@ -23,11 +37,27 @@ $(document).ready(function() {
     Map.updateMap();
   });
 
-  $("#show_completed_quests").mouseenter(function() {
-    Map.getData('/quests/completed')
+   $("#show_available_quests").mouseenter(function() {
+    Map.getData('/available_quests')
   });
-  
+
+  $("#show_available_quests").click(function() {
+    Map.updateMap();
+  });
+
+  $("#show_completed_quests").mouseenter(function() {
+    Map.getData('/user_completed_quests_loc')
+  });
+
   $("#show_completed_quests").click(function() {
+    Map.updateMap();
+  });
+
+  $("#show_created_quests").mouseenter(function() {
+    Map.getData('/user_created_quests_loc')
+  });
+
+  $("#show_created_quests").click(function() {
     Map.updateMap();
   });
 });

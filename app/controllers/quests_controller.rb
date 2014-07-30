@@ -57,6 +57,11 @@ class QuestsController < ApplicationController
     render json: build_quests_hash(@quests)
   end
 
+  def show_checkpoints
+    @checkpoints = Quest.find(params[:quest_id]).checkpoints
+    render json: build_checkpoints_hash(@checkpoints)
+  end
+
   def user_accepted_quests_loc
     @quests = Quest.user_accepted_quests(current_user)
     render json: build_quests_hash(@quests)
@@ -99,6 +104,7 @@ class QuestsController < ApplicationController
   end
 
 
+
   def create
     @checkpoint = Checkpoint.new
     @quest = Quest.new(quest_params)
@@ -136,9 +142,27 @@ class QuestsController < ApplicationController
   end
 
   def commit_location
-    @location = Location.find(params[:venue][:location_id])
-    @location.update(venue_params)
-    redirect_to quests_path
+    if params[:venue][:foursquare_id] == nil
+      created_location.destroy
+      render plain: "Failed to add - try again"
+    end
+
+    created_location = Location.find(params[:venue][:location_id])
+    entry = Location.find_by(foursquare_id: params[:venue][:foursquare_id])
+
+    if entry
+      created_location.checkpoints.update_all(location_id: entry.id)
+      created_location.destroy
+    else
+      created_location.update(venue_params)
+    end
+
+    render plain: "Successfully added #{params[:venue][:name]}"
+  end
+
+  def already
+    @quest = Quest.find(params[:quest_id])
+    render partial: "quests/already"
   end
 
   private
@@ -155,7 +179,7 @@ class QuestsController < ApplicationController
 
   def quest_params
     params[:quest][:creator_id] = current_user.id #hard code to 1 for local
-    params.require(:quest).permit(:creator_id, :title, :description, :user_limit, :category, :end_date)
+    params.require(:quest).permit(:creator_id, :title, :description, :user_limit, :category, :start_date, :xp, :end_date)
   end
 
   def location_params
