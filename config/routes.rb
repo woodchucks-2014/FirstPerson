@@ -47,7 +47,7 @@ Rails.application.routes.draw do
   # get '/inventory', to: "users#inventory"
   # get '/class', to: "users#class"
   get '/xp', to: "users#xp"
-  get '/board', to: "users#board"
+  get '/board', to: "users#boards"
 
   ### Maps ###
   get '/map', to: "maps#show"

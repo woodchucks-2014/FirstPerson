@@ -19,5 +19,11 @@
       = "Level: #{@user.total_xp/1000 + 1} Baller"
     %br
 
+  #leaderboard
+    = render 'leaderboard'
+
+  #rewards
+    = render 'rewards/show'
+
 #options.sidebar
   = render 'sidebar'
