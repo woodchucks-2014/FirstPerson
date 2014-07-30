@@ -3,21 +3,6 @@ require 'rails_helper'
 feature "Quests", :type => :feature do
   describe "User Quests page" do
 
-    it "gives a 200 status code" do
-      visit '/'
-      expect(page.status_code).to eq(200)
-    end
-
-    it "gives a 200 status code" do
-      visit '/quests'
-      expect(page.status_code).to eq(200)
-    end
-
-    # it "renders the quest title div" do
-    #   visit '/quests'
-    #   expect(page).to have_content("Create a quest")
-    # end
-
     it "renders the quest list" do
       visit '/quests'
       expect(page).to have_css(".list")
