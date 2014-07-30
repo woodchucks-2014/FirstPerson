@@ -24,15 +24,14 @@ class Quest < ActiveRecord::Base
     user.user_quests.each do |user_quest|
       @quests << Quest.find(user_quest.quest_id)
     end
-    return @quests
+    return @quests.uniq
   end
 
   def self.user_available_quests(user)
     @quests=[]
-
     Quest.all.each do |quest|
-        @quests << quest if quest.timestatus=='current' && quest.userstatus=='open'
-      end
+      @quests << quest if quest.timestatus=='current' && quest.userstatus=='open'
+    end
     return @quests
   end
 

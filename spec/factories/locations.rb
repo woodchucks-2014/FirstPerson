@@ -1,7 +1,7 @@
 require 'faker'
 
 FactoryGirl.define do
-  factory :location do
+  factory :locations do
     latitude {(Faker::Address.latitude).to_f}
     longitude {(Faker::Address.longitude).to_f}
     name "CheckIn1"
