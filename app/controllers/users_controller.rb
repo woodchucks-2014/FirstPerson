@@ -5,6 +5,8 @@ class UsersController < ApplicationController
   #User Info
 
   def profile
+    @users = User.all
+    @rewards = @user.rewards
   end
 
 
