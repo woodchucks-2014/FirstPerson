@@ -15,4 +15,4 @@
         %td
           =user.total_xp
         %td
-          =user.checkpoints.count
+          =user.user_quests.where(completed: true).count

@@ -57,11 +57,6 @@ RSpec.describe QuestsController, :type => :controller do
       expect(response).to be_success
     end
 
-    it "returns API accept method successfully" do
-      get :accept
-      expect(response).to be_success
-    end
-
     it "returns API set_location method successfully" do
       get :set_location
       expect(response).to be_success
