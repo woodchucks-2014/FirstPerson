@@ -43,6 +43,12 @@ td, th {
   padding: 1em;
 }
 
+#logo{
+  position: absolute;
+  top:5vw;
+  left:30%;
+}
+
 .list{
   width:100%;
   background: rgba(0,0,0, 0.5);
@@ -280,7 +286,7 @@ h6{
   font-size: 8em;
   color: white;
   position: absolute;
-  left:30%;
+  left:31%;
   top:15vw;
 
 }
