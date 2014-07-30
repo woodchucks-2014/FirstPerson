@@ -8,7 +8,7 @@ module PushHelper
     formatted_params
   end
 
-	def parse_foursquare_json(formatted_params)
+  def parse_foursquare_json(formatted_params)
     foursquare_params = {user: {}, location: {}}
 
     foursquare_params[:user][:user_id] = User.where(foursquare_id: formatted_params["user"]["id"].to_i).first.id

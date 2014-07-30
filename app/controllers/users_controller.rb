@@ -16,8 +16,11 @@ class UsersController < ApplicationController
   # def class_user
   # end
 
-  # def inventory
-  # end
+  def notifications
+    notice = @user.notifications.map {|notice| notice.to_js}
+    @user.notifications.clear
+    render json: notice
+  end
 
   # def stats
   # end
@@ -38,13 +41,6 @@ class UsersController < ApplicationController
       render 'users/home'
     end
   end
-
-  # Greg said this was not necessary anymore
-  # def admin_checkin
-  # 	api = Fsqr.new(session[:token])
-  # 	api.checkin
-  # 	redirect_to root_path
-  # end
 
   def test_login
     session[:user_id] = 2 # artificial login for testing purposes
