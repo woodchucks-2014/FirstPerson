@@ -24,9 +24,9 @@ $(document).ready(function() {
   });
 
   $("#show_completed_quests").mouseenter(function() {
-    Map.getData('/quests/completed')
+    Map.getData('/user_completed_quests_loc')
   });
-  
+
   $("#show_completed_quests").click(function() {
     Map.updateMap();
   });
