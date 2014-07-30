@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   ### User JSON ###
   get '/user_all_checkins_loc', to: "users#user_all_checkins_loc"
   get '/users/checkins', to: "users#checkin_points"
+  get '/users/notifications' to: "users#notifications"
 
 
   ### FourSquare ###

@@ -16,8 +16,9 @@ class UsersController < ApplicationController
   # def class_user
   # end
 
-  # def inventory
-  # end
+  def notifications
+    render json: user.notifications.map {|notice| notice.to_js}
+  end
 
   # def stats
   # end
