@@ -9,7 +9,6 @@ class QuestsController < ApplicationController
     render json: build_quests_hash(@quests)
   end
 
-
   def user_accepted_quests_loc
     @quests = Quest.user_accepted_quests(current_user)
     render json: build_hash(@quests)
@@ -24,7 +23,6 @@ class QuestsController < ApplicationController
     @quests = Quest.user_completed_quests(current_user)
     render json: build_hash(@quests)
   end
-
 
   def accept_form
     @user_quest = UserQuest.new
