@@ -82,8 +82,6 @@ class QuestsController < ApplicationController
     render partial: "quests/accept_form", layout: false
   end
 
-
-
   def accept
     @user_quest = UserQuest.new(user_quest_params)
     quest_id = params[:user_quest][:quest_id]
@@ -101,8 +99,6 @@ class QuestsController < ApplicationController
     end
 
   end
-
-
 
   def create
     @checkpoint = Checkpoint.new
