@@ -13,13 +13,10 @@
       = "Email: #{@user.email}"
     %br
 
-  #user_rewards
-    / - 4.times do
-    /   .reward
-    /     = image_tag "http://www.wpclipart.com/recreation/trophy/gold_trophy.png"
-    / = render 'rewards/show'
-
+  / #user_rewards
+  /   - 4.times do
+  /     .reward
+  /       = image_tag "http://www.wpclipart.com/recreation/trophy/gold_trophy.png"
 
 #options.sidebar
   = render 'sidebar'
-
