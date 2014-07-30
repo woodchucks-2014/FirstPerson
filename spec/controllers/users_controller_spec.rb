@@ -14,7 +14,6 @@ RSpec.describe UsersController, :type => :controller do
       get :profile
       expect(response).to be_success
     end
-  end
 
     it "renders the 'user/home template" do
     	get :index
@@ -44,5 +43,4 @@ RSpec.describe UsersController, :type => :controller do
       # expect(session[:user_id]).to eq([{}])
     end
   end
-
 end
