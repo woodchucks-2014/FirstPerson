@@ -15,15 +15,15 @@
  */
 
 $primary-color: #2E4272;
-$secondary-color: #5E5C57;
-$third-color: #D4B26A;
+$secondary-color: #2E4272;
+$third-color: #2E4272;
 
 /*$primary-color: #FFFFFF;
 $secondary-color: #FFE361;
 $third-color: #D2D2D3;*/
 
 $font-color: white;
-$font-stack:  Helvetica, sans-serif;
+$font-stack: 'Josefin Sans', sans-serif;
 
 * {
   margin: 0;
@@ -32,7 +32,8 @@ $font-stack:  Helvetica, sans-serif;
 
 body {
   overflow: auto;
-  background: rgba(0,0,0, 0.8);
+  background-image: url(image_path("background_home.jpg"));
+  background-size: cover;
 }
 
 table, th, td {
@@ -82,29 +83,32 @@ td, th {
 }
 
 #slide{
-  background-image: url(image_path("background_home.jpg"));
-  background-size: cover;
+  background: rgba(48,48,48, 0.4);
   margin: 0;
-  height: 61.25em;
+  height: 63em;
 }
 
 #enter_link{
   width: 25%;
-  height: 4em;
-  font-size: 2em;
-  line-height: 4em;
+  height: 3em;
+  font-size: 3em;
+  line-height: 3em;
   text-align: center;
   margin-left: 38.5%;
   border: 1px solid white;
-  margin-top: 18em;
+  margin-top: 10em;
   display: inline-block;
-  background: rgba(0,0,0, 0.3);
+  background: rgba(0,0,0, 0.4);
 
     a{
-      font-family:"Times New Roman", Times, serif;
+      font-family: 'Josefin Sans', sans-serif;
       color:$font-color;
       text-decoration: none;
     }
+
+}
+#enter_link:hover{
+  background: rgba(0,0,0, 0.8);
 
 }
 
@@ -193,7 +197,7 @@ iframe {
   padding: 0;
   height: 48.5vw;
   margin: 0;
-  color: #2C3539;
+  color: white;
   overflow: scroll;
 
   .button{
@@ -220,7 +224,7 @@ nav .button {
 }
 
 #xp {
-  background-color: $secondary-color;
+  background-color: grey;
   color:black;
 }
 
@@ -286,8 +290,9 @@ h6{
   font-size: 8em;
   color: white;
   position: absolute;
-  left:31%;
-  top:15vw;
+  font-family: 'Josefin Sans', sans-serif;
+  left:34%;
+  top:14vw;
 
 }
 
