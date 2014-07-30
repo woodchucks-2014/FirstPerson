@@ -40,7 +40,6 @@ $(document).ready(function() {
 
   $("#show_all_quests").click(function() {
     Map.updateMap();
-    Map.updateMap();
   });
 
    $("#show_available_quests").mouseenter(function() {
@@ -48,7 +47,6 @@ $(document).ready(function() {
   });
 
   $("#show_available_quests").click(function() {
-    Map.updateMap();
     Map.updateMap();
   });
 
