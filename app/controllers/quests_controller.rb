@@ -104,6 +104,7 @@ class QuestsController < ApplicationController
   end
 
 
+
   def create
     @checkpoint = Checkpoint.new
     @quest = Quest.new(quest_params)
@@ -157,6 +158,11 @@ class QuestsController < ApplicationController
     end
 
     render plain: "Successfully added #{params[:venue][:name]}"
+  end
+
+  def already
+    @quest = Quest.find(params[:quest_id])
+    render partial: "quests/already"
   end
 
   private
