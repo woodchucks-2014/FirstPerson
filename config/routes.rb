@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get '/user_created_quests_loc', to: "quests#user_created_quests_loc"
   get '/user_completed_quests_loc', to: "quests#user_completed_quests_loc"
   get '/show_checkpoints/:quest_id', to: "quests#show_checkpoints"
+  get  '/available_quests_loc', to: 'quests#available_quests_loc'
 
   ### User JSON ###
   get '/user_all_checkins_loc', to: "users#user_all_checkins_loc"

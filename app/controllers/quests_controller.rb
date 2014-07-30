@@ -76,6 +76,11 @@ class QuestsController < ApplicationController
     render json: build_markers(@quests, "completed quest")
   end
 
+  def available_quests_loc
+    @quests = Quest.user_available_quests(current_user)
+    render json: build_markers(@quests, "quest")
+  end
+
   def accept_form
     @user_quest = UserQuest.new
     @quest = Quest.find(params[:quest_id])
