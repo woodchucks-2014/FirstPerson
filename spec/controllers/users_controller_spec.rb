@@ -37,11 +37,11 @@ RSpec.describe UsersController, :type => :controller do
 
   describe "GET logout" do
   	it "should logout a user" do
-	  	session[:user_id] = 1
-	  	get :logout, {}
-	  	expect(response).to redirect_to root_path
+      session[:user_id] = 1
+      get :logout, {}
+      expect(response).to redirect_to root_path
       expect(session[:user_id]).to eq(nil)
-	  end
+    end
   end
 
   describe "json responses" do
@@ -70,6 +70,21 @@ RSpec.describe UsersController, :type => :controller do
       get :xp
       expect(response).to be_success
     end
+  end
+
+  describe "GET notifications" do
+    it "shows for when users are logged in" do
+      FactoryGirl.create(:user)
+      get :notifications, {user_id: 1}, :format => :json
+      expect(response).to be_success
+    end
+    
+    it "does not show for when users are not logged in" do
+      # session[:user_id] = nil
+      # get :notifications, :format => :json
+      # expect(response).to eq(nil)
+    end
+
   end
   
 end
