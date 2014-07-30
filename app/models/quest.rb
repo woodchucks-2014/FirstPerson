@@ -26,6 +26,15 @@ class Quest < ActiveRecord::Base
     return @quests
   end
 
+  def self.user_available_quests(user)
+    @quests=[]
+
+    Quest.all.each do |quest|
+        @quests << quest if quest.timestatus=='current' && quest.userstatus=='open'
+      end
+    return @quests
+  end
+
   def self.user_created_quests(user)
     @quests = Quest.where(creator_id: user.id)
     return @quests
