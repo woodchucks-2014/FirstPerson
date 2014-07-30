@@ -15,13 +15,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # Greg said this was not necessary anymore
-  # def admin_checkin
-  # 	api = Fsqr.new(session[:token])
-  # 	api.checkin
-  # 	redirect_to root_path
-  # end
-
   def test_login
     session[:user_id] = 2 # artificial login for testing purposes
     redirect_to root_path
