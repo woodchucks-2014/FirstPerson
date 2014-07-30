@@ -13,18 +13,6 @@
       = "Email: #{@user.email}"
     %br
 
-  #user_rewards
-    - 4.times do
-      .reward
-        = image_tag "http://www.wpclipart.com/recreation/trophy/gold_trophy.png"
-
-    %h2
-      = "Gender: #{@user.gender.capitalize}"
-    %br
-    %h2
-      = "Level: #{@user.total_xp/1000 + 1} Baller"
-    %br
-
   #leaderboard
     = render 'leaderboard'
 
