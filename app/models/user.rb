@@ -18,6 +18,10 @@ class User < ActiveRecord::Base
 
   before_create :set_defaults
 
+  def completed_quests
+    self.user_quests.select{|quest| quest.completed == true}
+  end
+
   def set_defaults
     self.total_xp ||= 0
   end

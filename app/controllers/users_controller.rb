@@ -32,13 +32,15 @@ class UsersController < ApplicationController
   # def stats
   # end
 
-  def board
-    @users = User.sort_users
-    render partial: "users/leaderboard"
+  # def board
+  #   @users = User.sort_users
+  #   render partial: "users/leaderboard"
+  # end
+
+  def boards
+    @users = User.all
+    render layout: false
   end
-
-
-
   # Session Methods
 
   def index
