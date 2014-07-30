@@ -3,7 +3,7 @@ module BuildHashHelper
   def build_quests_hash(quests)
     Gmaps4rails.build_markers(quests) do |quest, marker|
       marker.lat quest.locations.first.latitude
-      marker.lng quest.locations.first.location.longitude
+      marker.lng quest.locations.first.longitude
       marker.infowindow "<iframe src='/accept?quest_id=#{quest.id}' style='scrolling=no;'></iframe>"
     end
   end
