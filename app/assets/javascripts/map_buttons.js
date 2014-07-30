@@ -26,7 +26,6 @@ $(document).ready(function() {
 
   $("#show_world_checkins").click(function() {
     Map.updateMap();
-    Map.addPolylines();
   });
 
   $("#show_all_quests").mouseenter(function() {
@@ -38,10 +37,11 @@ $(document).ready(function() {
   });
 
    $("#show_available_quests").mouseenter(function() {
-    Map.getData('/available_quests')
+    Map.getData('/available_quests_loc')
   });
 
   $("#show_available_quests").click(function() {
+    console.log(Map.newMarkers)
     Map.updateMap();
   });
 

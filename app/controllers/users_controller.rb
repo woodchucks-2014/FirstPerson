@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def profile
   end
 
+
   def xp
     @quests = Quest.user_completed_quests(current_user)
     @checkins = current_user.check_ins
@@ -56,12 +57,12 @@ class UsersController < ApplicationController
 
   def user_all_checkins_loc
     current_user
-    checkins = build_checkpoints_hash(@user.check_ins)
+    checkins = build_markers(@user.check_ins, "checkin")
     render json: checkins
   end
 
   def checkin_points
-    checkins = build_checkpoints_hash(CheckIn.all)
+    checkins = build_markers(CheckIn.all, "checkin")
     render json: checkins
   end
 
