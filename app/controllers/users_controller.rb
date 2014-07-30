@@ -27,8 +27,6 @@ class UsersController < ApplicationController
     render partial: "users/leaderboard"
   end
 
-
-
   # Session Methods
 
   def index
