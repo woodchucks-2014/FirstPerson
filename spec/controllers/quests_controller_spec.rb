@@ -50,5 +50,27 @@ RSpec.describe QuestsController, :type => :controller do
       expect(response).to be_success
     end
 
+    it "returns API create method successfully" do
+      quest = FactoryGirl.create(:quest)
+      params[:quest][:creator_id] = current_user.id 
+      get :create
+      expect(response).to be_success
+    end
+
+    it "returns API accept method successfully" do
+      get :accept
+      expect(response).to be_success
+    end
+
+    it "returns API set_location method successfully" do
+      get :set_location
+      expect(response).to be_success
+    end
+
+    it "returns API commit_location method successfully" do
+      get :commit_location
+      expect(response).to be_success
+    end
+
 	end
 end
