@@ -49,7 +49,9 @@ Rails.application.routes.draw do
 
 
   ## Rewards ##
-  # get '/rewards' to: "rewards#main"
+  # get '/rewards/new', to: "rewards#new"
+  post '/rewards/create', to: "rewards#create"
+  get '/rewards/show', to: "rewards#show"
 
 
   # The priority is based upon order of creation: first created -> highest priority.
