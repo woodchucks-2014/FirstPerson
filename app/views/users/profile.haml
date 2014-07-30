@@ -12,6 +12,12 @@
     %h2
       = "Email: #{@user.email}"
     %br
+    %h2
+      = "Gender: #{@user.gender.capitalize}"
+    %br
+    %h2
+      = "Level: #{@user.total_xp/1000 + 1} Hacker"
+    %br
 
   #leaderboard
     = render 'leaderboard'
