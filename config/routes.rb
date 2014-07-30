@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get '/user_created_quests_loc', to: "quests#user_created_quests_loc"
   get '/user_completed_quests_loc', to: "quests#user_completed_quests_loc"
   get '/show_checkpoints/:quest_id', to: "quests#show_checkpoints"
+  get  '/available_quests_loc', to: 'quests#available_quests_loc'
 
   ### User JSON ###
   get '/user_all_checkins_loc', to: "users#user_all_checkins_loc"
@@ -42,11 +43,12 @@ Rails.application.routes.draw do
   get '/users/profile', to: "users#profile"
   get '/admin-checkin', to: "users#admin_checkin"
   get '/test_login', to: "users#test_login"
+
   # get '/stats', to: "users#stats"
   # get '/inventory', to: "users#inventory"
   # get '/class', to: "users#class"
   get '/xp', to: "users#xp"
-  get '/board', to: "users#board"
+  get '/board', to: "users#boards"
 
   ### Maps ###
   get '/map', to: "maps#show"

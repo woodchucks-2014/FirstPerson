@@ -19,34 +19,30 @@ class Quest < ActiveRecord::Base
 
 
   def self.user_accepted_quests(user)
-    @quests=[]
+    quests=[]
     user.user_quests.each do |user_quest|
       quest = Quest.find(user_quest.quest_id)
-      @quests << quest if user_quest.completed == false && quest.timestatus != 'expired'
+      quests << quest if user_quest.completed == false && quest.timestatus != 'expired'
     end
-    return @quests.uniq
+    return quests.uniq
   end
 
   def self.user_available_quests(user)
-    @quests=[]
-    Quest.all.each do |quest|
-      @quests << quest if quest.timestatus=='current' && quest.userstatus=='open' && quest.creator_id != user.id && quest.users.where(id: user.id).empty?
-    end
-    return @quests
+    return user.quests.select {|quest| quest.timestatus=='current' && quest.userstatus=='open' && quest.creator_id != user.id && quest.users.where(id: user.id).empty?}
   end
 
   def self.user_created_quests(user)
-    @quests = Quest.where(creator_id: user.id)
+    quests = Quest.where(creator_id: user.id)
   end
 
   def self.user_completed_quests(user)
-    @quests=[]
+    quests=[]
     user.user_quests.each do |user_quest|
       if user_quest.completed==true
-        @quests << Quest.find(user_quest.quest_id)
+        quests << Quest.find(user_quest.quest_id)
       end
     end
-    return @quests
+    return quests
   end
 
   def set_time_status
@@ -65,6 +61,10 @@ class Quest < ActiveRecord::Base
     else
       self.userstatus = "open"
     end
+  end
+
+  def location
+    self.locations.first
   end
 
 

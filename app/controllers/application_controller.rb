@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   	if session[:user_id]
   		@user = User.where(id: session[:user_id]).first || User.new
   	else 
-  		User.new
+  		@user = User.new
   	end
   end
   
