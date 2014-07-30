@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   def xp
     @quests = Quest.user_completed_quests(current_user)
-    @checkins = current_user.checkins
+    @checkins = current_user.check_ins
     render partial: "users/xp"
   end
 

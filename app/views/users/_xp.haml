@@ -2,6 +2,7 @@
   %h2 Here is your XP Breakdown!
   %br
   %h3 Quests:
+  %br
   - @quests.each do |quest|
     %h4
       =quest.title
@@ -10,12 +11,14 @@
     =quest.xp
     xp
     %br
-
-  %h3 Checkins
+  %br
+  %br
+  %h3 Checkins:
+  %br
   - @checkins.each do |checkin|
     %h4
-      =checkin.location
-    %br
+      =checkin.location.name
     =checkin.xp
     xp
+    %br
     %br
