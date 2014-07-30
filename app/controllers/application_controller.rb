@@ -9,8 +9,8 @@ class ApplicationController < ActionController::Base
   def current_user
   	if session[:user_id]
   		@user = User.where(id: session[:user_id]).first || User.new
-  	else 
-  		User.new
+  	else 	
+      @user = User.new
   	end
   end
   
