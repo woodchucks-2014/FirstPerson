@@ -29,10 +29,15 @@ td img {
 }
 
 body {
-  margin: 0;
-  /*background-image: url(image_path("background_home.jpg"));
-  background-size: cover;*/
+  margin: 0 auto;
   background: rgba(0,0,0, 0.5);
+
+}
+
+body.home{
+  margin: 0 auto;
+  background-image: url(image_path("background_home.jpg"));
+  background-size: cover;
 
 }
 
@@ -115,7 +120,7 @@ td, th {
 
 #slide{
   background: rgba(48,48,48, 0.4);
-  margin: 0;
+  margin: 0 auto;
   height: 63em;
 }
 
@@ -358,7 +363,7 @@ h6{
   font-size: 8em;
   color: white;
   position: absolute;
-  font-family: 'Lora', serif;
+  font-family: 'Josefin Sans', sans-serif;
   left:34%;
   top:14vw;
 
