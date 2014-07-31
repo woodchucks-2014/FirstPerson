@@ -17,7 +17,7 @@
 $primary-color: #191919;
 $secondary-color: #FFF056;
 $third-color: #191919;
-$fourth-color:#DFE2DB;
+$fourth-color:#36454F;
 
 $font-color: white;
 $font-stack: 'Josefin Sans', sans-serif;
@@ -60,7 +60,7 @@ td, th {
 }
 
 .list{
-  text-align: center;
+  /*text-align: center;*/
   font-size: 2em;
   width:100%;
   margin-top: 1em;
@@ -68,11 +68,21 @@ td, th {
   color: white;
   overflow-y:auto;
   display: inline-block;
+
 }
 
-#notification {
-  display: none;
+.sublist{
+  background-color: $fourth-color;
+  margin-top: 1em;
+  color: white;
+  border-radius: 10px;
+  padding: 1em;
+  font-family: $font-stack;
+  p{
+    text-indent: 2em;
+  }
 }
+
 
 #black_div{
 
@@ -86,6 +96,10 @@ td, th {
   display: inline-block;
   overflow: auto;
 
+}
+
+#notification {
+  display: none;
 }
 
 #create_quest{
@@ -238,7 +252,7 @@ iframe {
   width: 80%;
   height: 50vw;
   /*overflow: auto;*/
-  background: #9C9DA9;
+  background: $fourth-color;
   color: black;
   font-family: 'Lora', serif;
 }

@@ -4,23 +4,23 @@
     %br
     %ol
     - @quests.each do |quest|
-      %li
-        = quest.title
-        %p
-          Category:
-          =quest.category
-          %br
-          Description:
-          =quest.description
-          %br
-          Acceptance status:
-          =quest.userstatus
-          %br
-          Time Status:
-          =quest.timestatus
-          %br
-          Experience:
-          =quest.xp
-          %br
-          %br
+      .sublist
+        %li
+          = quest.title
+          %p
+            %b Category:
+            =quest.category
+          %p
+            %b Description:
+            =quest.description
+          %p
+            %b Acceptance status:
+            =quest.userstatus
+          %p
+            %b Time Status:
+            =quest.timestatus
+          %p
+            %b Experience:
+            =quest.xp
+
 
