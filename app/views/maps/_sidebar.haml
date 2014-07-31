@@ -11,6 +11,6 @@
   %ul
     -@user.user_quests.each do |user_quest|
       -unless user_quest.completed
-      %div{id: "#{user_quest.quest.id}", class: "button quest"}
-        %li
-          =user_quest.quest.title
+        %div{id: "#{user_quest.quest.id}", class: "button quest"}
+          %li
+            =user_quest.quest.title
