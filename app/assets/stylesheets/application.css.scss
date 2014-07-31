@@ -621,7 +621,7 @@ and (max-width:1027px) {
     display: block;
     /*padding: 5.9em;*/
     width: 80%;
-    height: 50vw;
+    height: 110vw;
     /*overflow: auto;*/
     background: #9C9DA9;
     color: black;
@@ -631,7 +631,7 @@ and (max-width:1027px) {
   #map {
     float: left;
     width: 100%;
-    height: 48.5vw;
+    height: 110vw;
   }
 
   #options.sidebar {
@@ -639,7 +639,7 @@ and (max-width:1027px) {
     width: 20%;
     background: #2A4480;
     padding: 0;
-    height: 50vw;
+    height: 110vw;
     margin-right: 0;
     color: white;
     font-family: 'Lora', serif;
@@ -775,386 +775,386 @@ and (max-width:1027px) {
 
 }
 
-
-
-// @media only screen
-// and (min-device-width : 320px)
-// and (max-device-width : 480px) {
-
-//   $font-color: white;
-//   $font-stack: 'Josefin Sans', sans-serif;
-
-
-//   * {
-//     margin: 0;
-//     padding: 0;
-//   }
-
-//   td img {
-//     width: 5vw;
-//   }
-
-//   body {
-//     margin: 0 auto;
-//     background: rgba(0,0,0, 0.5);
-
-//   }
-
-//   body.home{
-//     margin: 0 auto;
-//     background-image: url(image_path("background_home.jpg"));
-//     background-size: cover;
-
-//   }
-
-//   table, th, td {
-//      border: 1px solid black;
-//   }
-
-//   td, th {
-//     padding: 1em;
-//   }
-
-//   #logo{
-//     position: absolute;
-//     top:5vw;
-//     left:30%;
-//   }
-
-//   .list{
-//     text-align: center;
-//     font-size: 2em;
-//     width:100%;
-//     margin-top: 1em;
-//     height: auto;
-//     color: white;
-//     overflow-y:auto;
-//     display: inline-block;
-//   }
-
-//   #notification {
-//     display: none;
-//   }
-
-//   #black_div{
-
-//     background: rgba(0,0,0, 0.8);
-//     color: white;
-//     width: 70%;
-//     margin-top:5em;
-//     margin-left: 13%;
-//     height: 45em;
-//     padding: 3em;
-//     display: inline-block;
-//     overflow: auto;
-
-//   }
-
-//   #create_quest{
-//     background: rgba(0,0,0, 0.8);
-//     color: white;
-//     width: 70%;
-//     margin-top:5em;
-//     margin-left: 13%;
-//     height: 45em;
-//     padding: 3em;
-//     text-align: center;
-//     display: inline-block;
-//     overflow: auto;
-
-//     input {
-//       padding:5px; border:2px solid #ccc;
-//       -webkit-border-radius: 5px;
-//       border-radius: 5px;
-//       margin-top: 1em;
-//     }
-
-//     input[type=text]:focus {border-color:#333; margin-top: 1em;}
-
-//     input[type=submit] {padding:5px 15px; background:#ccc; border:0 none;
-//     cursor:pointer;
-//     -webkit-border-radius: 5px;
-//     border-radius: 5px;
-//     margin-top: 1em;}
-//   }
-
-
-//   #container{
-//     height: 50vw;
-//     background-color: rgba(0,0,0,0.6);
-//   }
-
-//   #slide{
-//     background: rgba(48,48,48, 0.4);
-//     margin: 0 auto;
-//     height: 63em;
-//   }
-
-//   #enter_link{
-//     width: 25%;
-//     height: 3em;
-//     font-size: 3em;
-//     line-height: 3em;
-//     text-align: center;
-//     margin-left: 38.5%;
-//     border: 1px solid white;
-//     margin-top: 10em;
-//     display: inline-block;
-//     background: rgba(0,0,0, 0.4);
-
-//       a{
-//         font-family: 'Josefin Sans', sans-serif;
-//         color:$font-color;
-//         text-decoration: none;
-//       }
-
-//   }
-//   #enter_link:hover{
-//     background: rgba(0,0,0, 0.8);
-
-//   }
-
-
-//   #sign_in_link:hover{
-//     a{
-//         text-decoration: underline;
-//       }
-
-//   }
-
-//   #sign_up_link:hover{
-
-//      a{
-//         text-decoration: underline;
-//       }
-
-//   }
-
-//   iframe{
-//     background-color: rgba(0,0,0,0.8);
-//   }
-
-//   .accept_form{
-//     overflow: hidden;
-//     color:white;
-//     text-align: center;
-//   }
-
-//   .accepted {
-//     background-color: rgba(0,255,0,0.4);
-//   }
-
-//   .rejected {
-//     background-color: rgba(255,0,0,0.4);
-//   }
-
-//   #leaderboard {
-//     float: left;
-//     width: 50%;
-//   }
-
-//   #rewards {
-//     /*float: left;*/
-//     margin-top: 3em;
-//     overflow: auto;
-//     display: inline-block;
-//     width: 50%;
-//     h2 {
-//       font-family: 'Lora', serif;
-//       margin-left: 3%;
-//       margin-bottom: 1em;
-//       font-size: 2em;
-//     }
-//   }
-
-//   /*----------------------------LAYOUT----------------------------------*/
-
-
-//   #enable_checkins {
-//     height: 1.25em;
-//     width: 10%;
-//     display: block;
-//     text-align: center;
-//     background-color: #2A4480;
-//   }
-
-//   #enable_quests {
-//     height: 1.25em;
-//     width: 10%;
-//     display: block;
-//     text-align: center;
-//     background-color: #2A4480;
-//   }
-
-//   iframe {
-//     border: none;
-//   }
-
-//   .button {
-//     width: 99%;
-//     padding: 0.5%;
-//     font-size: 1.5em;
-//     text-align: center;
-//     cursor: crosshair;
-//   }
-
-//   #content {
-//     float: left;
-//     display: block;
-//     /*padding: 5.9em;*/
-//     width: 80%;
-//     height: 50vw;
-//     /*overflow: auto;*/
-//     background: #9C9DA9;
-//     color: black;
-//     font-family: 'Lora', serif;
-//   }
-
-//   #map {
-//     float: left;
-//     width: 100%;
-//     height: 48.5vw;
-//   }
-
-//   #options.sidebar {
-//     float: right;
-//     width: 20%;
-//     background: #2A4480;
-//     padding: 0;
-//     height: 50vw;
-//     margin-right: 0;
-//     color: white;
-//     font-family: 'Lora', serif;
-//     /*border-left:1px solid white;*/
-//     /*overflow: scroll;*/
-
-//     .button{
-//       padding-top: 1vw;
-//       padding-bottom: 1vw;
-//     }
-//   }
-
-//   .button:hover {
-//     background: rgba(0,0,0,0.8);
-//   }
-
-//   nav {
-//     width: 100%;
-//     /*background-color: rgba(0,0,0,0.4);*/
-//     background-color: #2A4480;
-//     display: block;
-//     overflow: auto;
-//     color: white;
-//     /*border-bottom: 1px solid white;*/
-//     font-family: 'Lora', serif;
-//   }
-
-//   nav .button {
-//     float: left;
-//     width: 19%;
-//   }
-
-//   #xp {
-//     background-color: rgba(0,0,0,1);
-//     color:white;
-//     font-family: 'Lora', serif;
-//   }
-
-//   #show_active_quests {
-//     border-bottom: 2px solid black;
-//     font-family: 'Lora', serif;
-//   }
-
-//   #user_image {
-//     float: left;
-//     width: 25%;
-//   }
-
-//   #user_image img {
-//     width: 100%;
-//     height: 24.8em;
-//   }
-
-//   #user_rewards {
-//     display: block;
-//     overflow: auto;
-//     width: 100%;
-//     height: 15em;
-//     font-family: 'Lora', serif;
-//   }
-
-//   .reward {
-//     float: left;
-//     width: 25%;
-//     font-family: 'Lora', serif;
-//   }
-
-//   .reward img {
-//     width: 100%;
-//     height: 15em;
-//   }
-
-//   #user_info {
-//     float: left;
-//     width: 40%;
-//     height: 25em;
-//     h2 {
-//       font-family: 'Lora', serif;
-//       margin-left: 3%;
-//       margin-top: 1%;
-//       font-size: 2em;
-//     }
-//   }
-
-
-
-
-//   #notification {
-//     font-family: 'Lora', serif;
-//     position: fixed;
-//     top: 15vw;
-//     left: 20vw;
-//     background-color: black;
-//     color: white;
-//     width: 40vw;
-//     height: 6em;
-//     text-align: center;
-//     padding: 2em;
-//     border: 3px solid black;
-//     border-radius: 15px;
-//     z-index: 100;
-//   }
-
-//   h6{
-//     font-size: 8em;
-//     color: white;
-//     position: absolute;
-//     font-family: 'Josefin Sans', sans-serif;
-//     left:34%;
-//     top:14vw;
-
-//   }
-
-//   #one{
-//     margin-left: 15%;
-
-//     h2{
-//       padding-right: 20%
-//     }
-
-//   }
-
-
-//   #two{
-//     margin-left: 15%;
-//      h2{
-//       padding-right: 20%
-//     }
-
-//   }
-
-
-// }
+// ---------------phone
+
+@media only screen
+and (min-width : 320px)
+and (max-width : 480px) {
+
+  $font-color: white;
+  $font-stack: 'Josefin Sans', sans-serif;
+
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  td img {
+    width: 5vw;
+  }
+
+  body {
+    margin: 0 auto;
+    background: rgba(0,0,0, 0.5);
+
+  }
+
+  body.home{
+    margin: 0 auto;
+    background-image: url(image_path("background_home.jpg"));
+    background-size: cover;
+
+  }
+
+  table, th, td {
+     border: 1px solid black;
+  }
+
+  td, th {
+    padding: 1em;
+  }
+
+  #logo{
+    position: absolute;
+    top:5vw;
+    left:30%;
+  }
+
+  .list{
+    text-align: center;
+    font-size: 2em;
+    width:100%;
+    margin-top: 1em;
+    height: auto;
+    color: white;
+    overflow-y:auto;
+    display: inline-block;
+  }
+
+  #notification {
+    display: none;
+  }
+
+  #black_div{
+
+    background: rgba(0,0,0, 0.8);
+    color: white;
+    width: 70%;
+    margin-top:5em;
+    margin-left: 13%;
+    height: 45em;
+    padding: 3em;
+    display: inline-block;
+    overflow: auto;
+
+  }
+
+  #create_quest{
+    background: rgba(0,0,0, 0.8);
+    color: white;
+    width: 70%;
+    margin-top:5em;
+    margin-left: 13%;
+    height: 45em;
+    padding: 3em;
+    text-align: center;
+    display: inline-block;
+    overflow: auto;
+
+    input {
+      padding:5px; border:2px solid #ccc;
+      -webkit-border-radius: 5px;
+      border-radius: 5px;
+      margin-top: 1em;
+    }
+
+    input[type=text]:focus {border-color:#333; margin-top: 1em;}
+
+    input[type=submit] {padding:5px 15px; background:#ccc; border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    margin-top: 1em;}
+  }
+
+
+  #container{
+    height: 50vw;
+    background-color: rgba(0,0,0,0.6);
+  }
+
+  #slide{
+    background: rgba(48,48,48, 0.4);
+    margin: 0 auto;
+    height: 63em;
+  }
+
+  #enter_link{
+    width: 25%;
+    height: 3em;
+    font-size: 3em;
+    line-height: 3em;
+    text-align: center;
+    margin-left: 38.5%;
+    border: 1px solid white;
+    margin-top: 10em;
+    display: inline-block;
+    background: rgba(0,0,0, 0.4);
+
+      a{
+        font-family: 'Josefin Sans', sans-serif;
+        color:$font-color;
+        text-decoration: none;
+      }
+
+  }
+  #enter_link:hover{
+    background: rgba(0,0,0, 0.8);
+
+  }
+
+
+  #sign_in_link:hover{
+    a{
+        text-decoration: underline;
+      }
+
+  }
+
+  #sign_up_link:hover{
+
+     a{
+        text-decoration: underline;
+      }
+
+  }
+
+  iframe{
+    background-color: rgba(0,0,0,0.8);
+  }
+
+  .accept_form{
+    overflow: hidden;
+    color:white;
+    text-align: center;
+  }
+
+  .accepted {
+    background-color: rgba(0,255,0,0.4);
+  }
+
+  .rejected {
+    background-color: rgba(255,0,0,0.4);
+  }
+
+  #leaderboard {
+    float: left;
+    width: 50%;
+  }
+
+  #rewards {
+    /*float: left;*/
+    margin-top: 3em;
+    overflow: auto;
+    display: inline-block;
+    width: 50%;
+    h2 {
+      font-family: 'Lora', serif;
+      margin-left: 3%;
+      margin-bottom: 1em;
+      font-size: 2em;
+    }
+  }
+
+  /*----------------------------LAYOUT----------------------------------*/
+
+
+  #enable_checkins {
+    height: 1.25em;
+    width: 10%;
+    display: block;
+    text-align: center;
+    background-color: #2A4480;
+  }
+
+  #enable_quests {
+    height: 1.25em;
+    width: 10%;
+    display: block;
+    text-align: center;
+    background-color: #2A4480;
+  }
+
+  iframe {
+    border: none;
+  }
+
+  .button {
+    width: 99%;
+    padding: 0.5%;
+    font-size: 1.5em;
+    text-align: center;
+    cursor: crosshair;
+  }
+
+  #content {
+    float: left;
+    display: block;
+    /*padding: 5.9em;*/
+    width: 80%;
+    height: 50vw;
+    /*overflow: auto;*/
+    background: #9C9DA9;
+    color: black;
+    font-family: 'Lora', serif;
+  }
+
+  #map {
+    float: left;
+    width: 100%;
+    height: 48.5vw;
+  }
+
+  #options.sidebar {
+    float: right;
+    width: 20%;
+    background: #2A4480;
+    padding: 0;
+    height: 50vw;
+    margin-right: 0;
+    color: white;
+    font-family: 'Lora', serif;
+    /*border-left:1px solid white;*/
+    /*overflow: scroll;*/
+
+    .button{
+      padding-top: 1vw;
+      padding-bottom: 1vw;
+    }
+  }
+
+  .button:hover {
+    background: rgba(0,0,0,0.8);
+  }
+
+  nav {
+    width: 100%;
+    /*background-color: rgba(0,0,0,0.4);*/
+    background-color: #2A4480;
+    display: block;
+    overflow: auto;
+    color: white;
+    /*border-bottom: 1px solid white;*/
+    font-family: 'Lora', serif;
+  }
+
+  nav .button {
+    float: left;
+    width: 19%;
+  }
+
+  #xp {
+    background-color: rgba(0,0,0,1);
+    color:white;
+    font-family: 'Lora', serif;
+  }
+
+  #show_active_quests {
+    border-bottom: 2px solid black;
+    font-family: 'Lora', serif;
+  }
+
+  #user_image {
+    float: left;
+    width: 25%;
+  }
+
+  #user_image img {
+    width: 100%;
+    height: 24.8em;
+  }
+
+  #user_rewards {
+    display: block;
+    overflow: auto;
+    width: 100%;
+    height: 15em;
+    font-family: 'Lora', serif;
+  }
+
+  .reward {
+    float: left;
+    width: 25%;
+    font-family: 'Lora', serif;
+  }
+
+  .reward img {
+    width: 100%;
+    height: 15em;
+  }
+
+  #user_info {
+    float: left;
+    width: 40%;
+    height: 25em;
+    h2 {
+      font-family: 'Lora', serif;
+      margin-left: 3%;
+      margin-top: 1%;
+      font-size: 2em;
+    }
+  }
+
+
+
+
+  #notification {
+    font-family: 'Lora', serif;
+    position: fixed;
+    top: 15vw;
+    left: 20vw;
+    background-color: black;
+    color: white;
+    width: 40vw;
+    height: 6em;
+    text-align: center;
+    padding: 2em;
+    border: 3px solid black;
+    border-radius: 15px;
+    z-index: 100;
+  }
+
+  h6{
+    font-size: 8em;
+    color: white;
+    position: absolute;
+    font-family: 'Josefin Sans', sans-serif;
+    left:34%;
+    top:14vw;
+
+  }
+
+  #one{
+    margin-left: 15%;
+
+    h2{
+      padding-right: 20%
+    }
+
+  }
+
+
+  #two{
+    margin-left: 15%;
+     h2{
+      padding-right: 20%
+    }
+
+  }
+
+
+}
 
 
 
