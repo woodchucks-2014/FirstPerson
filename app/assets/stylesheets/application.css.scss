@@ -253,7 +253,7 @@ iframe {
 #options.sidebar {
   float: right;
   width: 20%;
-  background: #2A4480;
+  background: #2f302a;
   padding: 0;
   height: 50vw;
   margin-right: 0;
@@ -275,7 +275,7 @@ iframe {
 nav {
   width: 100%;
   /*background-color: rgba(0,0,0,0.4);*/
-  background-color: #2A4480;
+  background-color: #454539;
   display: block;
   overflow: auto;
   color: white;
@@ -285,6 +285,10 @@ nav {
 
 nav .button {
   float: left;
+  width: 14%;
+}
+
+#brand{
   width: 19%;
 }
 
@@ -292,6 +296,7 @@ nav .button {
   background-color: rgba(0,0,0,1);
   color:white;
   font-family: 'Lora', serif;
+  width: 19%;
 }
 
 #show_active_quests {
