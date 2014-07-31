@@ -13,10 +13,6 @@ class UserQuest < ActiveRecord::Base
     end
   end
 
-  # def locations
-  #   self.quest.locations
-  # end
-
   def create_related_checkpoints
     self.quest.checkpoints
   end

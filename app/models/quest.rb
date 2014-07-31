@@ -17,16 +17,6 @@ class Quest < ActiveRecord::Base
     self.xp ||= 100
   end
 
-
-  def self.user_accepted_quests(user)
-    quests=[]
-    user.user_quests.each do |user_quest|
-      quest = Quest.find(user_quest.quest_id)
-      quests << quest if user_quest.completed == false && quest.timestatus != 'expired'
-    end
-    return quests.uniq
-  end
-
   def self.user_available_quests(user)
     return Quest.all.select {|quest| quest.timestatus=='current' && quest.userstatus=='open' && quest.creator_id != user.id && quest.users.where(id: user.id).empty?}
   end

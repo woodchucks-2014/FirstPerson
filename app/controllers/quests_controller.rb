@@ -5,8 +5,8 @@ class QuestsController < ApplicationController
 
 
   def index
-    # also route for active_quests
-    @quests = Quest.user_accepted_quests(current_user)
+    @quests = @user.user_quests.select{|user_quest| !user_quest.completed }
+    @quests = @quests.map{|user_quest| user_quest.quest}
   end
 
   def active_quests
@@ -46,7 +46,7 @@ class QuestsController < ApplicationController
 # API METHODS
 
   def all
-    @quests = Quest.includes(:locations).all.select { |quest| quest.locations.length >= 1  }
+    @quests = Quest.includes(:locations).all
     render json: build_markers(@quests, "quest")
   end
 
@@ -56,7 +56,8 @@ class QuestsController < ApplicationController
   end
 
   def user_accepted_quests_loc
-    @quests = @user.quests
+    @quests = @user.user_quests.select{|user_quest| !user_quest.completed }
+    @quests = @quests.map{|user_quest| user_quest.quest}
     render json: build_markers(@quests, "quest")
   end
 
@@ -68,12 +69,10 @@ class QuestsController < ApplicationController
   def user_completed_quests_loc
     @quests = @user.user_quests.where(completed: true)
     @quests = @quests.map{|quest| quest.quest }
-    @quests = @quests.select { |quest| quest.locations.length >= 1  }
     render json: build_markers(@quests, "completed quest")
   end
 
   def available_quests_loc
-    @quests = Quest.includes(:locations).all.select { |quest| quest.locations.length >= 1  }
     @quests = @quests.select {|quest| quest.creator_id != @user.id}
     @quests = @quests.select {|quest| quest.timestatus == 'current'}
     @quests = @quests.select {|quest| quest.userstatus == 'open'}
@@ -170,7 +169,6 @@ class QuestsController < ApplicationController
   end
 
   private
-
 
   def checkpoint_params
     params.require(:checkpoint).permit(:instructions, :quest_id, :location_id)
