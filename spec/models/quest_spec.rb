@@ -20,7 +20,7 @@ RSpec.describe Quest, :type => :model do
     end
 
     it "sets user status to 'full' when equal or over user limit" do
-      quest = FactoryGirl.create(:quest, user_limit: 1)
+      quest = FactoryGirl.create(:quest, user_limit: 0)
       expect(quest.userstatus).to eq("full")
     end
   end
