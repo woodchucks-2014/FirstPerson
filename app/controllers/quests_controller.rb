@@ -5,8 +5,8 @@ class QuestsController < ApplicationController
 
 
   def index
-    @quests = @user.user_quests.select{|user_quest| !user_quest.completed }
-    @quests = @quests.map{|user_quest| user_quest.quest}
+    # also route for active_quests
+    @quests = Quest.user_accepted_quests(current_user)
   end
 
   def active_quests
