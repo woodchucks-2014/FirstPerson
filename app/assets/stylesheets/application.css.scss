@@ -362,8 +362,14 @@ nav .button {
 
 .result{
   font-family: 'Lora', serif;
-  border: 1px solid;
-  margin: 1px;
+  width: 50%;
+  margin: .5em auto;
+  background-color: gray;
+  color: white;
+}
+
+.location{
+  text-decoration: none;
 }
 
 
