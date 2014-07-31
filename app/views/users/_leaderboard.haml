@@ -1,18 +1,18 @@
 .list
-  %h2 The Top Players!
-  %br
-  %table
-    %th First Name
-    %th Last Name
-    %th Total Xp
-    %th Quests Completed
-    - @users.sort_by {|user| -user.total_xp}.each do |user|
-      %tr
-        %td
-          =user.firstname
-        %td
-          =user.lastname
-        %td
-          =user.total_xp
-        %td
-          =user.user_quests.where(completed: true).count
+  #board
+    %h2 The Top Players!
+    %table
+      %th First Name
+      %th Last Name
+      %th Total Xp
+      %th Quests Completed
+      - @users.sort_by {|user| -user.total_xp}.each do |user|
+        %tr
+          %td
+            =user.firstname
+          %td
+            =user.lastname
+          %td
+            =user.total_xp
+          %td
+            =user.user_quests.where(completed: true).count

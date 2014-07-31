@@ -1,18 +1,18 @@
 .list
   %h2 Most Completed Quests!
-  %br
-  %table
-    %th First Name
-    %th Last Name
-    %th Total Xp
-    %th Quests Completed
-    - @users.sort_by {|user| -user.completed_quests.length}.each do |user|
-      %tr
-        %td
-          =user.firstname
-        %td
-          =user.lastname
-        %td
-          =user.total_xp
-        %td
-          =user.completed_quests.length
+  #board
+    %table
+      %th First Name
+      %th Last Name
+      %th Total Xp
+      %th Quests Completed
+      - @users.sort_by {|user| -user.completed_quests.length}.each do |user|
+        %tr
+          %td
+            =user.firstname
+          %td
+            =user.lastname
+          %td
+            =user.total_xp
+          %td
+            =user.completed_quests.length

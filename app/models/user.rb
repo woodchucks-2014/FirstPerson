@@ -23,8 +23,7 @@ class User < ActiveRecord::Base
   end
 
   def self.sort_users
-     @users = User.all
-     User.order(:total_xp).reverse.take(10)
+     @users = User.order(:total_xp).reverse.take(10)
   end
 
   def set_defaults

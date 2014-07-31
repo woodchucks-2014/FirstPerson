@@ -42,15 +42,21 @@ body.home{
   margin: 0 auto;
   background-image: url(image_path("background_home.jpg"));
   background-size: cover;
+}
 
+#board {
+  width: 100%;
+  overflow: auto
 }
 
 table, th, td {
    border: 1px solid black;
+   margin-top: 0.5em;
 }
 
 td, th {
   padding: 1em;
+  text-align: center;
 }
 
 #logo{
@@ -63,7 +69,7 @@ td, th {
   /*text-align: center;*/
   font-size: 2em;
   width:100%;
-  margin-top: 1em;
+  margin-top: 0.5em;
   height: auto;
   color: white;
   overflow-y:auto;
@@ -91,10 +97,10 @@ td, th {
   width: 70%;
   margin-top:4em;
   margin-left: 13%;
-  height: 45em;
+  height: 38em;
   padding: 3em;
   display: inline-block;
-  overflow: auto;
+  overflow: scroll;
 
 }
 
@@ -254,7 +260,7 @@ iframe {
   display: block;
   /*padding: 5.9em;*/
   width: 80%;
-  height: 50vw;
+  height: 55vw;
   /*overflow: auto;*/
   background: $fourth-color;
   color: black;
@@ -264,7 +270,7 @@ iframe {
 #map {
   float: left;
   width: 100%;
-  height: 48.5vw;
+  height: 55vw;
 }
 
 #options.sidebar {
@@ -272,7 +278,7 @@ iframe {
   width: 20%;
   background: #2f302a;
   padding: 0;
-  height: 50vw;
+  height: 55vw;
   margin-right: 0;
   color: white;
   overflow: auto;
@@ -410,20 +416,17 @@ h6{
 }
 
 #one{
-  margin-left: 15%;
-
-  h2{
-    padding-right: 20%
-  }
+  width: 80%;
+  margin: auto;
+  background-color: #2f302a;
 
 }
 
 
 #two{
-  margin-left: 15%;
-   h2{
-    padding-right: 20%
-  }
+  width: 80%;
+  margin: auto;
+  background-color: #2f302a;
 
 }
 
