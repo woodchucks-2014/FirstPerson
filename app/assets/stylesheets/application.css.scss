@@ -51,10 +51,12 @@ body.home{
 
 table, th, td {
    border: 1px solid black;
+   margin-top: 0.5em;
 }
 
 td, th {
   padding: 1em;
+  text-align: center;
 }
 
 #logo{
@@ -67,7 +69,7 @@ td, th {
   text-align: center;
   font-size: 2em;
   width:100%;
-  margin-top: 1em;
+  margin-top: 0.5em;
   height: auto;
   color: white;
   overflow-y:auto;
@@ -398,10 +400,7 @@ h6{
 #one{
   width: 80%;
   margin: auto;
-
-  h2{
-    padding-right: 20%
-  }
+  background-color: #2f302a;
 
 }
 
@@ -409,9 +408,7 @@ h6{
 #two{
   width: 80%;
   margin: auto;
-   h2{
-    padding-right: 20%
-  }
+  background-color: #2f302a;
 
 }
 
