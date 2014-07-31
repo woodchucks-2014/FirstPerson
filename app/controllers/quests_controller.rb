@@ -139,7 +139,7 @@ class QuestsController < ApplicationController
   def commit_location
     if params[:venue][:foursquare_id] == nil
       created_location.destroy
-      render plain: "Failed to add - try again"
+      return "Failed to add - try again"
     end
 
     created_location = Location.find(params[:venue][:location_id])
