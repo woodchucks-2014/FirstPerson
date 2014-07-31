@@ -76,7 +76,7 @@ class QuestsController < ApplicationController
     # @quests = @quests.select {|quest| quest.timestatus =='current'}
     # @quests = @quests.select {|quest| quest.userstatus =='open'}
     # render json: build_markers(@quests, "quest")
-    render json: [{lat: 40.5, lng 74.0}]
+    render nothing: true
   end
 
   def accept_form
