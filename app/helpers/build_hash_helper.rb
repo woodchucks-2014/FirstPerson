@@ -31,7 +31,7 @@ module BuildHashHelper
 
   def build_markers(checkins, style = "default")
     img_url = imager(style)
-    checkins.select { |checkin| checkin.locations.count > 0 }
+    checkins = checkins.select { |checkin| checkin.location }
     Gmaps4rails.build_markers(checkins) do |checkin, marker|
       marker.lat checkin.location.latitude
       marker.lng checkin.location.longitude
