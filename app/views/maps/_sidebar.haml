@@ -9,7 +9,8 @@
 #show_active_quests.button Active Quests
 #show_user_quests
   %ul
-    -@user.quests.each do |quest|
-      %div{id: "#{quest.id}", class: "button quest"}
+    -@user.user_quests.each do |user_quest|
+      -unless user_quest.completed
+      %div{id: "#{user_quest.quest.id}", class: "button quest"}
         %li
-          =quest.title
+          =user_quest.quest.title
