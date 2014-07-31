@@ -67,6 +67,7 @@ class QuestsController < ApplicationController
 
   def user_completed_quests_loc
     @quests = @user.user_quests.where(completed: true)
+    @quests = Quest.includes(:locations).all.select { |quest| quest.locations.length >= 1  }
     render json: build_markers(@quests, "completed quest")
   end
 
