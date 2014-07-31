@@ -39,8 +39,13 @@ $(document).ready(function(){
       .done(function(data){
         $("#content").html("<div class='success'>" + data + "</div>")
         $("#content").append(location_form)
-        $("#content").append("<a href = '/quests'> I'm done adding checkpoints </a>")
+        $("#content").append("<a href = '/quests' id = 'done'> I'm done adding checkpoints </a>")
       })
+  })
+
+  $("#content").on("click", "#done", function(e){
+    e.preventDefault();
+    location.reload();
   })
 
   $("#active_but").on("click", function(){
