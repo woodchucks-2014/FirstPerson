@@ -294,6 +294,10 @@ nav {
 
 nav .button {
   float: left;
+  width: 14%;
+}
+
+#brand{
   width: 19%;
 }
 
@@ -301,6 +305,7 @@ nav .button {
   background-color: $secondary-color;
   color:black;
   font-family: 'Lora', serif;
+  width: 19%;
 }
 
 #show_active_quests {
