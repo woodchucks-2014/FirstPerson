@@ -139,12 +139,9 @@ td, th {
   margin-top: 10em;
   display: inline-block;
   background: rgba(0,0,0, 0.4);
-
-    a{
-      font-family: 'Josefin Sans', sans-serif;
-      color:$font-color;
-      text-decoration: none;
-    }
+  font-family: 'Josefin Sans', sans-serif;
+  color:$font-color;
+  text-decoration: none;
 
 }
 #enter_link:hover{
@@ -260,8 +257,6 @@ iframe {
   height: 50vw;
   margin-right: 0;
   color: white;
-  /*font-family: 'Lora', serif;*/
-  /*border-left:1px solid white;*/
   overflow: auto;
   font-family: 'Alegreya Sans SC', sans-serif;
   font-weight: 400;
@@ -310,7 +305,7 @@ nav .button {
 
 #xp {
   background-color: $secondary-color;
-  color:white;
+  color:#222222;
   font-family: 'Alegreya Sans SC', sans-serif;
   font-weight: 500;
   width: 20%;
@@ -359,6 +354,12 @@ nav .button {
     margin-top: 1%;
     font-size: 2em;
   }
+}
+
+.result{
+  font-family: 'Lora', serif;
+  border: 1px solid;
+  margin: 1px;
 }
 
 
