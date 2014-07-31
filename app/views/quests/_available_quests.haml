@@ -1,15 +1,16 @@
-.list
-  -if @quests.length>=1
-    %h2 Here are your available quests!
-    - @quests.each do |quest|
-      - @quest = quest
-      - quest_info.each do |info|
-        #info=info
-      = form_for @user_quest, url: accept_path do |f|
-        = f.hidden_field :quest_id, :value => quest.id
-        = f.submit "Accept"
-  -else
-    %h2 You Have No Available Quests
+#black_div
+  .list
+    -if @quests.length>=1
+      %h2 Here are your available quests!
+      - @quests.each do |quest|
+        - @quest = quest
+        - quest_info.each do |info|
+          #info=info
+        = form_for @user_quest, url: accept_path do |f|
+          = f.hidden_field :quest_id, :value => quest.id
+          = f.submit "Accept"
+    -else
+      %h2 You Have No Available Quests
 
 
 

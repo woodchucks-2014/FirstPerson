@@ -14,9 +14,6 @@
  *= require_tree .
  */
 
-$primary-color: #2E4272;
-$secondary-color: #5E5C57;
-$third-color: #2E4272;
 
 $font-color: white;
 $font-stack: 'Josefin Sans', sans-serif;
@@ -35,7 +32,7 @@ body {
   margin: 0;
   /*background-image: url(image_path("background_home.jpg"));
   background-size: cover;*/
-  background: rgba(0,0,0, 0.8);
+  background: rgba(0,0,0, 0.5);
 
 }
 
@@ -68,27 +65,46 @@ td, th {
   display: none;
 }
 
+#black_div{
+
+  background: rgba(0,0,0, 0.8);
+  color: white;
+  width: 70%;
+  margin-top:5em;
+  margin-left: 13%;
+  height: 45em;
+  padding: 3em;
+  display: inline-block;
+  overflow: auto;
+
+}
+
 #create_quest{
   background: rgba(0,0,0, 0.8);
   color: white;
-  width: 50%;
+  width: 70%;
   margin-top:5em;
-  margin-left: 25%;
-  height: 40em;
+  margin-left: 13%;
+  height: 45em;
   padding: 3em;
+  text-align: center;
+  display: inline-block;
+  overflow: auto;
 
   input {
     padding:5px; border:2px solid #ccc;
     -webkit-border-radius: 5px;
     border-radius: 5px;
+    margin-top: 1em;
   }
 
-  input[type=text]:focus {border-color:#333; }
+  input[type=text]:focus {border-color:#333; margin-top: 1em;}
 
   input[type=submit] {padding:5px 15px; background:#ccc; border:0 none;
   cursor:pointer;
   -webkit-border-radius: 5px;
-  border-radius: 5px; }
+  border-radius: 5px;
+  margin-top: 1em;}
 }
 
 
@@ -167,9 +183,17 @@ iframe{
 }
 
 #rewards {
-  float: right;
+  /*float: left;*/
+  margin-top: 3em;
+  overflow: auto;
   display: inline-block;
   width: 50%;
+  h2 {
+    font-family: 'Lora', serif;
+    margin-left: 3%;
+    margin-bottom: 1em;
+    font-size: 2em;
+  }
 }
 
 /*----------------------------LAYOUT----------------------------------*/
@@ -180,7 +204,7 @@ iframe{
   width: 10%;
   display: block;
   text-align: center;
-  background-color: $primary-color;
+  background-color: #2A4480;
 }
 
 #enable_quests {
@@ -188,7 +212,7 @@ iframe{
   width: 10%;
   display: block;
   text-align: center;
-  background-color: $primary-color;
+  background-color: #2A4480;
 }
 
 iframe {
@@ -210,9 +234,9 @@ iframe {
   width: 80%;
   height: 50vw;
   /*overflow: auto;*/
-  background: rgba(48,48,48, 0.4);
-  color: white;
-  font-family: 'Josefin Sans', sans-serif;
+  background: #9C9DA9;
+  color: black;
+  font-family: 'Lora', serif;
 }
 
 #map {
@@ -222,14 +246,14 @@ iframe {
 }
 
 #options.sidebar {
-  float: left;
+  float: right;
   width: 20%;
-  background-color: rgba(255,255,255,0.2);
+  background: #2A4480;
   padding: 0;
   height: 50vw;
-  margin: 0;
-  color: black;
-  font-family: 'Josefin Sans', sans-serif;
+  margin-right: 0;
+  color: white;
+  font-family: 'Lora', serif;
   /*border-left:1px solid white;*/
   /*overflow: scroll;*/
 
@@ -240,18 +264,18 @@ iframe {
 }
 
 .button:hover {
-  background-color: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.8);
 }
 
 nav {
   width: 100%;
   /*background-color: rgba(0,0,0,0.4);*/
-  background-color: rgba(255,255,255,0.2);
+  background-color: #2A4480;
   display: block;
   overflow: auto;
-  color: black;
+  color: white;
   /*border-bottom: 1px solid white;*/
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Lora', serif;
 }
 
 nav .button {
@@ -260,14 +284,14 @@ nav .button {
 }
 
 #xp {
-  /*background-color: rgba(0,0,0,0.8);*/
-  color:black;
-  font-family: 'Josefin Sans', sans-serif;
+  background-color: rgba(0,0,0,1);
+  color:white;
+  font-family: 'Lora', serif;
 }
 
 #show_active_quests {
   border-bottom: 2px solid black;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Lora', serif;
 }
 
 #user_image {
@@ -285,13 +309,13 @@ nav .button {
   overflow: auto;
   width: 100%;
   height: 15em;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Lora', serif;
 }
 
 .reward {
   float: left;
   width: 25%;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Lora', serif;
 }
 
 .reward img {
@@ -301,10 +325,10 @@ nav .button {
 
 #user_info {
   float: left;
-  width: 25%;
+  width: 40%;
   height: 25em;
   h2 {
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Lora', serif;
     margin-left: 3%;
     margin-top: 1%;
     font-size: 2em;
@@ -315,7 +339,7 @@ nav .button {
 
 
 #notification {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Lora', serif;
   position: fixed;
   top: 15vw;
   left: 20vw;
@@ -334,7 +358,7 @@ h6{
   font-size: 8em;
   color: white;
   position: absolute;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Lora', serif;
   left:34%;
   top:14vw;
 
