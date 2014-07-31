@@ -25,7 +25,7 @@ $(document).ready(function(){
     }).done(function(data) {
       foursquare_data = data;
       $.each(data, function(key, value){
-        $('#content').append("<a class='location' href='/add' id=" + key + "><div class = 'result'>"+value["name"]+"<br>"+value["street"]+"<br></div></a>");
+        $('#create_quest').append("<a class='location' href='/add' id=" + key + "><div class = 'result'>"+value["name"]+"<br>"+value["street"]+"<br></div></a>");
       })
     }).fail(function() {
       alert("Please try again");
