@@ -9,9 +9,9 @@ module BuildHashHelper
     when "checkpoint"
       return "http://i.picresize.com/images/2014/07/30/v4U9Y.png"
     when "quest"
-      return "http://i.picresize.com/images/2014/07/30/v4U9Y.png"
+      return "assets/treasure.png"
     when "completed quest"
-      return "http://i.picresize.com/images/2014/07/30/5juv1.png"
+      return "http://i.picresize.com/images/2014/07/31/Ms2Sd.png"
     when "checkin"
       return "http://i.picresize.com/images/2014/07/30/v4U9Y.png"
     end

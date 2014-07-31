@@ -6,6 +6,8 @@
   <%= javascript_include_tag 'application' %>
   <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
   <%= javascript_include_tag "https://maps.google.com/maps/api/js?v=3.13&amp;sensor=false&amp;libraries=geometry" %>
   <%= javascript_include_tag "https://google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js" %>
@@ -15,7 +17,8 @@
   <% if logged_in? %>
 
     <nav>
-      <div id="brand" class="button psuedo_link" href='/map'>firstperson.io</div>
+
+      <div id="brand" class="button psuedo_link" href='/map'>FIRST PERSON</div>
       <div id="show" class="button psuedo_link" href='/map'>Map</div>
       <div id="profile" class="button psuedo_link" href='/users/profile'>Character</div>
       <div id="quests" class="button psuedo_link" href='/quests'>Quests</div>
