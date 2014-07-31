@@ -14,7 +14,7 @@ class Fsqr
   end
 
   def search(query, ll, location_id)
-    returned_venues = self.client.suggest_completion_venues(query: query, ll: ll, limit: 15)
+    returned_venues = self.client.suggest_completion_venues(query: query, ll: ll, limit: '15')
     self.parse_search(returned_venues, location_id)
   end
 
