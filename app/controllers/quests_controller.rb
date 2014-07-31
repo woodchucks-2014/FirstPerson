@@ -71,12 +71,10 @@ class QuestsController < ApplicationController
   end
 
   def available_quests_loc
-    # @quests = Quest.all
-    # @quests = @quests.select {|quest| quest.creator_id != @user.id}
-    # @quests = @quests.select {|quest| quest.timestatus =='current'}
-    # @quests = @quests.select {|quest| quest.userstatus =='open'}
-    # render json: build_markers(@quests, "quest")
     @quests = Quest.includes(:locations).all.select { |quest| quest.locations.length >= 1  }
+    @quests = @quests.select {|quest| quest.creator_id != @user.id}
+    @quests = @quests.select {|quest| quest.timestatus =='current'}
+    @quests = @quests.select {|quest| quest.userstatus =='open'}
     render json: build_markers(@quests, "quest")
   end
 
