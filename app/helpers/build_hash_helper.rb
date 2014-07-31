@@ -34,12 +34,12 @@ module BuildHashHelper
     Gmaps4rails.build_markers(checkins) do |checkin, marker|
       marker.lat checkin.location.latitude
       marker.lng checkin.location.longitude
+      marker.infowindow info(checkin)
       marker.picture({
         url: img_url,
         width:  36,
         height: 36
       })
-      marker.infowindow info(checkin)
     end
   end
 

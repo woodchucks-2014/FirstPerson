@@ -71,11 +71,12 @@ class QuestsController < ApplicationController
   end
 
   def available_quests_loc
-    @quests = Quest.all.map {|quest| quest}
+    @quests = Quest.all
     # @quests = @quests.select {|quest| quest.creator_id != @user.id}
-    # @quests = @quests.select {|quest| quest.timestatus=='current'}
-    # @quests = @quests.select {|quest| quest.userstatus=='open'}
-    render json: build_markers(@quests, "quest")
+    # @quests = @quests.select {|quest| quest.timestatus =='current'}
+    # @quests = @quests.select {|quest| quest.userstatus =='open'}
+    # render json: build_markers(@quests, "quest")
+    render json: [{lat: 40.5, lng 74.0}]
   end
 
   def accept_form
