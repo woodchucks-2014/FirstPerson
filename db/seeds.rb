@@ -7,30 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-# business = User.new
-# business.firstname = "DBC"
-# business.email = "dishes@dbc.com"
-# business.foursquare_id = 1
-# business.save!
-
-# player = User.new
-# player.firstname = "Greg"
-# player.email = "greg@dbc.com"
-# player.gender = "male"
-# player.foursquare_id = 2
-# player.save!
-
-# loc = Location.new
-# loc.name = "CheckIn1"
-# loc.venue_type = "loc1"
-# loc.street = "48 Wall St"
-# loc.city = "New York"
-# loc.state = "NY"
-# loc.country = "US"
-# loc.zip = "10005"
-# loc.foursquare_id = "kjf3jfosefjw"
-# loc.save!
-
 tanner = User.new
 tanner.firstname = "Tanner"
 tanner.lastname = "Welsh"
@@ -41,7 +17,7 @@ tanner.save!
 
 loc1 = Location.new
 loc1.name = "Dev Bootcamp"
-loc1.foursquare_id = ENV['DBC_ID']
+loc1.foursquare_id = "hi"
 loc1.venue_type = "Trade School"
 loc1.street = "48 Wall St"
 loc1.city = "New York"
@@ -53,7 +29,7 @@ loc1.save!
 
 loc2 = Location.new
 loc2.name = "Starbucks"
-loc2.foursquare_id = ENV['STAR_ID']
+loc2.foursquare_id = "hi"
 loc2.venue_type = "Coffee Shop"
 loc2.street = "875 Avenue of the Americas"
 loc2.city = "New York"
