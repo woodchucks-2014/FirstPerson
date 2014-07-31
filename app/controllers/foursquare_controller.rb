@@ -34,7 +34,7 @@ class FoursquareController < ActionController::Base
     checkin = checkin_creator(location, user_id)
     user = User.find(user_id)
     user_checkpoint_check(user, location)
-    render plain: "200 OK"
+    render plain: "200 OK" if location && user_id
   end
 
   private
