@@ -46,7 +46,6 @@ class QuestsController < ApplicationController
 # API METHODS
 
   def all
-    @user_quest = UserQuest.new
     @quests = Quest.includes(:locations).all.select { |quest| quest.locations.length >= 1  }
     render json: build_markers(@quests, "quest")
   end
@@ -57,22 +56,25 @@ class QuestsController < ApplicationController
   end
 
   def user_accepted_quests_loc
-    @quests = Quest.user_accepted_quests(current_user)
+    @quests = @user.quests
     render json: build_markers(@quests, "quest")
   end
 
   def user_created_quests_loc
-    @quests = Quest.user_created_quests(current_user)
+    @quests = @user.created_quests
     render json: build_markers(@quests, "quest")
   end
 
   def user_completed_quests_loc
-    @quests = Quest.user_completed_quests(current_user)
+    @quests = @user.user_quests.where(completed: true)
     render json: build_markers(@quests, "completed quest")
   end
 
   def available_quests_loc
-    @quests = Quest.user_available_quests(current_user)
+    @quests = Quest.all.map {|quest| quest}
+    @quests = @quests.select {|quest| quest.creator_id != @user.id}
+    @quests = @quests.select {|quest| quest.timestatus=='current'}
+    @quests = @quests.select {|quest| quest.userstatus=='open'}
     render json: build_markers(@quests, "quest")
   end
 
