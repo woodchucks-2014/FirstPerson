@@ -36,11 +36,6 @@ class QuestsController < ApplicationController
     render partial: "quests/display_quests"
   end
 
-  def edit_quests
-    render partial: "quests/display_quests"
-  end
-
-
   def create_quests
     @user_quest = UserQuest.new
     @quest = Quest.new

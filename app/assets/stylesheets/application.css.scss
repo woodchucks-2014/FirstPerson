@@ -14,16 +14,10 @@
  *= require_tree .
  */
 
-$primary-color: #2E4272;
-$secondary-color: #5E5C57;
-$third-color: #D4B28A;
-
-/*$primary-color: #FFFFFF;
-$secondary-color: #FFE361;
-$third-color: #D2D2D3;*/
 
 $font-color: white;
-$font-stack:  Helvetica, sans-serif;
+$font-stack: 'Josefin Sans', sans-serif;
+
 
 * {
   margin: 0;
@@ -35,8 +29,11 @@ td img {
 }
 
 body {
-  overflow: auto;
-  background: rgba(0,0,0, 0.8);
+  margin: 0;
+  /*background-image: url(image_path("background_home.jpg"));
+  background-size: cover;*/
+  background: rgba(0,0,0, 0.5);
+
 }
 
 table, th, td {
@@ -47,14 +44,20 @@ td, th {
   padding: 1em;
 }
 
+#logo{
+  position: absolute;
+  top:5vw;
+  left:30%;
+}
+
 .list{
   text-align: center;
+  font-size: 2em;
   width:100%;
-  background: rgba(0,0,0, 0.5);
-  margin-top: 0;
+  margin-top: 1em;
   height: auto;
   color: white;
-  overflow-y:scroll;
+  overflow-y:auto;
   display: inline-block;
 }
 
@@ -62,46 +65,81 @@ td, th {
   display: none;
 }
 
-.create{
+#black_div{
+
   background: rgba(0,0,0, 0.8);
-  width: 100%;
-  margin-top:0;
-  height: 38em;
-  display: inline-block;
-  height: 36em;
-  padding: 2em;
   color: white;
+  width: 70%;
+  margin-top:5em;
+  margin-left: 13%;
+  height: 45em;
+  padding: 3em;
+  display: inline-block;
+  overflow: auto;
+
+}
+
+#create_quest{
+  background: rgba(0,0,0, 0.8);
+  color: white;
+  width: 70%;
+  margin-top:5em;
+  margin-left: 13%;
+  height: 45em;
+  padding: 3em;
+  text-align: center;
+  display: inline-block;
+  overflow: auto;
+
+  input {
+    padding:5px; border:2px solid #ccc;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    margin-top: 1em;
+  }
+
+  input[type=text]:focus {border-color:#333; margin-top: 1em;}
+
+  input[type=submit] {padding:5px 15px; background:#ccc; border:0 none;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  margin-top: 1em;}
 }
 
 
-.container{
-  height: 50em;
+#container{
+  height: 50vw;
+  background-color: rgba(0,0,0,0.6);
 }
 
 #slide{
-  background-image: url(image_path("background_home.jpg"));
-  background-size: cover;
+  background: rgba(48,48,48, 0.4);
   margin: 0;
-  height: 61.25em;
+  height: 63em;
 }
 
 #enter_link{
   width: 25%;
-  height: 4em;
-  font-size: 2em;
-  line-height: 4em;
+  height: 3em;
+  font-size: 3em;
+  line-height: 3em;
   text-align: center;
   margin-left: 38.5%;
   border: 1px solid white;
-  margin-top: 18em;
+  margin-top: 10em;
   display: inline-block;
-  background: rgba(0,0,0, 0.3);
+  background: rgba(0,0,0, 0.4);
 
     a{
-      font-family:"Times New Roman", Times, serif;
+      font-family: 'Josefin Sans', sans-serif;
       color:$font-color;
       text-decoration: none;
     }
+
+}
+#enter_link:hover{
+  background: rgba(0,0,0, 0.8);
 
 }
 
@@ -145,8 +183,17 @@ iframe{
 }
 
 #rewards {
-  float: left;
-  Width: 50%;
+  /*float: left;*/
+  margin-top: 3em;
+  overflow: auto;
+  display: inline-block;
+  width: 50%;
+  h2 {
+    font-family: 'Lora', serif;
+    margin-left: 3%;
+    margin-bottom: 1em;
+    font-size: 2em;
+  }
 }
 
 /*----------------------------LAYOUT----------------------------------*/
@@ -157,7 +204,7 @@ iframe{
   width: 10%;
   display: block;
   text-align: center;
-  background-color: $primary-color;
+  background-color: #2A4480;
 }
 
 #enable_quests {
@@ -165,7 +212,7 @@ iframe{
   width: 10%;
   display: block;
   text-align: center;
-  background-color: $primary-color;
+  background-color: #2A4480;
 }
 
 iframe {
@@ -183,8 +230,13 @@ iframe {
 #content {
   float: left;
   display: block;
+  /*padding: 5.9em;*/
   width: 80%;
-  overflow: auto;
+  height: 50vw;
+  /*overflow: auto;*/
+  background: #9C9DA9;
+  color: black;
+  font-family: 'Lora', serif;
 }
 
 #map {
@@ -194,14 +246,16 @@ iframe {
 }
 
 #options.sidebar {
-  float: left;
+  float: right;
   width: 20%;
-  background-color: $third-color;
+  background: #2A4480;
   padding: 0;
-  height: 48.5vw;
-  margin: 0;
-  color: #2C3539;
-  overflow: scroll;
+  height: 50vw;
+  margin-right: 0;
+  color: white;
+  font-family: 'Lora', serif;
+  /*border-left:1px solid white;*/
+  /*overflow: scroll;*/
 
   .button{
     padding-top: 1vw;
@@ -210,15 +264,18 @@ iframe {
 }
 
 .button:hover {
-  background-color: #3B5798;
+  background: rgba(0,0,0,0.8);
 }
 
 nav {
   width: 100%;
-  background-color: $primary-color;
+  /*background-color: rgba(0,0,0,0.4);*/
+  background-color: #2A4480;
   display: block;
   overflow: auto;
   color: white;
+  /*border-bottom: 1px solid white;*/
+  font-family: 'Lora', serif;
 }
 
 nav .button {
@@ -227,12 +284,14 @@ nav .button {
 }
 
 #xp {
-  background-color: $secondary-color;
-  color:black;
+  background-color: rgba(0,0,0,1);
+  color:white;
+  font-family: 'Lora', serif;
 }
 
 #show_active_quests {
   border-bottom: 2px solid black;
+  font-family: 'Lora', serif;
 }
 
 #user_image {
@@ -250,11 +309,13 @@ nav .button {
   overflow: auto;
   width: 100%;
   height: 15em;
+  font-family: 'Lora', serif;
 }
 
 .reward {
   float: left;
   width: 25%;
+  font-family: 'Lora', serif;
 }
 
 .reward img {
@@ -264,17 +325,21 @@ nav .button {
 
 #user_info {
   float: left;
-  width: 75%;
+  width: 40%;
   height: 25em;
+  h2 {
+    font-family: 'Lora', serif;
+    margin-left: 3%;
+    margin-top: 1%;
+    font-size: 2em;
+  }
 }
 
-#user_info h2 {
-  margin-left: 1.75%;
-  margin-top: 1%;
-}
+
 
 
 #notification {
+  font-family: 'Lora', serif;
   position: fixed;
   top: 15vw;
   left: 20vw;
@@ -293,8 +358,36 @@ h6{
   font-size: 8em;
   color: white;
   position: absolute;
-  left:30%;
-  top:15vw;
+  font-family: 'Lora', serif;
+  left:34%;
+  top:14vw;
 
 }
+
+#one{
+  margin-left: 15%;
+
+  h2{
+    padding-right: 20%
+  }
+
+}
+
+
+#two{
+  margin-left: 15%;
+   h2{
+    padding-right: 20%
+  }
+
+}
+
+
+
+
+
+
+
+
+
 
