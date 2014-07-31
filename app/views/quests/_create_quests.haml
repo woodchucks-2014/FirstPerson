@@ -1,12 +1,19 @@
-.create
+#create_quest
   %h2 Create a quest
+  %br
   = form_for @quest, url: create_path do |g|
     = g.text_field :title, :placeholder => "Title"
+    %br
+    %br
     = g.text_area :description, size: "60x12", :placeholder => "Description"
+    %br
+    %br
     = g.number_field :user_limit, :placeholder => "Acceptance limit"
     = g.text_field :category, :placeholder => "Category"
     = g.datetime_field :start_date, :placeholder => "Start Date"
     = g.datetime_field :end_date, :placeholder => "End Date"
-    = g.number_field :xp
+    = g.number_field :xp, :placeholder => "Xp Awarded"
+    %br
+    %br
     = g.submit "Add your checkpoints!"
 

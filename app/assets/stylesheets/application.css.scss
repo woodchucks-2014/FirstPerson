@@ -14,16 +14,14 @@
  *= require_tree .
  */
 
-$primary-color: #2E4272;
-$secondary-color: #5E5C57;
-$third-color: #D4B28A;
-
-/*$primary-color: #FFFFFF;
-$secondary-color: #FFE361;
-$third-color: #D2D2D3;*/
+$primary-color: #191919;
+$secondary-color: #FFF056;
+$third-color: #191919;
+$fourth-color:#DFE2DB;
 
 $font-color: white;
-$font-stack:  Helvetica, sans-serif;
+$font-stack: 'Josefin Sans', sans-serif;
+
 
 * {
   margin: 0;
@@ -35,8 +33,20 @@ td img {
 }
 
 body {
-  overflow: auto;
-  background: rgba(0,0,0, 0.8);
+  margin: 0 auto;
+  background: rgba(0,0,0, 0.5);
+
+}
+
+body.home{
+  margin: 0 auto;
+  background-image: url(image_path("background_home.jpg"));
+  background-size: cover;
+}
+
+#board {
+  width: 100%;
+  overflow: auto
 }
 
 table, th, td {
@@ -47,14 +57,20 @@ td, th {
   padding: 1em;
 }
 
+#logo{
+  position: absolute;
+  top:5vw;
+  left:30%;
+}
+
 .list{
   text-align: center;
+  font-size: 2em;
   width:100%;
-  background: rgba(0,0,0, 0.5);
-  margin-top: 0;
+  margin-top: 1em;
   height: auto;
   color: white;
-  overflow-y:scroll;
+  overflow-y:auto;
   display: inline-block;
 }
 
@@ -62,46 +78,78 @@ td, th {
   display: none;
 }
 
-.create{
+#black_div{
+
   background: rgba(0,0,0, 0.8);
-  width: 100%;
-  margin-top:0;
-  height: 38em;
-  display: inline-block;
-  height: 36em;
-  padding: 2em;
   color: white;
+  width: 70%;
+  margin-top:5em;
+  margin-left: 13%;
+  height: 38em;
+  padding: 3em;
+  display: inline-block;
+  overflow: scroll;
+
+}
+
+#create_quest{
+  background: rgba(0,0,0, 0.8);
+  color: white;
+  width: 70%;
+  margin-top:5em;
+  margin-left: 13%;
+  height: 45em;
+  padding: 3em;
+  text-align: center;
+  display: inline-block;
+  overflow: auto;
+
+  input {
+    padding:5px; border:2px solid #ccc;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    margin-top: 1em;
+  }
+
+  input[type=text]:focus {border-color:#333; margin-top: 1em;}
+
+  input[type=submit] {padding:5px 15px; background:#ccc; border:0 none;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  margin-top: 1em;}
 }
 
 
-.container{
-  height: 50em;
+#container{
+  height: 50vw;
+  background-color: rgba(0,0,0,0.6);
 }
 
 #slide{
-  background-image: url(image_path("background_home.jpg"));
-  background-size: cover;
-  margin: 0;
-  height: 61.25em;
+  background: rgba(48,48,48, 0.4);
+  margin: 0 auto;
+  height: 63em;
 }
 
 #enter_link{
   width: 25%;
-  height: 4em;
-  font-size: 2em;
-  line-height: 4em;
+  height: 3em;
+  font-size: 3em;
+  line-height: 3em;
   text-align: center;
   margin-left: 38.5%;
   border: 1px solid white;
-  margin-top: 18em;
+  margin-top: 10em;
   display: inline-block;
-  background: rgba(0,0,0, 0.3);
+  background: rgba(0,0,0, 0.4);
+  font-family: 'Josefin Sans', sans-serif;
+  color:$font-color;
+  text-decoration: none;
 
-    a{
-      font-family:"Times New Roman", Times, serif;
-      color:$font-color;
-      text-decoration: none;
-    }
+}
+#enter_link:hover{
+  background: rgba(0,0,0, 0.8);
 
 }
 
@@ -122,11 +170,11 @@ td, th {
 }
 
 iframe{
-  background-color: rgba(0,0,0,0.8);
+  color:white;
 }
 
 .accept_form{
-  overflow: hidden;
+  overflow: auto;
   color:white;
   text-align: center;
 }
@@ -145,8 +193,17 @@ iframe{
 }
 
 #rewards {
-  float: left;
-  Width: 50%;
+  /*float: left;*/
+  margin-top: 3em;
+  overflow: auto;
+  display: inline-block;
+  width: 50%;
+  h2 {
+    font-family: 'Lora', serif;
+    margin-left: 3%;
+    margin-bottom: 1em;
+    font-size: 2em;
+  }
 }
 
 /*----------------------------LAYOUT----------------------------------*/
@@ -157,7 +214,7 @@ iframe{
   width: 10%;
   display: block;
   text-align: center;
-  background-color: $primary-color;
+  background-color: #2A4480;
 }
 
 #enable_quests {
@@ -165,7 +222,7 @@ iframe{
   width: 10%;
   display: block;
   text-align: center;
-  background-color: $primary-color;
+  background-color: #2A4480;
 }
 
 iframe {
@@ -173,8 +230,6 @@ iframe {
 }
 
 .button {
-  width: 99%;
-  padding: 0.5%;
   font-size: 1.5em;
   text-align: center;
   cursor: crosshair;
@@ -183,25 +238,33 @@ iframe {
 #content {
   float: left;
   display: block;
+  /*padding: 5.9em;*/
   width: 80%;
-  overflow: auto;
+  height: 55vw;
+  /*overflow: auto;*/
+  background: #9C9DA9;
+  color: black;
+  font-family: 'Lora', serif;
 }
 
 #map {
   float: left;
   width: 100%;
-  height: 48.5vw;
+  height: 55vw;
 }
 
 #options.sidebar {
-  float: left;
+  float: right;
   width: 20%;
-  background-color: $third-color;
+  background: #2f302a;
   padding: 0;
-  height: 48.5vw;
-  margin: 0;
-  color: #2C3539;
-  overflow: scroll;
+  height: 55vw;
+  margin-right: 0;
+  color: white;
+  overflow: auto;
+  font-family: 'Alegreya Sans SC', sans-serif;
+  font-weight: 400;
+  font-size: 13pt;
 
   .button{
     padding-top: 1vw;
@@ -210,25 +273,46 @@ iframe {
 }
 
 .button:hover {
-  background-color: #3B5798;
+  background: rgba(255,255,255,0.2);
 }
 
 nav {
   width: 100%;
-  background-color: $primary-color;
+  /*background-color: rgba(0,0,0,0.4);*/
+  background-color: #454539;
   display: block;
   overflow: auto;
   color: white;
+  /*border-bottom: 1px solid white;*/
+  font-family: 'Alegreya Sans SC', sans-serif;
+  font-weight: 400;
+  height: 3em;
+  line-height: 3em;
 }
 
 nav .button {
   float: left;
-  width: 19%;
+  width: 15%;
+  height: 100%;
+}
+
+#brand{
+
+  width: 20%;
+  font-weight: 700;
+  font-size: 1.5em;
+  color: white;
+  font-family: 'Josefin Sans', sans-serif;
+  letter-spacing: .3em;
+  line-height: 2.2em;
 }
 
 #xp {
   background-color: $secondary-color;
-  color:black;
+  color:#222222;
+  font-family: 'Alegreya Sans SC', sans-serif;
+  font-weight: 500;
+  width: 20%;
 }
 
 #show_active_quests {
@@ -250,11 +334,13 @@ nav .button {
   overflow: auto;
   width: 100%;
   height: 15em;
+  font-family: 'Lora', serif;
 }
 
 .reward {
   float: left;
   width: 25%;
+  font-family: 'Lora', serif;
 }
 
 .reward img {
@@ -264,17 +350,27 @@ nav .button {
 
 #user_info {
   float: left;
-  width: 75%;
+  width: 40%;
   height: 25em;
+  h2 {
+    font-family: 'Lora', serif;
+    margin-left: 3%;
+    margin-top: 1%;
+    font-size: 2em;
+  }
 }
 
-#user_info h2 {
-  margin-left: 1.75%;
-  margin-top: 1%;
+.result{
+  font-family: 'Lora', serif;
+  border: 1px solid;
+  margin: 1px;
 }
+
+
 
 
 #notification {
+  font-family: 'Lora', serif;
   position: fixed;
   top: 15vw;
   left: 20vw;
@@ -293,8 +389,38 @@ h6{
   font-size: 8em;
   color: white;
   position: absolute;
-  left:30%;
-  top:15vw;
+  font-family: 'Josefin Sans', sans-serif;
+  left:34%;
+  top:14vw;
 
 }
+
+#one{
+  width: 80%;
+  margin: auto;
+
+  h2{
+    padding-right: 20%
+  }
+
+}
+
+
+#two{
+  width: 80%;
+  margin: auto;
+   h2{
+    padding-right: 20%
+  }
+
+}
+
+
+
+
+
+
+
+
+
 

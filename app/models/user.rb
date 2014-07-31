@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
 
   def set_defaults
     self.total_xp ||= 0
+    self.photo_url = "http://www.infragistics.com/media/8948/anonymous_200.gif"
   end
 
 end

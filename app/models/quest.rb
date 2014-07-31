@@ -28,7 +28,7 @@ class Quest < ActiveRecord::Base
   end
 
   def self.user_available_quests(user)
-    return user.quests.select {|quest| quest.timestatus=='current' && quest.userstatus=='open' && quest.creator_id != user.id && quest.users.where(id: user.id).empty?}
+    return Quest.all.select {|quest| quest.timestatus=='current' && quest.userstatus=='open' && quest.creator_id != user.id && quest.users.where(id: user.id).empty?}
   end
 
   def self.user_created_quests(user)

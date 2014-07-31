@@ -5,13 +5,6 @@ class Fsqr
     @client = Foursquare2::Client.new(oauth_token: token, api_version: '20140724')
   end
 
-  def rand_loc
-    string = []
-    string << (40 + rand(1)).to_s
-    string << (-74 + rand(1)).to_s
-    string.join(',')
-  end
-
   def checkin
   	self.client.add_checkin(ll: self.rand_loc, broadcast: "public")
   end
@@ -21,7 +14,7 @@ class Fsqr
   end
 
   def search(query, ll, location_id)
-    returned_venues = self.client.suggest_completion_venues(query: query, ll: ll)
+    returned_venues = self.client.suggest_completion_venues(query: query, ll: ll, limit: '15')
     self.parse_search(returned_venues, location_id)
   end
 

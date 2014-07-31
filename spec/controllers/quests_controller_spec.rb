@@ -35,11 +35,6 @@ RSpec.describe QuestsController, :type => :controller do
       expect(response).to be_success
     end
 
-    it "returns edit quests partial successfully" do
-      get :edit_quests
-      expect(response).to be_success
-    end
-
     it "returns create quests partial successfully" do
       get :create_quests
       expect(response).to be_success
@@ -49,6 +44,5 @@ RSpec.describe QuestsController, :type => :controller do
       get :all
       expect(response).to be_success
     end
-
   end
 end

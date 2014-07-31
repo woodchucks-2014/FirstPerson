@@ -5,10 +5,160 @@ var Map = {
   handler: null
 }
 
+Map.mapStyle =[
+  {
+    "featureType": "landscape",
+    "stylers": [
+      { "visibility": "off" },
+      { "color": "#CAE6C8" }
+    ]
+  },{
+    "featureType": "landscape.man_made",
+    "stylers": [
+      { "visibility": "on" },
+      { "color": "#339933" }
+    ]
+  },{
+    "featureType": "landscape.natural",
+    "stylers": [
+      { "color": "#339933" },
+      { "visibility": "on" }
+    ]
+  },{
+    "featureType": "landscape.natural.terrain",
+    "stylers": [
+      { "visibility": "on" },
+      { "color": "#339933" }
+    ]
+  },{
+    "featureType": "transit.line",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "poi",
+    "elementType": "labels.text",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "transit",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "water",
+    "elementType": "labels.text",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "transit",
+    "elementType": "labels",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "road.arterial",
+    "stylers": [
+      { "visibility": "on" }
+    ]
+  },{
+    "featureType": "road.highway",
+    "stylers": [
+      { "color": "#808080" }
+    ]
+  },{
+    "featureType": "road.highway",
+    "elementType": "labels.icon",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "road.arterial",
+    "elementType": "labels",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "water",
+    "elementType": "labels",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "road",
+    "stylers": [
+      { "visibility": "on" },
+      { "weight": 0.1 },
+      { "color": "#222222" }
+    ]
+  },{
+    "featureType": "road",
+    "elementType": "labels.icon",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "road",
+    "elementType": "labels.text",
+    "stylers": [
+      { "visibility": "on" },
+      { "color": "#FFFFFF" }
+    ]
+  },{
+    "featureType": "poi.medical",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "administrative.province",
+    "stylers": [
+      { "visibility": "on" }
+    ]
+  },{
+    "featureType": "water",
+    "elementType": "geometry",
+    "stylers": [
+            {
+                "hue": "#00B6FF"
+            },
+            {
+                "saturation": 4.2
+            },
+            {
+                "lightness": -63.4
+            },
+            {
+                "gamma": 1
+            }
+        ]
+  },{
+    "featureType": "poi",
+    "elementType": "geometry",
+    "stylers": [
+      { "color": "#339933" }
+    ]
+  },{
+    "featureType": "administrative",
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "administrative",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      { "color": "#F5DC6E" }
+    ]
+  },{
+    "featureType": "landscape"  },{
+  }
+]
 Map.addPolylines = function() {
   this.lines = this.handler.addPolylines(
     [this.newMarkers],
-    { strokeColor: '#00BB00' }
+    { strokeColor: '#FF2B2B' }
   );
 }
 
@@ -29,7 +179,10 @@ Map.updateMap = function() {
 Map.createMap = function() {
   self = this
   this.handler = Gmaps.build('Google');
-  this.handler.buildMap({ internal: {id: 'map'} }, function(){
+  this.handler.buildMap({ internal: {id: 'map'} ,
+      provider: {
+      styles: this.mapStyle
+    }}, function(){
     if(navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(self.displayMap);
     }
