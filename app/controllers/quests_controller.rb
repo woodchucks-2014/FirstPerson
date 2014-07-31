@@ -46,8 +46,7 @@ class QuestsController < ApplicationController
 # API METHODS
 
   def all
-    @user_quest = UserQuest.new
-    @quests = Quest.includes(:locations).all.select { |quest| quest.locations.length >= 1  }
+    @quests = Quest.includes(:locations).all
     render json: build_markers(@quests, "quest")
   end
 
@@ -57,22 +56,28 @@ class QuestsController < ApplicationController
   end
 
   def user_accepted_quests_loc
-    @quests = Quest.user_accepted_quests(current_user)
+    @quests = @user.user_quests.select{|user_quest| !user_quest.completed }
+    @quests = @quests.map{|user_quest| user_quest.quest}
     render json: build_markers(@quests, "quest")
   end
 
   def user_created_quests_loc
-    @quests = Quest.user_created_quests(current_user)
+    @quests = @user.created_quests
     render json: build_markers(@quests, "quest")
   end
 
   def user_completed_quests_loc
-    @quests = Quest.user_completed_quests(current_user)
+    @quests = @user.user_quests.where(completed: true)
+    @quests = @quests.map{|quest| quest.quest }
     render json: build_markers(@quests, "completed quest")
   end
 
   def available_quests_loc
-    @quests = Quest.user_available_quests(current_user)
+    @quests = Quest.all
+    @quests = @quests.select {|quest| quest.creator_id != @user.id}
+    @quests = @quests.select {|quest| quest.timestatus == 'current'}
+    @quests = @quests.select {|quest| quest.userstatus == 'open'}
+    @quests = @quests.select {|quest| !quest.users.include?(@user) }
     render json: build_markers(@quests, "quest")
   end
 
@@ -121,12 +126,15 @@ class QuestsController < ApplicationController
 
     @checkpoint = Checkpoint.new(checkpoint_params)
     if @checkpoint.save
-      render json: search_venues
+      @venues = search_venues
+      if @venues.empty?
+        render plain: "Failed to save, try again"
+      else
+        render json: @venues
+      end
     else
-      flash[:notice] = "Please try again"
-      redirect_to quests_path
+      render plain: "Failed to save, try again"
     end
-
   end
 
   def search_venues
@@ -137,12 +145,13 @@ class QuestsController < ApplicationController
   end
 
   def commit_location
+    created_location = Location.find(params[:venue][:location_id])
+
     if params[:venue][:foursquare_id] == nil
       created_location.destroy
       render plain: "Failed to add - try again"
     end
 
-    created_location = Location.find(params[:venue][:location_id])
     entry = Location.find_by(foursquare_id: params[:venue][:foursquare_id])
 
     if entry
@@ -161,7 +170,6 @@ class QuestsController < ApplicationController
   end
 
   private
-
 
   def checkpoint_params
     params.require(:checkpoint).permit(:instructions, :quest_id, :location_id)
