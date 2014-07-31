@@ -1,6 +1,6 @@
 function showNotice() {
   $("#notification").show()
-  setTimeout(function() { $("#notification").fadeOut() }, 2000)
+  setTimeout(function() { $("#notification").fadeOut() }, 3000)
   return "ok"
 }
 

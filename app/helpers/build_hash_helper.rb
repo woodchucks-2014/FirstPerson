@@ -9,9 +9,9 @@ module BuildHashHelper
     when "checkpoint"
       return "http://i.picresize.com/images/2014/07/30/v4U9Y.png"
     when "quest"
-      return "assets/treasure.png"
+      return "http://i.picresize.com/images/2014/07/31/z4lO.png"
     when "completed quest"
-      return "http://i.picresize.com/images/2014/07/31/Ms2Sd.png"
+      return "http://i.picresize.com/images/2014/07/31/SrQzR.png"
     when "checkin"
       return "http://i.picresize.com/images/2014/07/30/v4U9Y.png"
     end
@@ -31,15 +31,16 @@ module BuildHashHelper
 
   def build_markers(checkins, style = "default")
     img_url = imager(style)
+    checkins = checkins.select { |checkin| checkin.location }
     Gmaps4rails.build_markers(checkins) do |checkin, marker|
       marker.lat checkin.location.latitude
       marker.lng checkin.location.longitude
+      marker.infowindow info(checkin)
       marker.picture({
         url: img_url,
         width:  36,
         height: 36
       })
-      marker.infowindow info(checkin)
     end
   end
 
