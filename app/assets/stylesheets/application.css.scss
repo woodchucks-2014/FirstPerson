@@ -14,15 +14,6 @@
  *= require_tree .
  */
 
-$primary-color: #191919;
-$secondary-color: #FFF056;
-$third-color: #191919;
-$fourth-color:#DFE2DB;
-
-/*$primary-color: #77BA9B;
-$secondary-color: #B6A754;
-$third-color: #77BA9B;
-$fourth-color: #3B5998;*/
 
 $font-color: white;
 $font-stack: 'Josefin Sans', sans-serif;
@@ -234,8 +225,6 @@ iframe {
 }
 
 .button {
-  width: 99%;
-  padding: 0.5%;
   font-size: 1.5em;
   text-align: center;
   cursor: crosshair;
@@ -248,7 +237,7 @@ iframe {
   width: 80%;
   height: 50vw;
   /*overflow: auto;*/
-  background: $fourth-color;
+  background: #9C9DA9;
   color: black;
   font-family: 'Lora', serif;
 }
@@ -262,14 +251,14 @@ iframe {
 #options.sidebar {
   float: right;
   width: 20%;
-  background: $third-color;
+  background: #2f302a;
   padding: 0;
   height: 50vw;
   margin-right: 0;
   color: white;
-  font-family: 'Lora', serif;
-  /*border-left:1px solid white;*/
-  /*overflow: scroll;*/
+  font-family: 'Alegreya Sans SC', sans-serif;
+  font-weight: 400;
+  font-size: 13pt;
 
   .button{
     padding-top: 1vw;
@@ -284,33 +273,43 @@ iframe {
 nav {
   width: 100%;
   /*background-color: rgba(0,0,0,0.4);*/
-  background-color: $primary-color;
+  background-color: #454539;
   display: block;
   overflow: auto;
   color: white;
   /*border-bottom: 1px solid white;*/
-  font-family: 'Lora', serif;
+  font-family: 'Alegreya Sans SC', sans-serif;
+  font-weight: 400;
+  height: 3em;
+  line-height: 3em;
 }
 
 nav .button {
   float: left;
-  width: 14%;
+  width: 15%;
+  height: 100%;
 }
 
 #brand{
-  width: 19%;
+  width: 20%;
+  font-weight: 700;
+  font-size: 1.5em;
+  color: white;
+  font-family: 'Josefin Sans', sans-serif;
+  letter-spacing: .3em;
+  line-height: 2.2em;
 }
 
 #xp {
-  background-color: $secondary-color;
-  color:black;
-  font-family: 'Lora', serif;
-  width: 19%;
+  background-color: rgba(0,0,0,1);
+  color:white;
+  font-family: 'Alegreya Sans SC', sans-serif;
+  font-weight: 500;
+  width: 20%;
 }
 
 #show_active_quests {
   border-bottom: 2px solid black;
-  font-family: 'Lora', serif;
 }
 
 #user_image {
