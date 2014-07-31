@@ -25,7 +25,7 @@ $(document).ready(function(){
     }).done(function(data) {
       foursquare_data = data;
       $.each(data, function(key, value){
-        $('#create_quest').append("<a class='location' href='/add' id=" + key + "><div class = 'result'>"+value["name"]+"<br>"+value["street"]+"<br></div></a>");
+        $('#content').append("<a class='location' href='/add' id=" + key + "><div class = 'result'>"+value["name"]+"<br>"+value["street"]+"<br></div></a>");
       })
     }).fail(function() {
       alert("Please try again");
@@ -37,16 +37,10 @@ $(document).ready(function(){
     var index = $(this).attr('id');
     $.post('/commit_location', {"venue": foursquare_data[index]})
       .done(function(data){
-        $("#create_quest").html("<div class='success'>" + data + "</div>")
-        $("#create_quest").append("<a href = '/quests' id = 'done'> I'm done adding checkpoints </a>")
-        $("#create_quest").append(location_form)
-        
+        $("#content").html("<div class='success'>" + data + "</div>")
+        $("#content").append(location_form)
+        $("#content").append("<a href = '/quests'> I'm done adding checkpoints </a>")
       })
-  })
-
-  $("#content").on("click", "#done", function(e){
-    e.preventDefault();
-    location.reload();
   })
 
   $("#active_but").on("click", function(){

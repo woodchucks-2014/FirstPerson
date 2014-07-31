@@ -112,7 +112,7 @@ Map.mapStyle =[
       { "visibility": "off" }
     ]
   },{
-    "featureType": "administrative.province",
+    "featureType": "administrative.locality",
     "stylers": [
       { "visibility": "on" }
     ]
