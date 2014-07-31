@@ -121,9 +121,14 @@ class QuestsController < ApplicationController
 
     @checkpoint = Checkpoint.new(checkpoint_params)
     if @checkpoint.save
-      render json: search_venues
+      @venues = search_venues
+      if @venues.empty?
+        render plain: "Failed to save, try again"
+      else
+        render json: @venues
+      end
     else
-      flash[:notice] = "Please try again"
+      render plain: "Failed to save, try again"
       redirect_to quests_path
     end
 
@@ -139,9 +144,9 @@ class QuestsController < ApplicationController
   def commit_location
     created_location = Location.find(params[:venue][:location_id])
     
-    if params[:venue][:foursquare_id] == nil
+    if created_location.foursquare_id == nil
       created_location.destroy
-      return "Failed to add - try again"
+      render plain: "Failed to save, try again"
     end
 
     entry = Location.find_by(foursquare_id: params[:venue][:foursquare_id])
