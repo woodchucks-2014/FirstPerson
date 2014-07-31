@@ -14,6 +14,10 @@
  *= require_tree .
  */
 
+$primary-color: #191919;
+$secondary-color: #FFF056;
+$third-color: #191919;
+$fourth-color:#DFE2DB;
 
 $font-color: white;
 $font-stack: 'Josefin Sans', sans-serif;
@@ -306,7 +310,7 @@ nav .button {
 }
 
 #xp {
-  background-color: rgba(0,0,0,1);
+  background-color: $secondary-color;
   color:white;
   font-family: 'Alegreya Sans SC', sans-serif;
   font-weight: 500;
