@@ -779,7 +779,7 @@ and (max-width:1027px) {
 
 @media only screen
 and (min-width : 320px)
-and (max-width : 480px) {
+and (max-width : 767px) {
 
   $font-color: white;
   $font-stack: 'Josefin Sans', sans-serif;
@@ -812,7 +812,7 @@ and (max-width : 480px) {
   }
 
   td, th {
-    padding: 1em;
+    padding: 0.25em;
   }
 
   #logo{
@@ -823,7 +823,7 @@ and (max-width : 480px) {
 
   .list{
     text-align: center;
-    font-size: 2em;
+    font-size: 1em;
     width:100%;
     margin-top: 1em;
     height: auto;
@@ -1002,8 +1002,8 @@ and (max-width : 480px) {
     float: left;
     display: block;
     /*padding: 5.9em;*/
-    width: 80%;
-    height: 50vw;
+    width: 100%;
+    height: 100vw;
     /*overflow: auto;*/
     background: #9C9DA9;
     color: black;
@@ -1013,24 +1013,28 @@ and (max-width : 480px) {
   #map {
     float: left;
     width: 100%;
-    height: 48.5vw;
+    height: 100vw;
   }
 
   #options.sidebar {
-    float: right;
-    width: 20%;
+    float: left;
+    width: 100%;
     background: #2A4480;
     padding: 0;
-    height: 50vw;
+    height: 20vw;
     margin-right: 0;
     color: white;
     font-family: 'Lora', serif;
+
     /*border-left:1px solid white;*/
     /*overflow: scroll;*/
 
     .button{
-      padding-top: 1vw;
-      padding-bottom: 1vw;
+      margin-top: 0.25em;
+      padding-top: 0.25vw;
+      // padding-bottom: 1vw;
+      font-size: 0.85em;
+      display: inline;
     }
   }
 
@@ -1047,6 +1051,7 @@ and (max-width : 480px) {
     color: white;
     /*border-bottom: 1px solid white;*/
     font-family: 'Lora', serif;
+    font-size: 0.65em;
   }
 
   nav .button {
