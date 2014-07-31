@@ -139,12 +139,9 @@ td, th {
   margin-top: 10em;
   display: inline-block;
   background: rgba(0,0,0, 0.4);
-
-    a{
-      font-family: 'Josefin Sans', sans-serif;
-      color:$font-color;
-      text-decoration: none;
-    }
+  font-family: 'Josefin Sans', sans-serif;
+  color:$font-color;
+  text-decoration: none;
 
 }
 #enter_link:hover{
@@ -310,7 +307,7 @@ nav .button {
 
 #xp {
   background-color: $secondary-color;
-  color:white;
+  color:black;
   font-family: 'Alegreya Sans SC', sans-serif;
   font-weight: 500;
   width: 20%;

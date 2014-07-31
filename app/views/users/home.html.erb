@@ -1,8 +1,10 @@
 <body class='home'>
   <div id='slide'>
     <h6> Firstperson.io</h6>
-    <div id='enter_link'>
-      <%=link_to 'Enter', foursquare_path%>
-    </div>
+      <%=link_to foursquare_path do %>
+        <div id='enter_link'>
+          Enter
+        </div>
+      <% end %>
   </div>
 </body>
