@@ -1,29 +1,27 @@
 #content
-  #user_image
-    = image_tag @user.photo_url
+  #black_div
+    #user_image
+      = image_tag @user.photo_url
 
-  #user_info
-    %h2
-      = "First Name: #{@user.firstname}"
-    %br
-    %h2
-      = "Last Name: #{@user.lastname}"
-    %br
-    %h2
-      = "Email: #{@user.email}"
-    %br
-    %h2
-      = "Gender: #{@user.gender.capitalize}"
-    %br
-    %h2
-      = "Level: #{@user.total_xp/1000 + 1} Hacker"
-    %br
+    #user_info
+      %h2
+        = "First Name: #{@user.firstname}"
+      %br
+      %h2
+        = "Last Name: #{@user.lastname}"
+      %br
+      %h2
+        = "Email: #{@user.email}"
+      %br
+      %h2
+        = "Gender: #{@user.gender.capitalize}"
+      %br
+      %h2
+        = "Level: #{@user.total_xp/1000 + 1} Hacker"
+      %br
 
-  #leaderboard
-    = render 'leaderboard'
-
-  #rewards
-    = render 'rewards/show'
+    #rewards
+      = render 'rewards/show'
 
 #options.sidebar
   = render 'sidebar'

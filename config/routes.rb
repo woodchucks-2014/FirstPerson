@@ -16,7 +16,6 @@ Rails.application.routes.draw do
   get '/created_quests', to: "quests#created_quests"
   get '/sort_quests', to: "quests#sort_quests"
   get '/create_quests', to: "quests#create_quests"
-  get '/edit_quests', to: "quests#edit_quests"
 
 
   ### Quest JSON ###

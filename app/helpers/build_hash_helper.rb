@@ -3,17 +3,17 @@ module BuildHashHelper
   def imager(style)
     case style
     when "default"
-      return "http://img3.wikia.nocookie.net/__cb20120626061259/secretworld/images/d/d2/Mission-action.png"
+      return "http://i.picresize.com/images/2014/07/30/v4U9Y.png"
     when "completed checkpoint"
-      return "http://img3.wikia.nocookie.net/__cb20120626061259/secretworld/images/d/d2/Mission-action.png"
+      return "http://i.picresize.com/images/2014/07/30/5juv1.png"
     when "checkpoint"
-      return "http://img3.wikia.nocookie.net/__cb20120626061259/secretworld/images/d/d2/Mission-action.png"
+      return "http://i.picresize.com/images/2014/07/30/v4U9Y.png"
     when "quest"
-      return "http://img3.wikia.nocookie.net/__cb20120626061259/secretworld/images/d/d2/Mission-action.png"
+      return "http://i.picresize.com/images/2014/07/30/v4U9Y.png"
     when "completed quest"
-      return "http://img3.wikia.nocookie.net/__cb20120626061259/secretworld/images/d/d2/Mission-action.png"
+      return "http://i.picresize.com/images/2014/07/30/5juv1.png"
     when "checkin"
-      return "http://img3.wikia.nocookie.net/__cb20120626061259/secretworld/images/d/d2/Mission-action.png"
+      return "http://i.picresize.com/images/2014/07/30/v4U9Y.png"
     end
   end
 

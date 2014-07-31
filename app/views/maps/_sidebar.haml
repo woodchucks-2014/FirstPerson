@@ -9,7 +9,8 @@
 #show_active_quests.button Active Quests
 #show_user_quests
   %ul
-    - Quest.user_available_quests(@user).each do |quest|
-      %div{id: "#{quest.id}", class: "button quest"}
-        %li
-          =quest.title
+    -@user.quests.each do |quest|
+      -if quest.creator_id != @user.id
+        %div{id: "#{quest.id}", class: "button quest"}
+          %li
+            =quest.title
