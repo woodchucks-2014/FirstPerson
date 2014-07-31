@@ -129,9 +129,7 @@ class QuestsController < ApplicationController
       end
     else
       render plain: "Failed to save, try again"
-      redirect_to quests_path
     end
-
   end
 
   def search_venues
@@ -143,10 +141,10 @@ class QuestsController < ApplicationController
 
   def commit_location
     created_location = Location.find(params[:venue][:location_id])
-    
-    if created_location.foursquare_id == nil
+
+    if params[:venue][:foursquare_id] == nil
       created_location.destroy
-      render plain: "Failed to save, try again"
+      render plain: "Failed to add - try again"
     end
 
     entry = Location.find_by(foursquare_id: params[:venue][:foursquare_id])
