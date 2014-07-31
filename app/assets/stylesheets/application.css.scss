@@ -46,7 +46,7 @@ body.home{
 
 #board {
   width: 100%;
-  overflow: auto
+  overflow: auto;
 }
 
 table, th, td {
@@ -85,8 +85,15 @@ td, th {
   padding: 1em;
   font-family: 'Alegreya Sans SC', sans-serif;
   p{
-    text-indent: 2em;
+    font-weight: 3000;
   }
+  li{
+    font-weight: 2000;
+  }
+  .indent{
+    margin-left: 2em;
+  }
+
 }
 
 
@@ -100,7 +107,7 @@ td, th {
   height: 38em;
   padding: 3em;
   display: inline-block;
-  overflow: scroll;
+  overflow: auto;
 
 }
 

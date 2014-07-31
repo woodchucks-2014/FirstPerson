@@ -7,20 +7,24 @@
       .sublist
         %li
           = quest.title
-          %p
-            %b Category:
-            =quest.category
-          %p
-            %b Description:
-            =quest.description
-          %p
-            %b Acceptance status:
-            =quest.userstatus
-          %p
-            %b Time Status:
-            =quest.timestatus
-          %p
-            %b Experience:
-            =quest.xp
+          .indent
+            %p
+              %b Category:
+              =quest.category
+            %p
+              %b Description:
+              =quest.description
+            %p
+              %b Acceptance status:
+              =quest.userstatus
+            %p
+              %b Time Status:
+              =quest.timestatus
+            %p
+              %b Experience:
+              =quest.xp
+            %p
+              %b First checkpoint:
+              =quest.checkpoints.first.location.street
 
 
