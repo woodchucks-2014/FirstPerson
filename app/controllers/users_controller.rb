@@ -67,5 +67,8 @@ class UsersController < ApplicationController
     render json: checkins
   end
 
+  def expbar
+    render json: {exp:(current_user.total_xp % 1000)}
+  end
 
 end
