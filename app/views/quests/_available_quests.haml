@@ -4,9 +4,28 @@
       %h2 Here are your available quests!
       - @quests.each do |quest|
         .sublist
-          - @quest = quest
-          - quest_info.each do |info|
-            #info=info
+          %li
+            = quest.title
+            .indent
+              %p
+                %b Category:
+                =quest.category
+              %p
+                %b Description:
+                =quest.description
+              %p
+                %b Acceptance status:
+                =quest.userstatus
+              %p
+                %b Time Status:
+                =quest.timestatus
+              %p
+                %b Experience:
+                =quest.xp
+              %p
+                %b First checkpoint:
+                =quest.checkpoints.first.location.street
+
           = form_for @user_quest, url: accept_path do |f|
             = f.hidden_field :quest_id, :value => quest.id
             = f.submit "Accept"
