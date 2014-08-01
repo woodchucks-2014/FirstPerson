@@ -158,7 +158,7 @@ Map.mapStyle =[
 Map.addPolylines = function() {
   this.lines = this.handler.addPolylines(
     [this.newMarkers],
-    { strokeColor: '#FF2B2B' }
+    { strokeColor: '#fff056' }
   );
 }
 
