@@ -1,5 +1,10 @@
 $(document).ready(function(){
 
+  $.getJSON('/users/expbar', function(data){
+    exp = (data.exp * .1)
+    $('#expbar').css("width", exp.toString() + "%")
+  })
+
 
   $(document).on("click", "#rewards_but", function(){
     $.ajax({
@@ -12,5 +17,7 @@ $(document).ready(function(){
     })
 
   })
+
+
 
 })

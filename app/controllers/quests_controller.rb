@@ -81,6 +81,10 @@ class QuestsController < ApplicationController
     render json: build_markers(@quests, "quest")
   end
 
+  def expbar
+
+  end
+
   def accept_form
     @user_quest = UserQuest.new
     @quest = Quest.find(params[:quest_id])

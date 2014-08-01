@@ -6,4 +6,5 @@ class RewardsController < ApplicationController
     render partial: "rewards/show"
   end
 
+
 end
