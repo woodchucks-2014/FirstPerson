@@ -49,12 +49,21 @@ body.home{
   overflow: auto;
 }
 
+.board_list{
+  margin-top: 2em;
+  height: 15em;
+
+}
+table{
+  margin-top: 2em;
+}
+
 table, th, td {
-   border: 1px solid black;
-   margin-top: 0.5em;
+   border: 1px solid white;
 }
 
 td, th {
+  color:white;
   padding: 1em;
   text-align: center;
 }
@@ -64,6 +73,8 @@ td, th {
   top:5vw;
   left:30%;
 }
+
+
 
 .list{
   /*text-align: center;*/
