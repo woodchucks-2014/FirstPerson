@@ -310,11 +310,27 @@ nav .button {
 }
 
 #xp {
-  background-color: $secondary-color;
+  position: relative;
+  background-color: #E6E6E6;
   color:#222222;
   font-family: 'Alegreya Sans SC', sans-serif;
   font-weight: 500;
   width: 20%;
+}
+
+#expbar{
+   height: 100%;
+   background-color: $secondary-color;
+   position: absolute;
+   top: 0;
+}
+#usertext{
+   height: 100%;
+   background-color: rgba(0,0,0,0.0);
+   position: absolute;
+   top: 0;
+   width: 100%;
+   text-align: center;
 }
 
 #show_active_quests {
